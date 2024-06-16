@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="EdgeTweaker.Pages.MainPage"
+    xmlns:pages="clr-namespace:EdgeTweaker.Pages"
+    x:DataType="pages:MainPageModel">
+    
+    <Grid RowDefinitions="*" ColumnDefinitions="300,300,*">
+        <ListView Grid.Column="0" Grid.Row="0" ItemsSource="{Binding PolicyGroupsCollection}" SelectedItem="{Binding SelectedPolicyGroup}">
+        
+        </ListView>
+        <ListView Grid.Column="1" Grid.Row="0" ItemsSource="{Binding PolicyCollection}" SelectedItem="{Binding SelectedPolicy}">
+        
+        </ListView>
+    </Grid>
+    
+</ContentPage>
