@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using EdgePolicyMarkdownParser;
 
@@ -49,7 +50,8 @@ try
         
     //var policyRegex = new Regex(@"^\- \[(?<name>.*)\]\(#(?<link>.*)\)$");
     var lines = markdown.Split("\n");
-    var policyGroups = new Dictionary<string, PolicyGroup>();
+    var policyGroupDocument = new PolicyGroupDocument();
+    //var policyGroups = new Dictionary<string, PolicyGroup>();
     //var headerRegex = new Regex(@"^(\s*)##\s+(?<header>.*)$");
     var hashDepthRegex = new Regex(@"^( *)(?<hash_depth>#+)");
     var markdownSectionsDocument = new MarkdownSection();
@@ -139,7 +141,7 @@ try
                         Name = availablePolicyMatch.Groups["name"].Value,
                         Link = availablePolicyMatch.Groups["link"].Value
                     };
-                    policyGroups.Add(policyGroup.Name, policyGroup);
+                    policyGroupDocument.PolicyGroups.Add(policyGroup.Name, policyGroup);
                 }
             }
             
@@ -149,12 +151,12 @@ try
                 if (policyGroupMatch.Success)
                 {
                     var policyGroupKey = policyGroupMatch.Groups["name"].Value;
-                    if (policyGroups.ContainsKey(policyGroupKey) == false)
+                    if (policyGroupDocument.PolicyGroups.ContainsKey(policyGroupKey) == false)
                     {
                         continue;
                     }
 
-                    var policyGroup = policyGroups[policyGroupKey];
+                    var policyGroup = policyGroupDocument.PolicyGroups[policyGroupKey];
                     
                     foreach (var policyGroupChildLine in policyGroupChild.Data)
                     {
@@ -191,13 +193,22 @@ try
             var policyGroupNameMatch = policyGroupNameRegex.Match(rootPolicyChildren.Header);
             if (policyGroupNameMatch.Success)
             {
+                // Startup, home page and new tab page
+                // Startup, home page and new tab page
                 var policyGroupName = policyGroupNameMatch.Groups["policy_group_name"].Value;
-                if (policyGroups.ContainsKey(policyGroupName) == false)
+
+                if (policyGroupName.Contains("&comma;"))
                 {
+                    policyGroupName = policyGroupName.Replace("&comma;", ",");
+                }
+                
+                if (policyGroupDocument.PolicyGroups.ContainsKey(policyGroupName) == false)
+                {
+                    Console.WriteLine($"Error: Policy group {rootPolicyChildren.Header} not found in list.");
                     continue;
                 }
 
-                var policyGroup = policyGroups[policyGroupName];
+                var policyGroup = policyGroupDocument.PolicyGroups[policyGroupName];
                 foreach (var rootPolicyChildrenChildren in rootPolicyChildren.Children)
                 {
                     var policyNameMatch = policyNameRegex.Match(rootPolicyChildrenChildren.Header);
@@ -210,19 +221,192 @@ try
                         }
                         
                         var policy = policyGroup.Policies[policyNameKey];
+                        
+                        for (var i = 0; i < rootPolicyChildrenChildren.Children.Count; ++i)
+                        {
+                            var policyChildren = rootPolicyChildrenChildren.Children[i];
+                            if (i == 0)
+                            {
+                                // No-op, skip first as its the heading.
+                            }
+                            else if (policyChildren.Header == "#### Supported versions:")
+                            {
+                                // No-op, not handled at the moment.
+                            }
+                            else if (policyChildren.Header == "#### Description")
+                            {
+                                // No-op, not needed at the moment
+                            }
+                            else if (policyChildren.Header == "#### Supported features:")
+                            {
+                                foreach (var data in policyChildren.Data)
+                                {
+                                    if (data == string.Empty)
+                                    {
+                                        continue;
+                                    }
+
+                                    if (data.StartsWith("  - Can be mandatory:"))
+                                    {
+                                        if (data == "  - Can be mandatory: Yes")
+                                        {
+                                            policy.CanBeManditory = true;
+                                        }
+                                        else if (data == "  - Can be mandatory: No")
+                                        {
+                                            policy.CanBeManditory = false;
+                                        }
+                                        else
+                                        {
+                                            throw new Exception($"Unknown mandatory row, {data}");
+                                        }
+                                    }
+                                    else if (data.StartsWith("  - Can be recommended: "))
+                                    {
+                                        if (data == "  - Can be recommended: Yes")
+                                        {
+                                            policy.CanBeRecommended = true;
+                                        }
+                                        else if (data == "  - Can be recommended: No")
+                                        {
+                                            policy.CanBeRecommended = false;
+                                        }
+                                        else
+                                        {
+                                            throw new Exception($"Unknown recommended row, {data}");
+                                        }
+                                    }
+                                    else if (data.StartsWith("  - Dynamic Policy Refresh:"))
+                                    {
+                                        if (data == "  - Dynamic Policy Refresh: Yes")
+                                        {
+                                            policy.DynamicPolicyRefresh = true;
+                                        }
+                                        else if (data == "  - Dynamic Policy Refresh: No - Requires browser restart")
+                                        {
+                                            policy.DynamicPolicyRefresh = false;
+                                        }
+                                        else
+                                        {
+                                            throw new Exception($"Unknown dynamic policy refresh row, {data}");
+                                        }
+                                    }
+                                    else if (data.StartsWith("  - Per Profile:"))
+                                    {
+                                        if (data == "  - Per Profile: Yes")
+                                        {
+                                            policy.PerProfile = true;
+                                        }
+                                        else if (data == "  - Per Profile: No")
+                                        {
+                                            policy.PerProfile = false;
+                                        }
+                                        else
+                                        {
+                                            throw new Exception($"Unknown per profile row, {data}");
+                                        }
+                                    }
+                                    else if (data.StartsWith("  - Applies to a profile that is signed in with a Microsoft account:"))
+                                    {
+                                        if (data == "  - Applies to a profile that is signed in with a Microsoft account: Yes")
+                                        {
+                                            policy.AppliesToSignedInProfile = true;
+                                        }
+                                        else if (data == "  - Applies to a profile that is signed in with a Microsoft account: No")
+                                        {
+                                            policy.AppliesToSignedInProfile = false;
+                                        }
+                                        else
+                                        {
+                                            throw new Exception($"Unknown applies to profile that is signed in with microsoft account row, {data}");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        throw new Exception($"Unknown feature row, {data}");
+                                    }
+                                }
+                            }
+                            else if (policyChildren.Header == "#### Data Type:")
+                            {
+                                var dataType = string.Empty;
+                                foreach (var data in policyChildren.Data)
+                                {
+                                    if (string.IsNullOrWhiteSpace(data))
+                                    {
+                                        continue;
+                                    }
+
+                                    if (dataType == string.Empty)
+                                    {
+                                        dataType = data;
+                                    }
+                                    else
+                                    {
+                                        throw new Exception("Multiple data types found.");
+                                    }
+                                }
+                                
+                                policy.DataType = dataType switch
+                                {
+                                    "  - Dictionary" => "dictionary",
+                                    "  - Boolean" => "boolean",
+                                    "  - String" => "string",
+                                    "  - List of strings" => "list_of_strings",
+                                    "  - Integer" => "integer",
+                                    _ => throw new Exception($"Unknown data type {policyChildren.Data[1]}")
+                                };
+                            }
+                            else if (policyChildren.Header == "#### Windows information and settings")
+                            {
+                                policy.PlatformWindows = true;
+                            }
+                            else if (policyChildren.Header == "#### Mac information and settings")
+                            {
+                                policy.PlatformMacOS = true;
+                            }
+                            else
+                            {
+                                throw new Exception($"Unknown child policy header {policyChildren.Header}");
+                            }
+                        }
+                        
                         policy.Markdown = rootPolicyChildrenChildren.GenerateMarkdown();
                     }
                 }
             }
+            else
+            {
+                Console.WriteLine($"Error: Unknown policy group {rootPolicyChildren.Header}");
+            }
         }
     }
-    
+
+    foreach (var data in markdownSectionsDocument.Data)
+    {
+        if (data.StartsWith("ms.date: "))
+        {
+            policyGroupDocument.PolicyDate = data.Replace("ms.date: ", string.Empty);
+            break;
+        }
+    }
+
+    if (string.IsNullOrEmpty(policyGroupDocument.PolicyDate))
+    {
+        throw new Exception("Policy date not found.");
+    }
+
+    if (policyGroupDocument.PolicyGroups.Count == 0)
+    {
+        throw new Exception("No policy groups loaded.");
+    }
     
     var jsonSerializerOptions = new JsonSerializerOptions()
     {
         WriteIndented = true
     };
-    var policyGroupsJson = JsonSerializer.Serialize(policyGroups, jsonSerializerOptions);
+    
+    var policyGroupsJson = JsonSerializer.Serialize(policyGroupDocument, jsonSerializerOptions);
     await File.WriteAllTextAsync("policy_groups.json", policyGroupsJson);
 }
 catch (Exception err)
