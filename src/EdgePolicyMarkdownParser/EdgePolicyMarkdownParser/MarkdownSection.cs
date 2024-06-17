@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace EdgeTweaker.PolicyParser;
+namespace EdgePolicyMarkdownParser;
 
 public class MarkdownSection
 {
@@ -30,4 +30,5 @@ public class MarkdownSection
 
         return stringBuilder.ToString();
     }
+
 }

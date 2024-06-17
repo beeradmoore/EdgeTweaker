@@ -1,10 +1,6 @@
-using System.Diagnostics;
-using System.Text;
 using System.Text.RegularExpressions;
-using EventKit;
-using Microsoft.Maui.Storage;
 
-namespace EdgeTweaker.PolicyParser;
+namespace EdgePolicyMarkdownParser;
 
 public class EdgePolicyParser
 {
@@ -90,6 +86,7 @@ public class EdgePolicyParser
     {
         var markdown = string.Empty;
         
+        /*
         using (var stream = await FileSystem.OpenAppPackageFileAsync("microsoft-edge-policies.md"))
         {
             using (var reader = new StreamReader(stream))
@@ -97,6 +94,7 @@ public class EdgePolicyParser
                 markdown = await reader.ReadToEndAsync();
             }
         }
+        */
         
         if (string.IsNullOrEmpty(markdown))
         {
