@@ -396,6 +396,10 @@
         <Setter Property="Padding" Value="0"/>
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource OffBlack}}" />
     </Style>
+    
+    <Style TargetType="WebView" ApplyToDerivedTypes="false">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource OffBlack}}" />
+    </Style>
 
     <Style TargetType="Shell" ApplyToDerivedTypes="True">
         <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource OffBlack}}" />

@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace EdgeTweaker.PolicyParser;
 
 public class MarkdownSection
@@ -11,5 +13,21 @@ public class MarkdownSection
     public override string ToString()
     {
         return Header;
+    }
+
+    public string GenerateMarkdown()
+    {
+        var stringBuilder = new StringBuilder();
+        stringBuilder.AppendLine(Header);
+        foreach (var data in Data)
+        {
+            stringBuilder.AppendLine(data);
+        }
+        foreach (var child in Children)
+        {
+            stringBuilder.AppendLine(child.GenerateMarkdown());
+        }
+
+        return stringBuilder.ToString();
     }
 }

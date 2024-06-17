@@ -9,6 +9,8 @@ public class Policy
 
     public string Link { get; set; } = string.Empty;
 
+    public string Markdown { get; set; } = string.Empty;
+
     public override string ToString()
     {
         return Name;

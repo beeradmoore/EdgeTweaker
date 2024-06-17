@@ -4,6 +4,7 @@ using System.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using EdgeTweaker.PolicyParser;
+using MarkdownSharp;
 
 namespace EdgeTweaker.Pages;
 
@@ -17,10 +18,16 @@ public partial class MainPageModel : ObservableObject
     
     [ObservableProperty]
     Policy? selectedPolicy;
+
+    [ObservableProperty]
+    WebViewSource markdownSource = new HtmlWebViewSource();
+    
+    Markdown markdown = new Markdown();
+
     
     public ObservableCollection<PolicyGroup> PolicyGroupsCollection { get; } = new ObservableCollection<PolicyGroup>();
     public ObservableCollection<Policy> PolicyCollection { get; } = new ObservableCollection<Policy>();
-    
+
 
     public MainPageModel(MainPage mainPage)
     {
@@ -68,7 +75,67 @@ public partial class MainPageModel : ObservableObject
         }
         else if (e.PropertyName == nameof(SelectedPolicy))
         {
+            var htmlWebViewSource = new HtmlWebViewSource();
             
+            if (SelectedPolicy is not null)
+            {
+                //  <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource OffBlack}}"
+                var html = @$"<!DOCTYPE html>
+<html>
+    <head>
+        <link href=""https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"" rel=""stylesheet"">
+        <style>
+            body {{
+                font-family: 'Open Sans', sans-serif;
+                color: #000000;
+                background-color: #FFFFFF;
+            }}
+
+            a {{
+                color: #696969;
+                text-decoration: none;
+            }}
+
+            a:hover {{
+                color: #696969;
+                text-decoration: underline;
+            }}
+            
+            @media (prefers-color-scheme: dark) {{
+                body {{
+                    color: #FFFFFF;
+                    background-color: #1F1F1F;
+                }}
+
+                a {{
+                    color: #696969;
+                }}
+
+                a:hover {{
+                    color: #696969;
+                }}
+            }}
+        </style>
+    </head>
+    <body>
+        {markdown.Transform(SelectedPolicy?.Markdown)}
+    </body>
+</html>";
+                htmlWebViewSource.Html = html;
+
+            }
+            
+            MarkdownSource = htmlWebViewSource;
+        }
+    }
+
+    [RelayCommand(AllowConcurrentExecutions = false)]
+    async Task WebViewNavigatingAsync(WebNavigatingEventArgs args)
+    {
+        if (args.Url.StartsWith("http://", StringComparison.OrdinalIgnoreCase) || args.Url.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+        {
+            args.Cancel = true;
+            await Browser.OpenAsync(args.Url);
         }
     }
 }
