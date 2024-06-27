@@ -25,8 +25,8 @@ public class Policy
     [JsonPropertyName("platform_macos")]
     public bool PlatformMacOS { get; set; } = false;
     
-    [JsonPropertyName("can_be_manditory")]
-    public bool CanBeManditory { get; set; } = false;
+    [JsonPropertyName("can_be_mandatory")]
+    public bool CanBeMandatory { get; set; } = false;
     
     [JsonPropertyName("can_be_recommended")]
     public bool CanBeRecommended { get; set; } = false;

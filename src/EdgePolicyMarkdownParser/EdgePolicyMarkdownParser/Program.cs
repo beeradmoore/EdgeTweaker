@@ -250,11 +250,11 @@ try
                                     {
                                         if (data == "  - Can be mandatory: Yes")
                                         {
-                                            policy.CanBeManditory = true;
+                                            policy.CanBeMandatory = true;
                                         }
                                         else if (data == "  - Can be mandatory: No")
                                         {
-                                            policy.CanBeManditory = false;
+                                            policy.CanBeMandatory = false;
                                         }
                                         else
                                         {
