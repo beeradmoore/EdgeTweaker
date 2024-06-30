@@ -1,0 +1,79 @@
+<h3>InsecurePrivateNetworkRequestsAllowedForUrls</h3>
+
+<h4>Allow the listed sites to make requests to more-private network endpoints from in an insecure manner</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 92 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>List of URL patterns. Requests initiated from websites served by matching origins are not subject to Private Network Access checks.</p>
+
+<p>If this policy is not set, this policy behaves as if set to the empty list.</p>
+
+<p>For origins not covered by the patterns specified here, the global default value will be used either from the <a href="#insecureprivatenetworkrequestsallowed">InsecurePrivateNetworkRequestsAllowed</a> policy, if it is set, or the user's personal configuration otherwise.</p>
+
+<p>For detailed information on valid URL patterns, see <a href="/DeployEdge/edge-learnmmore-url-list-filter%20format">Filter format for URL list-based policies</a>.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: InsecurePrivateNetworkRequestsAllowedForUrls</li>
+<li>GP name: Allow the listed sites to make requests to more-private network endpoints from in an insecure manner</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Private Network Request Settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\InsecurePrivateNetworkRequestsAllowedForUrls</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\InsecurePrivateNetworkRequestsAllowedForUrls\1 = "http://www.example.com:8080"
+SOFTWARE\Policies\Microsoft\Edge\InsecurePrivateNetworkRequestsAllowedForUrls\2 = "[*.]example.edu"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: InsecurePrivateNetworkRequestsAllowedForUrls</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;http://www.example.com:8080&lt;/string&gt;
+&lt;string&gt;[*.]example.edu&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

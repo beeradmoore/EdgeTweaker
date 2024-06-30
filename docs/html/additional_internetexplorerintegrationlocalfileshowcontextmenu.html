@@ -1,0 +1,69 @@
+<h3>InternetExplorerIntegrationLocalFileShowContextMenu</h3>
+
+<h4>Show context menu to open a file:// link in Internet Explorer mode</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 88 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy controls the visibility of the 'Open link in new Internet Explorer mode tab' option on the context menu for file:// links.</p>
+
+<p>This setting works in conjunction with:
+<a href="#internetexplorerintegrationlevel">InternetExplorerIntegrationLevel</a> is set to 'IEMode'.</p>
+
+<p>If you set this policy to true, the 'Open link in new Internet Explorer mode tab' context menu item will be available for file:// links.</p>
+
+<p>If you set this policy to false or don't configure it, the context menu item will not be added.</p>
+
+<p>If the <a href="#internetexplorerintegrationreloadiniemodeallowed">InternetExplorerIntegrationReloadInIEModeAllowed</a> policy allows users to reload sites in Internet Explorer mode, then the 'Open link in new Internet Explorer mode tab' context menu item will be available for all links, except links to sites explicitly configured by the site list to use Microsoft Edge mode. In this case, if you set this policy to true, the context menu item will be available for file:// links even for sites configured to use Microsoft Edge mode. If you set this policy to false or don't configure it, this policy has no effect.</p>
+
+<p>To learn more about Internet Explorer mode, see <a href="https://go.microsoft.com/fwlink/?linkid=2094210">https://go.microsoft.com/fwlink/?linkid=2094210</a></p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: InternetExplorerIntegrationLocalFileShowContextMenu</li>
+<li>GP name: Show context menu to open a file:// link in Internet Explorer mode</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: InternetExplorerIntegrationLocalFileShowContextMenu</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+

@@ -1,0 +1,84 @@
+<h3>EnforceLocalAnchorConstraintsEnabled</h3>
+
+<h4>Determines whether the built-in certificate verifier will enforce constraints encoded into trust anchors loaded from the platform trust store (deprecated)</h4>
+
+<blockquote>
+  <p>DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.</p>
+</blockquote>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 113 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>X.509 certificates may encode constraints, such as Name Constraints, in extensions in the certificate. RFC 5280 specifies that enforcing such constraints on trust anchor certificates is optional.</p>
+
+<p>Starting in Microsoft Edge 112, such constraints in certificates loaded from the platform certificate store will now be enforced.</p>
+
+<p>This policy exists as a temporary opt-out in case an enterprise encounters issues with the constraints encoded in their private roots. In that case this policy may be used to temporarily disable enforcement of the constraints while correcting the certificate issues.</p>
+
+<p>If you enable this policy or don't configure it, Microsoft Edge will enforce constraints encoded into trust anchors loaded from the platform trust store.</p>
+
+<p>If you disable this policy, Microsoft Edge will not enforce constraints encoded into trust anchors loaded from the platform trust store.</p>
+
+<p>This policy has no effect if the <a href="#microsoftrootstoreenabled">MicrosoftRootStoreEnabled</a> policy is disabled.</p>
+
+<p>This policy is planned to be removed in Microsoft Edge version 118.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: EnforceLocalAnchorConstraintsEnabled</li>
+<li>GP name: Determines whether the built-in certificate verifier will enforce constraints encoded into trust anchors loaded from the platform trust store (deprecated)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: EnforceLocalAnchorConstraintsEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000000
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: EnforceLocalAnchorConstraintsEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;false/&gt;
+</code></p>
+
+</li>
+</ul>

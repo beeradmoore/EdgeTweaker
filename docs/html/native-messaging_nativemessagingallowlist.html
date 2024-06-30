@@ -1,0 +1,75 @@
+<h3>NativeMessagingAllowlist</h3>
+
+<h4>Control which native messaging hosts users can use</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Setting the policy specifies which native messaging hosts aren't subject to the deny list. A deny list value of * means all native messaging hosts are denied unless they're explicitly allowed.</p>
+
+<p>All native messaging hosts are allowed by default. However, if a native messaging host is denied by policy, the admin can use the allow list to change that policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: NativeMessagingAllowlist</li>
+<li>GP name: Control which native messaging hosts users can use</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Native Messaging</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\NativeMessagingAllowlist</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\NativeMessagingAllowlist\1 = "com.native.messaging.host.name1"
+SOFTWARE\Policies\Microsoft\Edge\NativeMessagingAllowlist\2 = "com.native.messaging.host.name2"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: NativeMessagingAllowlist</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;com.native.messaging.host.name1&lt;/string&gt;
+&lt;string&gt;com.native.messaging.host.name2&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

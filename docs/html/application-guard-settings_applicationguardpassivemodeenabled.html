@@ -1,0 +1,62 @@
+<h3>ApplicationGuardPassiveModeEnabled</h3>
+
+<h4>Ignore Application Guard site list configuration and browse Edge normally</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 94 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Set whether Edge should ignore the Application Guard site list configuration for trusted and untrusted sites.</p>
+
+<p>If you enable this policy, all navigations from Edge, including navigations to untrusted sites, will be accessed normally within Edge without redirecting to the Application Guard container. Note: this policy ONLY impacts Edge, so navigations from other browsers might get redirected to the Application Guard Container if you have the corresponding extensions enabled.</p>
+
+<p>If you disable or don't configure this policy, Edge does not ignore the Application Guard site list. If users try to navigate to an untrusted site in the host, the site will open in the container.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ApplicationGuardPassiveModeEnabled</li>
+<li>GP name: Ignore Application Guard site list configuration and browse Edge normally</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Application Guard settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: ApplicationGuardPassiveModeEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+

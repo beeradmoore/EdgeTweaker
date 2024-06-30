@@ -1,0 +1,76 @@
+<h3>WebComponentsV0Enabled</h3>
+
+<h4>Re-enable Web Components v0 API until M84 (obsolete)</h4>
+
+<blockquote>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 84.</p>
+</blockquote>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 80, until 84</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy doesn't work because this policy allowed these features to be selectively re-enabled until Microsoft Edge version 85. The Web Components v0 APIs (Shadow DOM v0, Custom Elements v0, and HTML Imports) were deprecated in 2018, and have been disabled by default starting in Microsoft Edge version 80.</p>
+
+<p>If you set this policy is set to True, the Web Components v0 features will be enabled for all sites.</p>
+
+<p>If you set this policy to False or don't set this policy, the Web Components v0 features will be disabled by default, starting in Microsoft Edge version 80.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: WebComponentsV0Enabled</li>
+<li>GP name: Re-enable Web Components v0 API until M84 (obsolete)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: WebComponentsV0Enabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: WebComponentsV0Enabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

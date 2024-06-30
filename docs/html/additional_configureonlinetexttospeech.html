@@ -1,0 +1,76 @@
+<h3>ConfigureOnlineTextToSpeech</h3>
+
+<h4>Configure Online Text To Speech</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Set whether the browser can leverage Online Text to Speech voice fonts, part of Azure Cognitive Services. These voice fonts are higher quality than the pre-installed system voice fonts.</p>
+
+<p>If you enable or don't configure this policy, web-based applications that use the SpeechSynthesis API can use Online Text to Speech voice fonts.</p>
+
+<p>If you disable this policy, the voice fonts aren't available.</p>
+
+<p>Read more about this feature here:
+SpeechSynthesis API: <a href="https://go.microsoft.com/fwlink/?linkid=2110038">https://go.microsoft.com/fwlink/?linkid=2110038</a>
+Cognitive Services: <a href="https://go.microsoft.com/fwlink/?linkid=2110141">https://go.microsoft.com/fwlink/?linkid=2110141</a></p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ConfigureOnlineTextToSpeech</li>
+<li>GP name: Configure Online Text To Speech</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: ConfigureOnlineTextToSpeech</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ConfigureOnlineTextToSpeech</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

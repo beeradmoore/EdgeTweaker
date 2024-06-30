@@ -1,0 +1,68 @@
+<h3>InternetExplorerIntegrationCloudNeutralSitesReporting</h3>
+
+<h4>Configure reporting of potentially misconfigured neutral site URLs to the M365 Admin Center Site Lists app</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 99 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This setting lets you enable reporting of sites that might need to be configured as a neutral site on the Enterprise Mode Site List. The user must be signed into Microsoft Edge with a valid work or school account for reports to be sent, and the user's account tenant must match the tenant specified by the policy.</p>
+
+<p>If you configure this policy, Microsoft Edge will send a report to the M365 Admin Center Site Lists app when a navigation appears stuck redirecting back and forth between the Microsoft Edge and Internet Explorer engines several times. This usually indicates that redirection to an authentication server is switching engines, which repeatedly fails in a loop. The report will show the URL of the site that is the redirect target, minus any query string or fragment. The user's identity isn't reported.</p>
+
+<p>For this reporting to work correctly, you must have successfully visited the Microsoft Edge Site Lists app in the M365 Admin Center at least once. This activates a per-tenant storage account used to store these reports. Microsoft Edge will still attempt to send reports if this step hasn't been completed. However, the reports will not be stored in the Site Lists app.</p>
+
+<p>When enabling this policy, you must specify your O365 tenant ID. To learn more about finding your O365 tenant ID, see <a href="https://go.microsoft.com/fwlink/?linkid=2185668">https://go.microsoft.com/fwlink/?linkid=2185668</a></p>
+
+<p>If you disable or don't configure this policy, Microsoft Edge will never send reports about potentially misconfigured neutral sites to the Site Lists app.</p>
+
+<p>To learn more about Internet Explorer mode, see <a href="https://go.microsoft.com/fwlink/?linkid=2165707">https://go.microsoft.com/fwlink/?linkid=2165707</a></p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>String</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: InternetExplorerIntegrationCloudNeutralSitesReporting</li>
+<li>GP name: Configure reporting of potentially misconfigured neutral site URLs to the M365 Admin Center Site Lists app</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: InternetExplorerIntegrationCloudNeutralSitesReporting</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+"aba95e58-070f-4784-8dcd-e5fd46c2c6d6"
+</code></p>
+
+

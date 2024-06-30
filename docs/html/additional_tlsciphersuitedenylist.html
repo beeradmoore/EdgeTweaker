@@ -1,0 +1,85 @@
+<h3>TLSCipherSuiteDenyList</h3>
+
+<h4>Specify the TLS cipher suites to disable</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 85 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Configure the list of cipher suites that are disabled for TLS connections.</p>
+
+<p>If you configure this policy, the list of configured cipher suites will not be used when establishing TLS connections.</p>
+
+<p>If you don't configure this policy, the browser will choose which TLS cipher suites to use.</p>
+
+<p>Cipher suite values to be disabled are specified as 16-bit hexadecimal values. The values are assigned by the Internet Assigned Numbers Authority (IANA) registry.</p>
+
+<p>The TLS 1.3 cipher suite TLS<em>AES</em>128<em>GCM</em>SHA256 (0x1301) is required for TLS 1.3 and can't be disabled by this policy.</p>
+
+<p>This policy does not affect QUIC-based connections. QUIC can be turned off via the <a href="#quicallowed">QuicAllowed</a> policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: TLSCipherSuiteDenyList</li>
+<li>GP name: Specify the TLS cipher suites to disable</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\TLSCipherSuiteDenyList</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\TLSCipherSuiteDenyList\1 = "0x1303"
+SOFTWARE\Policies\Microsoft\Edge\TLSCipherSuiteDenyList\2 = "0xcca8"
+SOFTWARE\Policies\Microsoft\Edge\TLSCipherSuiteDenyList\3 = "0xcca9"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: TLSCipherSuiteDenyList</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;0x1303&lt;/string&gt;
+&lt;string&gt;0xcca8&lt;/string&gt;
+&lt;string&gt;0xcca9&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

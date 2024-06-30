@@ -1,0 +1,78 @@
+<h3>AllowPopupsDuringPageUnload</h3>
+
+<h4>Allows a page to show popups during its unloading (obsolete)</h4>
+
+<blockquote>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 87.</p>
+</blockquote>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 78, until 87</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy allows an admin to specify that a page can show popups during its unloading.</p>
+
+<p>When the policy is set to enabled, pages are allowed to show popups while they're being unloaded.</p>
+
+<p>When the policy is set to disabled or unset, pages aren't allowed to show popups while they're being unloaded. This is as per the spec: (https://html.spec.whatwg.org/#apis-for-creating-and-navigating-browsing-contexts-by-name).</p>
+
+<p>This policy was removed in Microsoft Edge 88 and is ignored if set.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: AllowPopupsDuringPageUnload</li>
+<li>GP name: Allows a page to show popups during its unloading (obsolete)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: AllowPopupsDuringPageUnload</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000000
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: AllowPopupsDuringPageUnload</li>
+<li><p>Example value:
+<code>xml
+&lt;false/&gt;
+</code></p>
+
+</li>
+</ul>

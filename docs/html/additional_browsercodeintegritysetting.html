@@ -1,0 +1,78 @@
+<h3>BrowserCodeIntegritySetting</h3>
+
+<h4>Configure browser process code integrity guard setting</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 104 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy controls the use of code integrity guard in the browser process, which only allows Microsoft signed binaries to load.</p>
+
+<p>Setting this policy to Enabled will enable code integrity guard in the browser process.</p>
+
+<p>Setting this policy to Disabled, or if the policy is not set, will prevent the browser from enabling code integrity guard in the browser process.</p>
+
+<p>The policy value Audit (1) is obsolete as of version 110. Setting this value is equivalent to the Disabled value.</p>
+
+<p>This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain, or Windows 10 Pro or Enterprise instances that enrolled for device management.</p>
+
+<p>This policy will only take effect on Windows 10 RS2 and above.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>Disabled (0) = Do not enable code integrity guard in the browser process.</p></li>
+<li><p>Audit (1) = Enable code integrity guard audit mode in the browser process.</p></li>
+<li><p>Enabled (2) = Enable code integrity guard enforcement in the browser process.</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: BrowserCodeIntegritySetting</li>
+<li>GP name: Configure browser process code integrity guard setting</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: BrowserCodeIntegritySetting</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000000
+</code></p>
+
+

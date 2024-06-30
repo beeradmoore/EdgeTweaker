@@ -1,0 +1,68 @@
+<h3>ImportStartupPageSettings</h3>
+
+<h4>Allow importing of startup page settings</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 91 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Allows users to import Startup settings from another browser into Microsoft Edge.</p>
+
+<p>If you enable this policy, the Startup settings are always imported.</p>
+
+<p>If you disable this policy, startup settings are not imported at first run or at manual import.</p>
+
+<p>If you don't configure this policy, startup settings are imported at first run, and users can choose whether to import this data manually by selecting browser settings option during later browsing sessions.</p>
+
+<p>You can set this policy as a recommendation. This means that Microsoft Edge will import startup settings on first run, but users can select or clear <strong>browser settings</strong> option during manual import.</p>
+
+<p><strong>Note</strong>: This policy currently manages importing from Microsoft Edge Legacy and Google Chrome (on Windows 7, 8, and 10) browsers.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ImportStartupPageSettings</li>
+<li>GP name: Allow importing of startup page settings</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value Name: ImportStartupPageSettings</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+

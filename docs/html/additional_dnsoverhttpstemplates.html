@@ -1,0 +1,76 @@
+<h3>DnsOverHttpsTemplates</h3>
+
+<h4>Specify URI template of desired DNS-over-HTTPS resolver</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 83 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>The URI template of the desired DNS-over-HTTPS resolver. To specify multiple DNS-over-HTTPS resolvers, separate the corresponding URI templates with spaces.</p>
+
+<p>If you set <a href="#dnsoverhttpsmode">DnsOverHttpsMode</a> to "secure" then this policy must be set and cannot be empty.</p>
+
+<p>If you set <a href="#dnsoverhttpsmode">DnsOverHttpsMode</a> to "automatic" and this policy is set then the URI templates specified will be used. If you don't set this policy, then hardcoded mappings will be used to attempt to upgrade the user's current DNS resolver to a DoH resolver operated by the same provider.</p>
+
+<p>If the URI template contains a dns variable, requests to the resolver will use GET; otherwise requests will use POST.</p>
+
+<p>Incorrectly formatted templates will be ignored.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>String</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: DnsOverHttpsTemplates</li>
+<li>GP name: Specify URI template of desired DNS-over-HTTPS resolver</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: DnsOverHttpsTemplates</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+"https://dns.example.net/dns-query{?dns}"
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: DnsOverHttpsTemplates</li>
+<li><p>Example value:
+<code>xml
+&lt;string&gt;https://dns.example.net/dns-query{?dns}&lt;/string&gt;
+</code></p>
+
+</li>
+</ul>

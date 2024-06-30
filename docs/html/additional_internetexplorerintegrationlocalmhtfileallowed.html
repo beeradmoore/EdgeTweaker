@@ -1,0 +1,71 @@
+<h3>InternetExplorerIntegrationLocalMhtFileAllowed</h3>
+
+<h4>Allow local MHTML files to open automatically in Internet Explorer mode</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 107 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy controls whether local mht or mhtml files launched from the command line can open automatically in Internet Explorer mode based on the file content without specifying the --ie-mode-file-url command line.</p>
+
+<p>This setting works in conjunction with:
+<a href="#internetexplorerintegrationlevel">InternetExplorerIntegrationLevel</a> is set to 'IEMode'
+and
+<a href="#internetexplorerintegrationlocalfileallowed">InternetExplorerIntegrationLocalFileAllowed</a> is enabled or not configured.</p>
+
+<p>If you enable or don't configure this policy, local mht or mhtml files can launch in Microsoft Edge or Internet Explorer mode to best view the file.</p>
+
+<p>If you disable this policy, local mht or mhtml files will launch in Microsoft Edge.</p>
+
+<p>Note that if you use the --ie-mode-file-url command line argument for launching local mht or mhtml files, it takes precedence over how you configured this policy.</p>
+
+<p>To learn more about Internet Explorer mode, see <a href="https://go.microsoft.com/fwlink/?linkid=2094210">https://go.microsoft.com/fwlink/?linkid=2094210</a></p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: InternetExplorerIntegrationLocalMhtFileAllowed</li>
+<li>GP name: Allow local MHTML files to open automatically in Internet Explorer mode</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: InternetExplorerIntegrationLocalMhtFileAllowed</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+

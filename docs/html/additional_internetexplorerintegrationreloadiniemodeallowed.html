@@ -1,0 +1,72 @@
+<h3>InternetExplorerIntegrationReloadInIEModeAllowed</h3>
+
+<h4>Allow unconfigured sites to be reloaded in Internet Explorer mode</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 92 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy allows users to reload unconfigured sites (that are not configured in the Enterprise Mode Site List) in Internet Explorer mode when browsing in Microsoft Edge and a site requires Internet Explorer for compatibility.</p>
+
+<p>After a site has been reloaded in Internet Explorer mode, "in-page" navigations will stay in Internet Explorer mode (for example, a link, script, or form on the page, or a server-side redirect from another "in-page" navigation). Users can choose to exit from Internet Explorer mode, or Microsoft Edge will automatically exit from Internet Explorer mode when a navigation that isn't "in-page" occurs (for example, using the address bar, the back button, or a favorite link).</p>
+
+<p>Users can also optionally tell Microsoft Edge to use Internet Explorer mode for the site in the future. This choice will be remembered for a length of time managed by the <a href="#internetexplorerintegrationlocalsitelistexpirationdays">InternetExplorerIntegrationLocalSiteListExpirationDays</a> policy.</p>
+
+<p>If the <a href="#internetexplorerintegrationlevel">InternetExplorerIntegrationLevel</a> policy is set to 'IEMode', then sites explicitly configured by the <a href="#internetexplorerintegrationsitelist">InternetExplorerIntegrationSiteList</a> policy's site list to use Microsoft Edge can't be reloaded in Internet Explorer mode, and sites configured by the site list or by the <a href="#sendintranettointernetexplorer">SendIntranetToInternetExplorer</a> policy to use Internet Explorer mode can't exit from Internet Explorer mode.</p>
+
+<p>If you enable this policy, users are allowed to reload unconfigured sites in Internet Explorer mode.</p>
+
+<p>If you disable this policy, users aren't allowed to reload unconfigured sites in Internet Explorer mode.</p>
+
+<p>Note that if you enable this policy, it takes precedence over how you configured the <a href="#internetexplorerintegrationtestingallowed">InternetExplorerIntegrationTestingAllowed</a> policy, and that policy will be disabled.</p>
+
+<p>To learn more about Internet Explorer mode, see <a href="https://go.microsoft.com/fwlink/?linkid=2094210">https://go.microsoft.com/fwlink/?linkid=2094210</a></p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: InternetExplorerIntegrationReloadInIEModeAllowed</li>
+<li>GP name: Allow unconfigured sites to be reloaded in Internet Explorer mode</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value Name: InternetExplorerIntegrationReloadInIEModeAllowed</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+

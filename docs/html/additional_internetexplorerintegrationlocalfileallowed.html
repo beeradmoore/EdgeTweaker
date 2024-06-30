@@ -1,0 +1,67 @@
+<h3>InternetExplorerIntegrationLocalFileAllowed</h3>
+
+<h4>Allow launching of local files in Internet Explorer mode</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 88 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy controls the availability of the --ie-mode-file-url command line argument which is used to launch Microsoft Edge with a local file specified on the command line into Internet Explorer mode.</p>
+
+<p>This setting works in conjunction with:
+<a href="#internetexplorerintegrationlevel">InternetExplorerIntegrationLevel</a> is set to 'IEMode'.</p>
+
+<p>If you set this policy to true, or don't configure it, the user is allowed to use the --ie-mode-file-url command line argument for launching local files in Internet Explorer mode.</p>
+
+<p>If you set this policy to false, the user isn't allowed to use the --ie-mode-file-url command line argument for launching local files in Internet Explorer mode.</p>
+
+<p>To learn more about Internet Explorer mode, see <a href="https://go.microsoft.com/fwlink/?linkid=2094210">https://go.microsoft.com/fwlink/?linkid=2094210</a></p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: InternetExplorerIntegrationLocalFileAllowed</li>
+<li>GP name: Allow launching of local files in Internet Explorer mode</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: InternetExplorerIntegrationLocalFileAllowed</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+

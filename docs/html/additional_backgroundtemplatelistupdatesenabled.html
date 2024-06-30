@@ -1,0 +1,78 @@
+<h3>BackgroundTemplateListUpdatesEnabled</h3>
+
+<h4>Enables background updates to the list of available templates for Collections and other features that use templates (deprecated)</h4>
+
+<blockquote>
+  <p>DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.</p>
+</blockquote>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 79 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy is deprecated because we are moving to a new policy. It won't work in Microsoft Edge as soon as version 104. The new policy to use is <a href="#edgeassetdeliveryserviceenabled">EdgeAssetDeliveryServiceEnabled</a>.</p>
+
+<p>Lets you enable or disable background updates to the list of available templates for Collections and other features that use templates.  Templates are used to extract rich metadata from a webpage when the page is saved to a collection.</p>
+
+<p>If you enable this setting or the setting is unconfigured, the list of available templates will be downloaded in the background from a Microsoft service every 24 hours.</p>
+
+<p>If you disable this setting the list of available templates will be downloaded on demand. This type of download might result in small performance penalties for Collections and other features.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: BackgroundTemplateListUpdatesEnabled</li>
+<li>GP name: Enables background updates to the list of available templates for Collections and other features that use templates (deprecated)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: BackgroundTemplateListUpdatesEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: BackgroundTemplateListUpdatesEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

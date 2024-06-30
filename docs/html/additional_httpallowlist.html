@@ -1,0 +1,79 @@
+<h3>HttpAllowlist</h3>
+
+<h4>HTTP Allowlist</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 123 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Setting the policy specifies a list of hostnames or hostname patterns (such as '[*.]example.com') that will not be upgraded to HTTPS and will not show an error interstitial if HTTPS-First Mode is enabled. Organizations can use this policy to maintain access to servers that do not support HTTPS, without needing to disable <a href="#automatichttpsdefault">AutomaticHttpsDefault</a>.</p>
+
+<p>Supplied hostnames must be canonicalized: Any IDNs must be converted to their A-label format, and all ASCII letters must be lowercase.</p>
+
+<p>Blanket host wildcards (i.e., "<em>" or "[</em>]") are not allowed. Instead, HTTPS-First Mode and HTTPS Upgrades should be explicitly disabled via their specific policies.</p>
+
+<p>Note: This policy does not apply to HSTS upgrades.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: HttpAllowlist</li>
+<li>GP name: HTTP Allowlist</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\HttpAllowlist</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\HttpAllowlist\1 = "testserver.example.com"
+SOFTWARE\Policies\Microsoft\Edge\HttpAllowlist\2 = "[*.]example.org"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: HttpAllowlist</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;testserver.example.com&lt;/string&gt;
+&lt;string&gt;[*.]example.org&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

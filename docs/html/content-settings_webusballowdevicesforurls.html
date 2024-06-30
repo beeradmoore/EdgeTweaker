@@ -1,0 +1,113 @@
+<h3>WebUsbAllowDevicesForUrls</h3>
+
+<h4>Grant access to specific sites to connect to specific USB devices</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Allows you to set a list of urls that specify which sites will automatically be granted permission to access a USB device with the given vendor and product IDs. Each item in the list must contain both devices and urls in order for the policy to be valid. Each item in devices can contain a vendor ID and product ID field. Any ID that is omitted is treated as a wildcard with one exception, and that exception is that a product ID cannot be specified without a vendor ID also being specified. Otherwise, the policy will not be valid and will be ignored.</p>
+
+<p>The USB permission model uses the URL of the requesting site ("requesting URL") and the URL of the top-level frame site ("embedding URL") to grant permission to the requesting URL to access the USB device. The requesting URL may be different than the embedding URL when the requesting site is loaded in an iframe. Therefore, the "urls" field can contain up to two URL strings delimited by a comma to specify the requesting and embedding URL respectively. If only one URL is specified, then access to the corresponding USB devices will be granted when the requesting site's URL matches this URL regardless of embedding status. The URLs in "urls" must be valid URLs, otherwise the policy will be ignored.</p>
+
+<p>This is deprecated and only supported for backwards compatibility in the following manner. If both a requesting and embedding URL is specified, then the embedding URL will be granted the permission as top-level origin and the requesting URL will be ignored entirely.</p>
+
+<p>If this policy is left not set, the global default value will be used for all sites either from the <a href="#defaultwebusbguardsetting">DefaultWebUsbGuardSetting</a> policy if it is set, or the user's personal configuration otherwise.</p>
+
+<p>URL patterns in this policy should not clash with the ones configured via <a href="#webusbblockedforurls">WebUsbBlockedForUrls</a>. If there is a clash, this policy will take precedence over <a href="#webusbblockedforurls">WebUsbBlockedForUrls</a> and <a href="#webusbaskforurls">WebUsbAskForUrls</a>.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Dictionary</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: WebUsbAllowDevicesForUrls</li>
+<li>GP name: Grant access to specific sites to connect to specific USB devices</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: WebUsbAllowDevicesForUrls</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+SOFTWARE\Policies\Microsoft\Edge\WebUsbAllowDevicesForUrls = [
+  {
+    "devices": [
+      {
+        "product_id": 5678,
+        "vendor_id": 1234
+      }
+    ],
+    "urls": [
+      "https://contoso.com",
+      "https://fabrikam.com"
+    ]
+  }
+]
+</code></p>
+
+<h5>Compact example value:</h5>
+
+<p><code>
+  SOFTWARE\Policies\Microsoft\Edge\WebUsbAllowDevicesForUrls = [{"devices": [{"product_id": 5678, "vendor_id": 1234}], "urls": ["https://contoso.com", "https://fabrikam.com"]}]
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: WebUsbAllowDevicesForUrls</li>
+<li><p>Example value:
+<code>xml
+&lt;key&gt;WebUsbAllowDevicesForUrls&lt;/key&gt;
+&lt;array&gt;
+&lt;dict&gt;
+&lt;key&gt;devices&lt;/key&gt;
+&lt;array&gt;
+  &lt;dict&gt;
+    &lt;key&gt;product_id&lt;/key&gt;
+    &lt;integer&gt;5678&lt;/integer&gt;
+    &lt;key&gt;vendor_id&lt;/key&gt;
+    &lt;integer&gt;1234&lt;/integer&gt;
+  &lt;/dict&gt;
+&lt;/array&gt;
+&lt;key&gt;urls&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;https://contoso.com&lt;/string&gt;
+  &lt;string&gt;https://fabrikam.com&lt;/string&gt;
+&lt;/array&gt;
+&lt;/dict&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

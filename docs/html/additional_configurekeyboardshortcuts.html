@@ -1,0 +1,77 @@
+<h3>ConfigureKeyboardShortcuts</h3>
+
+<h4>Configure the list of commands for which to disable keyboard shortcuts</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 101 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Configure the list of Microsoft Edge commands for which to disable keyboard shortcuts.</p>
+
+<p>See <a href="https://go.microsoft.com/fwlink/?linkid=2186950">https://go.microsoft.com/fwlink/?linkid=2186950</a> for a list of possible commands to disable.</p>
+
+<p>If you enable this policy, commands in the 'disabled' list will no longer be activated by keyboard shortcuts.</p>
+
+<p>If you disable this policy, all keyboard shortcuts behave as usual.</p>
+
+<p>Note: Disabling a command will only remove its shortcut mapping. Commands in the 'disabled' list will still function if accessed via browser UI.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Dictionary</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ConfigureKeyboardShortcuts</li>
+<li>GP name: Configure the list of commands for which to disable keyboard shortcuts</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: ConfigureKeyboardShortcuts</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+SOFTWARE\Policies\Microsoft\Edge\ConfigureKeyboardShortcuts = {
+  "disabled": [
+    "new_tab",
+    "fullscreen"
+  ]
+}
+</code></p>
+
+<h5>Compact example value:</h5>
+
+<p><code>
+  SOFTWARE\Policies\Microsoft\Edge\ConfigureKeyboardShortcuts = {"disabled": ["new_tab", "fullscreen"]}
+</code></p>
+
+

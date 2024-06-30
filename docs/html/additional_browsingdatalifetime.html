@@ -1,0 +1,110 @@
+<h3>BrowsingDataLifetime</h3>
+
+<h4>Browsing Data Lifetime Settings</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 89 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Configures browsing data lifetime settings for Microsoft Edge.
+This policy controls the lifetime of selected browsing data. This policy has no effect if Sync is enabled.
+The available data types are the 'browsing<em>history', 'download</em>history', 'cookies<em>and</em>other<em>site</em>data', 'cached<em>images</em>and<em>files', 'password</em>signin', 'autofill', 'site<em>settings' and 'hosted</em>app<em>data'.
+Microsoft Edge will regularly remove data of selected types that is older than 'time</em>to<em>live</em>in_hours'. The deletion of expired data will happen 15 seconds after the browser starts then every hour while the browser is running.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Dictionary</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: BrowsingDataLifetime</li>
+<li>GP name: Browsing Data Lifetime Settings</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: BrowsingDataLifetime</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+SOFTWARE\Policies\Microsoft\Edge\BrowsingDataLifetime = [
+  {
+    "data_types": [
+      "browsing_history"
+    ],
+    "time_to_live_in_hours": 24
+  },
+  {
+    "data_types": [
+      "password_signin",
+      "autofill"
+    ],
+    "time_to_live_in_hours": 12
+  }
+]
+</code></p>
+
+<h5>Compact example value:</h5>
+
+<p><code>
+  SOFTWARE\Policies\Microsoft\Edge\BrowsingDataLifetime = [{"data_types": ["browsing_history"], "time_to_live_in_hours": 24}, {"data_types": ["password_signin", "autofill"], "time_to_live_in_hours": 12}]
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: BrowsingDataLifetime</li>
+<li><p>Example value:
+<code>xml
+&lt;key&gt;BrowsingDataLifetime&lt;/key&gt;
+&lt;array&gt;
+&lt;dict&gt;
+&lt;key&gt;data_types&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;browsing_history&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;time_to_live_in_hours&lt;/key&gt;
+&lt;integer&gt;24&lt;/integer&gt;
+&lt;/dict&gt;
+&lt;dict&gt;
+&lt;key&gt;data_types&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;password_signin&lt;/string&gt;
+  &lt;string&gt;autofill&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;time_to_live_in_hours&lt;/key&gt;
+&lt;integer&gt;12&lt;/integer&gt;
+&lt;/dict&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

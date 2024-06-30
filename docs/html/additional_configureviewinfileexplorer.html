@@ -1,0 +1,93 @@
+<h3>ConfigureViewInFileExplorer</h3>
+
+<h4>Configure the View in File Explorer feature for SharePoint pages in Microsoft Edge</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 93 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This setting allows you to configure the View in File Explorer capability for file management in SharePoint Online while using Microsoft Edge.</p>
+
+<p>You will need to list the specific domains where this is allowed and list cookies needed for SharePoint authentication (rtFa and FedAuth).</p>
+
+<p>Behind the scenes, the policy allows URLs with the viewinfileexplorer: scheme to open WebDAV URLs in Windows File Explorer on pages matching the list of domains and uses the cookies you specified for WebDAV authentication.</p>
+
+<p>If you enable this policy, you can use the "View in File Explorer" feature on the SharePoint document libraries you list. You will need to specify the SharePoint domain and authentication cookies. See example value below.</p>
+
+<p>If you disable or don't configure this policy, you cannot use the "View in File Explorer" feature on SharePoint document libraries.</p>
+
+<p>Note that while this is an available option through Microsoft Edge, rather than use the View in File Explorer option, the recommended approach to managing files and folders outside of SharePoint is to sync your SharePoint files or move or copy files in SharePoint.
+Sync your SharePoint files: https://go.microsoft.com/fwlink/p/?linkid=2166983
+Move or copy files in SharePoint: https://go.microsoft.com/fwlink/p/?linkid=2167123</p>
+
+<p>This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain, or Windows 10 Pro or Enterprise instances enrolled for device management.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Dictionary</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ConfigureViewInFileExplorer</li>
+<li>GP name: Configure the View in File Explorer feature for SharePoint pages in Microsoft Edge</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: ConfigureViewInFileExplorer</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+SOFTWARE\Policies\Microsoft\Edge\ConfigureViewInFileExplorer = [
+  {
+    "cookies": [
+      "rtFa",
+      "FedAuth"
+    ],
+    "domain": "contoso.sharepoint.com"
+  },
+  {
+    "cookies": [
+      "rtFa",
+      "FedAuth"
+    ],
+    "domain": "contoso2.sharepoint.com"
+  }
+]
+</code></p>
+
+<h5>Compact example value:</h5>
+
+<p><code>
+  SOFTWARE\Policies\Microsoft\Edge\ConfigureViewInFileExplorer = [{"cookies": ["rtFa", "FedAuth"], "domain": "contoso.sharepoint.com"}, {"cookies": ["rtFa", "FedAuth"], "domain": "contoso2.sharepoint.com"}]
+</code></p>
+
+

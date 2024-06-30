@@ -1,0 +1,79 @@
+<h3>AddressBarEditingEnabled</h3>
+
+<h4>Configure address bar editing</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 98 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>If you enable or don't configure this policy, users can change the URL in the address bar.</p>
+
+<p>If you disable this policy, it prevents users from changing the URL in the address bar.</p>
+
+<p>Note: This policy doesn't prevent the browser from navigating to any URL. Users can still navigate to any URL by using the search option in the default New Tab Page, or using any link that leads to a web search engine. To ensure that users can only go to sites you expect, consider configuring the following policies in addition to this policy:</p>
+
+<ul>
+<li><p><a href="#newtabpagelocation">NewTabPageLocation</a></p></li>
+<li><p><a href="#homepagelocation">HomepageLocation</a></p></li>
+<li><p><a href="#homepageisnewtabpage">HomepageIsNewTabPage</a></p></li>
+<li><p><a href="#urlblocklist">URLBlocklist</a> and <a href="#urlallowlist">URLAllowlist</a> to scope the pages that browser can navigate to.</p></li>
+</ul>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: AddressBarEditingEnabled</li>
+<li>GP name: Configure address bar editing</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: AddressBarEditingEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: AddressBarEditingEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

@@ -1,0 +1,64 @@
+<h3>OnlyOnPremisesImplicitSigninEnabled</h3>
+
+<h4>Only on-premises account enabled for implicit sign-in</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 94 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Configure this policy to decide whether only on-premises accounts are enabled for implicit sign-in.</p>
+
+<p>If you enable this policy, only on-premises accounts will be enabled for implicit sign-in. Microsoft Edge won't attempt to implicitly sign in to MSA or AAD accounts. Upgrade from on-premises accounts to AAD accounts will be stopped as well.</p>
+
+<p>If you disable or don't configure this policy, all accounts will be enabled for implicit sign-in.</p>
+
+<p>This policy will only take effect when policy <a href="#configureonpremisesaccountautosignin">ConfigureOnPremisesAccountAutoSignIn</a> is enabled and set to 'SignInAndMakeDomainAccountNonRemovable'.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: OnlyOnPremisesImplicitSigninEnabled</li>
+<li>GP name: Only on-premises account enabled for implicit sign-in</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Identity and sign-in</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: OnlyOnPremisesImplicitSigninEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000000
+</code></p>
+
+

@@ -1,0 +1,72 @@
+<h3>MAMEnabled</h3>
+
+<h4>Mobile App Management Enabled</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 89 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Allows the Microsoft Edge browser to retrieve policies from the Intune application management services and apply them to users' profiles.</p>
+
+<p>If you enable this policy or don't configure it, Mobile App Management (MAM) Policies can be applied.</p>
+
+<p>If you disable this policy, Microsoft Edge will not communicate with Intune to request MAM Policies.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: MAMEnabled</li>
+<li>GP name: Mobile App Management Enabled</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Manageability</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: MAMEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000000
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: MAMEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;false/&gt;
+</code></p>
+
+</li>
+</ul>

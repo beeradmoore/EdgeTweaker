@@ -1,0 +1,72 @@
+<h3>ComposeInlineEnabled</h3>
+
+<h4>Compose is enabled for writing on the web</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 115 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy lets you configure Compose in Microsoft Edge. Compose provides help for writing with AI-generated text, which lets the user get ideas for writing. This includes elaborating on text, re-writing, changing tone, formatting the text, and more.</p>
+
+<p>If you enable or don't configure this policy, Compose can provide text generation for eligible fields, which are text editable and don't have an autocomplete attribute.</p>
+
+<p>If you disable this policy, Compose will not be able to provide text generation for eligible fields. Compose will still be available for prompt-based text generation through the sidebar and must be managed with either <a href="#edgediscoverenabled">EdgeDiscoverEnabled</a> policy or <a href="#hubssidebarenabled">HubsSidebarEnabled</a> policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ComposeInlineEnabled</li>
+<li>GP name: Compose is enabled for writing on the web</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: ComposeInlineEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000000
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ComposeInlineEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;false/&gt;
+</code></p>
+
+</li>
+</ul>

@@ -1,0 +1,66 @@
+<h3>WinHttpProxyResolverEnabled</h3>
+
+<h4>Use Windows proxy resolver</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 84 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy will be superseded by a similar feature in a future release. For more information, see https://crbug.com/1032820.</p>
+
+<p>Use Windows to resolve proxies for all browser networking instead of the proxy resolver built into Microsoft Edge. The Windows proxy resolver enables Windows proxy features such as DirectAccess/NRPT.</p>
+
+<p>This policy comes with the problems described by https://crbug.com/644030. It causes PAC files to be fetched and executed by Windows code, including PAC files set via the <a href="#proxypacurl">ProxyPacUrl</a> policy. Since Network Fetches for the PAC file happen via Windows instead of Microsoft Edge code, network policies such as <a href="#dnsoverhttpsmode">DnsOverHttpsMode</a> will not apply to network fetches for a PAC file.</p>
+
+<p>If you enable this policy, the Windows proxy resolver will be used.</p>
+
+<p>If you disable or don't configure this policy, the Microsoft Edge proxy resolver will be used.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: WinHttpProxyResolverEnabled</li>
+<li>GP name: Use Windows proxy resolver</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: WinHttpProxyResolverEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+

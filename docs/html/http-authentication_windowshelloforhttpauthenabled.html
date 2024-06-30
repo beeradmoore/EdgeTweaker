@@ -1,0 +1,60 @@
+<h3>WindowsHelloForHTTPAuthEnabled</h3>
+
+<h4>Windows Hello For HTTP Auth Enabled</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 90 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Indicates if Windows Credential UI should be used to respond to NTLM and Negotiate authentication challenges.</p>
+
+<p>If you disable this policy, a basic username and password prompt will be used to respond to NTLM and Negotiate challenges. If you enable or don't configure this policy, Windows Credential UI will be used.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: WindowsHelloForHTTPAuthEnabled</li>
+<li>GP name: Windows Hello For HTTP Auth Enabled</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/HTTP authentication</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/HTTP authentication</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value Name: WindowsHelloForHTTPAuthEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+

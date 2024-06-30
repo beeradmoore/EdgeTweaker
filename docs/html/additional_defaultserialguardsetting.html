@@ -1,0 +1,83 @@
+<h3>DefaultSerialGuardSetting</h3>
+
+<h4>Control use of the Serial API</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 86 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Set whether websites can access serial ports. You can completely block access or ask the user each time a website wants to get access to a serial port.</p>
+
+<p>Setting the policy to 3 lets websites ask for access to serial ports. Setting the policy to 2 denies access to serial ports.</p>
+
+<p>You can override this policy for specific URL patterns by using the <a href="#serialaskforurls">SerialAskForUrls</a> and <a href="#serialblockedforurls">SerialBlockedForUrls</a> policies.</p>
+
+<p>If you don't configure this policy, by default, websites can ask users whether they can access a serial port, and users can change this setting.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>BlockSerial (2) = Do not allow any site to request access to serial ports via the Serial API</p></li>
+<li><p>AskSerial (3) = Allow sites to ask for user permission to access a serial port</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: DefaultSerialGuardSetting</li>
+<li>GP name: Control use of the Serial API</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: DefaultSerialGuardSetting</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000002
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: DefaultSerialGuardSetting</li>
+<li><p>Example value:
+<code>xml
+&lt;integer&gt;2&lt;/integer&gt;
+</code></p>
+
+</li>
+</ul>

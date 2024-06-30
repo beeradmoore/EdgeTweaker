@@ -1,0 +1,87 @@
+<h3>ExtensionInstallForcelist</h3>
+
+<h4>Control which extensions are installed silently</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Set this policy to specify a list of apps and extensions that install silently, without user interaction. Users can't uninstall or turn off this setting. Permissions are granted implicitly, including the enterprise.deviceAttributes and enterprise.platformKeys extension APIs. Note: These 2 APIs aren't available to apps and extensions that aren't force-installed.</p>
+
+<p>If you don't set this policy, no apps or extensions are autoinstalled and users can uninstall any app in Microsoft Edge.</p>
+
+<p>This policy supercedes <a href="#extensioninstallblocklist">ExtensionInstallBlocklist</a> policy. If a previously force-installed app or extension is removed from this list, Microsoft Edge automatically uninstalls it.</p>
+
+<p>For Windows instances not joined to a Microsoft Active Directory domain, forced installation is limited to apps and extensions listed in the Microsoft Edge Add-ons website.</p>
+
+<p>On macOS instances, apps and extensions from outside the Microsoft Edge Add-ons website can only be force installed if the instance is managed via MDM, or joined to a domain via MCX.</p>
+
+<p>The source code of any extension can be altered by users with developer tools, potentially rendering the extension unfunctional. If this is a concern, configure the <a href="#developertoolsavailability">DeveloperToolsAvailability</a> policy.</p>
+
+<p>Each list item of the policy is a string that contains an extension ID and, optionally, an "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document ( <a href="https://go.microsoft.com/fwlink/?linkid=2095043">https://go.microsoft.com/fwlink/?linkid=2095043</a> ). By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest.</p>
+
+<p>Note: This policy doesn't apply to InPrivate mode. Read about hosting extensions at <a href="/microsoft-edge/extensions-chromium/enterprise/hosting-and-updating">Publish and update extensions in the Microsoft Edge Add-ons website</a>.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ExtensionInstallForcelist</li>
+<li>GP name: Control which extensions are installed silently</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Extensions</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "gbchcmhmhahfdphkhkmpfmihenigjmpp;https://edge.microsoft.com/extensionwebstorebase/v1/crx"
+SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\2 = "abcdefghijklmnopabcdefghijklmnop"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ExtensionInstallForcelist</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;gbchcmhmhahfdphkhkmpfmihenigjmpp;https://edge.microsoft.com/extensionwebstorebase/v1/crx&lt;/string&gt;
+&lt;string&gt;abcdefghijklmnopabcdefghijklmnop&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

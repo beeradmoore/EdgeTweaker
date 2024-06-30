@@ -1,0 +1,78 @@
+<h3>ControlDefaultStateOfAllowExtensionFromOtherStoresSettingEnabled</h3>
+
+<h4>Configure default state of Allow extensions from other stores setting</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 101 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy allows you to control the default state of the Allow extensions from other stores setting.
+This policy can't be used to stop installation of extensions from other stores such as Chrome Web Store.
+To stop installation of extensions from other stores, use the Extension Settings policy: <a href="https://go.microsoft.com/fwlink/?linkid=2187098">https://go.microsoft.com/fwlink/?linkid=2187098</a>.</p>
+
+<p>When enabled, Allow extensions from other stores will be turned on. So, users won't have to turn on the flag manually
+while installing extensions from other supported stores such as Chrome Web Store. However a user can override this setting.
+If the user has already turned on the setting and then turned it off, this setting may not work.
+If the Admin first sets the policy as Enabled, but then changes it to not configured or disabled, it will have no impact on
+user settings and the setting will remain as it is.</p>
+
+<p>When disabled or not configured, the user can manage the Allow extensions from other store setting.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: No</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ControlDefaultStateOfAllowExtensionFromOtherStoresSettingEnabled</li>
+<li>GP name: Configure default state of Allow extensions from other stores setting</li>
+<li>GP path (Mandatory): N/A</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Extensions</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): N/A</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value Name: ControlDefaultStateOfAllowExtensionFromOtherStoresSettingEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ControlDefaultStateOfAllowExtensionFromOtherStoresSettingEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

@@ -1,0 +1,93 @@
+<h3>ExplicitlyAllowedNetworkPorts</h3>
+
+<h4>Explicitly allowed network ports</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 91 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>There is a list of restricted ports built into Microsoft Edge. Connections to these ports will fail. This policy allows bypassing that list. The set of ports is defined as a comma-separated list that outgoing connections should be permitted on.</p>
+
+<p>Ports are restricted to prevent Microsoft Edge from being used as a vector to exploit various network vulnerabilities. Setting this policy may expose your network to attacks. This policy is intended as a temporary workaround for error code "ERR<em>UNSAFE</em>PORT" while migrating a service running on a blocked port to a standard port (for example port 80 or 443).</p>
+
+<p>Malicious websites can easily detect that this policy is set, and for which ports, then use that information to target attacks.</p>
+
+<p>Each port listed in this policy is labeled with a date that it can be unblocked until. After that date the port will be restricted regardless of if it's specified by the value of this policy.</p>
+
+<p>Leaving the value empty or unset means that all restricted ports will be blocked. Invalid port values set through this policy will be ignored while valid ones will still be applied.</p>
+
+<p>This policy overrides the "--explicitly-allowed-ports" command-line option.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>554 (554) = port 554 (can be unblocked until 2021/10/15)</p></li>
+<li><p>10080 (10080) = port 10080 (can be unblocked until 2022/04/01)</p></li>
+<li><p>6566 (6566) = port 6566 (can be unblocked until 2021/10/15)</p></li>
+<li><p>989 (989) = port 989 (can be unblocked until 2022/02/01)</p></li>
+<li><p>990 (990) = port 990 (can be unblocked until 2022/02/01)</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ExplicitlyAllowedNetworkPorts</li>
+<li>GP name: Explicitly allowed network ports</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\ExplicitlyAllowedNetworkPorts</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\ExplicitlyAllowedNetworkPorts\1 = "10080"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ExplicitlyAllowedNetworkPorts</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;10080&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

@@ -1,0 +1,85 @@
+<h3>RelaunchNotification</h3>
+
+<h4>Notify a user that a browser restart is recommended or required for pending updates</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Notify users that they need to restart Microsoft Edge to apply a pending update.</p>
+
+<p>If you don't configure this policy, Microsoft Edge adds a recycle icon at the far right of the top menu bar to prompt users to restart the browser to apply the update.</p>
+
+<p>If you enable this policy and set it to 'Recommended', a recurring warning prompts users that a restart is recommended. Users can dismiss this warning and defer the restart.</p>
+
+<p>If you set the policy to 'Required', a recurring warning prompts users that the browser will be restarted automatically as soon as a notification period passes. The default period is seven days. You can configure this period with the <a href="#relaunchnotificationperiod">RelaunchNotificationPeriod</a> policy.</p>
+
+<p>The user's session is restored when the browser restarts.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>Recommended (1) = Recommended - Show a recurring prompt to the user indicating that a restart is recommended</p></li>
+<li><p>Required (2) = Required - Show a recurring prompt to the user indicating that a restart is required</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: RelaunchNotification</li>
+<li>GP name: Notify a user that a browser restart is recommended or required for pending updates</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: RelaunchNotification</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: RelaunchNotification</li>
+<li><p>Example value:
+<code>xml
+&lt;integer&gt;1&lt;/integer&gt;
+</code></p>
+
+</li>
+</ul>

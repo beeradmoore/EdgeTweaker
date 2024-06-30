@@ -1,0 +1,81 @@
+<h3>DefaultThirdPartyStoragePartitioningSetting</h3>
+
+<h4>Default setting for third-party storage partitioning</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 115 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Third-party storage partitioning is on by default for some users starting with Microsoft Edge version 115, but it can be disabled with edge://flags.</p>
+
+<p>If this policy is configured to "AllowPartitioning" or not configured, third-party storage partitioning can be enabled.</p>
+
+<p>If this policy is set to "BlockPartitioning", third-party storage partitioning can't be enabled.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>AllowPartitioning (1) = Let third-party storage partitioning to be enabled.</p></li>
+<li><p>BlockPartitioning (2) = Block third-party storage partitioning from being enabled.</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: DefaultThirdPartyStoragePartitioningSetting</li>
+<li>GP name: Default setting for third-party storage partitioning</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: DefaultThirdPartyStoragePartitioningSetting</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: DefaultThirdPartyStoragePartitioningSetting</li>
+<li><p>Example value:
+<code>xml
+&lt;integer&gt;1&lt;/integer&gt;
+</code></p>
+
+</li>
+</ul>

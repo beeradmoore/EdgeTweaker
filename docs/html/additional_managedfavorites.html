@@ -1,0 +1,142 @@
+<h3>ManagedFavorites</h3>
+
+<h4>Configure favorites</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Configures a list of managed favorites.</p>
+
+<p>The policy creates a list of favorites. Each favorite contains the keys "name" and "url," which hold the favorite's name and its target. You can configure a subfolder by defining a favorites without an "url" key but with an additional "children" key that contains a list of favorites as defined above (some of which may be folders again). Microsoft Edge amends incomplete URLs as if they were submitted via the Address Bar, for example "microsoft.com" becomes "https://microsoft.com/".</p>
+
+<p>These favorites are placed in a folder that can't be modified by the user (but the user can choose to hide it from the favorites bar). By default the folder name is "Managed favorites" but you can change it by adding to the list of favorites a dictionary containing the key "toplevel_name" with the desired folder name as the value.</p>
+
+<p>Managed favorites are not synced to the user account and can't be modified by extensions.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Dictionary</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ManagedFavorites</li>
+<li>GP name: Configure favorites</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: ManagedFavorites</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [
+  {
+    "toplevel_name": "My managed favorites folder"
+  },
+  {
+    "name": "Microsoft",
+    "url": "microsoft.com"
+  },
+  {
+    "name": "Bing",
+    "url": "bing.com"
+  },
+  {
+    "children": [
+      {
+        "name": "Microsoft Edge Insiders",
+        "url": "www.microsoftedgeinsider.com"
+      },
+      {
+        "name": "Microsoft Edge",
+        "url": "www.microsoft.com/windows/microsoft-edge"
+      }
+    ],
+    "name": "Microsoft Edge links"
+  }
+]
+</code></p>
+
+<h5>Compact example value:</h5>
+
+<p><code>
+  SOFTWARE\Policies\Microsoft\Edge\ManagedFavorites = [{"toplevel_name": "My managed favorites folder"}, {"name": "Microsoft", "url": "microsoft.com"}, {"name": "Bing", "url": "bing.com"}, {"children": [{"name": "Microsoft Edge Insiders", "url": "www.microsoftedgeinsider.com"}, {"name": "Microsoft Edge", "url": "www.microsoft.com/windows/microsoft-edge"}], "name": "Microsoft Edge links"}]
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ManagedFavorites</li>
+<li><p>Example value:
+<code>xml
+&lt;key&gt;ManagedFavorites&lt;/key&gt;
+&lt;array&gt;
+&lt;dict&gt;
+&lt;key&gt;toplevel_name&lt;/key&gt;
+&lt;string&gt;My managed favorites folder&lt;/string&gt;
+&lt;/dict&gt;
+&lt;dict&gt;
+&lt;key&gt;name&lt;/key&gt;
+&lt;string&gt;Microsoft&lt;/string&gt;
+&lt;key&gt;url&lt;/key&gt;
+&lt;string&gt;microsoft.com&lt;/string&gt;
+&lt;/dict&gt;
+&lt;dict&gt;
+&lt;key&gt;name&lt;/key&gt;
+&lt;string&gt;Bing&lt;/string&gt;
+&lt;key&gt;url&lt;/key&gt;
+&lt;string&gt;bing.com&lt;/string&gt;
+&lt;/dict&gt;
+&lt;dict&gt;
+&lt;key&gt;children&lt;/key&gt;
+&lt;array&gt;
+  &lt;dict&gt;
+    &lt;key&gt;name&lt;/key&gt;
+    &lt;string&gt;Microsoft Edge Insiders&lt;/string&gt;
+    &lt;key&gt;url&lt;/key&gt;
+    &lt;string&gt;www.microsoftedgeinsider.com&lt;/string&gt;
+  &lt;/dict&gt;
+  &lt;dict&gt;
+    &lt;key&gt;name&lt;/key&gt;
+    &lt;string&gt;Microsoft Edge&lt;/string&gt;
+    &lt;key&gt;url&lt;/key&gt;
+    &lt;string&gt;www.microsoft.com/windows/microsoft-edge&lt;/string&gt;
+  &lt;/dict&gt;
+&lt;/array&gt;
+&lt;key&gt;name&lt;/key&gt;
+&lt;string&gt;Microsoft Edge links&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

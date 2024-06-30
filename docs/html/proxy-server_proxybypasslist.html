@@ -1,0 +1,82 @@
+<h3>ProxyBypassList</h3>
+
+<h4>Configure proxy bypass rules (deprecated)</h4>
+
+<blockquote>
+  <p>DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.</p>
+</blockquote>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy is deprecated, use <a href="#proxysettings">ProxySettings</a> instead. It won't work in Microsoft Edge version 91.</p>
+
+<p>Defines a list of hosts for which Microsoft Edge bypasses any proxy.</p>
+
+<p>This policy is applied only if the <a href="#proxysettings">ProxySettings</a> policy isn't specified and you have selected either fixed<em>servers or pac</em>script in the <a href="#proxymode">ProxyMode</a> policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.</p>
+
+<p>If you enable this policy, you can create a list of hosts for which Microsoft Edge doesn't use a proxy.</p>
+
+<p>If you don't configure this policy, no list of hosts is created for which Microsoft Edge bypasses a proxy. Leave this policy unconfigured if you've specified any other method for setting proxy policies.</p>
+
+<p>For more detailed examples go to <a href="https://go.microsoft.com/fwlink/?linkid=2094936">https://go.microsoft.com/fwlink/?linkid=2094936</a>.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>String</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ProxyBypassList</li>
+<li>GP name: Configure proxy bypass rules (deprecated)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Proxy server</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: ProxyBypassList</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+"https://www.contoso.com, https://www.fabrikam.com"
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ProxyBypassList</li>
+<li><p>Example value:
+<code>xml
+&lt;string&gt;https://www.contoso.com, https://www.fabrikam.com&lt;/string&gt;
+</code></p>
+
+</li>
+</ul>

@@ -1,0 +1,86 @@
+<h3>AutomaticHttpsDefault</h3>
+
+<h4>Configure Automatic HTTPS</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 92 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy lets you manage settings for <a href="#automatichttpsdefault">AutomaticHttpsDefault</a>, which switches connections from HTTP to HTTPS.</p>
+
+<p>This feature helps protect against man-in-the-middle attacks by enforcing more secure connections, but users might experience more connection errors.</p>
+
+<p>Microsoft Edge attempts to upgrade some navigations from HTTP to HTTPS, when possible. This policy can be used to disable this behavior. If set to "AlwaysUpgrade" or left unset, this feature will be enabled by default.</p>
+
+<p>The separate HttpAllowlist policy can be used to exempt specific hostnames or hostname patterns from being upgraded to HTTPS by this feature.</p>
+
+<p>Starting in Microsoft Edge 111, "UpgradePossibleDomains" is deprecated and is treated the same as "DisableAutomaticHttps". It won't work in Microsoft Edge version 114.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>DisableAutomaticHttps (0) = Automatic HTTPS functionality is disabled.</p></li>
+<li><p>UpgradeCapableDomains (1) = (Deprecated) Navigations delivered over HTTP are switched to HTTPS, only on domains likely to support HTTPS.</p></li>
+<li><p>AlwaysUpgrade (2) = All navigations delivered over HTTP are switched to HTTPS. Connection errors might occur more often.</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: AutomaticHttpsDefault</li>
+<li>GP name: Configure Automatic HTTPS</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value Name: AutomaticHttpsDefault</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000002
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: AutomaticHttpsDefault</li>
+<li><p>Example value:
+<code>xml
+&lt;integer&gt;2&lt;/integer&gt;
+</code></p>
+
+</li>
+</ul>

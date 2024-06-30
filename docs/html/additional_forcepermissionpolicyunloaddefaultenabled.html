@@ -1,0 +1,78 @@
+<h3>ForcePermissionPolicyUnloadDefaultEnabled</h3>
+
+<h4>Controls whether unload event handlers can be disabled.</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 118 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>unload event handlers are being deprecated. Whether they fire depends on the unload Permissions-Policy.
+Currently, they are allowed by policy by default. In the future they will gradually move to being disallowed by default and sites must explicitly enable them using Permissions-Policy headers.
+This enterprise policy can be used to opt out of this gradual deprecation by forcing the default to stay enabled.</p>
+
+<p>Pages might depend on unload event handlers to save data or signal the end of a user session to the server.
+This is not recommended because it's unreliable and impacts performance by blocking use of BackForwardCache.
+Recommended alternatives exist, but the unload event has been used for a long time. Some applications might still rely on them.</p>
+
+<p>If you disable this policy or don't configure it, unload event handlers will gradually be deprecated in-line with the deprecation rollout and sites which don't set Permissions-Policy header will stop firing <code>unload</code> events.</p>
+
+<p>If you enable this policy then unload event handlers will continue to work by default.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ForcePermissionPolicyUnloadDefaultEnabled</li>
+<li>GP name: Controls whether unload event handlers can be disabled.</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: ForcePermissionPolicyUnloadDefaultEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ForcePermissionPolicyUnloadDefaultEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

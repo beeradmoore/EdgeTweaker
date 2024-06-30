@@ -1,0 +1,68 @@
+<h3>InternetExplorerIntegrationLocalSiteListExpirationDays</h3>
+
+<h4>Specify the number of days that a site remains on the local IE mode site list</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 92 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>If the <a href="#internetexplorerintegrationreloadiniemodeallowed">InternetExplorerIntegrationReloadInIEModeAllowed</a> policy is enabled or not configured, users will be able to tell Microsoft Edge to load specific pages in Internet Explorer mode for a limited number of days.</p>
+
+<p>You can use this setting to determine how many days that configuration is remembered in the browser. After this period has elapsed, the individual page will no longer automatically load in IE mode.</p>
+
+<p>If you disable the <a href="#internetexplorerintegrationreloadiniemodeallowed">InternetExplorerIntegrationReloadInIEModeAllowed</a> policy, this policy has no effect.</p>
+
+<p>If you disable or don't configure this policy, the default value of 30 days is used.</p>
+
+<p>If you enable this policy, you must enter the number of days for which the sites are retained on the user's local site list in Microsoft Edge. The value can be from 0 to 90 days.</p>
+
+<p>To learn more about Internet Explorer mode, see <a href="https://go.microsoft.com/fwlink/?linkid=2094210">https://go.microsoft.com/fwlink/?linkid=2094210</a></p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: InternetExplorerIntegrationLocalSiteListExpirationDays</li>
+<li>GP name: Specify the number of days that a site remains on the local IE mode site list</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: InternetExplorerIntegrationLocalSiteListExpirationDays</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x0000001e
+</code></p>
+
+

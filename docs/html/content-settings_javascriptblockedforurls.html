@@ -1,0 +1,77 @@
+<h3>JavaScriptBlockedForUrls</h3>
+
+<h4>Block JavaScript on specific sites</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Define a list of sites, based on URL patterns, that aren't allowed to run JavaScript.</p>
+
+<p>If you don't configure this policy, <a href="#defaultjavascriptsetting">DefaultJavaScriptSetting</a> applies for all sites, if it's set. If not, the user's personal setting applies.</p>
+
+<p>For detailed information on valid url patterns, please see <a href="https://go.microsoft.com/fwlink/?linkid=2095322">https://go.microsoft.com/fwlink/?linkid=2095322</a>. * is not an accepted value for this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: JavaScriptBlockedForUrls</li>
+<li>GP name: Block JavaScript on specific sites</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\1 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\2 = "[*.]contoso.edu"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: JavaScriptBlockedForUrls</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;https://www.contoso.com&lt;/string&gt;
+&lt;string&gt;[*.]contoso.edu&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

@@ -1,0 +1,80 @@
+<h3>InternetExplorerIntegrationEnhancedHangDetection</h3>
+
+<h4>Configure enhanced hang detection for Internet Explorer mode</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 84 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Enhanced hang detection is a more granular approach to detecting hung webpages in Internet Explorer mode than what standalone Internet Explorer uses. When a hung webpage is detected, the browser will apply a mitigation to prevent the rest of the browser from hanging.</p>
+
+<p>This setting allows you to configure the use of enhanced hang detection in case you run into incompatible issues with any of your websites. We recommend disabling this policy only if you see notifications such as "(website) is not responding" in Internet Explorer mode but not in standalone Internet Explorer.</p>
+
+<p>This setting works in conjunction with:
+<a href="#internetexplorerintegrationlevel">InternetExplorerIntegrationLevel</a> is set to 'IEMode'
+and
+<a href="#internetexplorerintegrationsitelist">InternetExplorerIntegrationSiteList</a> policy where the list has at least one entry.</p>
+
+<p>If you set this policy to 'Enabled' or don't configure it, websites running in Internet Explorer mode will use enhanced hang detection.</p>
+
+<p>If you set this policy to 'Disabled', enhanced hang detection is disabled, and users will get the basic Internet Explorer hang detection behavior.</p>
+
+<p>To learn more about Internet Explorer mode, see <a href="https://go.microsoft.com/fwlink/?linkid=2094210">https://go.microsoft.com/fwlink/?linkid=2094210</a></p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>Disabled (0) = Enhanced hang detection disabled</p></li>
+<li><p>Enabled (1) = Enhanced hang detection enabled</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: InternetExplorerIntegrationEnhancedHangDetection</li>
+<li>GP name: Configure enhanced hang detection for Internet Explorer mode</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: InternetExplorerIntegrationEnhancedHangDetection</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+

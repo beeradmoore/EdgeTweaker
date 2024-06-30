@@ -1,0 +1,81 @@
+<h3>WebRtcLocalIpsAllowedUrls</h3>
+
+<h4>Manage exposure of local IP addressess by WebRTC</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 80 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Specifies a list of origins (URLs) or hostname patterns (like "<em>contoso.com</em>") for which local IP address should be exposed by WebRTC.</p>
+
+<p>If you enable this policy and set a list of origins (URLs) or hostname patterns, when edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will expose the local IP address for cases that match patterns in the list.</p>
+
+<p>If you disable or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will not expose local IP addresses. The local IP address is concealed with an mDNS hostname.</p>
+
+<p>If you enable, disable, or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Disabled, WebRTC will expose local IP addresses.</p>
+
+<p>Please note that this policy weakens the protection of local IP addresses that might be needed by administrators.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: WebRtcLocalIpsAllowedUrls</li>
+<li>GP name: Manage exposure of local IP addressess by WebRTC</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\1 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\2 = "<em>contoso.com</em>"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: WebRtcLocalIpsAllowedUrls</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;https://www.contoso.com&lt;/string&gt;
+&lt;string&gt;*contoso.com*&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

@@ -1,0 +1,96 @@
+<h3>RSAKeyUsageForLocalAnchorsEnabled</h3>
+
+<h4>Check RSA key usage for server certificates issued by local trust anchors</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 123 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>The X.509 key usage extension declares how the key in a certificate can be
+used. These instructions ensure certificates aren't used in an unintended
+context, which protects against a class of cross-protocol attacks on HTTPS and
+other protocols. HTTPS clients must verify that server certificates match the
+connection's TLS parameters.</p>
+
+<p>If this policy is enabled,
+Microsoft Edge will perform this key
+check. This helps prevent attacks where an attacker manipulates the browser into
+interpreting a key in ways that the certificate owner did not intend.</p>
+
+<p>If this policy is set to disabled or not configured,
+Microsoft Edge will skip this key check in
+HTTPS connections that negotiate TLS 1.2 and use an RSA certificate that
+chains to a local trust anchor. Examples of local trust anchors include
+policy-provided or user-installed root certificates. In all other cases, the
+check is performed independent of this policy's setting.</p>
+
+<p>This policy is available for administrators to preview the behavior of a
+future release, which will enable this check by default. At that point, this
+policy will remain temporarily available for administrators that need more
+time to update their certificates to meet the new RSA key usage requirements.</p>
+
+<p>Connections that fail this check will fail with the error
+ERR<em>SSL</em>KEY<em>USAGE</em>INCOMPATIBLE. Sites that fail with this error likely have a
+misconfigured certificate. Modern ECDHE_RSA cipher suites use the
+"digitalSignature" key usage option, while legacy RSA decryption cipher suites
+use the "keyEncipherment" key usage option. If uncertain, administrators should
+include both in RSA certificates meant for HTTPS.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: RSAKeyUsageForLocalAnchorsEnabled</li>
+<li>GP name: Check RSA key usage for server certificates issued by local trust anchors</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: RSAKeyUsageForLocalAnchorsEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: RSAKeyUsageForLocalAnchorsEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

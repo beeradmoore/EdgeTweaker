@@ -1,0 +1,89 @@
+<h3>CookiesSessionOnlyForUrls</h3>
+
+<h4>Limit cookies from specific websites to the current session</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Cookies created by websites that match a URL pattern you define are deleted when the session ends (when the window closes).</p>
+
+<p>Cookies created by websites that don't match the pattern are controlled by the <a href="#defaultcookiessetting">DefaultCookiesSetting</a> policy (if set) or by the user's personal configuration. This is also the default behavior if you don't configure this policy.</p>
+
+<p>You can also use the <a href="#cookiesallowedforurls">CookiesAllowedForUrls</a> and <a href="#cookiesblockedforurls">CookiesBlockedForUrls</a> policies to control which websites can create cookies.</p>
+
+<p>Note there cannot be conflicting URL patterns set between these three policies:</p>
+
+<ul>
+<li><p><a href="#cookiesblockedforurls">CookiesBlockedForUrls</a></p></li>
+<li><p><a href="#cookiesallowedforurls">CookiesAllowedForUrls</a></p></li>
+<li><p>CookiesSessionOnlyForUrls</p></li>
+</ul>
+
+<p>For detailed information on valid url patterns, please see <a href="https://go.microsoft.com/fwlink/?linkid=2095322">https://go.microsoft.com/fwlink/?linkid=2095322</a>. * is not an accepted value for this policy.</p>
+
+<p>If you set the <a href="#restoreonstartup">RestoreOnStartup</a> policy to restore URLs from previous sessions, this policy is ignored, and cookies are stored permanently for those sites.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: CookiesSessionOnlyForUrls</li>
+<li>GP name: Limit cookies from specific websites to the current session</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\1 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\CookiesSessionOnlyForUrls\2 = "[*.]contoso.edu"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: CookiesSessionOnlyForUrls</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;https://www.contoso.com&lt;/string&gt;
+&lt;string&gt;[*.]contoso.edu&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

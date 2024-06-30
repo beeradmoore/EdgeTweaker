@@ -1,0 +1,94 @@
+<h3>ConfigureFriendlyURLFormat</h3>
+
+<h4>Configure the default paste format of URLs copied from Microsoft Edge, and determine if additional formats will be available to users</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 87 or later</li>
+<li>On macOS since 88 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>If FriendlyURLs are enabled, Microsoft Edge will compute additional representations of the URL and place them on the clipboard.</p>
+
+<p>This policy configures what format will be pasted when the user pastes in external applications, or inside Microsoft Edge without the 'Paste as' context menu item.</p>
+
+<p>If configured, this policy makes a choice on behalf of the user. The options in edge://settings/shareCopyPaste will be grayed out, and the options in the 'Paste As' context menu will not be available.</p>
+
+<ul>
+<li><p>Not configured = The user will be able to choose their preferred paste format. By default, this is set to the friendly URL format. The 'Paste As' menu will be available in Microsoft Edge.</p></li>
+<li><p>1 = No additional formats will be stored on the clipboard. There will be no 'Paste as' context menu item in Microsoft Edge and the only format available to paste will be the plain text URL format. Effectively, the friendly URL feature will be disabled.</p></li>
+<li><p>3 = The user will get a friendly URL whenever they paste into surfaces that accept rich text. The plain URL will still be available for non-rich surfaces. There will be no 'Paste As' menu in Microsoft Edge.</p></li>
+<li><p>4 = (Not currently used)</p></li>
+</ul>
+
+<p>The richer formats may not be well-supported in some paste destinations and/or websites. In these scenarios, the plain URL option is recommended when configuring this policy.</p>
+
+<p>The recommended policy is available in Microsoft Edge 105 or later.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>PlainText (1) = The plain URL without any extra information, such as the page's title. This is the recommended option when this policy is configured. For more information, see the description.</p></li>
+<li><p>TitledHyperlink (3) = Titled Hyperlink: A hyperlink that points to the copied URL, but whose visible text is the title of the destination page. This is the Friendly URL format.</p></li>
+<li><p>WebPreview (4) = Coming soon. If set, behaves the same as 'Plain URL'.</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ConfigureFriendlyURLFormat</li>
+<li>GP name: Configure the default paste format of URLs copied from Microsoft Edge, and determine if additional formats will be available to users</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value Name: ConfigureFriendlyURLFormat</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000003
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ConfigureFriendlyURLFormat</li>
+<li><p>Example value:
+<code>xml
+&lt;integer&gt;3&lt;/integer&gt;
+</code></p>
+
+</li>
+</ul>

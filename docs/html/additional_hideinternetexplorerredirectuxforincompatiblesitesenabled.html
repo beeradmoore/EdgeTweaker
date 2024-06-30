@@ -1,0 +1,64 @@
+<h3>HideInternetExplorerRedirectUXForIncompatibleSitesEnabled</h3>
+
+<h4>Hide the one-time redirection dialog and the banner on Microsoft Edge</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 87 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy gives an option to disable one-time redirection dialog and the banner. When this policy is enabled, users will not see both the one-time dialog and the banner.
+Users will continue to be redirected to Microsoft Edge when they encounter an incompatible website on Internet Explorer, but their browsing data will not be imported.</p>
+
+<ul>
+<li><p>If you enable this policy the one-time redirection dialog and banner will never be shown to users. Users' browsing data will not be imported when a redirection happens.</p></li>
+<li><p>If you disable or don't set this policy, the redirection dialog will be shown on the first redirection and the persistent redirection banner will be shown to users on sessions that begin with a redirection. Users' browsing data will be imported every time user encounters such redirection (ONLY IF user consents to it on the one-time dialog).</p></li>
+</ul>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: HideInternetExplorerRedirectUXForIncompatibleSitesEnabled</li>
+<li>GP name: Hide the one-time redirection dialog and the banner on Microsoft Edge</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: HideInternetExplorerRedirectUXForIncompatibleSitesEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+

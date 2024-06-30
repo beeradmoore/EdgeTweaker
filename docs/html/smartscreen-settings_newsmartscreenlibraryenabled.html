@@ -1,0 +1,83 @@
+<h3>NewSmartScreenLibraryEnabled</h3>
+
+<h4>Enable new SmartScreen library (obsolete)</h4>
+
+<blockquote>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 107.</p>
+</blockquote>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 95, until 107</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy doesn't work because it was only intended to be a short-term mechanism to support the update to a new SmartScreen client.</p>
+
+<p>Allows the Microsoft Edge browser to load the new SmartScreen library (libSmartScreenN) for any SmartScreen checks on site URLs or application downloads.</p>
+
+<p>If you enable or don't configure this policy, Microsoft Edge will use the new SmartScreen library (libSmartScreenN).</p>
+
+<p>If you disable this policy, Microsoft Edge will use the old SmartScreen library (libSmartScreen).</p>
+
+<p>Before Microsoft Edge version 103, if you don't configure this policy, Microsoft Edge will use the old SmartScreen library (libSmartScreen).</p>
+
+<p>This policy is only available on Windows instances that are joined to a Microsoft Active Directory domain, Windows 10 Pro or Enterprise instances that enrolled for device management.
+This also includes macOS instances that are that are managed via MDM or joined to a domain via MCX.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: NewSmartScreenLibraryEnabled</li>
+<li>GP name: Enable new SmartScreen library (obsolete)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/SmartScreen settings</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/SmartScreen settings</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value Name: NewSmartScreenLibraryEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: NewSmartScreenLibraryEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

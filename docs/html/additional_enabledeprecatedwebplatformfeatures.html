@@ -1,0 +1,93 @@
+<h3>EnableDeprecatedWebPlatformFeatures</h3>
+
+<h4>Re-enable deprecated web platform features for a limited time (obsolete)</h4>
+
+<blockquote>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 86.</p>
+</blockquote>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77, until 86</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy is obsolete because dedicated web platform policies are now used to manage individual web platform feature deprecations.</p>
+
+<p>Specify a list of deprecated web platform features to temporarily re-enable.</p>
+
+<p>This policy lets you re-enable deprecated web platform features for a limited time. Features are identified by a string tag.</p>
+
+<p>If you don't configure this policy, if the list is empty, or if a feature doesn't match one of the supported string tags, all deprecated web platform features remain disabled.</p>
+
+<p>While the policy itself is supported on the above platforms, the feature it's enabling might not be available on all of those platforms. Not all deprecated Web Platform features can be re-enabled. Only those explicitly listed below can be re-enabled, and only for a limited period of time, which differs per feature. You can review the intent behind the Web Platform feature changes at https://bit.ly/blinkintents.</p>
+
+<p>The general format of the string tag is [DeprecatedFeatureName]_EffectiveUntil[yyyymmdd].</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li>ExampleDeprecatedFeature (ExampleDeprecatedFeature_EffectiveUntil20080902) = Enable ExampleDeprecatedFeature API through 2008/09/02</li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: EnableDeprecatedWebPlatformFeatures</li>
+<li>GP name: Re-enable deprecated web platform features for a limited time (obsolete)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\1 = "ExampleDeprecatedFeature_EffectiveUntil20080902"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: EnableDeprecatedWebPlatformFeatures</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;ExampleDeprecatedFeature_EffectiveUntil20080902&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

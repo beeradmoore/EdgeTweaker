@@ -1,0 +1,76 @@
+<h3>WebSQLNonSecureContextEnabled</h3>
+
+<h4>Force WebSQL in non-secure contexts to be enabled (obsolete)</h4>
+
+<blockquote>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 112.</p>
+</blockquote>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 107, until 112</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy doesn't work because WebSQL in non-secure contexts is on by default as of Microsoft Edge 105.
+If you enable this policy, WebSQL in non-secure contexts will be enabled.
+If you disable or don't configure this policy, WebSQL in non-secure contexts will follow the default settings of the browser.</p>
+
+<p>This policy was removed in Microsoft Edge 113 and is ignored if configured.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: WebSQLNonSecureContextEnabled</li>
+<li>GP name: Force WebSQL in non-secure contexts to be enabled (obsolete)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: WebSQLNonSecureContextEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: WebSQLNonSecureContextEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

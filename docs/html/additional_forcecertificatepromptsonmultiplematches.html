@@ -1,0 +1,78 @@
+<h3>ForceCertificatePromptsOnMultipleMatches</h3>
+
+<h4>Configure whether Microsoft Edge should automatically select a certificate when there are multiple certificate matches for a site configured with "AutoSelectCertificateForUrls" (deprecated)</h4>
+
+<blockquote>
+  <p>DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.</p>
+</blockquote>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 81 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy is deprecated because we are moving to a new policy. It won't work in Microsoft Edge version 104. The new policy to use is <a href="#promptonmultiplematchingcertificates">PromptOnMultipleMatchingCertificates</a>.</p>
+
+<p>Toggles whether users are prompted to select a certificate if there are multiple certificates available and a site is configured with <a href="#autoselectcertificateforurls">AutoSelectCertificateForUrls</a>. If you don't configure <a href="#autoselectcertificateforurls">AutoSelectCertificateForUrls</a> for a site, the user will always be prompted to select a certificate.</p>
+
+<p>If you set this policy to True, Microsoft Edge will prompt a user to select a certificate for sites on the list defined in <a href="#autoselectcertificateforurls">AutoSelectCertificateForUrls</a> if and only if there is more than one certificate.</p>
+
+<p>If you set this policy to False or don't configure it, Microsoft Edge will automatically select a certificate even if there are multiple matches for a certificate. The user will not be prompted to select a certificate for sites on the list defined in <a href="#autoselectcertificateforurls">AutoSelectCertificateForUrls</a>.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ForceCertificatePromptsOnMultipleMatches</li>
+<li>GP name: Configure whether Microsoft Edge should automatically select a certificate when there are multiple certificate matches for a site configured with "AutoSelectCertificateForUrls" (deprecated)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: ForceCertificatePromptsOnMultipleMatches</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ForceCertificatePromptsOnMultipleMatches</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

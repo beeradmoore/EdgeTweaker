@@ -1,0 +1,45 @@
+<h3>NtlmV2Enabled</h3>
+
+<h4>Control whether NTLMv2 authentication is enabled</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Controls whether NTLMv2 is enabled.</p>
+
+<p>All recent versions of Samba and Windows servers support NTLMv2. You should only disable NTLMv2 to address issues with backwards compatibility as it reduces the security of authentication.</p>
+
+<p>If you don't configure this policy, NTLMv2 is enabled by default.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: NtlmV2Enabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

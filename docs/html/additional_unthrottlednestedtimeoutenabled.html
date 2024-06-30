@@ -1,0 +1,77 @@
+<h3>UnthrottledNestedTimeoutEnabled</h3>
+
+<h4>JavaScript setTimeout will not be clamped until a higher nesting threshold is set (deprecated)</h4>
+
+<blockquote>
+  <p>DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.</p>
+</blockquote>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 105 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy is deprecated because it is a temporary policy for web standards compliance. It won't work in Microsoft Edge as soon as version 107.
+If you enable this policy, the JavaScript setTimeout and setInterval, with an interval smaller than 4ms, will not be clamped. This improves short horizon performance, but websites abusing the API will still eventually have their setTimeout usages clamped.
+If you disable or don't configure policy, the JavaScript setTimeout and setInterval, with an interval smaller than 4ms, will be clamped.</p>
+
+<p>This is a web standards compliancy feature that may change task ordering on a web page, leading to unexpected behavior on sites that are dependent on a certain ordering.
+It also may affect sites with a lot of usage of a timeout of 0ms for setTimeout. For example, increasing CPU load.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: UnthrottledNestedTimeoutEnabled</li>
+<li>GP name: JavaScript setTimeout will not be clamped until a higher nesting threshold is set (deprecated)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: UnthrottledNestedTimeoutEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: UnthrottledNestedTimeoutEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

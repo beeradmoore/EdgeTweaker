@@ -1,0 +1,76 @@
+<h3>DefaultSearchProviderName</h3>
+
+<h4>Default search provider name</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Specifies the name of the default search provider.</p>
+
+<p>If you enable this policy, you set the name of the default search provider.</p>
+
+<p>If you don't enable this policy or if you leave it empty, the host name specified by the search URL is used.</p>
+
+<p>'DefaultSearchProviderName' should be set to an organization-approved encrypted search provider that corresponds to the encrypted search provider set in DTBC-0008. This policy is applied only if you enable the <a href="#defaultsearchproviderenabled">DefaultSearchProviderEnabled</a> and <a href="#defaultsearchprovidersearchurl">DefaultSearchProviderSearchURL</a> policies.</p>
+
+<p>Starting in Microsoft Edge 84, you can set this policy as a recommended policy. If the user has already set a default search provider, the default search provider configured by this recommended policy will not be added to the list of search providers the user can choose from. If this is the desired behavior, use the <a href="#managedsearchengines">ManagedSearchEngines</a> policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>String</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: DefaultSearchProviderName</li>
+<li>GP name: Default search provider name</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Default search provider</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Default search provider</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value Name: DefaultSearchProviderName</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+"My Intranet Search"
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: DefaultSearchProviderName</li>
+<li><p>Example value:
+<code>xml
+&lt;string&gt;My Intranet Search&lt;/string&gt;
+</code></p>
+
+</li>
+</ul>

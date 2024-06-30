@@ -1,0 +1,170 @@
+<h3>ManagedSearchEngines</h3>
+
+<h4>Manage Search Engines</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Lets you configure a list of up to 10 search engines, one of which must be marked as the default search engine. Starting in Microsoft Edge version 100, you can configure up to 100 engines.</p>
+
+<p>You do not need to specify the encoding. Starting in Microsoft Edge 80, the suggest<em>url and image</em>search<em>url parameters are optional. The optional parameter, image</em>search<em>post</em>params (consists of comma-separated name/value pairs), is available starting in Microsoft Edge 80.</p>
+
+<p>Starting in Microsoft Edge 83, you can enable search engine discovery with the optional allow<em>search</em>engine<em>discovery parameter. This parameter must be the first item in the list. If allow</em>search<em>engine</em>discovery isn't specified, search engine discovery will be disabled by default. Starting in Microsoft Edge 84, you can set this policy as a recommended policy to allow search provider discovery. You don't need to add the optional allow<em>search</em>engine_discovery parameter. Starting in Microsoft Edge 100, setting this policy as a recommended policy will also allow users to manually add new search engines from their Microsoft Edge settings.</p>
+
+<p>If you enable this policy, users can't add, remove, or change any search engine in the list. Users can set their default search engine to any search engine in the list.</p>
+
+<p>If you disable or don't configure this policy, users can modify the search engines list as desired.</p>
+
+<p>If the <a href="#defaultsearchprovidersearchurl">DefaultSearchProviderSearchURL</a> policy is set, this policy (ManagedSearchEngines) is ignored. The user must restart their browser to finish applying this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Dictionary</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ManagedSearchEngines</li>
+<li>GP name: Manage Search Engines</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value Name: ManagedSearchEngines</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [
+  {
+    "allow_search_engine_discovery": true
+  },
+  {
+    "is_default": true,
+    "keyword": "example1.com",
+    "name": "Example1",
+    "search_url": "https://www.example1.com/search?q={searchTerms}",
+    "suggest_url": "https://www.example1.com/qbox?query={searchTerms}"
+  },
+  {
+    "image_search_post_params": "content={imageThumbnail},url={imageURL},sbisrc={SearchSource}",
+    "image_search_url": "https://www.example2.com/images/detail/search?iss=sbiupload",
+    "keyword": "example2.com",
+    "name": "Example2",
+    "search_url": "https://www.example2.com/search?q={searchTerms}",
+    "suggest_url": "https://www.example2.com/qbox?query={searchTerms}"
+  },
+  {
+    "encoding": "UTF-8",
+    "image_search_url": "https://www.example3.com/images/detail/search?iss=sbiupload",
+    "keyword": "example3.com",
+    "name": "Example3",
+    "search_url": "https://www.example3.com/search?q={searchTerms}",
+    "suggest_url": "https://www.example3.com/qbox?query={searchTerms}"
+  },
+  {
+    "keyword": "example4.com",
+    "name": "Example4",
+    "search_url": "https://www.example4.com/search?q={searchTerms}"
+  }
+]
+</code></p>
+
+<h5>Compact example value:</h5>
+
+<p><code>
+  SOFTWARE\Policies\Microsoft\Edge\ManagedSearchEngines = [{"allow_search_engine_discovery": true}, {"is_default": true, "keyword": "example1.com", "name": "Example1", "search_url": "https://www.example1.com/search?q={searchTerms}", "suggest_url": "https://www.example1.com/qbox?query={searchTerms}"}, {"image_search_post_params": "content={imageThumbnail},url={imageURL},sbisrc={SearchSource}", "image_search_url": "https://www.example2.com/images/detail/search?iss=sbiupload", "keyword": "example2.com", "name": "Example2", "search_url": "https://www.example2.com/search?q={searchTerms}", "suggest_url": "https://www.example2.com/qbox?query={searchTerms}"}, {"encoding": "UTF-8", "image_search_url": "https://www.example3.com/images/detail/search?iss=sbiupload", "keyword": "example3.com", "name": "Example3", "search_url": "https://www.example3.com/search?q={searchTerms}", "suggest_url": "https://www.example3.com/qbox?query={searchTerms}"}, {"keyword": "example4.com", "name": "Example4", "search_url": "https://www.example4.com/search?q={searchTerms}"}]
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ManagedSearchEngines</li>
+<li><p>Example value:
+<code>xml
+&lt;key&gt;ManagedSearchEngines&lt;/key&gt;
+&lt;array&gt;
+&lt;dict&gt;
+&lt;key&gt;allow_search_engine_discovery&lt;/key&gt;
+&lt;true/&gt;
+&lt;/dict&gt;
+&lt;dict&gt;
+&lt;key&gt;is_default&lt;/key&gt;
+&lt;true/&gt;
+&lt;key&gt;keyword&lt;/key&gt;
+&lt;string&gt;example1.com&lt;/string&gt;
+&lt;key&gt;name&lt;/key&gt;
+&lt;string&gt;Example1&lt;/string&gt;
+&lt;key&gt;search_url&lt;/key&gt;
+&lt;string&gt;https://www.example1.com/search?q={searchTerms}&lt;/string&gt;
+&lt;key&gt;suggest_url&lt;/key&gt;
+&lt;string&gt;https://www.example1.com/qbox?query={searchTerms}&lt;/string&gt;
+&lt;/dict&gt;
+&lt;dict&gt;
+&lt;key&gt;image_search_post_params&lt;/key&gt;
+&lt;string&gt;content={imageThumbnail},url={imageURL},sbisrc={SearchSource}&lt;/string&gt;
+&lt;key&gt;image_search_url&lt;/key&gt;
+&lt;string&gt;https://www.example2.com/images/detail/search?iss=sbiupload&lt;/string&gt;
+&lt;key&gt;keyword&lt;/key&gt;
+&lt;string&gt;example2.com&lt;/string&gt;
+&lt;key&gt;name&lt;/key&gt;
+&lt;string&gt;Example2&lt;/string&gt;
+&lt;key&gt;search_url&lt;/key&gt;
+&lt;string&gt;https://www.example2.com/search?q={searchTerms}&lt;/string&gt;
+&lt;key&gt;suggest_url&lt;/key&gt;
+&lt;string&gt;https://www.example2.com/qbox?query={searchTerms}&lt;/string&gt;
+&lt;/dict&gt;
+&lt;dict&gt;
+&lt;key&gt;encoding&lt;/key&gt;
+&lt;string&gt;UTF-8&lt;/string&gt;
+&lt;key&gt;image_search_url&lt;/key&gt;
+&lt;string&gt;https://www.example3.com/images/detail/search?iss=sbiupload&lt;/string&gt;
+&lt;key&gt;keyword&lt;/key&gt;
+&lt;string&gt;example3.com&lt;/string&gt;
+&lt;key&gt;name&lt;/key&gt;
+&lt;string&gt;Example3&lt;/string&gt;
+&lt;key&gt;search_url&lt;/key&gt;
+&lt;string&gt;https://www.example3.com/search?q={searchTerms}&lt;/string&gt;
+&lt;key&gt;suggest_url&lt;/key&gt;
+&lt;string&gt;https://www.example3.com/qbox?query={searchTerms}&lt;/string&gt;
+&lt;/dict&gt;
+&lt;dict&gt;
+&lt;key&gt;keyword&lt;/key&gt;
+&lt;string&gt;example4.com&lt;/string&gt;
+&lt;key&gt;name&lt;/key&gt;
+&lt;string&gt;Example4&lt;/string&gt;
+&lt;key&gt;search_url&lt;/key&gt;
+&lt;string&gt;https://www.example4.com/search?q={searchTerms}&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

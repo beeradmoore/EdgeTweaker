@@ -1,0 +1,64 @@
+<h3>RequireOnlineRevocationChecksForLocalAnchors</h3>
+
+<h4>Specify if online OCSP/CRL checks are required for local trust anchors</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 123 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Control whether online revocation checks (OCSP/CRL checks) are required. If Microsoft Edge can't get revocation status information, these certificates are treated as revoked ("hard-fail").</p>
+
+<p>If you enable this policy, Microsoft Edge always performs revocation checking for server certificates that successfully validate and are signed by locally-installed CA certificates.</p>
+
+<p>If you don't configure or disable this policy, then Microsoft Edge uses the existing online revocation checking settings.</p>
+
+<p>On macOS, this policy has no effect if the <a href="#microsoftrootstoreenabled">MicrosoftRootStoreEnabled</a> policy is set to False.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: RequireOnlineRevocationChecksForLocalAnchors</li>
+<li>GP name: Specify if online OCSP/CRL checks are required for local trust anchors</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: RequireOnlineRevocationChecksForLocalAnchors</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000000
+</code></p>
+
+

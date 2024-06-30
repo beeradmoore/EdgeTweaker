@@ -1,0 +1,99 @@
+<h3>DiagnosticData</h3>
+
+<h4>Send required and optional diagnostic data about browser usage</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 122 or later</li>
+<li>On macOS since 86 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy controls sending required and optional diagnostic data about browser usage to Microsoft.</p>
+
+<p>Required diagnostic data is collected to keep Microsoft Edge secure, up to date and performing as expected.</p>
+
+<p>Optional diagnostic data includes data about how you use the browser, websites you visit and crash reports to Microsoft for product and service improvement.</p>
+
+<p>Up to version 121, this policy is not supported on Windows 10 devices. To control this data collection on Windows 10 for 121 and previous, IT admins must use the Windows diagnostic data group policy. This policy will either be 'Allow Telemetry' or 'Allow Diagnostic Data', depending on the version of Windows. Learn more about Windows 10 diagnostic data collection: <a href="https://go.microsoft.com/fwlink/?linkid=2099569">https://go.microsoft.com/fwlink/?linkid=2099569</a></p>
+
+<p>For version 122 and later, this policy is supported on Windows 10 devices to allow controlling Microsoft Edge data collection separately from Windows 10 diagnostics data collection.</p>
+
+<p>Use one of the following settings to configure this policy:</p>
+
+<p>'Off' turns off required and optional diagnostic data collection. This option is not recommended.</p>
+
+<p>'RequiredData' sends required diagnostic data but turns off optional diagnostic data collection. Microsoft Edge will send required diagnostic data to keep Microsoft Edge secure, up to date and performing as expected.</p>
+
+<p>'OptionalData' sends optional diagnostic data includes data about browser usage, websites that are visited, crash reports sent to Microsoft for product and service improvement.</p>
+
+<p>On Windows 7/macOS, this policy controls sending required and optional data to Microsoft.</p>
+
+<p>If you don't configure this policy or disable it, Microsoft Edge will default to the user's preference.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>Off (0) = Off (Not recommended)</p></li>
+<li><p>RequiredData (1) = Required data</p></li>
+<li><p>OptionalData (2) = Optional data</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: DiagnosticData</li>
+<li>GP name: Send required and optional diagnostic data about browser usage</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: DiagnosticData</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000002
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: DiagnosticData</li>
+<li><p>Example value:
+<code>xml
+&lt;integer&gt;2&lt;/integer&gt;
+</code></p>
+
+</li>
+</ul>

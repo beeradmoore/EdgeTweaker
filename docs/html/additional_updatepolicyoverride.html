@@ -1,0 +1,59 @@
+<h3>UpdatePolicyOverride</h3>
+
+<h4>Specifies how Microsoft Edge Update handles available updates from Microsoft Edge</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On macOS since 89 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>If you enable this policy, Microsoft Edge Update handles Microsoft Edge updates according to how you configure the following options:</p>
+
+<ul>
+<li><p>Automatic silent updates only: Updates are applied only when they're found by the periodic update check.</p></li>
+<li><p>Manual updates only: Updates are applied only when the user runs a manual update check. (Not all apps provide an interface for this option.)</p></li>
+</ul>
+
+<p>If you select manual updates, make sure you periodically check for updates by using Microsoft Autoupdate.</p>
+
+<p>If you don't enable and configure this policy, Microsoft Edge Update automatically checks for updates.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>automatic-silent-only (automatic-silent-only) = Updates are applied only when they're found by the periodic update check.</p></li>
+<li><p>manual-only (manual-only) = Updates are applied only when the user runs a manual update check. (Not all apps provide an interface for this option.)</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>String</li>
+</ul>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: UpdatePolicyOverride</li>
+<li><p>Example value:
+<code>xml
+&lt;string&gt;automatic-silent-only&lt;/string&gt;
+</code></p>
+
+</li>
+</ul>

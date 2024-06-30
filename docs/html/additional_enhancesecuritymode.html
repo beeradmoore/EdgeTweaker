@@ -1,0 +1,93 @@
+<h3>EnhanceSecurityMode</h3>
+
+<h4>Enhance the security state in Microsoft Edge</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 98 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy lets you enhance the security state in Microsoft Edge.</p>
+
+<p>If you set this policy to 'StandardMode', the enhanced mode will be turned off and Microsoft Edge will fallback to its standard security mode.</p>
+
+<p>If you set this policy to 'BalancedMode', the security state will be in balanced mode.</p>
+
+<p>If you set this policy to 'StrictMode', the security state will be in strict mode.</p>
+
+<p>If you set this policy to 'BasicMode', the security state will be in basic mode.</p>
+
+<p>Note: Sites that use WebAssembly (WASM) are not supported on 32-bit systems when <a href="#enhancesecuritymode">EnhanceSecurityMode</a> is enabled. If you require access to a site that uses WASM, consider adding it to your exception list as described in <a href="https://go.microsoft.com/fwlink/?linkid=2183321">https://go.microsoft.com/fwlink/?linkid=2183321</a>.</p>
+
+<p>Starting in Microsoft Edge 113, 'BasicMode' is deprecated and is treated the same as 'BalancedMode'. It won't work in Microsoft Edge version 116.</p>
+
+<p>For detailed information about Enhanced Security Mode, see <a href="https://go.microsoft.com/fwlink/?linkid=2185895">https://go.microsoft.com/fwlink/?linkid=2185895</a></p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>StandardMode (0) = Standard mode</p></li>
+<li><p>BalancedMode (1) = Balanced mode</p></li>
+<li><p>StrictMode (2) = Strict mode</p></li>
+<li><p>BasicMode (3) = (Deprecated) Basic mode</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: EnhanceSecurityMode</li>
+<li>GP name: Enhance the security state in Microsoft Edge</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: EnhanceSecurityMode</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000000
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: EnhanceSecurityMode</li>
+<li><p>Example value:
+<code>xml
+&lt;integer&gt;0&lt;/integer&gt;
+</code></p>
+
+</li>
+</ul>

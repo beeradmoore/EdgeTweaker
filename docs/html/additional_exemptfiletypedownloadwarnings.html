@@ -1,0 +1,130 @@
+<h3>ExemptFileTypeDownloadWarnings</h3>
+
+<h4>Disable download file type extension-based warnings for specified file types on domains</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 105 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>You can enable this policy to create a dictionary of file type extensions with a corresponding list of domains that will be exempted from file type extension-based download warnings. This lets enterprise administrators block file type extension-based download warnings for files that are associated with a listed domain. For example, if  the "jnlp" extension is associated with "website1.com", users would not see a warning when downloading "jnlp" files from "website1.com", but see a download warning when downloading "jnlp" files from "website2.com".</p>
+
+<p>Files with file type extensions specified for domains identified by this policy will still be subject to non-file type extension-based security warnings such as mixed-content download warnings and Microsoft Defender SmartScreen warnings.</p>
+
+<p>If you disable this policy or don't configure it, file types that trigger extension-based download warnings will show warnings to the user.</p>
+
+<p>If you enable this policy:</p>
+
+<ul>
+<li>The URL pattern should be formatted according to <a href="https://go.microsoft.com/fwlink/?linkid=2095322">https://go.microsoft.com/fwlink/?linkid=2095322</a>.</li>
+<li>The file type extension entered must be in lower-cased ASCII. The leading separator should not be included when listing the file type extension, so list "jnlp" should be used instead of ".jnlp".</li>
+</ul>
+
+<p>Example:</p>
+
+<p>The following example value would prevent file type extension-based download warnings on swf, exe, and jnlp extensions for *.contoso.com domains. It will show the user a file type extension-based download warning on any other domain for exe and jnlp files, but not for swf files.</p>
+
+<p>[
+  { "file<em>extension": "jnlp", "domains": ["contoso.com"] },
+  { "file</em>extension": "exe", "domains": ["contoso.com"] },
+  { "file_extension": "swf", "domains": ["*"] }
+]</p>
+
+<p>Note that while the preceding example shows the suppression of file type extension-based download warnings for "swf" files for all domains, applying suppression of such warnings for all domains for any dangerous file type extension is not recommended due to security concerns. It is shown in the example merely to demonstrate the ability to do so.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Dictionary</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ExemptFileTypeDownloadWarnings</li>
+<li>GP name: Disable download file type extension-based warnings for specified file types on domains</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: ExemptFileTypeDownloadWarnings</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+SOFTWARE\Policies\Microsoft\Edge\ExemptFileTypeDownloadWarnings = [
+  {
+    "domains": [
+      "https://contoso.com",
+      "contoso2.com"
+    ],
+    "file_extension": "jnlp"
+  },
+  {
+    "domains": [
+      "*"
+    ],
+    "file_extension": "swf"
+  }
+]
+</code></p>
+
+<h5>Compact example value:</h5>
+
+<p><code>
+  SOFTWARE\Policies\Microsoft\Edge\ExemptFileTypeDownloadWarnings = [{"domains": ["https://contoso.com", "contoso2.com"], "file_extension": "jnlp"}, {"domains": ["*"], "file_extension": "swf"}]
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ExemptFileTypeDownloadWarnings</li>
+<li><p>Example value:
+<code>xml
+&lt;key&gt;ExemptFileTypeDownloadWarnings&lt;/key&gt;
+&lt;array&gt;
+&lt;dict&gt;
+&lt;key&gt;domains&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;https://contoso.com&lt;/string&gt;
+  &lt;string&gt;contoso2.com&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;file_extension&lt;/key&gt;
+&lt;string&gt;jnlp&lt;/string&gt;
+&lt;/dict&gt;
+&lt;dict&gt;
+&lt;key&gt;domains&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;*&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;file_extension&lt;/key&gt;
+&lt;string&gt;swf&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

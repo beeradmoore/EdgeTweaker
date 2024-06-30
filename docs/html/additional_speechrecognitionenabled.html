@@ -1,0 +1,76 @@
+<h3>SpeechRecognitionEnabled</h3>
+
+<h4>Configure Speech Recognition</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 87 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Set whether websites can use the W3C Web Speech API to recognize speech from the user. The Microsoft Edge implementation of the Web Speech API uses Azure Cognitive Services, so voice data will leave the machine.</p>
+
+<p>If you enable or don't configure this policy, web-based applications that use the Web Speech API can use Speech Recognition.</p>
+
+<p>If you disable this policy, Speech Recognition is not available through the Web Speech API.</p>
+
+<p>Read more about this feature here:
+SpeechRecognition API: <a href="https://go.microsoft.com/fwlink/?linkid=2143388">https://go.microsoft.com/fwlink/?linkid=2143388</a>
+Cognitive Services: <a href="https://go.microsoft.com/fwlink/?linkid=2143680">https://go.microsoft.com/fwlink/?linkid=2143680</a></p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: SpeechRecognitionEnabled</li>
+<li>GP name: Configure Speech Recognition</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: SpeechRecognitionEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: SpeechRecognitionEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

@@ -1,0 +1,81 @@
+<h3>PrintingWebpageLayout</h3>
+
+<h4>Sets layout for printing</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 93 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Configuring  this   policy  sets  the  layout  for  printing  webpages.</p>
+
+<p>If  you  disable  or  don't  configure  this  policy,  users  can  decide  whether  to  print  webpages  in  Portrait  or  Landscape  layout.</p>
+
+<p>If  you  enable  this  policy,  the  selected  option  is  set  as  the  layout  option.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>portrait (0) = Sets layout option as portrait</p></li>
+<li><p>landscape (1) = Sets layout option as landscape</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: PrintingWebpageLayout</li>
+<li>GP name: Sets layout for printing</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Printing</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Printing</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value Name: PrintingWebpageLayout</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000000
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: PrintingWebpageLayout</li>
+<li><p>Example value:
+<code>xml
+&lt;integer&gt;0&lt;/integer&gt;
+</code></p>
+
+</li>
+</ul>

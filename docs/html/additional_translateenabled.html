@@ -1,0 +1,76 @@
+<h3>TranslateEnabled</h3>
+
+<h4>Enable Translate</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Enables the integrated Microsoft translation service on Microsoft Edge.</p>
+
+<p>If you enable this policy, Microsoft Edge offers to translate a webpage by showing an integrated translate flyout when the language detected on a webpage isn't listed under preferred languages. A translate option is available on the right-click context menu.</p>
+
+<p>Users can also translate selected text on a webpage via the right-click context menu, or on a PDF via the PDF toolbar and the right-click context menu.</p>
+
+<p>If you don't configure this policy, the policy is enabled by default. Users can choose whether to use the translation functionality or not.</p>
+
+<p>You can disable this policy to disable all built-in translate features.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: TranslateEnabled</li>
+<li>GP name: Enable Translate</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value Name: TranslateEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: TranslateEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

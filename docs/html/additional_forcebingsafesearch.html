@@ -1,0 +1,86 @@
+<h3>ForceBingSafeSearch</h3>
+
+<h4>Enforce Bing SafeSearch</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Ensure that queries in Bing web search are done with SafeSearch set to the value specified. Users can't change this setting.</p>
+
+<p>If you configure this policy to 'BingSafeSearchNoRestrictionsMode', SafeSearch in Bing search falls back to the bing.com value.</p>
+
+<p>If you configure this policy to 'BingSafeSearchModerateMode', the moderate setting is used in SafeSearch. The moderate setting filters adult videos and images but not text from search results.</p>
+
+<p>If you configure this policy to 'BingSafeSearchStrictMode', the strict setting in SafeSearch is used. The strict setting filters adult text, images, and videos.</p>
+
+<p>If you disable this policy or don't configure it, SafeSearch in Bing search isn't enforced, and users can set the value they want on bing.com.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>BingSafeSearchNoRestrictionsMode (0) = Don't configure search restrictions in Bing</p></li>
+<li><p>BingSafeSearchModerateMode (1) = Configure moderate search restrictions in Bing</p></li>
+<li><p>BingSafeSearchStrictMode (2) = Configure strict search restrictions in Bing</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ForceBingSafeSearch</li>
+<li>GP name: Enforce Bing SafeSearch</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: ForceBingSafeSearch</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000000
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ForceBingSafeSearch</li>
+<li><p>Example value:
+<code>xml
+&lt;integer&gt;0&lt;/integer&gt;
+</code></p>
+
+</li>
+</ul>

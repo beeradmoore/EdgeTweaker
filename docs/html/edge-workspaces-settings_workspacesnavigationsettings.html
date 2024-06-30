@@ -1,0 +1,158 @@
+<h3>WorkspacesNavigationSettings</h3>
+
+<h4>Configure navigation settings per groups of URLs in Microsoft Edge Workspaces</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 110 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This setting lets you to define groups of URLs, and apply specific Microsoft Edge Workspaces navigation settings to each group.</p>
+
+<p>If this policy is configured, Microsoft Edge Workspaces will use the configured settings when deciding whether and how to share navigations among collaborators in a Microsoft Edge Workspace.</p>
+
+<p>If this policy is not configured, Microsoft Edge Workspaces will use only default and internally configured navigation settings.</p>
+
+<p>For more information about configuration options, see <a href="https://go.microsoft.com/fwlink/?linkid=2218655">https://go.microsoft.com/fwlink/?linkid=2218655</a></p>
+
+<p>Note, format url<em>patterns according to <a href="https://go.microsoft.com/fwlink/?linkid=2095322">https://go.microsoft.com/fwlink/?linkid=2095322</a>. You can configure the url</em>regex_patterns in this policy to match multiple URLs using a Perl style regular expression for the pattern. Note that pattern matches are case sensitive. For more information about the regular expression rules that are used, refer to https://go.microsoft.com/fwlink/p/?linkid=2133903.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Dictionary</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: WorkspacesNavigationSettings</li>
+<li>GP name: Configure navigation settings per groups of URLs in Microsoft Edge Workspaces</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Edge Workspaces settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: WorkspacesNavigationSettings</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+SOFTWARE\Policies\Microsoft\Edge\WorkspacesNavigationSettings = [
+  {
+    "navigation_options": {
+      "do_not_send_to": true,
+      "remove_all_query_parameters": true
+    },
+    "url_patterns": [
+      "https://contoso.com",
+      "https://www.fabrikam.com",
+      ".exact.hostname.com"
+    ]
+  },
+  {
+    "navigation_options": {
+      "query_parameters_to_remove": [
+        "username",
+        "login_hint"
+      ]
+    },
+    "url_patterns": [
+      "https://adatum.com"
+    ]
+  },
+  {
+    "navigation_options": {
+      "do_not_send_from": true,
+      "prefer_initial_url": true
+    },
+    "url_regex_patterns": [
+      "\\Ahttps://.*?tafe\\..*?trs.*?\\.fabrikam.com/Sts"
+    ]
+  }
+]
+</code></p>
+
+<h5>Compact example value:</h5>
+
+<p><code>
+  SOFTWARE\Policies\Microsoft\Edge\WorkspacesNavigationSettings = [{"navigation_options": {"do_not_send_to": true, "remove_all_query_parameters": true}, "url_patterns": ["https://contoso.com", "https://www.fabrikam.com", ".exact.hostname.com"]}, {"navigation_options": {"query_parameters_to_remove": ["username", "login_hint"]}, "url_patterns": ["https://adatum.com"]}, {"navigation_options": {"do_not_send_from": true, "prefer_initial_url": true}, "url_regex_patterns": ["\\Ahttps://.*?tafe\\..*?trs.*?\\.fabrikam.com/Sts"]}]
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: WorkspacesNavigationSettings</li>
+<li><p>Example value:
+<code>xml
+&lt;key&gt;WorkspacesNavigationSettings&lt;/key&gt;
+&lt;array&gt;
+&lt;dict&gt;
+&lt;key&gt;navigation_options&lt;/key&gt;
+&lt;dict&gt;
+  &lt;key&gt;do_not_send_to&lt;/key&gt;
+  &lt;true/&gt;
+  &lt;key&gt;remove_all_query_parameters&lt;/key&gt;
+  &lt;true/&gt;
+&lt;/dict&gt;
+&lt;key&gt;url_patterns&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;https://contoso.com&lt;/string&gt;
+  &lt;string&gt;https://www.fabrikam.com&lt;/string&gt;
+  &lt;string&gt;.exact.hostname.com&lt;/string&gt;
+&lt;/array&gt;
+&lt;/dict&gt;
+&lt;dict&gt;
+&lt;key&gt;navigation_options&lt;/key&gt;
+&lt;dict&gt;
+  &lt;key&gt;query_parameters_to_remove&lt;/key&gt;
+  &lt;array&gt;
+    &lt;string&gt;username&lt;/string&gt;
+    &lt;string&gt;login_hint&lt;/string&gt;
+  &lt;/array&gt;
+&lt;/dict&gt;
+&lt;key&gt;url_patterns&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;https://adatum.com&lt;/string&gt;
+&lt;/array&gt;
+&lt;/dict&gt;
+&lt;dict&gt;
+&lt;key&gt;navigation_options&lt;/key&gt;
+&lt;dict&gt;
+  &lt;key&gt;do_not_send_from&lt;/key&gt;
+  &lt;true/&gt;
+  &lt;key&gt;prefer_initial_url&lt;/key&gt;
+  &lt;true/&gt;
+&lt;/dict&gt;
+&lt;key&gt;url_regex_patterns&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;\Ahttps://.*?tafe\..*?trs.*?\.fabrikam.com/Sts&lt;/string&gt;
+&lt;/array&gt;
+&lt;/dict&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

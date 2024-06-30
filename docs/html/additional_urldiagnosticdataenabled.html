@@ -1,0 +1,74 @@
+<h3>UrlDiagnosticDataEnabled</h3>
+
+<h4>URL reporting in Edge diagnostic data enabled</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 122 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Controls sending URLs of pages visited and per-page usage in the Microsoft Edge optional diagnostics data to Microsoft to help make browsing and search better. This also includes identifiers and usage diagnostics of other browser components that can modify or provide content, such as extensions.</p>
+
+<p>This policy is applicable only if the <a href="#diagnosticdata">DiagnosticData</a> setting is set to 'OptionalData'. See the description of <a href="#diagnosticdata">DiagnosticData</a> for more information on how Microsoft Edge diagnostic data levels are set.</p>
+
+<p>If you enable or don't configure this setting, URLs are provided in optional diagnostic data.</p>
+
+<p>If you disable this setting, URLs are not reported in optional diagnostic data.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: UrlDiagnosticDataEnabled</li>
+<li>GP name: URL reporting in Edge diagnostic data enabled</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: UrlDiagnosticDataEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: UrlDiagnosticDataEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

@@ -1,0 +1,79 @@
+<h3>AutoplayAllowlist</h3>
+
+<h4>Allow media autoplay on specific sites</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 93 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Define a list of sites, based on URL patterns, that are allowed to autoplay media.</p>
+
+<p>If you don't configure this policy, the global default value from the <a href="#autoplayallowed">AutoplayAllowed</a> policy (if set) or the user's personal configuration is used for all sites.</p>
+
+<p>For detailed information about valid url patterns, see <a href="https://go.microsoft.com/fwlink/?linkid=2095322">https://go.microsoft.com/fwlink/?linkid=2095322</a>.</p>
+
+<p>Note: * is not an accepted value for this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: AutoplayAllowlist</li>
+<li>GP name: Allow media autoplay on specific sites</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\AutoplayAllowlist</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\AutoplayAllowlist\1 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\AutoplayAllowlist\2 = "[*.]contoso.edu"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: AutoplayAllowlist</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;https://www.contoso.com&lt;/string&gt;
+&lt;string&gt;[*.]contoso.edu&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

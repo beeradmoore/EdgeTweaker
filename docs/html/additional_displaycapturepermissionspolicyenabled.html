@@ -1,0 +1,88 @@
+<h3>DisplayCapturePermissionsPolicyEnabled</h3>
+
+<h4>Specifies whether the display-capture permissions-policy is checked or skipped (obsolete)</h4>
+
+<blockquote>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 109.</p>
+</blockquote>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 95, until 109</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy is obsolete. The policy was a temporary workaround for non-spec-compliant enterprise applications.</p>
+
+<p>This policy stopped working in Microsoft Edge 107 and was obsoleted in Microsoft Edge 110.</p>
+
+<p>The display-capture permissions-policy gates access to getDisplayMedia(),
+as per this spec:
+https://www.w3.org/TR/screen-capture/#feature-policy-integration
+However, if this policy is Disabled, this requirement is not enforced,
+and getDisplayMedia() is allowed from contexts that would otherwise be
+forbidden.</p>
+
+<p>If you enable or don't configure this policy, sites can only call getDisplayMedia() from
+contexts which are allowlisted by the display-capture permissions-policy.</p>
+
+<p>If you disable this policy, sites can call getDisplayMedia() even from contexts
+which are not allowlisted by the display-capture permissions policy.
+Note that other restrictions may still apply.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: DisplayCapturePermissionsPolicyEnabled</li>
+<li>GP name: Specifies whether the display-capture permissions-policy is checked or skipped (obsolete)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: DisplayCapturePermissionsPolicyEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: DisplayCapturePermissionsPolicyEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

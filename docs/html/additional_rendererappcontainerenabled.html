@@ -1,0 +1,71 @@
+<h3>RendererAppContainerEnabled</h3>
+
+<h4>Enable renderer in app container</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 96 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Launches Renderer processes into an App Container for
+additional security benefits.</p>
+
+<p>If you don't configure this policy, Microsoft Edge will launch the renderer process in an app
+container in a future update.</p>
+
+<p>If you enable this policy, Microsoft Edge will launch the renderer process in an app container.</p>
+
+<p>If you disable this policy, Microsoft Edge will not launch the renderer process in an app container.</p>
+
+<p>Only turn off the policy if there are compatibility issues with
+third-party software that must run inside Microsoft Edge's renderer processes.</p>
+
+<p>This policy will only take effect on Windows 10 RS5 and above.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: RendererAppContainerEnabled</li>
+<li>GP name: Enable renderer in app container</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: RendererAppContainerEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000000
+</code></p>
+
+

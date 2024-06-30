@@ -1,0 +1,70 @@
+<h3>NonRemovableProfileEnabled</h3>
+
+<h4>Configure whether a user always has a default profile automatically signed in with their work or school account</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 78 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy determines if a user can remove the Microsoft Edge profile automatically signed in with a user's work or school account.</p>
+
+<p>If you enable this policy, a non-removable profile will be created with the user's work or school account on Windows. This profile can't be signed out or removed. The profile will be non-removable only if profile is signed-in with either on-premises account or Azure AD account that matches OS sign-in account.</p>
+
+<p>If you disable or don't configure this policy, the profile automatically signed in with a user's work or school account on Windows can be signed out or removed by the user.</p>
+
+<p>If you want to configure browser sign in, use the <a href="#browsersignin">BrowserSignin</a> policy.</p>
+
+<p>This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain, Windows 10 Pro or Enterprise instances that enrolled for device management.</p>
+
+<p>From Microsoft Edge 89 onwards, if there is an existing on-premises profile with sync disabled and machine is hybrid joined, it will auto-upgrade the on-premises profile to Azure AD profile and make it non-removable instead of creating a new non-removable Azure AD profile.</p>
+
+<p>From Microsoft Edge 93 onwards, if policy <a href="#implicitsigninenabled">ImplicitSignInEnabled</a> is disabled, this policy will not take any effect.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: NonRemovableProfileEnabled</li>
+<li>GP name: Configure whether a user always has a default profile automatically signed in with their work or school account</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: NonRemovableProfileEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+

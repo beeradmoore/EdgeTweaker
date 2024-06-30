@@ -1,0 +1,72 @@
+<h3>FetchKeepaliveDurationSecondsOnShutdown</h3>
+
+<h4>Fetch keepalive duration on shutdown</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 90 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Controls the duration (in seconds) that keepalive requests are allowed to prevent the browser from completing its shutdown.</p>
+
+<p>If you configure this policy, the browser will block completing shutdown while it processes any outstanding keepalive requests (see https://fetch.spec.whatwg.org/#request-keepalive-flag) up to the maximum period of time specified by this policy.</p>
+
+<p>If you disable or don't configure this policy, the default value of 0 seconds is used and outstanding keepalive requests will be immediately cancelled during browser shutdown.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: FetchKeepaliveDurationSecondsOnShutdown</li>
+<li>GP name: Fetch keepalive duration on shutdown</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: FetchKeepaliveDurationSecondsOnShutdown</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: FetchKeepaliveDurationSecondsOnShutdown</li>
+<li><p>Example value:
+<code>xml
+&lt;integer&gt;1&lt;/integer&gt;
+</code></p>
+
+</li>
+</ul>

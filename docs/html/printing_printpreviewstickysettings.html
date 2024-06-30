@@ -1,0 +1,103 @@
+<h3>PrintPreviewStickySettings</h3>
+
+<h4>Configure the sticky print preview settings</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 110 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Configuring this policy sets the print preview settings as the most recent choice in Print Preview instead of the default print preview settings.</p>
+
+<p>Each item of this policy expects a boolean:</p>
+
+<p>Layout specifies if the webpage layout should be kept sticky or not in print preview settings. If we set this to True the webpage layout uses the recent choice otherwise it will set to default value.</p>
+
+<p>Size specifies if the page size should be kept sticky or not in print preview settings. If we set this to True the page size uses the recent choice otherwise it will set to default value.</p>
+
+<p>Scale Type specifies if the scaling percentage and scale type should be kept sticky or not in print preview settings. If we set this to True the scale percentage and scale type both uses the recent choice oherwise it will set to default value.</p>
+
+<p>Margins specifies if the page margin should be kept sticky or not in print preview settings. If we set this to True the page margins uses the recent choice otherwise it will set to default value.</p>
+
+<p>If you enable this policy, the selected values will use the most recent choice in Print Preview.</p>
+
+<p>If you disable or don't configure this policy, print preview settings will not be impacted.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Dictionary</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: PrintPreviewStickySettings</li>
+<li>GP name: Configure the sticky print preview settings</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Printing</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Printing</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value Name: PrintPreviewStickySettings</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+SOFTWARE\Policies\Microsoft\Edge\PrintPreviewStickySettings = {
+  "layout": false,
+  "margins": true,
+  "scaleType": false,
+  "size": true
+}
+</code></p>
+
+<h5>Compact example value:</h5>
+
+<p><code>
+  SOFTWARE\Policies\Microsoft\Edge\PrintPreviewStickySettings = {"layout": false, "margins": true, "scaleType": false, "size": true}
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: PrintPreviewStickySettings</li>
+<li><p>Example value:
+<code>xml
+&lt;key&gt;PrintPreviewStickySettings&lt;/key&gt;
+&lt;dict&gt;
+&lt;key&gt;layout&lt;/key&gt;
+&lt;false/&gt;
+&lt;key&gt;margins&lt;/key&gt;
+&lt;true/&gt;
+&lt;key&gt;scaleType&lt;/key&gt;
+&lt;false/&gt;
+&lt;key&gt;size&lt;/key&gt;
+&lt;true/&gt;
+&lt;/dict&gt;
+</code></p>
+
+</li>
+</ul>

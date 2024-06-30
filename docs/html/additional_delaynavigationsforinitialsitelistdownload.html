@@ -1,0 +1,80 @@
+<h3>DelayNavigationsForInitialSiteListDownload</h3>
+
+<h4>Require that the Enterprise Mode Site List is available before tab navigation</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 84 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Lets you specify whether Microsoft Edge tabs wait to navigate until the browser has downloaded the initial Enterprise Mode Site List. This setting is intended for the scenario where the browser home page should load in Internet Explorer mode, and it is important that is does so on browser first run after IE mode is enabled. If this scenario does not exist, we recommend not enabling this setting because it can negatively impact the performance of loading the home page. The setting only applies when Microsoft Edge does not have a cached Enterprise Mode Site List, such as on browser first run after IE mode is enabled.</p>
+
+<p>This setting works in conjunction with:
+<a href="#internetexplorerintegrationlevel">InternetExplorerIntegrationLevel</a> is set to 'IEMode'
+and one of either the
+<a href="#internetexplorerintegrationsitelist">InternetExplorerIntegrationSiteList</a> or the <a href="#internetexplorerintegrationcloudsitelist">InternetExplorerIntegrationCloudSiteList</a> policy where the list has at least one entry.</p>
+
+<p>The timeout behavior of this policy can be configured with the <a href="#navigationdelayforinitialsitelistdownloadtimeout">NavigationDelayForInitialSiteListDownloadTimeout</a> policy.</p>
+
+<p>If you set this policy to 'All', when Microsoft Edge does not have a cached version of the Enterprise Mode Site List, tabs delay navigating until the browser has downloaded the site list. Sites configured to open in Internet Explorer mode by the site list will load in Internet Explorer mode, even during the initial navigation of the browser. Sites that cannot possibly be configured to open in Internet Explorer, such as any site with a scheme other than http:, https:, file:, or ftp: do not delay navigating and load immediately in Edge mode.</p>
+
+<p>When used in conjunction with the <a href="#internetexplorerintegrationcloudsitelist">InternetExplorerIntegrationCloudSiteList</a> policy, during first launch of Microsoft Edge, there is a delay because implicit sign-in needs to finish before Microsoft Edge attempts to download the site list from the Microsoft cloud, since this requires authentication to the cloud service.</p>
+
+<p>If you set this policy to 'None' or don't configure it, when Microsoft Edge does not have a cached version of the Enterprise Mode Site List, tabs will navigate immediately, and not wait for the browser to download the Enterprise Mode Site List. Sites configured to open in Internet Explorer mode by the site list will open in Microsoft Edge mode until the browser has finished downloading the Enterprise Mode Site List.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>None (0) = None</p></li>
+<li><p>All (1) = All eligible navigations</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: DelayNavigationsForInitialSiteListDownload</li>
+<li>GP name: Require that the Enterprise Mode Site List is available before tab navigation</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: DelayNavigationsForInitialSiteListDownload</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+

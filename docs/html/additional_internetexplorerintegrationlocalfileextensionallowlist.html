@@ -1,0 +1,70 @@
+<h3>InternetExplorerIntegrationLocalFileExtensionAllowList</h3>
+
+<h4>Open local files in Internet Explorer mode file extension allow list</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 88 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy limits which file:// URLs are allowed to be launched into Internet Explorer mode based on file extension.</p>
+
+<p>This setting works in conjunction with:
+<a href="#internetexplorerintegrationlevel">InternetExplorerIntegrationLevel</a> is set to 'IEMode'.</p>
+
+<p>When a file:// URL is requested to launch in Internet Explorer mode, the file extension of the URL must be present in this list in order for the URL to be allowed to launch in Internet Explorer mode. A URL which is blocked from opening in Internet Explorer mode will instead open in Edge mode.</p>
+
+<p>If you set this policy to the special value "*" or don't configure it, all file extensions are allowed.</p>
+
+<p>To learn more about Internet Explorer mode, see <a href="https://go.microsoft.com/fwlink/?linkid=2094210">https://go.microsoft.com/fwlink/?linkid=2094210</a></p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: InternetExplorerIntegrationLocalFileExtensionAllowList</li>
+<li>GP name: Open local files in Internet Explorer mode file extension allow list</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\InternetExplorerIntegrationLocalFileExtensionAllowList</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\InternetExplorerIntegrationLocalFileExtensionAllowList\1 = ".mht"
+SOFTWARE\Policies\Microsoft\Edge\InternetExplorerIntegrationLocalFileExtensionAllowList\2 = ".pdf"
+SOFTWARE\Policies\Microsoft\Edge\InternetExplorerIntegrationLocalFileExtensionAllowList\3 = ".vsdx"</p>
+
+<p>```</p>
+
+

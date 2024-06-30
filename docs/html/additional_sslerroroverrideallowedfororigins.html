@@ -1,0 +1,81 @@
+<h3>SSLErrorOverrideAllowedForOrigins</h3>
+
+<h4>Allow users to proceed from the HTTPS warning page for specific origins</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 90 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Microsoft Edge shows a warning page when users visit sites that have SSL errors.</p>
+
+<p>If you enable or don't configure the <a href="#sslerroroverrideallowed">SSLErrorOverrideAllowed</a> policy, this policy does nothing.</p>
+
+<p>If you disable the <a href="#sslerroroverrideallowed">SSLErrorOverrideAllowed</a> policy, configuring this policy lets you configure a list of origin patterns for sites where users can continue to click through SSL error pages. Users can't click through SSL error pages on origins that are not on this list.</p>
+
+<p>If you don't configure this policy, the <a href="#sslerroroverrideallowed">SSLErrorOverrideAllowed</a> policy applies for all sites.</p>
+
+<p>For detailed information about valid origin patterns, see <a href="https://go.microsoft.com/fwlink/?linkid=2095322">https://go.microsoft.com/fwlink/?linkid=2095322</a>. * is not an accepted value for this policy. This policy only matches based on origin, so any path or query in the URL pattern is ignored.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: SSLErrorOverrideAllowedForOrigins</li>
+<li>GP name: Allow users to proceed from the HTTPS warning page for specific origins</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\SSLErrorOverrideAllowedForOrigins</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\SSLErrorOverrideAllowedForOrigins\1 = "https://www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\SSLErrorOverrideAllowedForOrigins\2 = "[*.]example.edu"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: SSLErrorOverrideAllowedForOrigins</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;https://www.example.com&lt;/string&gt;
+&lt;string&gt;[*.]example.edu&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

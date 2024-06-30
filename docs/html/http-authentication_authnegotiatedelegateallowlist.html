@@ -1,0 +1,72 @@
+<h3>AuthNegotiateDelegateAllowlist</h3>
+
+<h4>Specifies a list of servers that Microsoft Edge can delegate user credentials to</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Configure the list of servers that Microsoft Edge can delegate to.</p>
+
+<p>Separate multiple server names with commas. Wildcards (*) are allowed.</p>
+
+<p>If you don't configure this policy Microsoft Edge won't delegate user credentials even if a server is detected as Intranet.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>String</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: AuthNegotiateDelegateAllowlist</li>
+<li>GP name: Specifies a list of servers that Microsoft Edge can delegate user credentials to</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/HTTP authentication</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: AuthNegotiateDelegateAllowlist</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+"contoso.com"
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: AuthNegotiateDelegateAllowlist</li>
+<li><p>Example value:
+<code>xml
+&lt;string&gt;contoso.com&lt;/string&gt;
+</code></p>
+
+</li>
+</ul>

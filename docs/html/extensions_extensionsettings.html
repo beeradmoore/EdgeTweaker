@@ -1,0 +1,256 @@
+<h3>ExtensionSettings</h3>
+
+<h4>Configure extension management settings</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Setting this policy controls extension management settings for Microsoft Edge, including any controlled by existing extension-related policies. This policy supersedes any legacy policies that might be set.</p>
+
+<p>This policy maps an extension ID or an update URL to its specific setting only. A default configuration can be set for the special ID "*", which applies to all extensions without a custom configuration in this policy. With an update URL, configuration applies to extensions with the exact update URL stated in the extension manifest. If the 'override<em>update</em>url' flag is set to true, the extension is installed and updated using the update URL specified in the <a href="#extensioninstallforcelist">ExtensionInstallForcelist</a> policy or in 'update<em>url' field in this policy. The flag 'override</em>update<em>url' is ignored if the 'update</em>url' is the Edge Add-ons website update URL. For more details, check out the detailed guide to ExtensionSettings policy available at <a href="https://go.microsoft.com/fwlink/?linkid=2161555">https://go.microsoft.com/fwlink/?linkid=2161555</a>.</p>
+
+<p>To block extensions from a particular third party store, you only need to block the update_url for that store. For example, if you want to block extensions from Chrome Web Store, you can use the following JSON.</p>
+
+<p>{"update<em>url:https://clients2.google.com/service/update2/crx":{"installation</em>mode":"blocked"}}</p>
+
+<p>Note that you can still use <a href="#extensioninstallforcelist">ExtensionInstallForcelist</a> and <a href="#extensioninstallallowlist">ExtensionInstallAllowlist</a> to allow / force install specific extensions even if the store is blocked using the JSON in the previous example.</p>
+
+<p>If the 'sidebar<em>auto</em>open_blocked' flag is set to true in an extension's configuration, the hub-app (sidebar app) corresponding to the specified extension will be prevented from automatically opening.</p>
+
+<p>On Windows instances, apps and extensions from outside the Microsoft Edge Add-ons website can only be forced installed if the instance is joined to a Microsoft Active Directory domain or joined to Microsoft Azure Active Directory&reg;`.</p>
+
+<p>On macOS instances, apps and extensions from outside the Microsoft Edge Add-ons website can only be force installed if the instance is managed via MDM, joined to a domain via MCX.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Dictionary</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ExtensionSettings</li>
+<li>GP name: Configure extension management settings</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Extensions</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: ExtensionSettings</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+SOFTWARE\Policies\Microsoft\Edge\ExtensionSettings = {
+  "*": {
+    "allowed_types": [
+      "hosted_app"
+    ],
+    "blocked_install_message": "Custom error message.",
+    "blocked_permissions": [
+      "downloads",
+      "bookmarks"
+    ],
+    "install_sources": [
+      "https://company-intranet/apps"
+    ],
+    "installation_mode": "blocked",
+    "runtime_allowed_hosts": [
+      "*://good.contoso.com"
+    ],
+    "runtime_blocked_hosts": [
+      "*://*.contoso.com"
+    ]
+  },
+  "abcdefghijklmnopabcdefghijklmnop": {
+    "blocked_permissions": [
+      "history"
+    ],
+    "file_url_navigation_allowed": true,
+    "installation_mode": "allowed",
+    "minimum_version_required": "1.0.1"
+  },
+  "bcdefghijklmnopabcdefghijklmnopa": {
+    "allowed_permissions": [
+      "downloads"
+    ],
+    "installation_mode": "force_installed",
+    "override_update_url": true,
+    "runtime_allowed_hosts": [
+      "*://good.contoso.com"
+    ],
+    "runtime_blocked_hosts": [
+      "*://*.contoso.com"
+    ],
+    "sidebar_auto_open_blocked": true,
+    "toolbar_state": "force_shown",
+    "update_url": "https://contoso.com/update_url"
+  },
+  "cdefghijklmnopabcdefghijklmnopab": {
+    "blocked_install_message": "Custom error message.",
+    "installation_mode": "blocked"
+  },
+  "defghijklmnopabcdefghijklmnopabc,efghijklmnopabcdefghijklmnopabcd": {
+    "blocked_install_message": "Custom error message.",
+    "installation_mode": "blocked"
+  },
+  "fghijklmnopabcdefghijklmnopabcde": {
+    "blocked_install_message": "Custom removal message.",
+    "installation_mode": "removed"
+  },
+  "update_url:https://www.contoso.com/update.xml": {
+    "allowed_permissions": [
+      "downloads"
+    ],
+    "blocked_permissions": [
+      "wallpaper"
+    ],
+    "installation_mode": "allowed"
+  }
+}
+</code></p>
+
+<h5>Compact example value:</h5>
+
+<p><code>
+  SOFTWARE\Policies\Microsoft\Edge\ExtensionSettings = {"*": {"allowed_types": ["hosted_app"], "blocked_install_message": "Custom error message.", "blocked_permissions": ["downloads", "bookmarks"], "install_sources": ["https://company-intranet/apps"], "installation_mode": "blocked", "runtime_allowed_hosts": ["*://good.contoso.com"], "runtime_blocked_hosts": ["*://*.contoso.com"]}, "abcdefghijklmnopabcdefghijklmnop": {"blocked_permissions": ["history"], "file_url_navigation_allowed": true, "installation_mode": "allowed", "minimum_version_required": "1.0.1"}, "bcdefghijklmnopabcdefghijklmnopa": {"allowed_permissions": ["downloads"], "installation_mode": "force_installed", "override_update_url": true, "runtime_allowed_hosts": ["*://good.contoso.com"], "runtime_blocked_hosts": ["*://*.contoso.com"], "sidebar_auto_open_blocked": true, "toolbar_state": "force_shown", "update_url": "https://contoso.com/update_url"}, "cdefghijklmnopabcdefghijklmnopab": {"blocked_install_message": "Custom error message.", "installation_mode": "blocked"}, "defghijklmnopabcdefghijklmnopabc,efghijklmnopabcdefghijklmnopabcd": {"blocked_install_message": "Custom error message.", "installation_mode": "blocked"}, "fghijklmnopabcdefghijklmnopabcde": {"blocked_install_message": "Custom removal message.", "installation_mode": "removed"}, "update_url:https://www.contoso.com/update.xml": {"allowed_permissions": ["downloads"], "blocked_permissions": ["wallpaper"], "installation_mode": "allowed"}}
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ExtensionSettings</li>
+<li><p>Example value:
+<code>xml
+&lt;key&gt;ExtensionSettings&lt;/key&gt;
+&lt;dict&gt;
+&lt;key&gt;*&lt;/key&gt;
+&lt;dict&gt;
+&lt;key&gt;allowed_types&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;hosted_app&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;blocked_install_message&lt;/key&gt;
+&lt;string&gt;Custom error message.&lt;/string&gt;
+&lt;key&gt;blocked_permissions&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;downloads&lt;/string&gt;
+  &lt;string&gt;bookmarks&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;install_sources&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;https://company-intranet/apps&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;installation_mode&lt;/key&gt;
+&lt;string&gt;blocked&lt;/string&gt;
+&lt;key&gt;runtime_allowed_hosts&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;*://good.contoso.com&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;runtime_blocked_hosts&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;*://*.contoso.com&lt;/string&gt;
+&lt;/array&gt;
+&lt;/dict&gt;
+&lt;key&gt;abcdefghijklmnopabcdefghijklmnop&lt;/key&gt;
+&lt;dict&gt;
+&lt;key&gt;blocked_permissions&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;history&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;file_url_navigation_allowed&lt;/key&gt;
+&lt;true/&gt;
+&lt;key&gt;installation_mode&lt;/key&gt;
+&lt;string&gt;allowed&lt;/string&gt;
+&lt;key&gt;minimum_version_required&lt;/key&gt;
+&lt;string&gt;1.0.1&lt;/string&gt;
+&lt;/dict&gt;
+&lt;key&gt;bcdefghijklmnopabcdefghijklmnopa&lt;/key&gt;
+&lt;dict&gt;
+&lt;key&gt;allowed_permissions&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;downloads&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;installation_mode&lt;/key&gt;
+&lt;string&gt;force_installed&lt;/string&gt;
+&lt;key&gt;override_update_url&lt;/key&gt;
+&lt;true/&gt;
+&lt;key&gt;runtime_allowed_hosts&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;*://good.contoso.com&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;runtime_blocked_hosts&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;*://*.contoso.com&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;sidebar_auto_open_blocked&lt;/key&gt;
+&lt;true/&gt;
+&lt;key&gt;toolbar_state&lt;/key&gt;
+&lt;string&gt;force_shown&lt;/string&gt;
+&lt;key&gt;update_url&lt;/key&gt;
+&lt;string&gt;https://contoso.com/update_url&lt;/string&gt;
+&lt;/dict&gt;
+&lt;key&gt;cdefghijklmnopabcdefghijklmnopab&lt;/key&gt;
+&lt;dict&gt;
+&lt;key&gt;blocked_install_message&lt;/key&gt;
+&lt;string&gt;Custom error message.&lt;/string&gt;
+&lt;key&gt;installation_mode&lt;/key&gt;
+&lt;string&gt;blocked&lt;/string&gt;
+&lt;/dict&gt;
+&lt;key&gt;defghijklmnopabcdefghijklmnopabc,efghijklmnopabcdefghijklmnopabcd&lt;/key&gt;
+&lt;dict&gt;
+&lt;key&gt;blocked_install_message&lt;/key&gt;
+&lt;string&gt;Custom error message.&lt;/string&gt;
+&lt;key&gt;installation_mode&lt;/key&gt;
+&lt;string&gt;blocked&lt;/string&gt;
+&lt;/dict&gt;
+&lt;key&gt;fghijklmnopabcdefghijklmnopabcde&lt;/key&gt;
+&lt;dict&gt;
+&lt;key&gt;blocked_install_message&lt;/key&gt;
+&lt;string&gt;Custom removal message.&lt;/string&gt;
+&lt;key&gt;installation_mode&lt;/key&gt;
+&lt;string&gt;removed&lt;/string&gt;
+&lt;/dict&gt;
+&lt;key&gt;update_url:https://www.contoso.com/update.xml&lt;/key&gt;
+&lt;dict&gt;
+&lt;key&gt;allowed_permissions&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;downloads&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;blocked_permissions&lt;/key&gt;
+&lt;array&gt;
+  &lt;string&gt;wallpaper&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;installation_mode&lt;/key&gt;
+&lt;string&gt;allowed&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/dict&gt;
+</code></p>
+
+</li>
+</ul>

@@ -1,0 +1,74 @@
+<h3>RestrictSigninToPattern</h3>
+
+<h4>Restrict which accounts can be used to sign in to Microsoft Edge</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Determines which accounts can be used to sign in to the Microsoft Edge account that's chosen during the Sync opt-in flow.</p>
+
+<p>You can configure this policy to match multiple accounts using a Perl style regular expression for the pattern. If a user tries to sign in to the browser with an account whose username doesn't match this pattern, they are blocked and will get the appropriate error message. Note that pattern matches are case sensitive. For more information about the regular expression rules that are used, refer to https://go.microsoft.com/fwlink/p/?linkid=2133903.</p>
+
+<p>If you don't configure this policy or leave it blank, users can use any account to sign in to Microsoft Edge.</p>
+
+<p>Note that signed-in profiles with a username that doesn't match this pattern will be signed out after this policy is enabled.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>String</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: RestrictSigninToPattern</li>
+<li>GP name: Restrict which accounts can be used to sign in to Microsoft Edge</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: RestrictSigninToPattern</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+".*@contoso.com"
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: RestrictSigninToPattern</li>
+<li><p>Example value:
+<code>xml
+&lt;string&gt;.*@contoso.com&lt;/string&gt;
+</code></p>
+
+</li>
+</ul>

@@ -1,0 +1,78 @@
+<h3>ImportPaymentInfo</h3>
+
+<h4>Allow importing of payment info</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Allows users to import payment info from another browser into Microsoft Edge.</p>
+
+<p>If you enable this policy, the <strong>payment info</strong> check box is automatically selected in the <strong>Import browser data</strong> dialog box.</p>
+
+<p>If you disable this policy, payment info isn't imported at first run, and users can't import it manually.</p>
+
+<p>If you don't configure this policy, payment info is imported at first run, and users can choose whether to import it manually during later browsing sessions.</p>
+
+<p>You can also set this policy as a recommendation. This means that Microsoft Edge imports payment info on first run, but users can select or clear the <strong>payment info</strong> option during manual import.</p>
+
+<p><strong>Note:</strong> This policy currently manages importing from Google Chrome (on Windows 7, 8, and 10 and on macOS).</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ImportPaymentInfo</li>
+<li>GP name: Allow importing of payment info</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value Name: ImportPaymentInfo</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ImportPaymentInfo</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

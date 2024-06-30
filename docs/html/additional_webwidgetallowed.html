@@ -1,0 +1,77 @@
+<h3>WebWidgetAllowed</h3>
+
+<h4>Enable the Search bar (deprecated)</h4>
+
+<blockquote>
+  <p>DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.</p>
+</blockquote>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 88 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Enables the search bar. When enabled, users can use the search bar to search the web from their desktop or from an application. The search bar provides a search box that shows web suggestions and opens all web searches in Microsoft Edge. The search box provides search (powered by Bing) and URL suggestions. The search bar can be launched  from the "More tools" menu or jump list in Microsoft Edge.</p>
+
+<p>If you enable or don't configure this policy:
+The search bar will be automatically enabled for all profiles.
+The option to enable the search bar at startup will be toggled on if the <a href="#webwidgetisenabledonstartup">WebWidgetIsEnabledOnStartup</a> policy is enabled.
+If the <a href="#webwidgetisenabledonstartup">WebWidgetIsEnabledOnStartup</a> is disabled or not configured, the option to enable the search bar at startup will be toggled off.
+Users will see the menu item to launch the search bar from the Microsoft Edge "More tools" menu. Users can launch the search bar from "More tools".
+Users will see the menu item to launch the search bar from the Microsoft Edge jump list menu. Users can launch the search bar from the Microsoft Edge jump list menu.
+The search bar can be turned off by the "Quit" option in the System tray or by closing the search bar from the 3 dot menu. The search bar will be restarted on system reboot if auto-start is enabled.</p>
+
+<p>If you disable this policy:
+The search bar will be disabled for all profiles.
+The option to launch the search bar from Microsoft Edge "More tools" menu will be disabled.
+The option to launch the search bar from Microsoft Edge jump list menu will be disabled.</p>
+
+<p>This policy is deprecated due to the deprecation of the Web widget's vertical layout. This policy will be made obsolete in 119 release.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: WebWidgetAllowed</li>
+<li>GP name: Enable the Search bar (deprecated)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: WebWidgetAllowed</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+

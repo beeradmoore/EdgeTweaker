@@ -1,0 +1,171 @@
+<h3>RelatedWebsiteSetsOverrides</h3>
+
+<h4>Override Related Website Sets.</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 121 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy provides a way to override the list of sets Microsoft Edge uses for Related Website Sets</p>
+
+<p>Each set in the browser's list of Related Website Sets must meet the requirements of a Related Website Set. A Related Website Set must contain a primary site and one or more member sites.
+A set can also contain a list of service sites that it owns, as well as a map from a site to all its ccTLD variants. See https://github.com/WICG/first-party-sets for more information on how Microsoft Edge uses Related Website Sets.</p>
+
+<p>All sites in a Related Website Set must be a registrable domain served over HTTPS. Each site in a Related Website Set must also be unique, which means a site can't be listed more than once in a Related Website Set.</p>
+
+<p>When this policy is given an empty dictionary, Microsoft Edge uses the public list of Related Website Sets.</p>
+
+<p>For all sites in a Related Website Set from the replacements list, if a site is also present on a Related Website Set in the browser's list, then that site will be removed from the browser's Related Website Set. After this, the policy's Related Website Set will be added to the Microsoft Edge's list of Related Website Sets.</p>
+
+<p>For all sites in a Related Website Set from the additions list, if a site is also present on a Related Website Set in Microsoft Edge's list, then the browser's Related Website Set will be updated so that the new Related Website Set can be added to the browser's list. After the browser's list has been updated, the policy's Related Website Set will be added to the browser's list of Related Website Sets.</p>
+
+<p>The browser's list of Related Website Sets requires that for all sites in its list, no site is in
+more than one set. This is also required for both the replacements list
+and the additions list. Similarly, a site can't be in both the
+replacements list and the additions list.</p>
+
+<p>Wildcards (*) aren't supported as a policy value, or as a value within any Related Website Set in these lists.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Dictionary</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: RelatedWebsiteSetsOverrides</li>
+<li>GP name: Override Related Website Sets.</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Related Website Sets Settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: RelatedWebsiteSetsOverrides</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+SOFTWARE\Policies\Microsoft\Edge\RelatedWebsiteSetsOverrides = {
+  "additions": [
+    {
+      "associatedSites": [
+        "https://associate2.test"
+      ],
+      "ccTLDs": {
+        "https://associate2.test": [
+          "https://associate2.com"
+        ]
+      },
+      "primary": "https://primary2.test",
+      "serviceSites": [
+        "https://associate2-content.test"
+      ]
+    }
+  ],
+  "replacements": [
+    {
+      "associatedSites": [
+        "https://associate1.test"
+      ],
+      "ccTLDs": {
+        "https://associate1.test": [
+          "https://associate1.co.uk"
+        ]
+      },
+      "primary": "https://primary1.test",
+      "serviceSites": [
+        "https://associate1-content.test"
+      ]
+    }
+  ]
+}
+</code></p>
+
+<h5>Compact example value:</h5>
+
+<p><code>
+  SOFTWARE\Policies\Microsoft\Edge\RelatedWebsiteSetsOverrides = {"additions": [{"associatedSites": ["https://associate2.test"], "ccTLDs": {"https://associate2.test": ["https://associate2.com"]}, "primary": "https://primary2.test", "serviceSites": ["https://associate2-content.test"]}], "replacements": [{"associatedSites": ["https://associate1.test"], "ccTLDs": {"https://associate1.test": ["https://associate1.co.uk"]}, "primary": "https://primary1.test", "serviceSites": ["https://associate1-content.test"]}]}
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: RelatedWebsiteSetsOverrides</li>
+<li><p>Example value:
+<code>xml
+&lt;key&gt;RelatedWebsiteSetsOverrides&lt;/key&gt;
+&lt;dict&gt;
+&lt;key&gt;additions&lt;/key&gt;
+&lt;array&gt;
+&lt;dict&gt;
+  &lt;key&gt;associatedSites&lt;/key&gt;
+  &lt;array&gt;
+    &lt;string&gt;https://associate2.test&lt;/string&gt;
+  &lt;/array&gt;
+  &lt;key&gt;ccTLDs&lt;/key&gt;
+  &lt;dict&gt;
+    &lt;key&gt;https://associate2.test&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;https://associate2.com&lt;/string&gt;
+    &lt;/array&gt;
+  &lt;/dict&gt;
+  &lt;key&gt;primary&lt;/key&gt;
+  &lt;string&gt;https://primary2.test&lt;/string&gt;
+  &lt;key&gt;serviceSites&lt;/key&gt;
+  &lt;array&gt;
+    &lt;string&gt;https://associate2-content.test&lt;/string&gt;
+  &lt;/array&gt;
+&lt;/dict&gt;
+&lt;/array&gt;
+&lt;key&gt;replacements&lt;/key&gt;
+&lt;array&gt;
+&lt;dict&gt;
+  &lt;key&gt;associatedSites&lt;/key&gt;
+  &lt;array&gt;
+    &lt;string&gt;https://associate1.test&lt;/string&gt;
+  &lt;/array&gt;
+  &lt;key&gt;ccTLDs&lt;/key&gt;
+  &lt;dict&gt;
+    &lt;key&gt;https://associate1.test&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;https://associate1.co.uk&lt;/string&gt;
+    &lt;/array&gt;
+  &lt;/dict&gt;
+  &lt;key&gt;primary&lt;/key&gt;
+  &lt;string&gt;https://primary1.test&lt;/string&gt;
+  &lt;key&gt;serviceSites&lt;/key&gt;
+  &lt;array&gt;
+    &lt;string&gt;https://associate1-content.test&lt;/string&gt;
+  &lt;/array&gt;
+&lt;/dict&gt;
+&lt;/array&gt;
+&lt;/dict&gt;
+</code></p>
+
+</li>
+</ul>

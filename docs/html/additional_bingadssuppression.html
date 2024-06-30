@@ -1,0 +1,82 @@
+<h3>BingAdsSuppression</h3>
+
+<h4>Block all ads on Bing search results</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 83 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Enables an ad-free search experience on Bing.com</p>
+
+<p>If you enable this policy, then a user can search on bing.com and have an ad-free search experience. At the same time, the SafeSearch setting will be set to 'Strict' and can't be changed by the user.</p>
+
+<p>If you don't configure this policy, then the default experience will have ads in the search results on bing.com. SafeSearch will be set to 'Moderate' by default and can be changed by the user.</p>
+
+<p>This policy is only available for K-12 SKUs that are identified as EDU tenants by Microsoft.</p>
+
+<p>Please refer to <a href="https://go.microsoft.com/fwlink/?linkid=2119711">https://go.microsoft.com/fwlink/?linkid=2119711</a> to learn more about this policy or if the following scenarios apply to you:</p>
+
+<ul>
+<li><p>You have an EDU tenant, but the policy doesn't work.</p></li>
+<li><p>You had your IP allowlisted for having an ad free search experience.</p></li>
+<li><p>You were experiencing an ad-free search experience on Microsoft Edge Legacy and want to upgrade to the new version of Microsoft Edge.</p></li>
+</ul>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: BingAdsSuppression</li>
+<li>GP name: Block all ads on Bing search results</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: BingAdsSuppression</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: BingAdsSuppression</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

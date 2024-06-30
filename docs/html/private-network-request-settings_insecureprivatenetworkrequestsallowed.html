@@ -1,0 +1,81 @@
+<h3>InsecurePrivateNetworkRequestsAllowed</h3>
+
+<h4>Specifies whether to allow websites to make requests to any network endpoint in an insecure manner.</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 92 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Controls whether websites are allowed to make requests to more-private network endpoints.</p>
+
+<p>When this policy is enabled, all Private Network Access checks are disabled for all origins. This may allow attackers to perform cross-site request forgery (CSRF) attacks on private network servers.</p>
+
+<p>When this policy is disabled or not configured, the default behavior for requests to more-private network endpoints will depend on the user's personal configuration for the BlockInsecurePrivateNetworkRequests, PrivateNetworkAccessSendPreflights, and PrivateNetworkAccessRespectPreflightResults feature flags. These flags may be controlled by experimentation or set via the command line.</p>
+
+<p>This policy relates to the Private Network Access specification. See https://wicg.github.io/private-network-access/ for more details.</p>
+
+<p>A network endpoint is more private than another if:
+1) Its IP address is localhost and the other is not.
+2) Its IP address is private and the other is public.
+In the future, depending on spec evolution, this policy might apply to all cross-origin requests directed at private IPs or localhost.</p>
+
+<p>When this policy enabled, websites are allowed to make requests to any network endpoint, subject to other cross-origin checks.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: InsecurePrivateNetworkRequestsAllowed</li>
+<li>GP name: Specifies whether to allow websites to make requests to any network endpoint in an insecure manner.</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Private Network Request Settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: InsecurePrivateNetworkRequestsAllowed</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000000
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: InsecurePrivateNetworkRequestsAllowed</li>
+<li><p>Example value:
+<code>xml
+&lt;false/&gt;
+</code></p>
+
+</li>
+</ul>

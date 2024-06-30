@@ -1,0 +1,77 @@
+<h3>ExtensionInstallAllowlist</h3>
+
+<h4>Allow specific extensions to be installed</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Setting this policy specifies which extensions are not subject to the blocklist.</p>
+
+<p>A blocklist value of * means all extensions are blocked and users can only install extensions listed in the allow list.</p>
+
+<p>By default, all extensions are allowed. However, if you prohibited extensions by policy, you can use the list of allowed extensions to change that policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ExtensionInstallAllowlist</li>
+<li>GP name: Allow specific extensions to be installed</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Extensions</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist\1 = "extension<em>id1"
+SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist\2 = "extension</em>id2"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ExtensionInstallAllowlist</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;extension_id1&lt;/string&gt;
+&lt;string&gt;extension_id2&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

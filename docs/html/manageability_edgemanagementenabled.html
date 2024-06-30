@@ -1,0 +1,62 @@
+<h3>EdgeManagementEnabled</h3>
+
+<h4>Microsoft Edge management enabled</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 115 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Microsoft Edge management service in Microsoft 365 Admin Center lets you set policy and manage users through a Microsoft Edge focused cloud-based management experience. This policy lets you control whether Microsoft Edge management is enabled.</p>
+
+<p>If you enable or don't configure this policy, Microsoft Edge will attempt to connect to the Microsoft Edge management service to download and apply policy assigned to the Azure AD account of the user.</p>
+
+<p>If you disable this policy, Microsoft Edge will not attempt to connect to the Microsoft Edge management service.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: EdgeManagementEnabled</li>
+<li>GP name: Microsoft Edge management enabled</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Manageability</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: EdgeManagementEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+

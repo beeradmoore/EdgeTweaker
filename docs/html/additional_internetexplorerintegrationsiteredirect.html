@@ -1,0 +1,87 @@
+<h3>InternetExplorerIntegrationSiteRedirect</h3>
+
+<h4>Specify how "in-page" navigations to unconfigured sites behave when started from Internet Explorer mode pages</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 81 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>An "in-page" navigation is started from a link, a script, or a form on the current page. It can also be a server-side redirect of a previous "in-page" navigation attempt. Conversely, a user can start a navigation that isn't "in-page" that's independent of the current page in several ways by using the browser controls. For example, using the address bar, the back button, or a favorite link.</p>
+
+<p>This setting lets you specify whether navigations from pages loaded in Internet Explorer mode to unconfigured sites (that are not configured in the Enterprise Mode Site List) switch back to Microsoft Edge or remain in Internet Explorer mode.</p>
+
+<p>This setting works in conjunction with:
+<a href="#internetexplorerintegrationlevel">InternetExplorerIntegrationLevel</a> is set to 'IEMode'
+and
+<a href="#internetexplorerintegrationsitelist">InternetExplorerIntegrationSiteList</a> policy where the list has at least one entry.</p>
+
+<p>If you disable or don't configure this policy, only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.</p>
+
+<p>If you set this policy to 'Default', only sites configured to open in Internet Explorer mode will open in that mode. Any site not configured to open in Internet Explorer mode will be redirected back to Microsoft Edge.</p>
+
+<p>If you set this policy to 'AutomaticNavigationsOnly', you get the default experience except that all automatic navigations (such as 302 redirects) to unconfigured sites will be kept in Internet Explorer mode.</p>
+
+<p>If you set this policy to 'AllInPageNavigations', all navigations from pages loaded in IE mode to unconfigured sites are kept in Internet Explorer mode (Least Recommended).</p>
+
+<p>If the <a href="#internetexplorerintegrationreloadiniemodeallowed">InternetExplorerIntegrationReloadInIEModeAllowed</a> policy allows users to reload sites in Internet Explorer mode, then all in-page navigations from unconfigured sites that users have chosen to reload in Internet Explorer mode will be kept in Internet Explorer mode, regardless of how this policy is configured.</p>
+
+<p>To learn more about Internet Explorer mode, see <a href="https://go.microsoft.com/fwlink/?linkid=2105106">https://go.microsoft.com/fwlink/?linkid=2105106</a></p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>Default (0) = Default</p></li>
+<li><p>AutomaticNavigationsOnly (1) = Keep only automatic navigations in Internet Explorer mode</p></li>
+<li><p>AllInPageNavigations (2) = Keep all in-page navigations in Internet Explorer mode</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: InternetExplorerIntegrationSiteRedirect</li>
+<li>GP name: Specify how "in-page" navigations to unconfigured sites behave when started from Internet Explorer mode pages</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: InternetExplorerIntegrationSiteRedirect</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000000
+</code></p>
+
+

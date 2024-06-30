@@ -1,0 +1,89 @@
+<h3>ApplicationGuardContainerProxy</h3>
+
+<h4>Application Guard Container Proxy</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 84 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Configures the proxy settings for Microsoft Edge Application Guard.
+If you enable this policy, Microsoft Edge Application Guard ignores other sources of proxy configurations.</p>
+
+<p>If you don't configure this policy, Microsoft Edge Application Guard uses the proxy configuration of the host.</p>
+
+<p>This policy does not affect the proxy configuration of Microsoft Edge outside of Application Guard (on the host).</p>
+
+<p>The ProxyMode field lets you specify the proxy server used by Microsoft Edge Application Guard.</p>
+
+<p>The ProxyPacUrl field is a URL to a proxy .pac file.</p>
+
+<p>The ProxyServer field is a URL for the proxy server.</p>
+
+<p>If you choose the 'direct' value as 'ProxyMode', all other fields are ignored.</p>
+
+<p>If you choose the 'auto_detect' value as 'ProxyMode', all other fields are ignored.</p>
+
+<p>If you choose the 'fixed_servers' value as 'ProxyMode', the 'ProxyServer' field is used.</p>
+
+<p>If you choose the 'pac_script' value as 'ProxyMode', the 'ProxyPacUrl' field is used.</p>
+
+<p>For more information about identifying Application Guard traffic via dual proxy, visit <a href="https://go.microsoft.com/fwlink/?linkid=2134653">https://go.microsoft.com/fwlink/?linkid=2134653</a>.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Dictionary</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ApplicationGuardContainerProxy</li>
+<li>GP name: Application Guard Container Proxy</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Application Guard settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: ApplicationGuardContainerProxy</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+SOFTWARE\Policies\Microsoft\Edge\ApplicationGuardContainerProxy = {
+  "ProxyMode": "direct",
+  "ProxyPacUrl": "https://internal.site/example.pac",
+  "ProxyServer": "123.123.123.123:8080"
+}
+</code></p>
+
+<h5>Compact example value:</h5>
+
+<p><code>
+  SOFTWARE\Policies\Microsoft\Edge\ApplicationGuardContainerProxy = {"ProxyMode": "direct", "ProxyPacUrl": "https://internal.site/example.pac", "ProxyServer": "123.123.123.123:8080"}
+</code></p>
+
+

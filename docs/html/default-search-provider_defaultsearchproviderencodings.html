@@ -1,0 +1,83 @@
+<h3>DefaultSearchProviderEncodings</h3>
+
+<h4>Default search provider encodings</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Specify the character encodings supported by the search provider. Encodings are code page names like UTF-8, GB2312, and ISO-8859-1. They are tried in the order provided.</p>
+
+<p>This policy is optional. If not configured, the default, UTF-8, is used.</p>
+
+<p>This policy is applied only if you enable the <a href="#defaultsearchproviderenabled">DefaultSearchProviderEnabled</a> and <a href="#defaultsearchprovidersearchurl">DefaultSearchProviderSearchURL</a> policies.</p>
+
+<p>Starting in Microsoft Edge 84, you can set this policy as a recommended policy. If the user has already set a default search provider, the default search provider configured by this recommended policy will not be added to the list of search providers the user can choose from. If this is the desired behavior, use the <a href="#managedsearchengines">ManagedSearchEngines</a> policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: DefaultSearchProviderEncodings</li>
+<li>GP name: Default search provider encodings</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Default search provider</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Default search provider</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended\DefaultSearchProviderEncodings</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\1 = "UTF-8"
+SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\2 = "UTF-16"
+SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\3 = "GB2312"
+SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\4 = "ISO-8859-1"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: DefaultSearchProviderEncodings</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;UTF-8&lt;/string&gt;
+&lt;string&gt;UTF-16&lt;/string&gt;
+&lt;string&gt;GB2312&lt;/string&gt;
+&lt;string&gt;ISO-8859-1&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

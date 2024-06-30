@@ -1,0 +1,80 @@
+<h3>TLS13HardeningForLocalAnchorsEnabled</h3>
+
+<h4>Enable a TLS 1.3 security feature for local trust anchors (obsolete)</h4>
+
+<blockquote>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 85.</p>
+</blockquote>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 81, until 85</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy doesn't work because it was only intended to be a short-term mechanism to give enterprises more time to upgrade affected proxies.</p>
+
+<p>This policy controls a security feature in TLS 1.3 that protects connections against downgrade attacks. It is backwards-compatible and will not affect connections to compliant TLS 1.2 servers or proxies. However, older versions of some TLS-intercepting proxies have an implementation flaw which causes them to be incompatible.</p>
+
+<p>If you enable this policy or don't set it, Microsoft Edge will enable these security protections for all connections.</p>
+
+<p>If you disable this policy, Microsoft Edge will disable these security protections for connections authenticated with locally-installed CA certificates. These protections are always enabled for connections authenticated with publicly-trusted CA certificates.</p>
+
+<p>This policy can be used to test for any affected proxies and upgrade them. Affected proxies are expected to fail connections with an error code of ERR<em>TLS13</em>DOWNGRADE_DETECTED.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: TLS13HardeningForLocalAnchorsEnabled</li>
+<li>GP name: Enable a TLS 1.3 security feature for local trust anchors (obsolete)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: TLS13HardeningForLocalAnchorsEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: TLS13HardeningForLocalAnchorsEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

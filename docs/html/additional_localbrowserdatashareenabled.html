@@ -1,0 +1,64 @@
+<h3>LocalBrowserDataShareEnabled</h3>
+
+<h4>Enable Windows to search local Microsoft Edge browsing data</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 93 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Enables Windows to index Microsoft Edge browsing data stored locally on the user's device and allows users to find and launch previously stored browsing data directly from Windows features such as the search box on the taskbar in Windows.</p>
+
+<p>If you enable this policy or don't configure it, Microsoft Edge will publish local browsing data to the Windows Indexer.</p>
+
+<p>If you disable this policy, Microsoft Edge will not share data to the Windows Indexer.</p>
+
+<p>Note that if you disable this policy, Microsoft Edge will remove the data shared with Windows on the device and stop sharing any new browsing data.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: LocalBrowserDataShareEnabled</li>
+<li>GP name: Enable Windows to search local Microsoft Edge browsing data</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value Name: LocalBrowserDataShareEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000000
+</code></p>
+
+

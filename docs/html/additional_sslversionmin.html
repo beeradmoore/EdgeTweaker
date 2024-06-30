@@ -1,0 +1,89 @@
+<h3>SSLVersionMin</h3>
+
+<h4>Minimum TLS version enabled (obsolete)</h4>
+
+<blockquote>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 97.</p>
+</blockquote>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77, until 97</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy was removed in Microsoft Edge 98 and is ignored if configured.
+Sets the minimum supported version of TLS.</p>
+
+<p>If you set this policy to 'tls1.2', Microsoft Edge will show an error for TLS 1.0 and TLS 1.1 and the user will not be able to bypass the error.</p>
+
+<p>If you don't configure this policy, Microsoft Edge will still show an error for TLS 1.0 and TLS 1.1 but the user will be able to bypass it.</p>
+
+<p>Support for suppressing the TLS 1.0/1.1 warning was removed from Microsoft Edge starting in version 91. The 'tls1' and 'tls1.1' values are no longer supported.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>TLSv1 (tls1) = TLS 1.0</p></li>
+<li><p>TLSv1.1 (tls1.1) = TLS 1.1</p></li>
+<li><p>TLSv1.2 (tls1.2) = TLS 1.2</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>String</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: SSLVersionMin</li>
+<li>GP name: Minimum TLS version enabled (obsolete)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: SSLVersionMin</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+"tls1"
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: SSLVersionMin</li>
+<li><p>Example value:
+<code>xml
+&lt;string&gt;tls1&lt;/string&gt;
+</code></p>
+
+</li>
+</ul>

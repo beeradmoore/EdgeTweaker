@@ -1,0 +1,64 @@
+<h3>RoamingProfileSupportEnabled</h3>
+
+<h4>Enable using roaming copies for Microsoft Edge profile data</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 85 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Enable this policy to use roaming profiles on Windows. The settings stored in Microsoft Edge profiles (favorites and preferences) are also saved to a file stored in the Roaming user profile folder (or the location specified by the administrator through the <a href="#roamingprofilelocation">RoamingProfileLocation</a> policy).</p>
+
+<p>If you disable this policy or don't configure it, only the regular local profiles are used.</p>
+
+<p>The <a href="#syncdisabled">SyncDisabled</a> only disables cloud synchronization and has no impact on this policy.</p>
+
+<p>See <a href="https://go.microsoft.com/fwlink/?linkid=2150058">https://go.microsoft.com/fwlink/?linkid=2150058</a> for more information on using roaming user profiles.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: RoamingProfileSupportEnabled</li>
+<li>GP name: Enable using roaming copies for Microsoft Edge profile data</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: RoamingProfileSupportEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+

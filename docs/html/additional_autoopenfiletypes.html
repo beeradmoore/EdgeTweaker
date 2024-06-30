@@ -1,0 +1,83 @@
+<h3>AutoOpenFileTypes</h3>
+
+<h4>List of file types that should be automatically opened on download</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 85 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy sets a list of file types that should be automatically opened on download. Note: The leading separator should not be included when listing the file type, so list "txt" instead of ".txt".</p>
+
+<p>By default, these file types will be automatically opened on all URLs. You can use the <a href="#autoopenallowedforurls">AutoOpenAllowedForURLs</a> policy to restrict the URLs for which these file types will be automatically opened on.</p>
+
+<p>Files with types that should be automatically opened will still be subject to the enabled Microsoft Defender SmartScreen checks and won't be opened if they fail those checks.</p>
+
+<p>File types that a user has already specified to automatically be opened will continue to do so when downloaded. The user will continue to be able to specify other file types to be automatically opened.</p>
+
+<p>If you don't set this policy, only file types that a user has already specified to automatically be opened will do so when downloaded.</p>
+
+<p>This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain, joined to Microsoft Azure Active Directory or instances that enrolled for device management.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: AutoOpenFileTypes</li>
+<li>GP name: List of file types that should be automatically opened on download</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\AutoOpenFileTypes</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\AutoOpenFileTypes\1 = "exe"
+SOFTWARE\Policies\Microsoft\Edge\AutoOpenFileTypes\2 = "txt"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: AutoOpenFileTypes</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;exe&lt;/string&gt;
+&lt;string&gt;txt&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>
