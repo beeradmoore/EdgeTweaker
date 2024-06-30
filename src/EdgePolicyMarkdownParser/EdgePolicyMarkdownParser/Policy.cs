@@ -40,9 +40,26 @@ public class Policy
     [JsonPropertyName("applies_to_signed_in_profile")]
     public bool AppliesToSignedInProfile { get; set; } = false;
     
+    [JsonPropertyName("windows_registry_mandatory_path")]
+    public string WindowsRegistryMandatoryPath { get; set; } = string.Empty;
     
+    [JsonPropertyName("windows_registry_recommended_path")]
+    public string WindowsRegistryRecommendedPath { get; set; } = string.Empty;
     
+    [JsonPropertyName("windows_registry_value_name")]
+    public string WindowsRegistryValueName { get; set; } = string.Empty;
     
+    [JsonPropertyName("windows_registry_value_type")]
+    public string WindowsRegistryValueType { get; set; } = string.Empty;
+    
+    [JsonPropertyName("windows_registry_example_value")]
+    public string WindowsRegistryExampleValue { get; set; } = string.Empty;
+
+    [JsonPropertyName("macos_preference_key_name")]
+    public string MacOSPreferenceKeyName { get; set; } = string.Empty;
+
+    [JsonPropertyName("macos_preference_example_value")]
+    public string MacOSPreferenceExampleValue { get; set; } = string.Empty;
     
     public override string ToString()
     {

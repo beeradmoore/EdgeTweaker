@@ -1,7 +1,9 @@
 ﻿using System.Diagnostics;
+using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using EdgePolicyMarkdownParser;
+using MarkdownSharp;
 
 try
 {
@@ -126,6 +128,7 @@ try
     var policyGroupSummaryRegex = new Regex(@"^\|\[(?<id>.*)\]\(#(?<link>.*)\)\|(?<name>.*)\|$", RegexOptions.Multiline);
     var policyGroupNameRegex = new Regex(@"^## (?<policy_group_name>(.*)) policies$");
     var policyNameRegex = new Regex(@"^### (?<name>.*)$", RegexOptions.Multiline);
+    var settingRegex = new Regex(@"^(\s*)(?<setting_name>.*?): (?<setting_value>.*)$");
     foreach (var rootPolicyChildren in policiesRoot.Children)
     {
         // Setup default policy group.
@@ -360,9 +363,138 @@ try
                             else if (policyChildren.Header == "#### Windows information and settings")
                             {
                                 policy.PlatformWindows = true;
+                                foreach (var policyChildrenChild in policyChildren.Children)
+                                {
+                                    if (policyChildrenChild.Header.StartsWith("##### Windows Registry Settings", StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        foreach (var policyChildrenChildData in policyChildrenChild.Data)
+                                        {
+                                            if (string.IsNullOrEmpty(policyChildrenChildData))
+                                            {
+                                                continue;
+                                            }
+
+                                            var settingMatch = settingRegex.Match(policyChildrenChildData);
+                                            if (settingMatch.Success == false)
+                                            {
+                                                continue;
+                                            }
+                                            
+                                            var settingValue = settingMatch.Groups["setting_value"].Value.Trim();
+
+                                            if (policyChildrenChildData.StartsWith("  - Path (Mandatory):", StringComparison.OrdinalIgnoreCase))
+                                            {
+                                                // - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+                                                if (settingValue != "N/A")
+                                                {
+                                                    policy.WindowsRegistryMandatoryPath = settingValue;
+                                                }
+                                            }
+                                            else if (policyChildrenChildData.StartsWith("  - Path (Recommended):", StringComparison.OrdinalIgnoreCase))
+                                            {
+                                                //  - Path (Recommended): N/A
+                                                if (settingValue != "N/A")
+                                                {
+                                                    policy.WindowsRegistryRecommendedPath = settingValue;
+                                                }
+                                            }
+                                            else if (policyChildrenChildData.StartsWith("  - Value Name:", StringComparison.OrdinalIgnoreCase))
+                                            {
+                                                // - Value Name: ApplicationGuardContainerProxy
+                                                policy.WindowsRegistryValueName = settingValue;
+                                            }
+                                            else if (policyChildrenChildData.StartsWith("  - Value Type:", StringComparison.OrdinalIgnoreCase))
+                                            {
+                                                //  - Value Type: REG_SZ
+                                                policy.WindowsRegistryValueType = settingValue;
+
+                                                //list of REG_SZ
+                                                if (settingValue != "REG_SZ" && settingValue != "REG_DWORD" && settingValue != "list of REG_SZ")
+                                                {
+                                                    Console.WriteLine("ERROR: Unknown registry value type in Windows registry settings, {settingValue}");
+                                                    return 1;
+                                                }
+
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("ERROR: Unknown option in Windows registry settings.");
+                                                return 1;
+                                            }
+                                        }
+                                        //Debugger.Break();
+                                    }
+                                    else if (policyChildrenChild.Header.StartsWith("##### Example value:", StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        var readingExample = false;
+                                        var exampleBuffer = new StringBuilder();
+                                        for (int j = 0; j < policyChildrenChild.Data.Count; ++j)
+                                        {
+                                            var policyChildrenLine = policyChildrenChild.Data[j];
+
+                                            if (readingExample == true)
+                                            {
+                                                if (policyChildrenLine.StartsWith("```") == true)
+                                                {
+                                                    readingExample = false;
+                                                    policy.WindowsRegistryExampleValue = exampleBuffer.ToString().Trim();
+                                                    break;
+                                                }
+                                                else
+                                                {
+                                                    exampleBuffer.AppendLine(policyChildrenLine);
+                                                }
+                                                continue;
+                                            }
+                                            
+                                            if (policyChildrenLine.StartsWith("```"))
+                                            {
+                                                readingExample = true;
+                                            }
+                                        }
+                                    }
+                                }
                             }
                             else if (policyChildren.Header == "#### Mac information and settings")
                             {
+                                var readingExample = false;
+                                var exampleBuffer = new StringBuilder();
+                                for (int j = 0; j < policyChildren.Data.Count; ++j)
+                                {
+                                    var policyChildrenLine = policyChildren.Data[j];
+
+                                    if (readingExample == true)
+                                    {
+                                        if (policyChildrenLine.StartsWith("```") == true)
+                                        {
+                                            readingExample = false;
+                                            policy.MacOSPreferenceExampleValue = exampleBuffer.ToString().Trim();
+                                        }
+                                        else
+                                        {
+                                            exampleBuffer.AppendLine(policyChildrenLine.Trim());
+                                        }
+                                        continue;
+                                    }
+                                    
+                                    if (policyChildrenLine.StartsWith("  - Preference Key Name:"))
+                                    {
+                                        
+                                        var settingMatch = settingRegex.Match(policyChildrenLine);
+                                        if (settingMatch.Success == false)
+                                        {
+                                            continue;
+                                        }
+                                        
+                                        policy.MacOSPreferenceKeyName = settingMatch.Groups["setting_value"].Value.Trim();
+                                    }
+                                    else if (policyChildrenLine.StartsWith("``` xml"))
+                                    {
+                                        readingExample = true;
+                                    }
+
+                                }
+                                
                                 policy.PlatformMacOS = true;
                             }
                             else
@@ -405,9 +537,95 @@ try
     {
         WriteIndented = true
     };
+
+    // Validate certain things that are assumed.
+    foreach (var policyGroup in policyGroupDocument.PolicyGroups.Values)
+    {
+        foreach (var policy in policyGroup.Policies.Values)
+        {
+            if (policy.CanBeMandatory == false && policy.CanBeRecommended == false)
+            {
+                Console.WriteLine("ERROR: At some point CanBeMandatory and CanBeRecommended were both false.");
+                Debugger.Break();
+                return 1;
+            }
+
+            if (policy.PlatformWindows)
+            {
+                if (policy.CanBeRecommended == true && string.IsNullOrEmpty(policy.WindowsRegistryRecommendedPath) == true)
+                {
+                    Console.WriteLine("ERROR: Windows registry value can be recommended, but no path is defined.");
+                    Debugger.Break();
+                    return 1;
+                }
+
+                if (policy.CanBeMandatory == true && string.IsNullOrEmpty(policy.WindowsRegistryMandatoryPath) == true)
+                {
+                    Console.WriteLine("ERROR: Windows registry value can be mandatory, but no path is defined.");
+                    Debugger.Break();
+                    return 1;
+                }
+
+                if (policy.CanBeRecommended == true && policy.WindowsRegistryRecommendedPath.StartsWith(@"SOFTWARE\Policies\Microsoft\Edge") == false)
+                {
+                    Console.WriteLine("ERROR: Expected registry recommended path to begin with SOFTWARE\\Policies\\Microsoft\\Edge, but it didnt.");
+                    Debugger.Break();
+                    return 1;
+                }
+
+                if (policy.CanBeMandatory == true && policy.WindowsRegistryMandatoryPath.StartsWith(@"SOFTWARE\Policies\Microsoft\Edge") == false)
+                {
+                    Console.WriteLine("ERROR: Expected registry mandatory path to begin with SOFTWARE\\Policies\\Microsoft\\Edge, but it didnt.");
+                    Debugger.Break();
+                    return 1;
+                }
+            }
+
+            if (policy.PlatformMacOS)
+            {
+                if (string.IsNullOrEmpty(policy.MacOSPreferenceExampleValue))
+                {
+                    Console.WriteLine("ERROR: macOS example value is empty.");
+                    Debugger.Break();
+                    return 1;
+                }
+                
+                if (string.IsNullOrEmpty(policy.MacOSPreferenceKeyName))
+                {
+                    Console.WriteLine("ERROR: macOS Preference key name is empty.");
+                    Debugger.Break();
+                    return 1;
+                }
+            }
+        }
+    }
+    
     
     var policyGroupsJson = JsonSerializer.Serialize(policyGroupDocument, jsonSerializerOptions);
     await File.WriteAllTextAsync("policy_groups.json", policyGroupsJson);
+
+    var markdownSharp = new Markdown();
+    if (Directory.Exists("html") == false)
+    {
+        Directory.CreateDirectory("html");
+    }
+    
+    foreach (var policyGroup in policyGroupDocument.PolicyGroups.Values)
+    {
+        foreach (var policy in policyGroup.Policies.Values)
+        {
+            var htmlDoc = markdownSharp.Transform(policy.Markdown);
+            // Bad way to do this, but oh well.
+            htmlDoc = htmlDoc.Replace("<p><a href=\"#microsoft-edge---policies\">Back to top</a></p>", string.Empty);
+            var outputFile = Path.Combine("html", $"{policyGroup.Link}_{policy.Link}.html");
+            File.WriteAllText(outputFile, htmlDoc);
+            policy.Markdown = string.Empty;
+            
+        }
+    }
+    
+    policyGroupsJson = JsonSerializer.Serialize(policyGroupDocument, jsonSerializerOptions);
+    await File.WriteAllTextAsync("policy_groups_min.json", policyGroupsJson);
 }
 catch (Exception err)
 {
