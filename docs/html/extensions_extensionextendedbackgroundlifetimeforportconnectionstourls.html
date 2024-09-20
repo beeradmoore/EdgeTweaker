@@ -1,0 +1,79 @@
+<h3>ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls</h3>
+
+<h4>Configure a list of origins that grant an extended background lifetime to connecting extensions.</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 128 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Extensions that connect to one of these origins will keep running as long as the port is connected.
+If unset, the policy's default values are used. These are the app origins that offer SDKs that are known to not offer the possibility to restart a closed connection to a previous state:
+- Smart Card Connector
+- Citrix Receiver (stable, beta, back-up)
+- VMware Horizon (stable, beta)</p>
+
+<p>If set, the default value list is extended with the newly configured values. The defaults and policy-provided entries will grant the exception to the connecting extensions, as long as the port is connected.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls</li>
+<li>GP name: Configure a list of origins that grant an extended background lifetime to connecting extensions.</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Extensions</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls\1 = "chrome-extension://abcdefghijklmnopabcdefghijklmnop/"
+SOFTWARE\Policies\Microsoft\Edge\ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls\2 = "chrome-extension://bcdefghijklmnopabcdefghijklmnopa/"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;chrome-extension://abcdefghijklmnopabcdefghijklmnop/&lt;/string&gt;
+&lt;string&gt;chrome-extension://bcdefghijklmnopabcdefghijklmnopa/&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

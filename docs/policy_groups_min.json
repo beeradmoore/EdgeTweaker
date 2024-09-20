@@ -1,5 +1,5 @@
 {
-  "policy_date": "06/11/2024",
+  "policy_date": "09/17/2024",
   "policy_groups": {
     "Application Guard settings": {
       "name": "Application Guard settings",
@@ -1663,6 +1663,33 @@
         }
       }
     },
+    "Downloads": {
+      "name": "Downloads",
+      "link": "downloads",
+      "policies": {
+        "ShowDownloadsInsecureWarningsEnabled": {
+          "id": "ShowDownloadsInsecureWarningsEnabled",
+          "name": "Enable insecure download warnings",
+          "link": "showdownloadsinsecurewarningsenabled",
+          "data_type": "boolean",
+          "markdown": "",
+          "platform_windows": true,
+          "platform_macos": true,
+          "can_be_mandatory": true,
+          "can_be_recommended": true,
+          "per_profile": true,
+          "dynamic_policy_refresh": true,
+          "applies_to_signed_in_profile": false,
+          "windows_registry_mandatory_path": "SOFTWARE\\Policies\\Microsoft\\Edge",
+          "windows_registry_recommended_path": "SOFTWARE\\Policies\\Microsoft\\Edge\\Recommended",
+          "windows_registry_value_name": "ShowDownloadsInsecureWarningsEnabled",
+          "windows_registry_value_type": "REG_DWORD",
+          "windows_registry_example_value": "0x00000001",
+          "macos_preference_key_name": "ShowDownloadsInsecureWarningsEnabled",
+          "macos_preference_example_value": "\u003Ctrue/\u003E"
+        }
+      }
+    },
     "Edge Website Typo Protection settings": {
       "name": "Edge Website Typo Protection settings",
       "link": "edge-website-typo-protection-settings",
@@ -1873,6 +1900,48 @@
           "windows_registry_example_value": "SOFTWARE\\Policies\\Microsoft\\Edge\\ExtensionAllowedTypes\\1 = \u0022hosted_app\u0022",
           "macos_preference_key_name": "ExtensionAllowedTypes",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehosted_app\u003C/string\u003E\n\u003C/array\u003E"
+        },
+        "ExtensionDeveloperModeSettings": {
+          "id": "ExtensionDeveloperModeSettings",
+          "name": "Control the availability of developer mode on extensions page",
+          "link": "extensiondevelopermodesettings",
+          "data_type": "integer",
+          "markdown": "",
+          "platform_windows": true,
+          "platform_macos": true,
+          "can_be_mandatory": true,
+          "can_be_recommended": false,
+          "per_profile": true,
+          "dynamic_policy_refresh": true,
+          "applies_to_signed_in_profile": false,
+          "windows_registry_mandatory_path": "SOFTWARE\\Policies\\Microsoft\\Edge",
+          "windows_registry_recommended_path": "",
+          "windows_registry_value_name": "ExtensionDeveloperModeSettings",
+          "windows_registry_value_type": "REG_DWORD",
+          "windows_registry_example_value": "0x00000001",
+          "macos_preference_key_name": "ExtensionDeveloperModeSettings",
+          "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E"
+        },
+        "ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls": {
+          "id": "ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls",
+          "name": "Configure a list of origins that grant an extended background lifetime to connecting extensions.",
+          "link": "extensionextendedbackgroundlifetimeforportconnectionstourls",
+          "data_type": "list_of_strings",
+          "markdown": "",
+          "platform_windows": true,
+          "platform_macos": true,
+          "can_be_mandatory": true,
+          "can_be_recommended": false,
+          "per_profile": true,
+          "dynamic_policy_refresh": true,
+          "applies_to_signed_in_profile": false,
+          "windows_registry_mandatory_path": "SOFTWARE\\Policies\\Microsoft\\Edge\\ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls",
+          "windows_registry_recommended_path": "",
+          "windows_registry_value_name": "1, 2, 3, ...",
+          "windows_registry_value_type": "list of REG_SZ",
+          "windows_registry_example_value": "SOFTWARE\\Policies\\Microsoft\\Edge\\ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls\\1 = \u0022chrome-extension://abcdefghijklmnopabcdefghijklmnop/\u0022\nSOFTWARE\\Policies\\Microsoft\\Edge\\ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls\\2 = \u0022chrome-extension://bcdefghijklmnopabcdefghijklmnopa/\u0022",
+          "macos_preference_key_name": "ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls",
+          "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Echrome-extension://abcdefghijklmnopabcdefghijklmnop/\u003C/string\u003E\n\u003Cstring\u003Echrome-extension://bcdefghijklmnopabcdefghijklmnopa/\u003C/string\u003E\n\u003C/array\u003E"
         },
         "ExtensionInstallAllowlist": {
           "id": "ExtensionInstallAllowlist",
@@ -2440,7 +2509,7 @@
         },
         "SignInCtaOnNtpEnabled": {
           "id": "SignInCtaOnNtpEnabled",
-          "name": "Enable sign in click to action dialog",
+          "name": "Enable sign in click to action dialog (deprecated)",
           "link": "signinctaonntpenabled",
           "data_type": "boolean",
           "markdown": "",
@@ -3673,6 +3742,27 @@
           "macos_preference_key_name": "PrintingEnabled",
           "macos_preference_example_value": "\u003Ctrue/\u003E"
         },
+        "PrintingLPACSandboxEnabled": {
+          "id": "PrintingLPACSandboxEnabled",
+          "name": "Enable Printing LPAC Sandbox",
+          "link": "printinglpacsandboxenabled",
+          "data_type": "boolean",
+          "markdown": "",
+          "platform_windows": true,
+          "platform_macos": false,
+          "can_be_mandatory": true,
+          "can_be_recommended": false,
+          "per_profile": false,
+          "dynamic_policy_refresh": false,
+          "applies_to_signed_in_profile": true,
+          "windows_registry_mandatory_path": "SOFTWARE\\Policies\\Microsoft\\Edge",
+          "windows_registry_recommended_path": "",
+          "windows_registry_value_name": "PrintingLPACSandboxEnabled",
+          "windows_registry_value_type": "REG_DWORD",
+          "windows_registry_example_value": "0x00000000",
+          "macos_preference_key_name": "",
+          "macos_preference_example_value": ""
+        },
         "PrintingPaperSizeDefault": {
           "id": "PrintingPaperSizeDefault",
           "name": "Default printing page size",
@@ -4577,7 +4667,7 @@
         },
         "AllowTokenBindingForUrls": {
           "id": "AllowTokenBindingForUrls",
-          "name": "Configure the list of sites for which Microsoft Edge will attempt to establish a Token Binding with (deprecated)",
+          "name": "Configure the list of sites for which Microsoft Edge will attempt to establish a Token Binding with (obsolete)",
           "link": "allowtokenbindingforurls",
           "data_type": "list_of_strings",
           "markdown": "",
@@ -4742,6 +4832,27 @@
           "windows_registry_example_value": "0x00000000",
           "macos_preference_key_name": "AppCacheForceEnabled",
           "macos_preference_example_value": "\u003Cfalse/\u003E"
+        },
+        "ApplicationBoundEncryptionEnabled": {
+          "id": "ApplicationBoundEncryptionEnabled",
+          "name": "Enable Application Bound Encryption",
+          "link": "applicationboundencryptionenabled",
+          "data_type": "boolean",
+          "markdown": "",
+          "platform_windows": true,
+          "platform_macos": false,
+          "can_be_mandatory": true,
+          "can_be_recommended": false,
+          "per_profile": false,
+          "dynamic_policy_refresh": false,
+          "applies_to_signed_in_profile": true,
+          "windows_registry_mandatory_path": "SOFTWARE\\Policies\\Microsoft\\Edge",
+          "windows_registry_recommended_path": "",
+          "windows_registry_value_name": "ApplicationBoundEncryptionEnabled",
+          "windows_registry_value_type": "REG_DWORD",
+          "windows_registry_example_value": "0x00000000",
+          "macos_preference_key_name": "",
+          "macos_preference_example_value": ""
         },
         "ApplicationLocaleValue": {
           "id": "ApplicationLocaleValue",
@@ -5436,6 +5547,27 @@
           "macos_preference_key_name": "CORSNonWildcardRequestHeadersSupport",
           "macos_preference_example_value": "\u003Ctrue/\u003E"
         },
+        "CSSCustomStateDeprecatedSyntaxEnabled": {
+          "id": "CSSCustomStateDeprecatedSyntaxEnabled",
+          "name": "Controls whether the deprecated :--foo syntax for CSS custom state is enabled",
+          "link": "csscustomstatedeprecatedsyntaxenabled",
+          "data_type": "boolean",
+          "markdown": "",
+          "platform_windows": true,
+          "platform_macos": true,
+          "can_be_mandatory": true,
+          "can_be_recommended": false,
+          "per_profile": true,
+          "dynamic_policy_refresh": false,
+          "applies_to_signed_in_profile": false,
+          "windows_registry_mandatory_path": "SOFTWARE\\Policies\\Microsoft\\Edge",
+          "windows_registry_recommended_path": "",
+          "windows_registry_value_name": "CSSCustomStateDeprecatedSyntaxEnabled",
+          "windows_registry_value_type": "REG_DWORD",
+          "windows_registry_example_value": "0x00000001",
+          "macos_preference_key_name": "CSSCustomStateDeprecatedSyntaxEnabled",
+          "macos_preference_example_value": "\u003Ctrue/\u003E"
+        },
         "CertificateTransparencyEnforcementDisabledForCas": {
           "id": "CertificateTransparencyEnforcementDisabledForCas",
           "name": "Disable Certificate Transparency enforcement for a list of subjectPublicKeyInfo hashes",
@@ -5837,7 +5969,7 @@
         },
         "CopilotCDPPageContext": {
           "id": "CopilotCDPPageContext",
-          "name": "Control Copilot with Commerical Data Protection access to browser context for Microsoft Entra ID profiles",
+          "name": "Control Copilot with Commercial Data Protection access to page context for Microsoft Entra ID profiles",
           "link": "copilotcdppagecontext",
           "data_type": "boolean",
           "markdown": "",
@@ -5858,7 +5990,7 @@
         },
         "CopilotPageContext": {
           "id": "CopilotPageContext",
-          "name": "Control Copilot access to browser context for Microsoft Entra ID profiles",
+          "name": "Control Copilot access to page context for Microsoft Entra ID profiles",
           "link": "copilotpagecontext",
           "data_type": "boolean",
           "markdown": "",
@@ -5900,7 +6032,7 @@
         },
         "CryptoWalletEnabled": {
           "id": "CryptoWalletEnabled",
-          "name": "Enable CryptoWallet feature",
+          "name": "Enable CryptoWallet feature (deprecated)",
           "link": "cryptowalletenabled",
           "data_type": "boolean",
           "markdown": "",
@@ -6278,7 +6410,7 @@
         },
         "DiscoverPageContextEnabled": {
           "id": "DiscoverPageContextEnabled",
-          "name": "Enable Discover access to page contents for AAD profiles",
+          "name": "Enable Discover access to page contents for AAD profiles (obsolete)",
           "link": "discoverpagecontextenabled",
           "data_type": "boolean",
           "markdown": "",
@@ -6486,6 +6618,27 @@
           "macos_preference_key_name": "DownloadRestrictions",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E"
         },
+        "DynamicCodeSettings": {
+          "id": "DynamicCodeSettings",
+          "name": "Dynamic Code Settings",
+          "link": "dynamiccodesettings",
+          "data_type": "integer",
+          "markdown": "",
+          "platform_windows": true,
+          "platform_macos": false,
+          "can_be_mandatory": true,
+          "can_be_recommended": false,
+          "per_profile": false,
+          "dynamic_policy_refresh": false,
+          "applies_to_signed_in_profile": true,
+          "windows_registry_mandatory_path": "SOFTWARE\\Policies\\Microsoft\\Edge",
+          "windows_registry_recommended_path": "",
+          "windows_registry_value_name": "DynamicCodeSettings",
+          "windows_registry_value_type": "REG_DWORD",
+          "windows_registry_example_value": "0x00000001",
+          "macos_preference_key_name": "",
+          "macos_preference_example_value": ""
+        },
         "Edge3PSerpTelemetryEnabled": {
           "id": "Edge3PSerpTelemetryEnabled",
           "name": "Edge 3P SERP Telemetry Enabled",
@@ -6614,7 +6767,7 @@
         },
         "EdgeFollowEnabled": {
           "id": "EdgeFollowEnabled",
-          "name": "Enable Follow service in Microsoft Edge",
+          "name": "Enable Follow service in Microsoft Edge (obsolete)",
           "link": "edgefollowenabled",
           "data_type": "boolean",
           "markdown": "",
@@ -6674,6 +6827,27 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "EdgeShoppingAssistantEnabled",
           "macos_preference_example_value": "\u003Ctrue/\u003E"
+        },
+        "EdgeSidebarAppUrlHostBlockList": {
+          "id": "EdgeSidebarAppUrlHostBlockList",
+          "name": "Control which apps cannot be opened in Microsoft Edge sidebar",
+          "link": "edgesidebarappurlhostblocklist",
+          "data_type": "list_of_strings",
+          "markdown": "",
+          "platform_windows": true,
+          "platform_macos": true,
+          "can_be_mandatory": true,
+          "can_be_recommended": false,
+          "per_profile": true,
+          "dynamic_policy_refresh": true,
+          "applies_to_signed_in_profile": false,
+          "windows_registry_mandatory_path": "SOFTWARE\\Policies\\Microsoft\\Edge\\EdgeSidebarAppUrlHostBlockList",
+          "windows_registry_recommended_path": "",
+          "windows_registry_value_name": "1, 2, 3, ...",
+          "windows_registry_value_type": "list of REG_SZ",
+          "windows_registry_example_value": "SOFTWARE\\Policies\\Microsoft\\Edge\\EdgeSidebarAppUrlHostBlockList\\1 = \u0022https://www.contoso.com\u0022\nSOFTWARE\\Policies\\Microsoft\\Edge\\EdgeSidebarAppUrlHostBlockList\\2 = \u0022[*.]contoso.edu\u0022",
+          "macos_preference_key_name": "EdgeSidebarAppUrlHostBlockList",
+          "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E"
         },
         "EdgeSidebarCustomizeEnabled": {
           "id": "EdgeSidebarCustomizeEnabled",
@@ -6866,7 +7040,7 @@
         },
         "EnforceLocalAnchorConstraintsEnabled": {
           "id": "EnforceLocalAnchorConstraintsEnabled",
-          "name": "Determines whether the built-in certificate verifier will enforce constraints encoded into trust anchors loaded from the platform trust store (deprecated)",
+          "name": "Determines whether the built-in certificate verifier will enforce constraints encoded into trust anchors loaded from the platform trust store (obsolete)",
           "link": "enforcelocalanchorconstraintsenabled",
           "data_type": "boolean",
           "markdown": "",
@@ -7013,7 +7187,7 @@
         },
         "EnhanceSecurityModeOptOutUXEnabled": {
           "id": "EnhanceSecurityModeOptOutUXEnabled",
-          "name": "Manage opt-out user experience for Enhanced Security Mode (ESM) in Microsoft Edge",
+          "name": "Manage opt-out user experience for Enhanced Security Mode (ESM) in Microsoft Edge (deprecated)",
           "link": "enhancesecuritymodeoptoutuxenabled",
           "data_type": "boolean",
           "markdown": "",
@@ -8754,6 +8928,27 @@
           "macos_preference_key_name": "IsolateOrigins",
           "macos_preference_example_value": "\u003Cstring\u003Ehttps://contoso.com/,https://fabrikam.com/\u003C/string\u003E"
         },
+        "KeyboardFocusableScrollersEnabled": {
+          "id": "KeyboardFocusableScrollersEnabled",
+          "name": "Enable keyboard focusable scrollers",
+          "link": "keyboardfocusablescrollersenabled",
+          "data_type": "boolean",
+          "markdown": "",
+          "platform_windows": true,
+          "platform_macos": true,
+          "can_be_mandatory": true,
+          "can_be_recommended": false,
+          "per_profile": true,
+          "dynamic_policy_refresh": true,
+          "applies_to_signed_in_profile": false,
+          "windows_registry_mandatory_path": "SOFTWARE\\Policies\\Microsoft\\Edge",
+          "windows_registry_recommended_path": "",
+          "windows_registry_value_name": "KeyboardFocusableScrollersEnabled",
+          "windows_registry_value_type": "REG_DWORD",
+          "windows_registry_example_value": "0x00000001",
+          "macos_preference_key_name": "KeyboardFocusableScrollersEnabled",
+          "macos_preference_example_value": "\u003Ctrue/\u003E"
+        },
         "LiveCaptionsAllowed": {
           "id": "LiveCaptionsAllowed",
           "name": "Live captions allowed",
@@ -9092,7 +9287,7 @@
         },
         "MicrosoftRootStoreEnabled": {
           "id": "MicrosoftRootStoreEnabled",
-          "name": "Determines whether the Microsoft Root Store and built-in certificate verifier will be used to verify server certificates (deprecated)",
+          "name": "Determines whether the Microsoft Root Store and built-in certificate verifier will be used to verify server certificates (obsolete)",
           "link": "microsoftrootstoreenabled",
           "data_type": "boolean",
           "markdown": "",
@@ -9668,7 +9863,7 @@
           "can_be_mandatory": true,
           "can_be_recommended": false,
           "per_profile": false,
-          "dynamic_policy_refresh": false,
+          "dynamic_policy_refresh": true,
           "applies_to_signed_in_profile": true,
           "windows_registry_mandatory_path": "SOFTWARE\\Policies\\Microsoft\\Edge",
           "windows_registry_recommended_path": "",
@@ -10604,7 +10799,7 @@
         },
         "SetTimeoutWithout1MsClampEnabled": {
           "id": "SetTimeoutWithout1MsClampEnabled",
-          "name": "Control Javascript setTimeout() function minimum timeout (deprecated)",
+          "name": "Control Javascript setTimeout() function minimum timeout (obsolete)",
           "link": "settimeoutwithout1msclampenabled",
           "data_type": "boolean",
           "markdown": "",
@@ -10856,7 +11051,7 @@
         },
         "SiteSafetyServicesEnabled": {
           "id": "SiteSafetyServicesEnabled",
-          "name": "Allow users to configure Site safety services",
+          "name": "Allow users to configure Site safety services (obsolete)",
           "link": "sitesafetyservicesenabled",
           "data_type": "boolean",
           "markdown": "",
@@ -12116,7 +12311,7 @@
         },
         "WebWidgetIsEnabledOnStartup": {
           "id": "WebWidgetIsEnabledOnStartup",
-          "name": "Allow the Search bar at Windows startup (deprecated)",
+          "name": "Allow the Search bar at Windows startup (obsolete)",
           "link": "webwidgetisenabledonstartup",
           "data_type": "boolean",
           "markdown": "",

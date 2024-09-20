@@ -1,0 +1,73 @@
+<h3>DynamicCodeSettings</h3>
+
+<h4>Dynamic Code Settings</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 128 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy controls the dynamic code settings for Microsoft Edge.</p>
+
+<p>Disabling dynamic code improves the security of Microsoft Edge by preventing potentially hostile dynamic code and third-party code from making changes to Microsoft Edge's behavior. However this might cause compatibility issues with third-party software that must run in the browser process.</p>
+
+<p>If you set this policy to 0 (the default) or leave unset, then Microsoft Edge will use the default settings.</p>
+
+<p>If you set this policy to 1 – (EnabledForBrowser) then the Microsoft Edge browser process is prevented from creating dynamic code.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>Default (0) = Default dynamic code settings</p></li>
+<li><p>EnabledForBrowser (1) = Prevent the browser process from creating dynamic code</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: DynamicCodeSettings</li>
+<li>GP name: Dynamic Code Settings</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: DynamicCodeSettings</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+

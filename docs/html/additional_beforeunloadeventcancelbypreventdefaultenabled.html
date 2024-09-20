@@ -10,16 +10,16 @@
 
 <h4>Description</h4>
 
-<p>This policy provides a temporary opt-out for two related fixes to the behavior of the confirmation dialog that's shown by the beforeunload event.</p>
+<p>This policy provides a temporary opt-out for two related fixes to the behavior of the confirmation dialog that’s shown by the beforeunload event.</p>
 
 <p>When this policy is Enabled, the new (correct) behavior will be used.
 When this policy is Disabled, the old (legacy) behavior will be used.
 When this policy is left not set, the default behavior will be used.
 Note: This policy is a temporary workaround and will be removed in a future release.</p>
 
-<p>New and correct behavior: In <code>beforeunload</code>, calling <code>event.preventDefault()</code> will trigger the confirmation dialog. Setting <code>event.returnValue</code> to the empty string won't trigger the confirmation dialog.</p>
+<p>New and correct behavior: In <code>beforeunload</code>, calling <code>event.preventDefault()</code> will trigger the confirmation dialog. Setting <code>event.returnValue</code> to the empty string won’t trigger the confirmation dialog.</p>
 
-<p>Old and legacy behavior: In <code>beforeunload</code>, calling <code>event.preventDefault()</code> won't trigger the confirmation dialog. Setting <code>event.returnValue</code> to the empty string will trigger the confirmation dialog.</p>
+<p>Old and legacy behavior: In <code>beforeunload</code>, calling <code>event.preventDefault()</code> won’t trigger the confirmation dialog. Setting <code>event.returnValue</code> to the empty string will trigger the confirmation dialog.</p>
 
 <h4>Supported features:</h4>
 

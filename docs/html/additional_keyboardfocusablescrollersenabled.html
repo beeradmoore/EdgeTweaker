@@ -1,28 +1,22 @@
-<h3>EdgeFollowEnabled</h3>
+<h3>KeyboardFocusableScrollersEnabled</h3>
 
-<h4>Enable Follow service in Microsoft Edge (obsolete)</h4>
-
-<blockquote>
-  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 126.</p>
-</blockquote>
+<h4>Enable keyboard focusable scrollers</h4>
 
 <h4>Supported versions:</h4>
 
 <ul>
-<li>On Windows and macOS since 98, until 126</li>
+<li>On Windows and macOS since 128 or later</li>
 </ul>
 
 <h4>Description</h4>
 
-<p>Lets Microsoft Edge browser enable Follow service and apply it to users.</p>
+<p>This policy provides a temporary opt-out for the new keyboard focusable scrollers behavior.</p>
 
-<p>Users can use the Follow feature for an influencer, site, or topic in Microsoft Edge..</p>
+<p>When this policy is Enabled or unset, scrollers without focusable children are keyboard focusable by default. Further, scrollers are click focusable and programmatically focusable by default.</p>
 
-<p>If you enable or don't configure this policy, Follow in Microsoft Edge can be applied.</p>
+<p>When this policy is Disabled, scrollers are not focusable by default.</p>
 
-<p>If you disable this policy, Microsoft Edge will not communicate with Follow service to provide the follow feature.</p>
-
-<p>This policy is obsolete after version 126.</p>
+<p>This policy is a temporary workaround and will be removed in Edge Stable 135.</p>
 
 <h4>Supported features:</h4>
 
@@ -45,8 +39,8 @@
 <h5>Group Policy (ADMX) info</h5>
 
 <ul>
-<li>GP unique name: EdgeFollowEnabled</li>
-<li>GP name: Enable Follow service in Microsoft Edge (obsolete)</li>
+<li>GP unique name: KeyboardFocusableScrollersEnabled</li>
+<li>GP name: Enable keyboard focusable scrollers</li>
 <li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
@@ -57,7 +51,7 @@
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: EdgeFollowEnabled</li>
+<li>Value Name: KeyboardFocusableScrollersEnabled</li>
 <li>Value Type: REG_DWORD</li>
 </ul>
 
@@ -70,7 +64,7 @@
 <h4>Mac information and settings</h4>
 
 <ul>
-<li>Preference Key Name: EdgeFollowEnabled</li>
+<li>Preference Key Name: KeyboardFocusableScrollersEnabled</li>
 <li><p>Example value:
 <code>xml
 &lt;true/&gt;

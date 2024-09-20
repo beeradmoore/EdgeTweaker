@@ -1,20 +1,20 @@
 <h3>AllowTokenBindingForUrls</h3>
 
-<h4>Configure the list of sites for which Microsoft Edge will attempt to establish a Token Binding with (deprecated)</h4>
+<h4>Configure the list of sites for which Microsoft Edge will attempt to establish a Token Binding with (obsolete)</h4>
 
 <blockquote>
-  <p>DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.</p>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 129.</p>
 </blockquote>
 
 <h4>Supported versions:</h4>
 
 <ul>
-<li>On Windows since 83 or later</li>
+<li>On Windows since 83, until 129</li>
 </ul>
 
 <h4>Description</h4>
 
-<p>This policy is deprecated because Token Binding will no longer be supported, starting in Microsoft Edge 127.</p>
+<p>This policy is obsolete because Token Binding is no longer supported, starting with Microsoft Edge 130.</p>
 
 <p>Configure the list of URL patterns for sites that the browser will attempt to perform the Token Binding protocol with.
 For the domains on this list, the browser will send the Token Binding ClientHello in the TLS handshake (See https://tools.ietf.org/html/rfc8472).
@@ -48,7 +48,7 @@ If the server responds with a valid ServerHello response, the browser will creat
 
 <ul>
 <li>GP unique name: AllowTokenBindingForUrls</li>
-<li>GP name: Configure the list of sites for which Microsoft Edge will attempt to establish a Token Binding with (deprecated)</li>
+<li>GP name: Configure the list of sites for which Microsoft Edge will attempt to establish a Token Binding with (obsolete)</li>
 <li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>

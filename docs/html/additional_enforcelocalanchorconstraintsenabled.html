@@ -1,15 +1,15 @@
 <h3>EnforceLocalAnchorConstraintsEnabled</h3>
 
-<h4>Determines whether the built-in certificate verifier will enforce constraints encoded into trust anchors loaded from the platform trust store (deprecated)</h4>
+<h4>Determines whether the built-in certificate verifier will enforce constraints encoded into trust anchors loaded from the platform trust store (obsolete)</h4>
 
 <blockquote>
-  <p>DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.</p>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 127.</p>
 </blockquote>
 
 <h4>Supported versions:</h4>
 
 <ul>
-<li>On Windows and macOS since 113 or later</li>
+<li>On Windows and macOS since 113, until 127</li>
 </ul>
 
 <h4>Description</h4>
@@ -26,7 +26,7 @@
 
 <p>This policy has no effect if the <a href="#microsoftrootstoreenabled">MicrosoftRootStoreEnabled</a> policy is disabled.</p>
 
-<p>This policy is planned to be removed in Microsoft Edge version 118.</p>
+<p>This policy was removed in Microsoft Edge version 128. Starting with that version, constraints in trust anchors are always enforced.</p>
 
 <h4>Supported features:</h4>
 
@@ -50,7 +50,7 @@
 
 <ul>
 <li>GP unique name: EnforceLocalAnchorConstraintsEnabled</li>
-<li>GP name: Determines whether the built-in certificate verifier will enforce constraints encoded into trust anchors loaded from the platform trust store (deprecated)</li>
+<li>GP name: Determines whether the built-in certificate verifier will enforce constraints encoded into trust anchors loaded from the platform trust store (obsolete)</li>
 <li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
