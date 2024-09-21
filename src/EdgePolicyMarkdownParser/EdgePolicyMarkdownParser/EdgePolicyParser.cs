@@ -275,6 +275,7 @@ public class EdgePolicyParser
                             
                             var policy = policyGroup.Policies[policyNameKey];
                             policy.Markdown = rootPolicyChildrenChildren.GenerateMarkdown();
+                            policy.Summary = rootPolicyChildrenChildren.GetSummary();
                         }
                     }
                 }

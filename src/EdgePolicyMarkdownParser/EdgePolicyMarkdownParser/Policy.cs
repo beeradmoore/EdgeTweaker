@@ -18,6 +18,9 @@ public class Policy
 
     [JsonPropertyName("markdown")]
     public string Markdown { get; set; } = string.Empty;
+
+    [JsonPropertyName("summary")]
+    public string Summary { get; set; } = string.Empty;
     
     [JsonPropertyName("platform_windows")]
     public bool PlatformWindows { get; set; } = false;

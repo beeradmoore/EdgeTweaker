@@ -504,6 +504,7 @@ try
                         }
                         
                         policy.Markdown = rootPolicyChildrenChildren.GenerateMarkdown();
+                        policy.Summary = rootPolicyChildrenChildren.GetSummary();
                     }
                 }
             }
