@@ -44,6 +44,119 @@
     <script type="text/javascript">
         var jsonData;
 
+        function resizeIframe(iframe) {
+            //console.log(resizeIframe);
+            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        }
+
+        function showModal(policy) {
+            const settingsModalDiv = document.createElement("div");
+            settingsModalDiv.id = "settingsModal";
+            settingsModalDiv.classList.add("modal");
+            settingsModalDiv.tabIndex = -1;
+
+            const modalDialog = document.createElement("div");
+            modalDialog.classList.add("modal-dialog");
+            modalDialog.classList.add("modal-dialog-scrollable");
+
+            const modalContent = document.createElement("div");
+            modalContent.classList.add("modal-content");
+
+            const modalHeader = document.createElement("div");
+            modalHeader.classList.add("modal-header");
+
+            const modalTitle = document.createElement("h5");
+            modalTitle.classList.add("modal-title");
+            modalTitle.appendChild(document.createTextNode(policy.name));
+
+            const modalCloseButton = document.createElement("button");
+            modalCloseButton.type = "button";
+            modalCloseButton.classList.add("btn-close");
+            modalCloseButton.setAttribute('data-bs-dismiss', 'modal');
+            modalCloseButton.setAttribute('aria-label', 'Close');
+
+            modalHeader.appendChild(modalTitle);
+            modalHeader.appendChild(modalCloseButton);
+
+            const modalBody = document.createElement("div");
+            modalBody.classList.add("modal-body");
+            //modalBody.innerHTML = "test";
+
+            if (policy.data_type = "dictionary") {
+                
+            }
+            else if (policy.data_type = "boolean") {
+
+            }
+            else if (policy.data_type = "string") {
+
+            }
+            else if (policy.data_type = "list_of_strings") {
+
+            }
+            else if (policy.data_type = "integer") {
+
+            }
+            else {
+                console.error("Unknown data_type for policy " + policy.name);
+            }
+
+            const modalFooter = document.createElement("div");
+            modalFooter.classList.add("modal-footer");
+            modalFooter.classList.add("justify-content-between");
+
+            const clearButton = document.createElement("button");
+            clearButton.type = "button";
+            clearButton.classList.add("btn");
+            clearButton.classList.add("btn-danger");
+            clearButton.classList.add("me-auto");
+
+            clearButton.appendChild(document.createTextNode("Clear"));
+
+            const closeButton = document.createElement("button");
+            closeButton.type = "button";
+            closeButton.classList.add("btn");
+            closeButton.classList.add("btn-secondary");
+            closeButton.setAttribute("data-bs-dismiss", "modal");
+            closeButton.appendChild(document.createTextNode("Close"));
+
+            const saveButton = document.createElement("button");
+            saveButton.type = "button";
+            saveButton.classList.add("btn");
+            saveButton.classList.add("btn-primary");
+            saveButton.appendChild(document.createTextNode("Save"));
+
+            modalFooter.appendChild(clearButton);
+            modalFooter.appendChild(closeButton);
+            modalFooter.appendChild(saveButton);
+
+            modalContent.appendChild(modalHeader);
+            modalContent.appendChild(modalBody);
+            modalContent.appendChild(modalFooter);
+
+            modalDialog.appendChild(modalContent);
+
+            settingsModalDiv.appendChild(modalDialog);
+
+            settingsModalDiv.addEventListener('hidden.bs.modal', event => {
+                document.body.removeChild(settingsModalDiv);
+                settingsModalDiv.dispose();
+            });
+
+            document.body.appendChild(settingsModalDiv);
+
+            const settingsModal = new bootstrap.Modal(settingsModalDiv, []);
+
+            clearButton.onclick = function () {
+                settingsModal.hide();
+            };
+
+            saveButton.onclick = function () {
+                settingsModal.hide();
+            };
+            settingsModal.show();
+        }
+
         document.addEventListener(
             "DOMContentLoaded",
             function () {
@@ -130,7 +243,6 @@
                                 const policyRow = document.createElement("div");
                                 policyRow.classList.add("row");
                                 policyRow.classList.add("mt-4");
-
                                 policyGroup.policyRow = policyRow;
 
                                 const policyGroupHeading = document.createElement("h2");
@@ -149,12 +261,19 @@
                                     policyKey
                                 ) {
                                     const policy = policyGroup.policies[policyKey];
-                                    console.log(policy);
+                                    //console.log(policy);
 
                                     const cardDiv = document.createElement("div");
                                     cardDiv.classList.add("card");
                                     cardDiv.style = "width: 18rem;";
 
+                                    // Handle showing of model when this card is clicked.
+                                    cardDiv.onclick = function () {
+                                        showModal(policy);
+                                    };
+
+                                    // cardDiv.classList.add("border");
+                                    // cardDiv.classList.add("border-primary");
                                     policy.cardDiv = cardDiv;
 
                                     const cardBody = document.createElement("div");
