@@ -602,7 +602,7 @@ try
     
     
     var policyGroupsJson = JsonSerializer.Serialize(policyGroupDocument, jsonSerializerOptions);
-    await File.WriteAllTextAsync("policy_groups.json", policyGroupsJson);
+    await File.WriteAllTextAsync("policy-groups.json", policyGroupsJson);
 
     var markdownSharp = new Markdown();
     if (Directory.Exists("html") == false)
@@ -625,7 +625,7 @@ try
     }
     
     policyGroupsJson = JsonSerializer.Serialize(policyGroupDocument, jsonSerializerOptions);
-    await File.WriteAllTextAsync("policy_groups_min.json", policyGroupsJson);
+    await File.WriteAllTextAsync("policy-groups-min.json", policyGroupsJson);
 }
 catch (Exception err)
 {
