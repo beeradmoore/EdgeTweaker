@@ -1,0 +1,75 @@
+<h3>ViewXFAPDFInIEModeAllowedOrigins</h3>
+
+<h4>View XFA-based PDF files using IE Mode for allowed file origin.</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows since 132 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Internet Explorer (IE) mode uses the Adobe Acrobat Active-X PDF Plugin to open XFA-based PDF files. This policy will only work if the Active-X plugin is already on the user's device, it's not installed as part of this policy.</p>
+
+<p>It's important to note that XFA is a legacy technology that is deprecated by its original creators. It is not an ISO standard and as such, doesn't align with the modern web architecture. Continued use poses potential risks and vulnerabilities.</p>
+
+<p>Given the deprecated status of XFA technology and the lack of any investment by its creators, we strongly recommend that you start planning your transition to a more advanced HTML\PDF form-based solutions.</p>
+
+<p>In the interim, this policy provides a workaround for users to view XFA PDF in Microsoft Edge.</p>
+
+<p>If you enable this policy, you can configure the list of origins from which XFA PDF files will be automatically opened in Microsoft Edge using IE Mode.</p>
+
+<p>If you disable or don't configure the policy, XFA PDFs won't be considered for opening via Internet Explorer mode.</p>
+
+<p>For detailed information on valid URL patterns, see - <a href="https://go.microsoft.com/fwlink/?linkid=2095322">https://go.microsoft.com/fwlink/?linkid=2095322</a></p>
+
+<p>Alternatively, <a href="#viewxfapdfiniemodeallowedfilehash">ViewXFAPDFInIEModeAllowedFileHash</a> can also be used to configure list of file hashes instead of URL origins, which will enable those files to be automatically opened in Microsoft Edge using IE Mode.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ViewXFAPDFInIEModeAllowedOrigins</li>
+<li>GP name: View XFA-based PDF files using IE Mode for allowed file origin.</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/PDF Reader</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\ViewXFAPDFInIEModeAllowedOrigins</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\ViewXFAPDFInIEModeAllowedOrigins\1 = "https://contesso.sharepoint.com/accounts/"
+SOFTWARE\Policies\Microsoft\Edge\ViewXFAPDFInIEModeAllowedOrigins\2 = "https://contesso.sharepoint.com/transport/"
+SOFTWARE\Policies\Microsoft\Edge\ViewXFAPDFInIEModeAllowedOrigins\3 = "file://account_forms/"</p>
+
+<p>```</p>
+
+

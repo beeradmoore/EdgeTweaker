@@ -1,0 +1,80 @@
+<h3>EdgeEntraCopilotPageContext</h3>
+
+<h4>Control access to page content for Entra ID Profiles accessing Microsoft Copilot with Enterprise Data Protection (EDP) from the Microsoft Edge sidebar</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 130 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy controls access to page contents for Microsoft Copilot with enterprise data protection (EDP) in the Microsoft Edge sidebar for the web tab only. This policy controls whether Microsoft Copilot can perform page summarization and similar contextual queries.</p>
+
+<p>This policy applies only to Microsoft Entra ID Microsoft Edge profiles. It does not apply to MSA Microsoft Edge profiles. For users with M365 Copilot license, this control applies only to the web tab in the Microsoft Edge sidebar and not the work tab.</p>
+
+<p>If you enable this policy, Copilot will have access to page content when logged in with Entra ID.</p>
+
+<p>If this policy is not configured, the default behavior for non-EU countries is that access is initially enabled. For EU countries, the default behavior is that access is initially disabled. In both cases, if the policy is not configured, users can enable or disable Copilot's access to page content using the setting toggle in Microsoft Edge.</p>
+
+<p>If you disable this policy, Copilot will not be able to access page contents.</p>
+
+<p>Exceptions to the preceding behavior include when a page is protected using data loss prevention (DLP) measures. In that case, the page content will not be shared to Copilot even when this policy is enabled. This behavior ensures the integrity of DLP.</p>
+
+<p>Learn more about Copilot's data usage and consent at <a href="https://go.microsoft.com/fwlink/?linkid=2288056">https://go.microsoft.com/fwlink/?linkid=2288056</a></p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: EdgeEntraCopilotPageContext</li>
+<li>GP name: Control access to page content for Entra ID Profiles accessing Microsoft Copilot with Enterprise Data Protection (EDP) from the Microsoft Edge sidebar</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: EdgeEntraCopilotPageContext</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: EdgeEntraCopilotPageContext</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: dan-wesley
 manager: venkatk
-ms.date: 09/17/2024
+ms.date: 12/06/2024
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -30,11 +30,16 @@ Starting in Microsoft Edge version 116, certain policies will not be applied to 
 
 ## New policies
 
-The following table lists the new policies that are in this article update.
+The following table lists the new, and obsoleted policies that are in this article update.
 
 | Policy Name | Caption |
 |:-----|:-----|
-|[PrintingLPACSandboxEnabled](#printinglpacsandboxenabled)|Enable Printing LPAC Sandbox|
+|[CAHintCertificates](#cahintcertificates)|TLS certificates that are not trusted or distrusted but can be used in path-building for server authentication|
+|[CAPlatformIntegrationEnabled](#caplatformintegrationenabled)|Use user-added TLS certificates from platform trust stores for server authentication|
+|[EdgeSidebarAppUrlHostForceList](#edgesidebarappurlhostforcelist)|Control which apps are forced to be shown in Microsoft Edge sidebar|
+|[CopilotCDPPageContext](#copilotcdppagecontext)|Control Copilot with Commercial Data Protection access to page context for Microsoft Entra ID profiles (obsolete)|
+
+
 
 ## Available policies
 
@@ -42,6 +47,7 @@ These tables list all of the browser-related group policies available in this re
 
 - [Application Guard settings](#application-guard-settings)
 - [Cast](#cast)
+- [Certificate management settings](#certificate-management-settings)
 - [Content settings](#content-settings)
 - [Default search provider](#default-search-provider)
 - [Downloads](#downloads)
@@ -50,6 +56,7 @@ These tables list all of the browser-related group policies available in this re
 - [Experimentation](#experimentation)
 - [Extensions](#extensions)
 - [Games settings](#games-settings)
+- [Generative AI](#generative-ai)
 - [HTTP authentication](#http-authentication)
 - [Identity and sign-in](#identity-and-sign-in)
 - [Idle Browser Actions](#idle-browser-actions)
@@ -58,6 +65,7 @@ These tables list all of the browser-related group policies available in this re
 - [Manageability](#manageability)
 - [Native Messaging](#native-messaging)
 - [Network settings](#network-settings)
+- [PDF Reader](#pdf-reader)
 - [Password manager and protection](#password-manager-and-protection)
 - [Performance](#performance)
 - [Permit or deny screen capture](#permit-or-deny-screen-capture)
@@ -87,6 +95,15 @@ These tables list all of the browser-related group policies available in this re
 |[EdgeDisableDialProtocolForCastDiscovery](#edgedisabledialprotocolforcastdiscovery)|Disable DIAL protocol for cast device discovery|
 |[EnableMediaRouter](#enablemediarouter)|Enable Google Cast|
 |[ShowCastIconInToolbar](#showcasticonintoolbar)|Show the cast icon in the toolbar|
+### [*Certificate management settings*](#certificate-management-settings-policies)
+
+|Policy Name|Caption|
+|-|-|
+|[CACertificateManagementAllowed](#cacertificatemanagementallowed)|Allow users to manage installed CA certificates.|
+|[CACertificates](#cacertificates)|TLS server certificates that should be trusted by Microsoft Edge|
+|[CADistrustedCertificates](#cadistrustedcertificates)|TLS certificates that should be distrusted by Microsoft Edge for server authentication|
+|[CAHintCertificates](#cahintcertificates)|TLS certificates that are not trusted or distrusted but can be used in path-building for server authentication|
+|[CAPlatformIntegrationEnabled](#caplatformintegrationenabled)|Use user-added TLS certificates from platform trust stores for server authentication|
 ### [*Content settings*](#content-settings-policies)
 
 |Policy Name|Caption|
@@ -94,6 +111,8 @@ These tables list all of the browser-related group policies available in this re
 |[AutoSelectCertificateForUrls](#autoselectcertificateforurls)|Automatically select client certificates for these sites|
 |[AutomaticDownloadsAllowedForUrls](#automaticdownloadsallowedforurls)|Allow multiple automatic downloads in quick succession on specific sites|
 |[AutomaticDownloadsBlockedForUrls](#automaticdownloadsblockedforurls)|Block multiple automatic downloads in quick succession on specific sites|
+|[AutomaticFullscreenAllowedForUrls](#automaticfullscreenallowedforurls)|Allow automatic full screen on specified sites|
+|[AutomaticFullscreenBlockedForUrls](#automaticfullscreenblockedforurls)|Block automatic full screen on specified sites|
 |[CookiesAllowedForUrls](#cookiesallowedforurls)|Allow cookies on specific sites|
 |[CookiesBlockedForUrls](#cookiesblockedforurls)|Block cookies on specific sites|
 |[CookiesSessionOnlyForUrls](#cookiessessiononlyforurls)|Limit cookies from specific websites to the current session|
@@ -141,7 +160,7 @@ These tables list all of the browser-related group policies available in this re
 |[SerialAllowUsbDevicesForUrls](#serialallowusbdevicesforurls)|Automatically grant sites permission to connect to USB serial devices|
 |[ShowPDFDefaultRecommendationsEnabled](#showpdfdefaultrecommendationsenabled)|Allow notifications to set Microsoft Edge as default PDF reader|
 |[SpotlightExperiencesAndRecommendationsEnabled](#spotlightexperiencesandrecommendationsenabled)|Choose whether users can receive customized background images and text, suggestions, notifications, and tips for Microsoft services|
-|[ThirdPartyStoragePartitioningBlockedForOrigins](#thirdpartystoragepartitioningblockedfororigins)|Block third-party storage partitioning for these origins|
+|[ThirdPartyStoragePartitioningBlockedForOrigins](#thirdpartystoragepartitioningblockedfororigins)|Disable third-party storage partitioning for specific top-level origins|
 |[WebHidAllowAllDevicesForUrls](#webhidallowalldevicesforurls)|Allow listed sites to connect to any HID device|
 |[WebHidAllowDevicesForUrls](#webhidallowdevicesforurls)|Allow listed sites connect to specific HID devices|
 |[WebHidAllowDevicesWithHidUsagesForUrls](#webhidallowdeviceswithhidusagesforurls)|Automatically grant permission to these sites to connect to HID devices containing top-level collections with the given HID usage|
@@ -209,6 +228,11 @@ These tables list all of the browser-related group policies available in this re
 |Policy Name|Caption|
 |-|-|
 |[GamerModeEnabled](#gamermodeenabled)|Enable Gamer Mode|
+### [*Generative AI*](#generative-ai-policies)
+
+|Policy Name|Caption|
+|-|-|
+|[GenAILocalFoundationalModelSettings](#genailocalfoundationalmodelsettings)|Settings for GenAI local foundational model|
 ### [*HTTP authentication*](#http-authentication-policies)
 
 |Policy Name|Caption|
@@ -235,7 +259,7 @@ These tables list all of the browser-related group policies available in this re
 |[OneAuthAuthenticationEnforced](#oneauthauthenticationenforced)|OneAuth Authentication Flow Enforced for signin|
 |[OnlyOnPremisesImplicitSigninEnabled](#onlyonpremisesimplicitsigninenabled)|Only on-premises account enabled for implicit sign-in|
 |[ProactiveAuthWorkflowEnabled](#proactiveauthworkflowenabled)|Enable proactive authentication|
-|[SignInCtaOnNtpEnabled](#signinctaonntpenabled)|Enable sign in click to action dialog (deprecated)|
+|[SignInCtaOnNtpEnabled](#signinctaonntpenabled)|Enable sign in click to action dialog (obsolete)|
 |[SwitchIntranetSitesToWorkProfile](#switchintranetsitestoworkprofile)|Switch intranet sites to a work profile|
 |[SwitchSitesOnIEModeSiteListToWorkProfile](#switchsitesoniemodesitelisttoworkprofile)|Switch sites on the IE mode site list to a work profile|
 |[WAMAuthBelowWin10RS3Enabled](#wamauthbelowwin10rs3enabled)|WAM for authentication below Windows 10 RS3 enabled|
@@ -278,13 +302,22 @@ These tables list all of the browser-related group policies available in this re
 |Policy Name|Caption|
 |-|-|
 |[AccessControlAllowMethodsInCORSPreflightSpecConformant](#accesscontrolallowmethodsincorspreflightspecconformant)|Make Access-Control-Allow-Methods matching in CORS preflight spec conformant|
-|[BlockTruncatedCookies](#blocktruncatedcookies)|Block truncated cookies|
+|[BlockTruncatedCookies](#blocktruncatedcookies)|Block truncated cookies (obsolete)|
 |[CompressionDictionaryTransportEnabled](#compressiondictionarytransportenabled)|Enable compression dictionary transport support|
+|[DataURLWhitespacePreservationEnabled](#dataurlwhitespacepreservationenabled)|DataURL Whitespace Preservation for all media types|
+|[IPv6ReachabilityOverrideEnabled](#ipv6reachabilityoverrideenabled)|Enable IPv6 reachability check override|
 |[ZstdContentEncodingEnabled](#zstdcontentencodingenabled)|Enable zstd content encoding support|
+### [*PDF Reader*](#pdf-reader-policies)
+
+|Policy Name|Caption|
+|-|-|
+|[ViewXFAPDFInIEModeAllowedFileHash](#viewxfapdfiniemodeallowedfilehash)|View XFA-based PDF files using IE Mode for allowed file hash.|
+|[ViewXFAPDFInIEModeAllowedOrigins](#viewxfapdfiniemodeallowedorigins)|View XFA-based PDF files using IE Mode for allowed file origin.|
 ### [*Password manager and protection*](#password-manager-and-protection-policies)
 
 |Policy Name|Caption|
 |-|-|
+|[DeletingUndecryptablePasswordsEnabled](#deletingundecryptablepasswordsenabled)|Enable deleting undecryptable passwords|
 |[PasswordDeleteOnBrowserCloseEnabled](#passworddeleteonbrowsercloseenabled)|Prevent passwords from being deleted if any Edge settings is enabled to delete browsing data when Microsoft Edge closes|
 |[PasswordGeneratorEnabled](#passwordgeneratorenabled)|Allow users to get a strong password suggestion whenever they are creating an account online|
 |[PasswordManagerBlocklist](#passwordmanagerblocklist)|Configure the list of domains for which the password manager UI (Save and Fill) will be disabled|
@@ -303,6 +336,7 @@ These tables list all of the browser-related group policies available in this re
 |[EfficiencyMode](#efficiencymode)|Configure when efficiency mode should become active|
 |[EfficiencyModeEnabled](#efficiencymodeenabled)|Efficiency mode enabled|
 |[EfficiencyModeOnPowerEnabled](#efficiencymodeonpowerenabled)|Enable efficiency mode when the device is connected to a power source|
+|[ExtensionsPerformanceDetectorEnabled](#extensionsperformancedetectorenabled)|Extensions Performance Detector enabled|
 |[PerformanceDetectorEnabled](#performancedetectorenabled)|Performance Detector Enabled|
 |[PinBrowserEssentialsToolbarButton](#pinbrowseressentialstoolbarbutton)|Pin browser essentials toolbar button|
 |[StartupBoostEnabled](#startupboostenabled)|Enable startup boost|
@@ -341,6 +375,7 @@ These tables list all of the browser-related group policies available in this re
 |-|-|
 |[InsecurePrivateNetworkRequestsAllowed](#insecureprivatenetworkrequestsallowed)|Specifies whether to allow websites to make requests to any network endpoint in an insecure manner.|
 |[InsecurePrivateNetworkRequestsAllowedForUrls](#insecureprivatenetworkrequestsallowedforurls)|Allow the listed sites to make requests to more-private network endpoints from in an insecure manner|
+|[PrivateNetworkAccessRestrictionsEnabled](#privatenetworkaccessrestrictionsenabled)|Specifies whether to apply restrictions to requests to more private network endpoints|
 ### [*Proxy server*](#proxy-server-policies)
 
 |Policy Name|Caption|
@@ -406,6 +441,7 @@ These tables list all of the browser-related group policies available in this re
 |[AADWebSiteSSOUsingThisProfileEnabled](#aadwebsitessousingthisprofileenabled)|Single sign-on for work or school sites using this profile enabled|
 |[AIGenThemesEnabled](#aigenthemesenabled)|Enables DALL-E themes generation|
 |[AccessibilityImageLabelsEnabled](#accessibilityimagelabelsenabled)|Let screen reader users get image descriptions from Microsoft|
+|[AdHocCodeSigningForPWAsEnabled](#adhoccodesigningforpwasenabled)|Native application signing during Progressive Web Application installation|
 |[AdditionalSearchBoxEnabled](#additionalsearchboxenabled)|Enable additional search box in browser|
 |[AddressBarEditingEnabled](#addressbareditingenabled)|Configure address bar editing|
 |[AddressBarMicrosoftSearchInBingProviderEnabled](#addressbarmicrosoftsearchinbingproviderenabled)|Enable Microsoft Search in Bing suggestions in the address bar|
@@ -447,7 +483,7 @@ These tables list all of the browser-related group policies available in this re
 |[AutoplayAllowlist](#autoplayallowlist)|Allow media autoplay on specific sites|
 |[BackgroundModeEnabled](#backgroundmodeenabled)|Continue running background apps after Microsoft Edge closes|
 |[BackgroundTemplateListUpdatesEnabled](#backgroundtemplatelistupdatesenabled)|Enables background updates to the list of available templates for Collections and other features that use templates (deprecated)|
-|[BeforeunloadEventCancelByPreventDefaultEnabled](#beforeunloadeventcancelbypreventdefaultenabled)|Control the behavior for the cancel dialog produced by the beforeunload event|
+|[BeforeunloadEventCancelByPreventDefaultEnabled](#beforeunloadeventcancelbypreventdefaultenabled)|Control the behavior for the cancel dialog produced by the beforeunload event (obsolete)|
 |[BingAdsSuppression](#bingadssuppression)|Block all ads on Bing search results|
 |[BlockThirdPartyCookies](#blockthirdpartycookies)|Block third party cookies|
 |[BrowserAddProfileEnabled](#browseraddprofileenabled)|Enable profile creation from the Identity flyout menu or the Settings page|
@@ -463,7 +499,7 @@ These tables list all of the browser-related group policies available in this re
 |[CORSNonWildcardRequestHeadersSupport](#corsnonwildcardrequestheaderssupport)|CORS non-wildcard request header support enabled|
 |[CSSCustomStateDeprecatedSyntaxEnabled](#csscustomstatedeprecatedsyntaxenabled)|Controls whether the deprecated :--foo syntax for CSS custom state is enabled|
 |[CertificateTransparencyEnforcementDisabledForCas](#certificatetransparencyenforcementdisabledforcas)|Disable Certificate Transparency enforcement for a list of subjectPublicKeyInfo hashes|
-|[CertificateTransparencyEnforcementDisabledForLegacyCas](#certificatetransparencyenforcementdisabledforlegacycas)|Disable Certificate Transparency enforcement for a list of legacy certificate authorities|
+|[CertificateTransparencyEnforcementDisabledForLegacyCas](#certificatetransparencyenforcementdisabledforlegacycas)|Disable Certificate Transparency enforcement for a list of legacy certificate authorities (obsolete)|
 |[CertificateTransparencyEnforcementDisabledForUrls](#certificatetransparencyenforcementdisabledforurls)|Disable Certificate Transparency enforcement for specific URLs|
 |[ClearBrowsingDataOnExit](#clearbrowsingdataonexit)|Clear browsing data when Microsoft Edge closes|
 |[ClearCachedImagesAndFilesOnExit](#clearcachedimagesandfilesonexit)|Clear cached images and files when Microsoft Edge closes|
@@ -481,10 +517,11 @@ These tables list all of the browser-related group policies available in this re
 |[ConfigureOnlineTextToSpeech](#configureonlinetexttospeech)|Configure Online Text To Speech|
 |[ConfigureShare](#configureshare)|Configure the Share experience|
 |[ConfigureViewInFileExplorer](#configureviewinfileexplorer)|Configure the View in File Explorer feature for SharePoint pages in Microsoft Edge|
-|[CopilotCDPPageContext](#copilotcdppagecontext)|Control Copilot with Commercial Data Protection access to page context for Microsoft Entra ID profiles|
+|[CopilotCDPPageContext](#copilotcdppagecontext)|Control Copilot with Commercial Data Protection access to page context for Microsoft Entra ID profiles (obsolete)|
 |[CopilotPageContext](#copilotpagecontext)|Control Copilot access to page context for Microsoft Entra ID profiles|
+|[CreatePasskeysInICloudKeychain](#createpasskeysinicloudkeychain)|Control whether passkey creation will default to iCloud Keychain.|
 |[CrossOriginWebAssemblyModuleSharingEnabled](#crossoriginwebassemblymodulesharingenabled)|Specifies whether WebAssembly modules can be sent cross-origin (obsolete)|
-|[CryptoWalletEnabled](#cryptowalletenabled)|Enable CryptoWallet feature (deprecated)|
+|[CryptoWalletEnabled](#cryptowalletenabled)|Enable CryptoWallet feature (obsolete)|
 |[CustomHelpLink](#customhelplink)|Specify custom help link|
 |[DNSInterceptionChecksEnabled](#dnsinterceptionchecksenabled)|DNS interception checks enabled|
 |[DefaultBrowserSettingEnabled](#defaultbrowsersettingenabled)|Set Microsoft Edge as default browser|
@@ -519,10 +556,13 @@ These tables list all of the browser-related group policies available in this re
 |[EdgeDiscoverEnabled](#edgediscoverenabled)|Discover feature In Microsoft Edge (obsolete)|
 |[EdgeEDropEnabled](#edgeedropenabled)|Enable Drop feature in Microsoft Edge|
 |[EdgeEnhanceImagesEnabled](#edgeenhanceimagesenabled)|Enhance images enabled (obsolete)|
+|[EdgeEntraCopilotPageContext](#edgeentracopilotpagecontext)|Control access to page content for Entra ID Profiles accessing Microsoft Copilot with Enterprise Data Protection (EDP) from the Microsoft Edge sidebar|
 |[EdgeFollowEnabled](#edgefollowenabled)|Enable Follow service in Microsoft Edge (obsolete)|
 |[EdgeOpenInSidebarEnabled](#edgeopeninsidebarenabled)|Enable open in sidebar|
 |[EdgeShoppingAssistantEnabled](#edgeshoppingassistantenabled)|Shopping in Microsoft Edge Enabled|
+|[EdgeSidebarAppUrlHostAllowList](#edgesidebarappurlhostallowlist)|Allow specific apps to be opened in Microsoft Edge sidebar|
 |[EdgeSidebarAppUrlHostBlockList](#edgesidebarappurlhostblocklist)|Control which apps cannot be opened in Microsoft Edge sidebar|
+|[EdgeSidebarAppUrlHostForceList](#edgesidebarappurlhostforcelist)|Control which apps are forced to be shown in Microsoft Edge sidebar|
 |[EdgeSidebarCustomizeEnabled](#edgesidebarcustomizeenabled)|Enable sidebar customize|
 |[EdgeWalletCheckoutEnabled](#edgewalletcheckoutenabled)|Enable Wallet Checkout feature|
 |[EdgeWalletEtreeEnabled](#edgewalletetreeenabled)|Edge Wallet E-Tree Enabled|
@@ -591,7 +631,7 @@ These tables list all of the browser-related group policies available in this re
 |[ImportStartupPageSettings](#importstartuppagesettings)|Allow importing of startup page settings|
 |[InAppSupportEnabled](#inappsupportenabled)|In-app support Enabled|
 |[InPrivateModeAvailability](#inprivatemodeavailability)|Configure InPrivate mode availability|
-|[InsecureFormsWarningsEnabled](#insecureformswarningsenabled)|Enable warnings for insecure forms|
+|[InsecureFormsWarningsEnabled](#insecureformswarningsenabled)|Enable warnings for insecure forms (deprecated)|
 |[IntensiveWakeUpThrottlingEnabled](#intensivewakeupthrottlingenabled)|Control the IntensiveWakeUpThrottling feature|
 |[InternetExplorerIntegrationAlwaysUseOSCapture](#internetexplorerintegrationalwaysuseoscapture)|Always use the OS capture engine to avoid issues with capturing Internet Explorer mode tabs|
 |[InternetExplorerIntegrationAlwaysWaitForUnload](#internetexplorerintegrationalwayswaitforunload)|Wait for Internet Explorer mode tabs to completely unload before ending the browser session|
@@ -624,6 +664,7 @@ These tables list all of the browser-related group policies available in this re
 |[IsolateOrigins](#isolateorigins)|Enable site isolation for specific origins|
 |[KeyboardFocusableScrollersEnabled](#keyboardfocusablescrollersenabled)|Enable keyboard focusable scrollers|
 |[LiveCaptionsAllowed](#livecaptionsallowed)|Live captions allowed|
+|[LiveTranslationAllowed](#livetranslationallowed)|Live translation allowed|
 |[LocalBrowserDataShareEnabled](#localbrowserdatashareenabled)|Enable Windows to search local Microsoft Edge browsing data|
 |[LocalProvidersEnabled](#localprovidersenabled)|Allow suggestions from local providers|
 |[MAUEnabled](#mauenabled)|Always use Microsoft AutoUpdate as the updater for Microsoft Edge|
@@ -641,13 +682,13 @@ These tables list all of the browser-related group policies available in this re
 |[MicrosoftOfficeMenuEnabled](#microsoftofficemenuenabled)|Allow users to access the Microsoft Office menu (deprecated)|
 |[MicrosoftRootStoreEnabled](#microsoftrootstoreenabled)|Determines whether the Microsoft Root Store and built-in certificate verifier will be used to verify server certificates (obsolete)|
 |[MouseGestureEnabled](#mousegestureenabled)|Mouse Gesture Enabled|
-|[MutationEventsEnabled](#mutationeventsenabled)|Enable deprecated/removed Mutation Events|
+|[MutationEventsEnabled](#mutationeventsenabled)|Enable deprecated/removed Mutation Events (deprecated)|
 |[NativeHostsExecutablesLaunchDirectly](#nativehostsexecutableslaunchdirectly)|Force Windows executable Native Messaging hosts to launch directly|
 |[NativeWindowOcclusionEnabled](#nativewindowocclusionenabled)|Enable Native Window Occlusion (deprecated)|
 |[NavigationDelayForInitialSiteListDownloadTimeout](#navigationdelayforinitialsitelistdownloadtimeout)|Set a timeout for delay of tab navigation for the Enterprise Mode Site List|
 |[NetworkPredictionOptions](#networkpredictionoptions)|Enable network prediction|
 |[NetworkServiceSandboxEnabled](#networkservicesandboxenabled)|Enable the network service sandbox|
-|[NewBaseUrlInheritanceBehaviorAllowed](#newbaseurlinheritancebehaviorallowed)|Allows enabling the feature NewBaseUrlInheritanceBehavior|
+|[NewBaseUrlInheritanceBehaviorAllowed](#newbaseurlinheritancebehaviorallowed)|Allows enabling the feature NewBaseUrlInheritanceBehavior (deprecated)|
 |[NewPDFReaderEnabled](#newpdfreaderenabled)|Microsoft Edge built-in PDF reader powered by Adobe Acrobat enabled|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Configure whether a user always has a default profile automatically signed in with their work or school account|
 |[OrganizationLogoOverlayOnAppIconEnabled](#organizationlogooverlayonappiconenabled)|Allow your organization's logo from Microsoft Entra to be overlaid on the Microsoft Edge app icon of a work profile|
@@ -659,18 +700,19 @@ These tables list all of the browser-related group policies available in this re
 |[PDFXFAEnabled](#pdfxfaenabled)|XFA support in native PDF reader enabled|
 |[PaymentMethodQueryEnabled](#paymentmethodqueryenabled)|Allow websites to query for available payment methods|
 |[PersonalizationReportingEnabled](#personalizationreportingenabled)|Allow personalization of ads, Microsoft Edge, search, news and other Microsoft services by sending browsing history, favorites and collections, usage and other browsing data to Microsoft|
+|[PersonalizeTopSitesInCustomizeSidebarEnabled](#personalizetopsitesincustomizesidebarenabled)|Personalize my top sites in Customize Sidebar enabled by default|
 |[PictureInPictureOverlayEnabled](#pictureinpictureoverlayenabled)|Enable Picture in Picture overlay feature on supported webpages in Microsoft Edge|
 |[PinningWizardAllowed](#pinningwizardallowed)|Allow Pin to taskbar wizard|
 |[PostQuantumKeyAgreementEnabled](#postquantumkeyagreementenabled)|Enable post-quantum key agreement for TLS|
 |[ProactiveAuthEnabled](#proactiveauthenabled)|Enable Proactive Authentication (obsolete)|
-|[PromotionalTabsEnabled](#promotionaltabsenabled)|Enable full-tab promotional content|
+|[PromotionalTabsEnabled](#promotionaltabsenabled)|Enable full-tab promotional content (deprecated)|
 |[PromptForDownloadLocation](#promptfordownloadlocation)|Ask where to save downloaded files|
 |[PromptOnMultipleMatchingCertificates](#promptonmultiplematchingcertificates)|Prompt the user to select a certificate when multiple certificates match|
 |[QRCodeGeneratorEnabled](#qrcodegeneratorenabled)|Enable QR Code Generator|
 |[QuicAllowed](#quicallowed)|Allow QUIC protocol|
 |[QuickSearchShowMiniMenu](#quicksearchshowminimenu)|Enables Microsoft Edge mini menu|
 |[QuickViewOfficeFilesEnabled](#quickviewofficefilesenabled)|Manage QuickView Office files capability in Microsoft Edge|
-|[RSAKeyUsageForLocalAnchorsEnabled](#rsakeyusageforlocalanchorsenabled)|Check RSA key usage for server certificates issued by local trust anchors|
+|[RSAKeyUsageForLocalAnchorsEnabled](#rsakeyusageforlocalanchorsenabled)|Check RSA key usage for server certificates issued by local trust anchors (deprecated)|
 |[ReadAloudEnabled](#readaloudenabled)|Enable Read Aloud feature in Microsoft Edge|
 |[RedirectSitesFromInternetExplorerPreventBHOInstall](#redirectsitesfrominternetexplorerpreventbhoinstall)|Prevent install of the BHO to redirect incompatible sites from Internet Explorer to Microsoft Edge|
 |[RedirectSitesFromInternetExplorerRedirectMode](#redirectsitesfrominternetexplorerredirectmode)|Redirect incompatible sites from Internet Explorer to Microsoft Edge|
@@ -704,6 +746,7 @@ These tables list all of the browser-related group policies available in this re
 |[SearchbarAllowed](#searchbarallowed)|Enable the Search bar|
 |[SearchbarIsEnabledOnStartup](#searchbarisenabledonstartup)|Allow the Search bar at Windows startup|
 |[SecurityKeyPermitAttestation](#securitykeypermitattestation)|Websites or domains that don't need permission to use direct Security Key attestation|
+|[SelectParserRelaxationEnabled](#selectparserrelaxationenabled)|Controls whether the new HTML parser behavior for the \<select> element is enabled|
 |[SendIntranetToInternetExplorer](#sendintranettointernetexplorer)|Send all intranet sites to Internet Explorer|
 |[SendMouseEventsDisabledFormControlsEnabled](#sendmouseeventsdisabledformcontrolsenabled)|Control the new behavior for event dispatching on disabled form controls (obsolete)|
 |[SendSiteInfoToImproveServices](#sendsiteinfotoimproveservices)|Send site information to improve Microsoft services (obsolete)|
@@ -1303,6 +1346,337 @@ If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, 
 
   [Back to top](#microsoft-edge---policies)
 
+  ## Certificate management settings policies
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### CACertificateManagementAllowed
+
+  #### Allow users to manage installed CA certificates.
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 133 or later
+
+  #### Description
+
+  Setting the policy to All (0) or leaving it unset lets users edit trust settings for all CA certificates, remove user-imported certificates, and import certificates using Certificate Manager. Setting the policy to UserOnly (1) lets users manage only user-imported certificates, but not change trust settings of built-in certificates. Setting it to None (2) lets users view (not manage) CA certificates.
+
+Policy options mapping:
+
+* All (0) = Allow users to manage all certificates
+
+* UserOnly (1) = Allow users to manage user certificates
+
+* None (2) = Disallow users from managing certificates
+
+Use the preceding information when configuring this policy.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Integer
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: CACertificateManagementAllowed
+  - GP name: Allow users to manage installed CA certificates.
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Certificate management settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: CACertificateManagementAllowed
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: CACertificateManagementAllowed
+  - Example value:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### CACertificates
+
+  #### TLS server certificates that should be trusted by Microsoft Edge
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 133 or later
+
+  #### Description
+
+  This policy enables a list of TLS certificates that should be trusted by Microsoft Edge for server authentication.
+Certificates should be base64-encoded.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - List of strings
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: CACertificates
+  - GP name: TLS server certificates that should be trusted by Microsoft Edge
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Certificate management settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\CACertificates
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+
+  ##### Example value:
+
+```
+SOFTWARE\Policies\Microsoft\Edge\CACertificates\1 = "MIICCTCCAY6gAwIBAgINAgPluILrIPglJ209ZjAKBggqhkjOPQQDAzBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwHhcNMTYwNjIyMDAwMDAwWhcNMzYwNjIyMDAwMDAwWjBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAQfTzOHMymKoYTey8chWEGJ6ladK0uFxh1MJ7x/JlFyb+Kf1qPKzEUURout736GjOyxfi//qXGdGIRFBEFVbivqJn+7kAHjSxm65FSWRQmx1WyRRK2EE46ajA2ADDL24CejQjBAMA4GA1UdDwEB/wQEAwIBhjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTB8Sa6oC2uhYHP0/EqEr24Cmf9vDAKBggqhkjOPQQDAwNpADBmAjEA9uEglRR7VKOQFhG/hMjqb2sXnh5GmCCbn9MN2azTL818+FsuVbu/3ZL3pAzcMeGiAjEA/JdmZuVDFhOD3cffL74UOO0BzrEXGhF16b0DjyZ+hOXJYKaV11RZt+cRLInUue4X"
+
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: CACertificates
+  - Example value:
+``` xml
+<array>
+  <string>MIICCTCCAY6gAwIBAgINAgPluILrIPglJ209ZjAKBggqhkjOPQQDAzBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwHhcNMTYwNjIyMDAwMDAwWhcNMzYwNjIyMDAwMDAwWjBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAQfTzOHMymKoYTey8chWEGJ6ladK0uFxh1MJ7x/JlFyb+Kf1qPKzEUURout736GjOyxfi//qXGdGIRFBEFVbivqJn+7kAHjSxm65FSWRQmx1WyRRK2EE46ajA2ADDL24CejQjBAMA4GA1UdDwEB/wQEAwIBhjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTB8Sa6oC2uhYHP0/EqEr24Cmf9vDAKBggqhkjOPQQDAwNpADBmAjEA9uEglRR7VKOQFhG/hMjqb2sXnh5GmCCbn9MN2azTL818+FsuVbu/3ZL3pAzcMeGiAjEA/JdmZuVDFhOD3cffL74UOO0BzrEXGhF16b0DjyZ+hOXJYKaV11RZt+cRLInUue4X</string>
+</array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### CADistrustedCertificates
+
+  #### TLS certificates that should be distrusted by Microsoft Edge for server authentication
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 133 or later
+
+  #### Description
+
+  This policy enables defining a list of certificate public keys that should be distrusted by Microsoft Edge for TLS server
+authentication.
+
+The policy value is a list of base64-encoded X.509 certificates. Any
+certificate with a matching SPKI (SubjectPublicKeyInfo) will be distrusted.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - List of strings
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: CADistrustedCertificates
+  - GP name: TLS certificates that should be distrusted by Microsoft Edge for server authentication
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Certificate management settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\CADistrustedCertificates
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+
+  ##### Example value:
+
+```
+SOFTWARE\Policies\Microsoft\Edge\CADistrustedCertificates\1 = "MIIB/TCCAaOgAwIBAgIUQthnWVsd1jWpUCNBf/uILjXC+t4wCgYIKoZIzj0EAwIwVDELMAkGA1UEBhMCVVMxETAPBgNVBAgMCFZpcmdpbmlhMQ8wDQYDVQQHDAZSZXN0b24xITAfBgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDAeFw0yMzEyMDcxNjE5NTVaFw0yMzEyMjExNjE5NTVaMFQxCzAJBgNVBAYTAlVTMREwDwYDVQQIDAhWaXJnaW5pYTEPMA0GA1UEBwwGUmVzdG9uMSEwHwYDVQQKDBhJbnRlcm5ldCBXaWRnaXRzIFB0eSBMdGQwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQ9Akav/KB0aVA9FM1QK4J1CEHn5rFOyY/nxcr5HG3+Fom0Kwu5zTR/kz9eOYgtG/1NmCzbiEKaULDfzA8V9aJ7o1MwUTAdBgNVHQ4EFgQUq37bLKiuw8Y/G+rurMf46hw7EekwHwYDVR0jBBgwFoAUq37bLKiuw8Y/G+rurMf46hw7EekwDwYDVR0TAQH/BAUwAwEB/zAKBggqhkjOPQQDAgNIADBFAiEA/JhtLSgtVOcXkgFJ9V5Vb6lhGdiKQFfzO9wTxPeCxCECIFePYPucys2n/r9MOBMHiX/8068ssv+uceqokzUg0mAb"
+
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: CADistrustedCertificates
+  - Example value:
+``` xml
+<array>
+  <string>MIIB/TCCAaOgAwIBAgIUQthnWVsd1jWpUCNBf/uILjXC+t4wCgYIKoZIzj0EAwIwVDELMAkGA1UEBhMCVVMxETAPBgNVBAgMCFZpcmdpbmlhMQ8wDQYDVQQHDAZSZXN0b24xITAfBgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDAeFw0yMzEyMDcxNjE5NTVaFw0yMzEyMjExNjE5NTVaMFQxCzAJBgNVBAYTAlVTMREwDwYDVQQIDAhWaXJnaW5pYTEPMA0GA1UEBwwGUmVzdG9uMSEwHwYDVQQKDBhJbnRlcm5ldCBXaWRnaXRzIFB0eSBMdGQwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQ9Akav/KB0aVA9FM1QK4J1CEHn5rFOyY/nxcr5HG3+Fom0Kwu5zTR/kz9eOYgtG/1NmCzbiEKaULDfzA8V9aJ7o1MwUTAdBgNVHQ4EFgQUq37bLKiuw8Y/G+rurMf46hw7EekwHwYDVR0jBBgwFoAUq37bLKiuw8Y/G+rurMf46hw7EekwDwYDVR0TAQH/BAUwAwEB/zAKBggqhkjOPQQDAgNIADBFAiEA/JhtLSgtVOcXkgFJ9V5Vb6lhGdiKQFfzO9wTxPeCxCECIFePYPucys2n/r9MOBMHiX/8068ssv+uceqokzUg0mAb</string>
+</array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### CAHintCertificates
+
+  #### TLS certificates that are not trusted or distrusted but can be used in path-building for server authentication
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 133 or later
+
+  #### Description
+
+  This policy enables defining a list of certificates that are not trusted or distrusted in Microsoft Edge
+but can be used as hints for path-building. Certificates should be base64-encoded.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - List of strings
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: CAHintCertificates
+  - GP name: TLS certificates that are not trusted or distrusted but can be used in path-building for server authentication
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Certificate management settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\CAHintCertificates
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+
+  ##### Example value:
+
+```
+SOFTWARE\Policies\Microsoft\Edge\CAHintCertificates\1 = "MIIFljCCA36gAwIBAgINAgO8U1lrNMcY9QFQZjANBgkqhkiG9w0BAQsFADBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjEwHhcNMjAwODEzMDAwMDQyWhcNMjcwOTMwMDAwMDQyWjBGMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzETMBEGA1UEAxMKR1RTIENBIDFDMzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPWI3+dijB43+DdCkH9sh9D7ZYIl/ejLa6T/belaI+KZ9hzpkgOZE3wJCor6QtZeViSqejOEH9Hpabu5dOxXTGZok3c3VVP+ORBNtzS7XyV3NzsXlOo85Z3VvMO0Q+sup0fvsEQRY9i0QYXdQTBIkxu/t/bgRQIh4JZCF8/ZK2VWNAcmBA2o/X3KLu/qSHw3TT8An4Pf73WELnlXXPxXbhqW//yMmqaZviXZf5YsBvcRKgKAgOtjGDxQSYflispfGStZloEAoPtR28p3CwvJlk/vcEnHXG0g/Zm0tOLKLnf9LdwLtmsTDIwZKxeWmLnwi/agJ7u2441Rj72ux5uxiZ0CAwEAAaOCAYAwggF8MA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQUinR/r4XN7pXNPZzQ4kYU83E1HScwHwYDVR0jBBgwFoAU5K8rJnEaK0gnhS9SZizv8IkTcT4waAYIKwYBBQUHAQEEXDBaMCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC5wa2kuZ29vZy9ndHNyMTAwBggrBgEFBQcwAoYkaHR0cDovL3BraS5nb29nL3JlcG8vY2VydHMvZ3RzcjEuZGVyMDQGA1UdHwQtMCswKaAnoCWGI2h0dHA6Ly9jcmwucGtpLmdvb2cvZ3RzcjEvZ3RzcjEuY3JsMFcGA1UdIARQME4wOAYKKwYBBAHWeQIFAzAqMCgGCCsGAQUFBwIBFhxodHRwczovL3BraS5nb29nL3JlcG9zaXRvcnkvMAgGBmeBDAECATAIBgZngQwBAgIwDQYJKoZIhvcNAQELBQADggIBAIl9rCBcDDy+mqhXlRu0rvqrpXJxtDaV/d9AEQNMwkYUuxQkq/BQcSLbrcRuf8/xam/IgxvYzolfh2yHuKkMo5uhYpSTld9brmYZCwKWnvy15xBpPnrLRklfRuFBsdeYTWU0AIAaP0+fbH9JAIFTQaSSIYKCGvGjRFsqUBITTcFTNvNCCK9U+o53UxtkOCcXCb1YyRt8OS1b887U7ZfbFAO/CVMkH8IMBHmYJvJh8VNS/UKMG2YrPxWhu//2m+OBmgEGcYk1KCTd4b3rGS3hSMs9WYNRtHTGnXzGsYZbr8w0xNPM1IERlQCh9BIiAfq0g3GvjLeMcySsN1PCAJA/Ef5c7TaUEDu9Ka7ixzpiO2xj2YC/WXGsYye5TBeg2vZzFb8q3o/zpWwygTMD0IZRcZk0upONXbVRWPeyk+gB9lm+cZv9TSjOz23HFtz30dZGm6fKa+l3D/2gthsjgx0QGtkJAITgRNOidSOzNIb2ILCkXhAd4FJGAJ2xDx8hcFH1mt0G/FX0Kw4zd8NLQsLxdxP8c4CU6x+7Nz/OAipmsHMdMqUybDKwjuDEI/9bfU1lcKwrmz3O2+BtjjKAvpafkmO8l7tdufThcV4q5O8DIrGKZTqPwJNl1IXNDw9bg1kWRxYtnCQ6yICmJhSFm/Y3m6xv+cXDBlHz4n/FsRC6UfTd"
+
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: CAHintCertificates
+  - Example value:
+``` xml
+<array>
+  <string>MIIFljCCA36gAwIBAgINAgO8U1lrNMcY9QFQZjANBgkqhkiG9w0BAQsFADBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjEwHhcNMjAwODEzMDAwMDQyWhcNMjcwOTMwMDAwMDQyWjBGMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzETMBEGA1UEAxMKR1RTIENBIDFDMzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPWI3+dijB43+DdCkH9sh9D7ZYIl/ejLa6T/belaI+KZ9hzpkgOZE3wJCor6QtZeViSqejOEH9Hpabu5dOxXTGZok3c3VVP+ORBNtzS7XyV3NzsXlOo85Z3VvMO0Q+sup0fvsEQRY9i0QYXdQTBIkxu/t/bgRQIh4JZCF8/ZK2VWNAcmBA2o/X3KLu/qSHw3TT8An4Pf73WELnlXXPxXbhqW//yMmqaZviXZf5YsBvcRKgKAgOtjGDxQSYflispfGStZloEAoPtR28p3CwvJlk/vcEnHXG0g/Zm0tOLKLnf9LdwLtmsTDIwZKxeWmLnwi/agJ7u2441Rj72ux5uxiZ0CAwEAAaOCAYAwggF8MA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQUinR/r4XN7pXNPZzQ4kYU83E1HScwHwYDVR0jBBgwFoAU5K8rJnEaK0gnhS9SZizv8IkTcT4waAYIKwYBBQUHAQEEXDBaMCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC5wa2kuZ29vZy9ndHNyMTAwBggrBgEFBQcwAoYkaHR0cDovL3BraS5nb29nL3JlcG8vY2VydHMvZ3RzcjEuZGVyMDQGA1UdHwQtMCswKaAnoCWGI2h0dHA6Ly9jcmwucGtpLmdvb2cvZ3RzcjEvZ3RzcjEuY3JsMFcGA1UdIARQME4wOAYKKwYBBAHWeQIFAzAqMCgGCCsGAQUFBwIBFhxodHRwczovL3BraS5nb29nL3JlcG9zaXRvcnkvMAgGBmeBDAECATAIBgZngQwBAgIwDQYJKoZIhvcNAQELBQADggIBAIl9rCBcDDy+mqhXlRu0rvqrpXJxtDaV/d9AEQNMwkYUuxQkq/BQcSLbrcRuf8/xam/IgxvYzolfh2yHuKkMo5uhYpSTld9brmYZCwKWnvy15xBpPnrLRklfRuFBsdeYTWU0AIAaP0+fbH9JAIFTQaSSIYKCGvGjRFsqUBITTcFTNvNCCK9U+o53UxtkOCcXCb1YyRt8OS1b887U7ZfbFAO/CVMkH8IMBHmYJvJh8VNS/UKMG2YrPxWhu//2m+OBmgEGcYk1KCTd4b3rGS3hSMs9WYNRtHTGnXzGsYZbr8w0xNPM1IERlQCh9BIiAfq0g3GvjLeMcySsN1PCAJA/Ef5c7TaUEDu9Ka7ixzpiO2xj2YC/WXGsYye5TBeg2vZzFb8q3o/zpWwygTMD0IZRcZk0upONXbVRWPeyk+gB9lm+cZv9TSjOz23HFtz30dZGm6fKa+l3D/2gthsjgx0QGtkJAITgRNOidSOzNIb2ILCkXhAd4FJGAJ2xDx8hcFH1mt0G/FX0Kw4zd8NLQsLxdxP8c4CU6x+7Nz/OAipmsHMdMqUybDKwjuDEI/9bfU1lcKwrmz3O2+BtjjKAvpafkmO8l7tdufThcV4q5O8DIrGKZTqPwJNl1IXNDw9bg1kWRxYtnCQ6yICmJhSFm/Y3m6xv+cXDBlHz4n/FsRC6UfTd</string>
+</array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### CAPlatformIntegrationEnabled
+
+  #### Use user-added TLS certificates from platform trust stores for server authentication
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 133 or later
+
+  #### Description
+
+  If enabled (or unset), user-added TLS certificates from platform trust stores will be used in path-building for TLS server authentication.
+
+If disabled, user-added TLS certificates from platform trust stores will not be used in path-building for TLS server authentication.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: CAPlatformIntegrationEnabled
+  - GP name: Use user-added TLS certificates from platform trust stores for server authentication
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Certificate management settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: CAPlatformIntegrationEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000000
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: CAPlatformIntegrationEnabled
+  - Example value:
+``` xml
+<false/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ## Content settings policies
 
   [Back to top](#microsoft-edge---policies)
@@ -1518,6 +1892,164 @@ SOFTWARE\Policies\Microsoft\Edge\AutomaticDownloadsBlockedForUrls\2 = "[*.]conto
 
   [Back to top](#microsoft-edge---policies)
 
+  ### AutomaticFullscreenAllowedForUrls
+
+  #### Allow automatic full screen on specified sites
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 132 or later
+
+  #### Description
+
+  For security reasons, the
+requestFullscreen() web API
+requires a prior user gesture ("transient activation") to be called or it will
+fail. Users' personal settings may allow certain origins to call this API
+without a prior user gesture.
+
+This policy supersedes users' personal settings and allows matching origins to
+call the API without a prior user gesture.
+
+For detailed information about valid URL patterns, see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
+Wildcards (*) are allowed.
+
+Origins matching both blocked and allowed policy patterns will be blocked.
+Origins not specified by policy or user settings will require a prior user
+gesture to call this API.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - List of strings
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: AutomaticFullscreenAllowedForUrls
+  - GP name: Allow automatic full screen on specified sites
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\AutomaticFullscreenAllowedForUrls
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+
+  ##### Example value:
+
+```
+SOFTWARE\Policies\Microsoft\Edge\AutomaticFullscreenAllowedForUrls\1 = "https://www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\AutomaticFullscreenAllowedForUrls\2 = "[*.]example.edu"
+
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: AutomaticFullscreenAllowedForUrls
+  - Example value:
+``` xml
+<array>
+  <string>https://www.example.com</string>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### AutomaticFullscreenBlockedForUrls
+
+  #### Block automatic full screen on specified sites
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 132 or later
+
+  #### Description
+
+  For security reasons, the
+requestFullscreen() web API
+requires a prior user gesture ("transient activation") to be called or it will
+fail. Users' personal settings may allow certain origins to call this API
+without a prior user gesture.
+
+This policy supersedes users' personal settings and blocks matching origins
+from calling the API without a prior user gesture.
+
+For detailed information about valid URL patterns, see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
+Wildcards (*) are allowed.
+
+Origins matching both blocked and allowed policy patterns will be blocked.
+Origins not specified by policy or user settings will require a prior user
+gesture to call this API.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - List of strings
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: AutomaticFullscreenBlockedForUrls
+  - GP name: Block automatic full screen on specified sites
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\AutomaticFullscreenBlockedForUrls
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+
+  ##### Example value:
+
+```
+SOFTWARE\Policies\Microsoft\Edge\AutomaticFullscreenBlockedForUrls\1 = "https://www.example.com"
+SOFTWARE\Policies\Microsoft\Edge\AutomaticFullscreenBlockedForUrls\2 = "[*.]example.edu"
+
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: AutomaticFullscreenBlockedForUrls
+  - Example value:
+``` xml
+<array>
+  <string>https://www.example.com</string>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### CookiesAllowedForUrls
 
   #### Allow cookies on specific sites
@@ -1530,7 +2062,7 @@ SOFTWARE\Policies\Microsoft\Edge\AutomaticDownloadsBlockedForUrls\2 = "[*.]conto
 
   #### Description
 
-  Define a list of sites, based on URL patterns, that are allowed to set cookies.
+  Define a list of sites, based on URL patterns, that are allowed to set cookies. URL patterns may be a single URL indicating that the site may use cookies on all top-level sites. Patterns may also be two URLs delimited by a comma. The first specifies the site that should be allowed to use cookies. The second specifies the top-level site that the first value should be applied on. If you use a pair of URLs, the first value in the pair supports * but the second value does not. Using * for the first value indicates that all sites may use cookies when the second URL is the top-level site.
 
 If you don't configure this policy, the global default value from the [DefaultCookiesSetting](#defaultcookiessetting) policy (if set) or the user's personal configuration is used for all sites.
 
@@ -2697,17 +3229,19 @@ Use the preceding information when configuring this policy.
 
   #### Description
 
-  Third-party storage partitioning is on by default for some users starting with Microsoft Edge version 115, but it can be disabled with edge://flags.
+  This policy controls whether third-party storage partitioning is allowed by default.
 
-If this policy is configured to "AllowPartitioning" or not configured, third-party storage partitioning can be enabled.
+If this policy is set to 1 - AllowPartitioning, or unset, third-party storage partitioning will be allowed by default. This default may be overridden for specific top-level origins by other means.
 
-If this policy is set to "BlockPartitioning", third-party storage partitioning can't be enabled.
+If this policy is set to 2 - BlockPartitioning, third-party storage partitioning will be disabled for all contexts.
+
+Use ThirdPartyStoragePartitioningBlockedForOrigins to disable third-party storage partitioning for specific top-level origins.
 
 Policy options mapping:
 
-* AllowPartitioning (1) = Let third-party storage partitioning to be enabled.
+* AllowPartitioning (1) = Allow third-party storage partitioning by default.
 
-* BlockPartitioning (2) = Block third-party storage partitioning from being enabled.
+* BlockPartitioning (2) = Disable third-party storage partitioning.
 
 Use the preceding information when configuring this policy.
 
@@ -3680,7 +4214,7 @@ Users may opt out of prompts on a per-protocol/per-site basis unless the [Extern
 
 If you don't configure this policy, [DefaultJavaScriptSetting](#defaultjavascriptsetting) applies for all sites, if it's set. If not, the user's personal setting applies.
 
-For detailed information on valid url patterns, please see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322). * is not an accepted value for this policy.
+For detailed information about valid url patterns, please see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322). Wildcards, *, are allowed.
 
   #### Supported features:
 
@@ -3749,7 +4283,9 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptAllowedForUrls\2 = "[*.]contoso.edu"
 
 If you don't configure this policy, [DefaultJavaScriptSetting](#defaultjavascriptsetting) applies for all sites, if it's set. If not, the user's personal setting applies.
 
-For detailed information on valid url patterns, please see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322). * is not an accepted value for this policy.
+For detailed information on valid url patterns, please see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322). Wildcards, *, are allowed.
+
+Note that this policy blocks JavaScript based on whether the origin of the top-level document (usually the page URL that is also displayed in the address bar) matches any of the patterns. Therefore this policy is not appropriate for mitigating web supply-chain attacks. For example, supplying the pattern "`https://[\*.]foo.com/`" will not prevent a page hosted on, say, [https://contoso.com](https://contoso.com) from running a script loaded from `https://www.foo.com/example.js`. Furthermore, supplying the pattern "[https://contoso.com/](https://contoso.com/)" will not prevent a document from [https://contoso.com](https://contoso.com) from running scripts if it is not the top-level document, but embedded as a sub-frame into a page hosted on another origin, say, [https://www.fabrikam.com](https://www.fabrikam.com).
 
   #### Supported features:
 
@@ -3816,7 +4352,7 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls\2 = "[*.]contoso.edu"
 
   Allows you to set a list of site url patterns that specify sites which are allowed to run JavaScript with JIT (Just In Time) compiler enabled.
 
-For detailed information on valid site url patterns, please see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322). * is not an accepted value for this policy.
+For detailed information on valid site url patterns, please see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322). Wildcards, *, are allowed.
 
 JavaScript JIT policy exceptions will only be enforced at a site granularity (eTLD+1). A policy set for only subdomain.contoso.com will not correctly apply to contoso.com or subdomain.contoso.com since they both resolve to the same eTLD+1 (contoso.com) for which there is no policy. In this case, policy must be set on contoso.com to apply correctly for both contoso.com and subdomain.contoso.com.
 
@@ -3889,7 +4425,7 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptJitAllowedForSites\1 = "[*.]example.e
 
 Disabling the JavaScript JIT will mean that Microsoft Edge may render web content more slowly, and may also disable parts of JavaScript including WebAssembly. Disabling the JavaScript JIT may allow Microsoft Edge to render web content in a more secure configuration.
 
-For detailed information on valid url patterns, please see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322). * is not an accepted value for this policy.
+For detailed information on valid url patterns, please see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322). Wildcards, *, are allowed.
 
 JavaScript JIT policy exceptions will only be enforced at a site granularity (eTLD+1). A policy set for only subdomain.contoso.com will not correctly apply to contoso.com or subdomain.contoso.com since they both resolve to the same eTLD+1 (contoso.com) for which there is no policy. In this case, policy must be set on contoso.com to apply correctly for both contoso.com and subdomain.contoso.com.
 
@@ -4912,7 +5448,7 @@ If you disable this setting, spotlight experiences and recommendations are turne
 
   ### ThirdPartyStoragePartitioningBlockedForOrigins
 
-  #### Block third-party storage partitioning for these origins
+  #### Disable third-party storage partitioning for specific top-level origins
 
   
   
@@ -4922,11 +5458,11 @@ If you disable this setting, spotlight experiences and recommendations are turne
 
   #### Description
 
-  Lets you set a list of url patterns that specify top-level origins (the url in the tab's address bar) that block third-party (cross-origin iframe) storage partitioning.
+  This policy lets you set a list of URL patterns that specify top-level origins for which third-party storage partitioning (partitioning of cross-origin iframe storage) should be disabled.
 
-If this policy isn't set or a top-level origin doesn't match, then the value from [DefaultThirdPartyStoragePartitioningSetting](#defaultthirdpartystoragepartitioningsetting) will be used.
+If this policy isn't set or a top-level origin doesn't match one of the URL patterns, then the value from [DefaultThirdPartyStoragePartitioningSetting](#defaultthirdpartystoragepartitioningsetting) will be used.
 
-Note that the patterns you list are treated as origins, not URLs, so you shouldn't specify a path.
+Note that the patterns you list are treated as origins, not URLs, so you shouldn't specify a path. For detailed information about valid origin patterns, see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
 
   #### Supported features:
 
@@ -4945,7 +5481,7 @@ Note that the patterns you list are treated as origins, not URLs, so you shouldn
   ##### Group Policy (ADMX) info
 
   - GP unique name: ThirdPartyStoragePartitioningBlockedForOrigins
-  - GP name: Block third-party storage partitioning for these origins
+  - GP name: Disable third-party storage partitioning for specific top-level origins
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -7588,7 +8124,7 @@ On macOS instances, apps and extensions from outside the Microsoft Edge Add-ons 
 
 The source code of any extension can be altered by users with developer tools, potentially rendering the extension unfunctional. If this is a concern, configure the [DeveloperToolsAvailability](#developertoolsavailability) policy.
 
-Each list item of the policy is a string that contains an extension ID and, optionally, an "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document ( [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043) ). By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest.
+Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document ( [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043) ). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy, see [https://learn.microsoft.com/en-us/deployedge/microsoft-edge-manage-extensions-ref-guide](/deployedge/microsoft-edge-manage-extensions-ref-guide).
 
 Note: This policy doesn't apply to InPrivate mode. Read about hosting extensions at [Publish and update extensions in the Microsoft Edge Add-ons website](/microsoft-edge/extensions-chromium/enterprise/hosting-and-updating).
 
@@ -8176,6 +8712,84 @@ If you disable this policy, Gamer Mode will be disabled.
 
   [Back to top](#microsoft-edge---policies)
 
+  ## Generative AI policies
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### GenAILocalFoundationalModelSettings
+
+  #### Settings for GenAI local foundational model
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 132 or later
+
+  #### Description
+
+  Configure how Microsoft Edge downloads the foundational GenAI model and uses it for inference locally.
+
+When the policy is set to Allowed (0) or not set, the model is downloaded automatically, and used for inference.
+
+When the policy is set to Disabled (1), the model will not be downloaded.
+
+Model downloading can also be disabled by ComponentUpdatesEnabled.
+
+Policy options mapping:
+
+* Allowed (0) = Downloads model automatically
+
+* Disabled (1) = Do not download model
+
+Use the preceding information when configuring this policy.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: No
+  - Applies to a profile that is signed in with a Microsoft account: Yes
+
+  #### Data Type:
+
+  - Integer
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: GenAILocalFoundationalModelSettings
+  - GP name: Settings for GenAI local foundational model
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Generative AI
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: GenAILocalFoundationalModelSettings
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: GenAILocalFoundationalModelSettings
+  - Example value:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ## HTTP authentication policies
 
   [Back to top](#microsoft-edge---policies)
@@ -8194,7 +8808,7 @@ If you disable this policy, Gamer Mode will be disabled.
 
   Set this policy to specify which origins allow all the HTTP authentication schemes Microsoft Edge supports regardless of the [AuthSchemes](#authschemes) policy.
 
-Format the origin pattern according to this format (https://www.chromium.org/administrators/url-blocklist-filter-format). Up to 1,000 exceptions can be defined in [AllHttpAuthSchemesAllowedForOrigins](#allhttpauthschemesallowedfororigins).
+Format the origin pattern according to this format (https://support.google.com/chrome/a?p=url_blocklist_filter_format). Up to 1,000 exceptions can be defined in [AllHttpAuthSchemesAllowedForOrigins](#allhttpauthschemesallowedfororigins).
 Wildcards are allowed for the whole origin or parts of the origin. Parts include the scheme, host, or port.
 
   #### Supported features:
@@ -9352,13 +9966,13 @@ If you disable this policy, Microsoft Edge does not send authentications request
 
   ### SignInCtaOnNtpEnabled
 
-  #### Enable sign in click to action dialog (deprecated)
+  #### Enable sign in click to action dialog (obsolete)
 
-  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.
   
+  >OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 130.
   #### Supported versions:
 
-  - On Windows and macOS since 99 or later
+  - On Windows and macOS since 99, until 130
 
   #### Description
 
@@ -9368,7 +9982,7 @@ If you enable or don't configure this policy, sign in click to action dialog is 
 
 If you disable this policy, sign in click to action dialog isn't shown on the New tab page.
 
-This policy is deprecated as the feature has not been enabled in Microsoft Edge, and this policy will not be supported for Microsoft Edge in the future.
+This policy is obsoleted as the feature has not been enabled in Microsoft Edge, and this policy will not be supported for Microsoft Edge in the future.
 
   #### Supported features:
 
@@ -9387,7 +10001,7 @@ This policy is deprecated as the feature has not been enabled in Microsoft Edge,
   ##### Group Policy (ADMX) info
 
   - GP unique name: SignInCtaOnNtpEnabled
-  - GP name: Enable sign in click to action dialog (deprecated)
+  - GP name: Enable sign in click to action dialog (obsolete)
   - GP path (Mandatory): N/A
   - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Identity and sign-in
   - GP ADMX file name: MSEdge.admx
@@ -10570,13 +11184,13 @@ This policy is intended to be temporary and will be removed in the future.
 
   ### BlockTruncatedCookies
 
-  #### Block truncated cookies
+  #### Block truncated cookies (obsolete)
 
   
-  
+  >OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 131.
   #### Supported versions:
 
-  - On Windows and macOS since 123 or later
+  - On Windows and macOS since 123, until 131
 
   #### Description
 
@@ -10587,6 +11201,8 @@ Now, the presence of these characters will cause the whole cookie string to be i
 If you enable or don't configure this policy, the new behavior is enabled.
 
 If you disable this policy, the old behavior is enabled.
+
+This policy is obsolete because this policy was originally implemented as a safety measure in case of breakage, but none have been reported.
 
   #### Supported features:
 
@@ -10605,7 +11221,7 @@ If you disable this policy, the old behavior is enabled.
   ##### Group Policy (ADMX) info
 
   - GP unique name: BlockTruncatedCookies
-  - GP name: Block truncated cookies
+  - GP name: Block truncated cookies (obsolete)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/Network settings
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -10698,6 +11314,139 @@ If you disable this policy, Microsoft Edge will turn off the compression diction
 
   [Back to top](#microsoft-edge---policies)
 
+  ### DataURLWhitespacePreservationEnabled
+
+  #### DataURL Whitespace Preservation for all media types
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 133 or later
+
+  #### Description
+
+  This policy provides a temporary opt-out for changes to how Edge handles whitepsace in data URLS.
+Previously, whitespace would be kept only if the top level media type was text or contained the media type string xml.
+Now, whitespace will be preserved in all data URLs, regardless of media type.
+
+If this policy is left unset or is set to True, the new behavior is enabled.
+
+When this policy is set to False, the old behavior is enabled.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: No
+  - Applies to a profile that is signed in with a Microsoft account: Yes
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: DataURLWhitespacePreservationEnabled
+  - GP name: DataURL Whitespace Preservation for all media types
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Network settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: DataURLWhitespacePreservationEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000000
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: DataURLWhitespacePreservationEnabled
+  - Example value:
+``` xml
+<false/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### IPv6ReachabilityOverrideEnabled
+
+  #### Enable IPv6 reachability check override
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 132 or later
+
+  #### Description
+
+  This policy enables an override of the IPv6 reachability check. When overridden, the
+system will always query AAAA records when resolving host names. It applies to
+all users and interfaces on the device.
+
+If you enable this policy, the IPv6 reachability check will be overridden.
+
+If you disable or don't configure this policy, the IPv6 reachability check will not be overridden.
+The system only queries AAAA records when it is reachable to a global IPv6 host.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: No
+  - Applies to a profile that is signed in with a Microsoft account: Yes
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: IPv6ReachabilityOverrideEnabled
+  - GP name: Enable IPv6 reachability check override
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Network settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: IPv6ReachabilityOverrideEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: IPv6ReachabilityOverrideEnabled
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### ZstdContentEncodingEnabled
 
   #### Enable zstd content encoding support
@@ -10764,7 +11513,210 @@ This policy is temporary and will be removed in the future.
 
   [Back to top](#microsoft-edge---policies)
 
+  ## PDF Reader policies
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### ViewXFAPDFInIEModeAllowedFileHash
+
+  #### View XFA-based PDF files using IE Mode for allowed file hash.
+
+  
+  
+  #### Supported versions:
+
+  - On Windows since 132 or later
+
+  #### Description
+
+  XFA is a legacy technology that is deprecated by its original creators. It is not an ISO standard and as such, doesn't align with the modern web architecture. Continued use poses potential risks and vulnerabilities. For more information, see - [ViewXFAPDFInIEModeAllowedOrigins](#viewxfapdfiniemodeallowedorigins).
+
+If you enable this policy, you can configure the list of base64 encoded SHA256 file hashes for which XFA PDF files will automatically open in Microsoft Edge using IE Mode.
+
+If you disable or don't configure this policy, XFA PDFs won't be considered for opening via IE mode except the files from file origin mentioned in Policy [ViewXFAPDFInIEModeAllowedOrigins](#viewxfapdfiniemodeallowedorigins)
+
+For more information, see - [Get-FileHash](https://go.microsoft.com/fwlink/?linkid=2294823), [Dot Net Convert API](https://go.microsoft.com/fwlink/?linkid=22949130).
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - List of strings
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: ViewXFAPDFInIEModeAllowedFileHash
+  - GP name: View XFA-based PDF files using IE Mode for allowed file hash.
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/PDF Reader
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\ViewXFAPDFInIEModeAllowedFileHash
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+
+  ##### Example value:
+
+```
+SOFTWARE\Policies\Microsoft\Edge\ViewXFAPDFInIEModeAllowedFileHash\1 = "pZGm1Av0IEBKARczz7exkNYsZb8LzaMrV7J32a2fFG4="
+SOFTWARE\Policies\Microsoft\Edge\ViewXFAPDFInIEModeAllowedFileHash\2 = "nFeL0Q+9HX7WFI3RsmSDFTlUtrbclXH67MTdXDwWuu4="
+
+```
+
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### ViewXFAPDFInIEModeAllowedOrigins
+
+  #### View XFA-based PDF files using IE Mode for allowed file origin.
+
+  
+  
+  #### Supported versions:
+
+  - On Windows since 132 or later
+
+  #### Description
+
+  Internet Explorer (IE) mode uses the Adobe Acrobat Active-X PDF Plugin to open XFA-based PDF files. This policy will only work if the Active-X plugin is already on the user's device, it's not installed as part of this policy.
+
+It's important to note that XFA is a legacy technology that is deprecated by its original creators. It is not an ISO standard and as such, doesn't align with the modern web architecture. Continued use poses potential risks and vulnerabilities.
+
+Given the deprecated status of XFA technology and the lack of any investment by its creators, we strongly recommend that you start planning your transition to a more advanced HTML\PDF form-based solutions.
+
+In the interim, this policy provides a workaround for users to view XFA PDF in Microsoft Edge.
+
+If you enable this policy, you can configure the list of origins from which XFA PDF files will be automatically opened in Microsoft Edge using IE Mode.
+
+If you disable or don't configure the policy, XFA PDFs won't be considered for opening via Internet Explorer mode.
+
+For detailed information on valid URL patterns, see - [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322)
+
+Alternatively, [ViewXFAPDFInIEModeAllowedFileHash](#viewxfapdfiniemodeallowedfilehash) can also be used to configure list of file hashes instead of URL origins, which will enable those files to be automatically opened in Microsoft Edge using IE Mode.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - List of strings
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: ViewXFAPDFInIEModeAllowedOrigins
+  - GP name: View XFA-based PDF files using IE Mode for allowed file origin.
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/PDF Reader
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\ViewXFAPDFInIEModeAllowedOrigins
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+
+  ##### Example value:
+
+```
+SOFTWARE\Policies\Microsoft\Edge\ViewXFAPDFInIEModeAllowedOrigins\1 = "https://contesso.sharepoint.com/accounts/"
+SOFTWARE\Policies\Microsoft\Edge\ViewXFAPDFInIEModeAllowedOrigins\2 = "https://contesso.sharepoint.com/transport/"
+SOFTWARE\Policies\Microsoft\Edge\ViewXFAPDFInIEModeAllowedOrigins\3 = "file://account_forms/"
+
+```
+
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ## Password manager and protection policies
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### DeletingUndecryptablePasswordsEnabled
+
+  #### Enable deleting undecryptable passwords
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 132 or later
+
+  #### Description
+
+  This policy controls whether the built-in password manager can delete undecryptable passwords from its database. This is required to restore the full functionality of the built-in password manager, but it may include a permanent data loss. Undecryptable password values will not become decryptable on their own.
+
+If fixing them is possible, it usually requires complex user actions.
+
+Enabling this policy or leaving it unset means that users with undecryptable passwords saved to the built-in password manager will lose them. Passwords that are still in a working state will remain untouched.
+
+Disabling this policy means users will have their password manager data untouched, but will experience a broken password manager functionality.
+
+If the policy is set, users can't override it in Microsoft Edge.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: DeletingUndecryptablePasswordsEnabled
+  - GP name: Enable deleting undecryptable passwords
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Password manager and protection
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: DeletingUndecryptablePasswordsEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: DeletingUndecryptablePasswordsEnabled
+  - Example value:
+``` xml
+<true/>
+```
+  
 
   [Back to top](#microsoft-edge---policies)
 
@@ -11768,6 +12720,70 @@ Learn more about efficiency mode: [https://go.microsoft.com/fwlink/?linkid=21739
   #### Mac information and settings
 
   - Preference Key Name: EfficiencyModeOnPowerEnabled
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### ExtensionsPerformanceDetectorEnabled
+
+  #### Extensions Performance Detector enabled
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 130 or later
+
+  #### Description
+
+  This policy controls if users can access the Extensions Performance Detector Recommended Action feature in Browser Essentials. This feature alerts extension users if their extensions are causing performance regressions in the browser and allows them to take action to resolve the issue.
+
+If you enable or don't configure this policy, users will receive Extensions Performance Detector notifications from Browser Essentials. When there is an active alert, users will be able to view the impact of extensions on their browser's performance and make an informed decision to disable impacting extensions. The detector will exclude browser-managed extensions, such as Google Docs offline, component extensions, and organization-managed extensions (ie. extensions that cannot be disabled).
+
+If you disable this policy, users will not receive notifications or be able to view the Extensions Performance Detector Recommended Action.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: Yes
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: ExtensionsPerformanceDetectorEnabled
+  - GP name: Extensions Performance Detector enabled
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Performance
+  - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Performance
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
+  - Value Name: ExtensionsPerformanceDetectorEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: ExtensionsPerformanceDetectorEnabled
   - Example value:
 ``` xml
 <true/>
@@ -13640,6 +14656,77 @@ SOFTWARE\Policies\Microsoft\Edge\InsecurePrivateNetworkRequestsAllowedForUrls\2 
 
   [Back to top](#microsoft-edge---policies)
 
+  ### PrivateNetworkAccessRestrictionsEnabled
+
+  #### Specifies whether to apply restrictions to requests to more private network endpoints
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 131 or later
+
+  #### Description
+
+  Specifies whether to apply restrictions to requests to more private
+network endpoints
+
+When this policy is Enabled, any time when a warning is supposed to be displayed in the DevTools due to Private Network Access checks failing, the request is blocked.
+
+When this policy is Disabled or unset, all Private Network Access warnings are not enforced and the requests are not blocked.
+
+See https://wicg.github.io/private-network-access/ for Private Network Access restrictions.
+
+Note: A network endpoint is more private than another if:
+1) Its IP address is localhost and the other is not.
+2) Its IP address is private and the other is public.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: No
+  - Applies to a profile that is signed in with a Microsoft account: Yes
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: PrivateNetworkAccessRestrictionsEnabled
+  - GP name: Specifies whether to apply restrictions to requests to more private network endpoints
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Private Network Request Settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: PrivateNetworkAccessRestrictionsEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: PrivateNetworkAccessRestrictionsEnabled
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ## Proxy server policies
 
   [Back to top](#microsoft-edge---policies)
@@ -13962,25 +15049,24 @@ If you enable this policy, Microsoft Edge ignores all proxy-related options spec
 If you don't configure this policy, users can choose their own proxy settings.
 
 This policy overrides the following individual policies:
-
 [ProxyMode](#proxymode)
 [ProxyPacUrl](#proxypacurl)
 [ProxyServer](#proxyserver)
 [ProxyBypassList](#proxybypasslist)
 
 Setting the [ProxySettings](#proxysettings) policy accepts the following fields:
-  * ProxyMode, which lets you specify the proxy server used by Microsoft Edge and prevents users from changing proxy settings
-  * ProxyPacUrl, a URL to a proxy .pac file
-  * ProxyPacMandatory, a boolean flag which prevents the network stack from falling back to direct connections with invalid or unavailable PAC script
-  * ProxyServer, a URL for the proxy server
-  * ProxyBypassList, a list of proxy hosts that Microsoft Edge bypasses
+* ProxyMode, which lets you specify the proxy server used by Microsoft Edge and prevents users from changing proxy settings
+* ProxyPacUrl, a URL to a proxy .pac file, or a PAC script encoded as a data URL with MIME type application/x-ns-proxy-autoconfig
+* ProxyPacMandatory, a boolean flag which prevents the network stack from falling back to direct connections with invalid or unavailable PAC script
+* ProxyServer, a URL for the proxy server
+* ProxyBypassList, a list of proxy hosts that Microsoft Edge bypasses
 
 For ProxyMode, if you choose the value:
-  * direct, a proxy is never used and all other fields are ignored.
-  * system, the systems's proxy is used and all other fields are ignored.
-  * auto_detect, all other fields are ignored.
-  * fixed_servers, the ProxyServer and ProxyBypassList fields are used.
-  * pac_script, the ProxyPacUrl, ProxyPacMandatory and ProxyBypassList fields are used.
+* direct, a proxy is never used and all other fields are ignored.
+* system, the systems's proxy is used and all other fields are ignored.
+* auto_detect, all other fields are ignored.
+* fixed_servers, the ProxyServer and ProxyBypassList fields are used.
+* pac_script, the ProxyPacUrl, ProxyPacMandatory and ProxyBypassList fields are used.
 
 For more detailed examples go to [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
 
@@ -16732,6 +17818,49 @@ No cookies or other user data is sent to Microsoft, and Microsoft doesn't save o
 
   [Back to top](#microsoft-edge---policies)
 
+  ### AdHocCodeSigningForPWAsEnabled
+
+  #### Native application signing during Progressive Web Application installation
+
+  
+  
+  #### Supported versions:
+
+  - On macOS since 132 or later
+
+  #### Description
+
+  Enabling this policy or leaving it unset enables the use of ad-hoc signatures for the native application that's created when installing a Progressive Web Application (PWA). This ensures that each installed application has a unique identity to macOS system components.
+
+Disabling this policy will result in every native application created when installing Progressive Web Applications having the same identity. This can interfere with macOS functionality.
+
+Only turn off the policy if you are using an endpoint security solution that blocks applications with an ad-hoc signature.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: No
+  - Applies to a profile that is signed in with a Microsoft account: Yes
+
+  #### Data Type:
+
+  - Boolean
+
+  
+
+  #### Mac information and settings
+
+  - Preference Key Name: AdHocCodeSigningForPWAsEnabled
+  - Example value:
+``` xml
+<false/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### AdditionalSearchBoxEnabled
 
   #### Enable additional search box in browser
@@ -18378,7 +19507,7 @@ This policy affects all types of audio inputs, not only the built-in microphone.
 
   #### Description
 
-  Specify websites, based on URL patterns, that can use audio capture devices without asking the user for permission. Patterns in this list are matched against the security origin of the requesting URL. If they match, the site is automatically granted access to audio capture devices.
+  Specify websites, based on URL patterns, that can use audio capture devices without asking the user for permission. Patterns in this list are matched against the security origin of the requesting URL. If they match, the site is automatically granted access to audio capture devices. Note, however, that the pattern "*", which matches any URL, is not supported by this policy.
 
   #### Supported features:
 
@@ -19564,13 +20693,13 @@ If you disable this setting the list of available templates will be downloaded o
 
   ### BeforeunloadEventCancelByPreventDefaultEnabled
 
-  #### Control the behavior for the cancel dialog produced by the beforeunload event
+  #### Control the behavior for the cancel dialog produced by the beforeunload event (obsolete)
 
   
-  
+  >OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 130.
   #### Supported versions:
 
-  - On Windows and macOS since 118 or later
+  - On Windows and macOS since 118, until 130
 
   #### Description
 
@@ -19602,7 +20731,7 @@ Old and legacy behavior: In `beforeunload`, calling `event.preventDefault()` won
   ##### Group Policy (ADMX) info
 
   - GP unique name: BeforeunloadEventCancelByPreventDefaultEnabled
-  - GP name: Control the behavior for the cancel dialog produced by the beforeunload event
+  - GP name: Control the behavior for the cancel dialog produced by the beforeunload event (obsolete)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -20658,13 +21787,13 @@ SOFTWARE\Policies\Microsoft\Edge\CertificateTransparencyEnforcementDisabledForCa
 
   ### CertificateTransparencyEnforcementDisabledForLegacyCas
 
-  #### Disable Certificate Transparency enforcement for a list of legacy certificate authorities
+  #### Disable Certificate Transparency enforcement for a list of legacy certificate authorities (obsolete)
 
   
-  
+  >OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 131.
   #### Supported versions:
 
-  - On Windows and macOS since 77 or later
+  - On Windows and macOS since 77, until 131
 
   #### Description
 
@@ -20677,6 +21806,8 @@ In order for Certificate Transparency enforcement to be disabled, you must set t
 You specify a subjectPublicKeyInfo hash by concatenating the hash algorithm name, the "/" character, and the Base64 encoding of that hash algorithm applied to the DER-encoded subjectPublicKeyInfo of the specified certificate. This Base64 encoding is the same format as an SPKI Fingerprint, as defined in RFC 7469, Section 2.4. Unrecognized hash algorithms are ignored. The only supported hash algorithm at this time is "sha256".
 
 If you don't configure this policy, any certificate that's required to be disclosed via Certificate Transparency will be treated as untrusted if it isn't disclosed according to the Certificate Transparency policy.
+
+This policy is obsolete because the feature to disable Certificate Transparency enforcement for legacy certificates has been removed.
 
   #### Supported features:
 
@@ -20695,7 +21826,7 @@ If you don't configure this policy, any certificate that's required to be disclo
   ##### Group Policy (ADMX) info
 
   - GP unique name: CertificateTransparencyEnforcementDisabledForLegacyCas
-  - GP name: Disable Certificate Transparency enforcement for a list of legacy certificate authorities
+  - GP name: Disable Certificate Transparency enforcement for a list of legacy certificate authorities (obsolete)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -21966,17 +23097,19 @@ SOFTWARE\Policies\Microsoft\Edge\ConfigureViewInFileExplorer = [
 
   ### CopilotCDPPageContext
 
-  #### Control Copilot with Commercial Data Protection access to page context for Microsoft Entra ID profiles
+  #### Control Copilot with Commercial Data Protection access to page context for Microsoft Entra ID profiles (obsolete)
 
   
-  
+  >OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 132.
   #### Supported versions:
 
-  - On Windows and macOS since 124 or later
+  - On Windows and macOS since 124, until 132
 
   #### Description
 
-  This policy controls access to page contents for Copilot with Commercial Data Protection in the Edge sidebar. This policy applies only to Microsoft Entra ID profiles. To summarize pages and interact with text selections, it needs to be able to access the page contents. This policy does not apply to MSA profiles. This policy doesn't control access for Copilot without Commercial Data Protection. Access for Copilot without Commercial Data Protection is controlled by the policy CopilotPageContext.
+  This policy has been obsoleted as of Edge 133. Instead of this obsolete policy, we recommend using [EdgeEntraCopilotPageContext](#edgeentracopilotpagecontext).
+
+This policy controls access to page contents for Copilot with Commercial Data Protection in the Edge sidebar. This policy applies only to Microsoft Entra ID profiles. To summarize pages and interact with text selections, it needs to be able to access the page contents. This policy does not apply to MSA profiles. This policy doesn't control access for Copilot without Commercial Data Protection. Access for Copilot without Commercial Data Protection is controlled by the policy CopilotPageContext.
 
 If you enable this policy, Copilot with Commercial Data Protection will have access to page context.
 
@@ -22001,7 +23134,7 @@ If you disable this policy, Copilot with Commercial Data Protection will not be 
   ##### Group Policy (ADMX) info
 
   - GP unique name: CopilotCDPPageContext
-  - GP name: Control Copilot with Commercial Data Protection access to page context for Microsoft Entra ID profiles
+  - GP name: Control Copilot with Commercial Data Protection access to page context for Microsoft Entra ID profiles (obsolete)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -22042,11 +23175,11 @@ If you disable this policy, Copilot with Commercial Data Protection will not be 
 
   #### Description
 
-  This policy controls access to page contents for Copilot in the Edge sidebar. This policy applies only to Microsoft Entra ID profiles. To summarize pages and interact with text selections, it needs to be able to access the page contents. This policy does not apply to MSA profiles. This policy doesn't control access for Copilot with Commercial Data Protection. Access for Copilot with Commercial Data Protection is controlled by the policy CopilotCDPPageContext.
+  This policy controls access to page contents for Copilot in the Microsoft Edge sidebar when users are logged into their MSA Copilot account. This policy applies only to Microsoft Entra ID Microsoft Edge profiles. To summarize pages and interact with text selections, it needs to be able to access the page contents. This policy does not apply to MSA Microsoft Edge profiles. This policy doesn't control access for Copilot with enterprise data protection (EDP). Access for Copilot with enterprise data protection (EDP) is controlled by the [EdgeEntraCopilotPageContext](#edgeentracopilotpagecontext) policy.
 
-If you enable this policy, Copilot will have access to page context.
+If you enable this policy, Copilot will have access to page content when logged in with Entra ID.
 
-If you don't configure this policy, a user can enable access to page context for Copilot using the setting toggle in Edge.
+If this policy is not configured, the default behavior for non-EU countries is that access is initially enabled. For EU countries, the default behavior is that access is initially disabled. In both cases, if the policy is not configured, users can enable or disable Copilot's access to page content using the setting toggle in Microsoft Edge.
 
 If you disable this policy, Copilot will not be able to access page context.
 
@@ -22091,6 +23224,62 @@ If you disable this policy, Copilot will not be able to access page context.
   - Example value:
 ``` xml
 <true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### CreatePasskeysInICloudKeychain
+
+  #### Control whether passkey creation will default to iCloud Keychain.
+
+  
+  
+  #### Supported versions:
+
+  - On macOS since 132 or later
+
+  #### Description
+
+  Microsoft Edge may direct
+passkey/WebAuthn creation requests directly to iCloud Keychain on macOS 13.5
+or later. If iCloud Keychain syncing is not enabled yet, this will
+prompt the user to sign in with iCloud, or might prompt them to enable iCloud
+Keychain syncing.
+
+If this policy is set to "true" then iCloud Keychain will be the default
+whenever the WebAuthn request is compatible with that choice.
+
+If this policy isn't set then the default behavior depends on factors such as
+whether iCloud Drive is enabled, or whether the user has recently used or
+created a credential in their
+Microsoft Edge profile.
+
+If this policy is set to false, iCloud Keychain will not be used by default
+and the previous behavior (of creating the credential in the Microsoft Edge profile) may be used
+instead. Users will still be able to select iCloud Keychain as an option, and
+may still see iCloud Keychain credentials when signing in.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Boolean
+
+  
+
+  #### Mac information and settings
+
+  - Preference Key Name: CreatePasskeysInICloudKeychain
+  - Example value:
+``` xml
+<false/>
 ```
   
 
@@ -22164,17 +23353,17 @@ WebAssembly modules to windows and workers in the same origin.
 
   ### CryptoWalletEnabled
 
-  #### Enable CryptoWallet feature (deprecated)
+  #### Enable CryptoWallet feature (obsolete)
 
-  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.
   
+  >OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 128.
   #### Supported versions:
 
-  - On Windows since 112 or later
+  - On Windows since 112, until 128
 
   #### Description
 
-  This policy is deprecated because this feature will no longer be supported, starting in Microsoft Edge 128. There is no replacement for this policy.
+  This policy is obsoleted because this feature will no longer be supported, starting in Microsoft Edge 128. There is no replacement for this policy.
   Enables CryptoWallet feature in Microsoft Edge.
 
   If you enable this policy or don't configure it, users can use CryptoWallet feature which allows users to securely store, manage and transact digital assets such as Bitcoin, Ethereum and other cryptocurrencies. Therefore, Microsoft Edge may access Microsoft servers to communicate with the web3 world during the use of the CryptoWallet feature.
@@ -22198,7 +23387,7 @@ WebAssembly modules to windows and workers in the same origin.
   ##### Group Policy (ADMX) info
 
   - GP unique name: CryptoWalletEnabled
-  - GP name: Enable CryptoWallet feature (deprecated)
+  - GP name: Enable CryptoWallet feature (obsolete)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -23065,6 +24254,12 @@ If you set this policy to 'DeveloperToolsDisallowedForForceInstalledExtensions' 
 If you set this policy to 'DeveloperToolsAllowed', users can access the developer tools and the JavaScript console in all contexts, including extensions installed by enterprise policy.
 
 If you set this policy to 'DeveloperToolsDisallowed', users can't access the developer tools or inspect website elements. Keyboard shortcuts and menu or context menu entries that open the developer tools or the JavaScript Console are disabled.
+
+As of Microsoft Edge version 99, this setting also controls entry points for the 'View page source' feature. If you set this policy to 'DeveloperToolsDisallowed', users cannot access source viewing via keyboard shortcut or the context menu. To fully block source viewing, you must also add 'view-source:*' to the [URLBlocklist](#urlblocklist) policy.
+
+As of Microsoft Edge version 119, this setting also controls whether developer mode for Isolated Web Apps can be activated and used.
+
+As of Microsoft Edge version 128, this setting will not control developer mode on extensions page if [ExtensionDeveloperModeSettings](#extensiondevelopermodesettings) policy is set.
 
 Policy options mapping:
 
@@ -24635,6 +25830,78 @@ If you disable this policy, Microsoft Edge will not enhance images.
 
   [Back to top](#microsoft-edge---policies)
 
+  ### EdgeEntraCopilotPageContext
+
+  #### Control access to page content for Entra ID Profiles accessing Microsoft Copilot with Enterprise Data Protection (EDP) from the Microsoft Edge sidebar
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 130 or later
+
+  #### Description
+
+  This policy controls access to page contents for Microsoft Copilot with enterprise data protection (EDP) in the Microsoft Edge sidebar for the web tab only. This policy controls whether Microsoft Copilot can perform page summarization and similar contextual queries.
+
+This policy applies only to Microsoft Entra ID Microsoft Edge profiles. It does not apply to MSA Microsoft Edge profiles. For users with M365 Copilot license, this control applies only to the web tab in the Microsoft Edge sidebar and not the work tab.
+
+If you enable this policy, Copilot will have access to page content when logged in with Entra ID.
+
+If this policy is not configured, the default behavior for non-EU countries is that access is initially enabled. For EU countries, the default behavior is that access is initially disabled. In both cases, if the policy is not configured, users can enable or disable Copilot's access to page content using the setting toggle in Microsoft Edge.
+
+If you disable this policy, Copilot will not be able to access page contents.
+
+Exceptions to the preceding behavior include when a page is protected using data loss prevention (DLP) measures. In that case, the page content will not be shared to Copilot even when this policy is enabled. This behavior ensures the integrity of DLP.
+
+Learn more about Copilot's data usage and consent at [https://go.microsoft.com/fwlink/?linkid=2288056](https://go.microsoft.com/fwlink/?linkid=2288056)
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: EdgeEntraCopilotPageContext
+  - GP name: Control access to page content for Entra ID Profiles accessing Microsoft Copilot with Enterprise Data Protection (EDP) from the Microsoft Edge sidebar
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: EdgeEntraCopilotPageContext
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: EdgeEntraCopilotPageContext
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### EdgeFollowEnabled
 
   #### Enable Follow service in Microsoft Edge (obsolete)
@@ -24832,6 +26099,79 @@ Starting in version 90.0.818.56, the behavior of the messaging letting users kno
 
   [Back to top](#microsoft-edge---policies)
 
+  ### EdgeSidebarAppUrlHostAllowList
+
+  #### Allow specific apps to be opened in Microsoft Edge sidebar
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 131 or later
+
+  #### Description
+
+  Define a list of sites, based on URL patterns, that are not subject to the [EdgeSidebarAppUrlHostBlockList](#edgesidebarappurlhostblocklist).
+
+If you don't configure this policy, a user can open any app in sidebar except the urls listed in [EdgeSidebarAppUrlHostBlockList](#edgesidebarappurlhostblocklist).
+
+If you configure this policy, the apps listed in the allow list could be opened in sidebar even if they are listed in the block list.
+
+By default, all apps are allowed. However, if you prohibited apps by policy, you can use the list of allowed apps to change that policy.
+
+For detailed information about valid url patterns, see [https://go.microsoft.com/fwlink/?linkid=2281313](https://go.microsoft.com/fwlink/?linkid=2281313).
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - List of strings
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: EdgeSidebarAppUrlHostAllowList
+  - GP name: Allow specific apps to be opened in Microsoft Edge sidebar
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\EdgeSidebarAppUrlHostAllowList
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+
+  ##### Example value:
+
+```
+SOFTWARE\Policies\Microsoft\Edge\EdgeSidebarAppUrlHostAllowList\1 = "https://www.contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\EdgeSidebarAppUrlHostAllowList\2 = "[*.]contoso.edu"
+
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: EdgeSidebarAppUrlHostAllowList
+  - Example value:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
+  <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### EdgeSidebarAppUrlHostBlockList
 
   #### Control which apps cannot be opened in Microsoft Edge sidebar
@@ -24852,7 +26192,7 @@ If the [HubsSidebarEnabled](#hubssidebarenabled) policy is disabled, this list i
 
 For detailed information about valid url patterns, see [https://go.microsoft.com/fwlink/?linkid=2281313](https://go.microsoft.com/fwlink/?linkid=2281313).
 
-Note: * will block all apps.
+Note: A blocklist value of '\*' means all apps are blocked unless they are explicitly listed in the [EdgeSidebarAppUrlHostAllowList](#edgesidebarappurlhostallowlist) policy.
 
   #### Supported features:
 
@@ -24899,6 +26239,77 @@ SOFTWARE\Policies\Microsoft\Edge\EdgeSidebarAppUrlHostBlockList\2 = "[*.]contoso
 <array>
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
+</array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### EdgeSidebarAppUrlHostForceList
+
+  #### Control which apps are forced to be shown in Microsoft Edge sidebar
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 133 or later
+
+  #### Description
+
+  Define a list of sites, based on URL, that are forced to be shown in sidebar.
+
+If you don't configure this policy, no app is forced to be shown in sidebar.
+
+If the [HubsSidebarEnabled](#hubssidebarenabled) policy is disabled, this list isn't used and no sidebar can be shown.
+
+For detailed information about valid url, see [https://go.microsoft.com/fwlink/?linkid=2281313](https://go.microsoft.com/fwlink/?linkid=2281313).
+
+Note: URL patterns are not supported in this policy. You should provide the exact URL of the app.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - List of strings
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: EdgeSidebarAppUrlHostForceList
+  - GP name: Control which apps are forced to be shown in Microsoft Edge sidebar
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\EdgeSidebarAppUrlHostForceList
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+
+  ##### Example value:
+
+```
+SOFTWARE\Policies\Microsoft\Edge\EdgeSidebarAppUrlHostForceList\1 = "https://www.contoso.com"
+
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: EdgeSidebarAppUrlHostForceList
+  - Example value:
+``` xml
+<array>
+  <string>https://www.contoso.com</string>
 </array>
 ```
   
@@ -29615,9 +31026,9 @@ Use the preceding information when configuring this policy.
 
   ### InsecureFormsWarningsEnabled
 
-  #### Enable warnings for insecure forms
+  #### Enable warnings for insecure forms (deprecated)
 
-  
+  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.
   
   #### Supported versions:
 
@@ -29628,6 +31039,8 @@ Use the preceding information when configuring this policy.
   This policy controls the handling of insecure forms (forms submitted over HTTP) embedded in secure (HTTPS) sites in the browser.
 If you enable this policy or don't set it, a full page warning will be shown when an insecure form is submitted. Additionally, a warning bubble will be shown next to the form fields when they are focused, and autofill will be disabled for those forms.
 If you disable this policy, warnings will not be shown for insecure forms, and autofill will work normally.
+
+This policy may be removed as soon as Edge 132. The feature is enabled by default since Edge 131.
 
   #### Supported features:
 
@@ -29646,7 +31059,7 @@ If you disable this policy, warnings will not be shown for insecure forms, and a
   ##### Group Policy (ADMX) info
 
   - GP unique name: InsecureFormsWarningsEnabled
-  - GP name: Enable warnings for insecure forms
+  - GP name: Enable warnings for insecure forms (deprecated)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -30718,7 +32131,7 @@ This setting is applicable only when the [InternetExplorerIntegrationSiteList](#
 
 If you configure this policy, Microsoft Edge will attempt to retrieve an updated version of the configured Enterprise Mode Site List using the specified refresh interval.
 
-If you disable or don't configure this policy, Microsoft Edge will use a default refresh interval, currently 120 minutes.
+If you disable or don't configure this policy, Microsoft Edge will use a default refresh interval, it is 10080 minutes (7 days) starting from version 110 or later, 120 minutes from version 93 to 110, and 30 minutes before version 93.
 
   #### Supported features:
 
@@ -31593,9 +33006,9 @@ If you disable or don't configure this policy, pages will be isolated on a per-S
 
   This policy provides a temporary opt-out for the new keyboard focusable scrollers behavior.
 
-When this policy is Enabled or unset, scrollers without focusable children are keyboard focusable by default. Further, scrollers are click focusable and programmatically focusable by default.
+When this policy is Enabled or unset, scrollers without focusable children are keyboard focusable by default.
 
-When this policy is Disabled, scrollers are not focusable by default.
+When this policy is Disabled, scrollers are not keyboard focusable by default.
 
 This policy is a temporary workaround and will be removed in Edge Stable 135.
 
@@ -31696,6 +33109,68 @@ If users choose to turn on Live captions, speech recognition files (approximatel
   - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
   - Path (Recommended): N/A
   - Value Name: LiveCaptionsAllowed
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### LiveTranslationAllowed
+
+  #### Live translation allowed
+
+  
+  
+  #### Supported versions:
+
+  - On Windows since 132 or later
+
+  #### Description
+
+  Allow users to turn the Realtime Video Translation feature on or off.
+
+This feature allows videos being watched to be translated to the selected language in real time or live. Users need to click the translate icon that appears when they hover over a video to get started.
+
+This is the on-device feature and none of the audio, data or even translated audio leave the device.
+
+If you enable or don't configure this policy, users can turn this feature on or off in edge://settings/languages.
+If you disable this policy, users will not be able to turn this feature on. If user has been using the feature already and policy gets disabled, the feature related files downloaded previously, will be deleted from the device after 30 days. We recommend not to disable the policy, unless it is needed in your environment.
+
+If users enable this feature, the feature related files (approximately 200 megabytes) will be downloaded to the device on the first run and periodically thereafter to enhance performance and accuracy. These files will be deleted 30 days after their last use.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: LiveTranslationAllowed
+  - GP name: Live translation allowed
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: LiveTranslationAllowed
   - Value Type: REG_DWORD
 
   ##### Example value:
@@ -33010,9 +34485,9 @@ If you disable this policy, you can't use the Mouse Gesture feature in Microsoft
 
   ### MutationEventsEnabled
 
-  #### Enable deprecated/removed Mutation Events
+  #### Enable deprecated/removed Mutation Events (deprecated)
 
-  
+  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.
   
   #### Supported versions:
 
@@ -33045,7 +34520,7 @@ This policy is a temporary workaround, and enterprises should still work to remo
   ##### Group Policy (ADMX) info
 
   - GP unique name: MutationEventsEnabled
-  - GP name: Enable deprecated/removed Mutation Events
+  - GP name: Enable deprecated/removed Mutation Events (deprecated)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -33208,18 +34683,13 @@ If this policy is left not set, occlusion detection will be enabled.
 
   Allows you to set a timeout, in seconds, for Microsoft Edge tabs waiting to navigate until the browser has downloaded the initial Enterprise Mode Site List.
 
-This setting works in conjunction with:
-[InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) is set to 'IEMode'
-and
-[InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) policy where the list has at least one entry
-and
-[DelayNavigationsForInitialSiteListDownload](#delaynavigationsforinitialsitelistdownload) is set to "All eligible navigations" (1).
+This setting works in conjunction with: [InternetExplorerIntegrationLevel](#internetexplorerintegrationlevel) is set to 'IEMode' and [InternetExplorerIntegrationSiteList](#internetexplorerintegrationsitelist) policy where the list has at least one entry and [DelayNavigationsForInitialSiteListDownload](#delaynavigationsforinitialsitelistdownload) is set to "All eligible navigations" (1).
 
 Tabs will not wait longer than this timeout for the Enterprise Mode Site List to download. If the browser has not finished downloading the Enterprise Mode Site List when the timeout expires, Microsoft Edge tabs will continue navigating anyway. The value of the timeout should be no greater than 20 seconds and no fewer than 1 second.
 
-If you set the timeout in this policy to a value greater than the default of 2 seconds, an information bar is shown to the user after 2 seconds. The information bar contains a button that allows the user to quit waiting for the Enterprise Mode Site List download to complete.
+If you set the timeout in this policy to a value greater than 2 seconds, an information bar is shown to the user after 2 seconds. The information bar contains a button that allows the user to quit waiting for the Enterprise Mode Site List download to complete.
 
-If you don't configure this policy, the default timeout of 2 seconds is used. This default is subject to change in the future.
+If you don't configure this policy, the default timeout of 4 seconds is used. This default is subject to change in the future.
 
   #### Supported features:
 
@@ -33393,9 +34863,9 @@ This policy is intended to give enterprises flexibility to disable the network s
 
   ### NewBaseUrlInheritanceBehaviorAllowed
 
-  #### Allows enabling the feature NewBaseUrlInheritanceBehavior
+  #### Allows enabling the feature NewBaseUrlInheritanceBehavior (deprecated)
 
-  
+  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.
   
   #### Supported versions:
 
@@ -33408,6 +34878,10 @@ This policy is intended to give enterprises flexibility to disable the network s
 If you disable this policy, it prevents users or Microsoft Edge variations from enabling NewBaseUrlInheritanceBehavior, in case compatibility issues are discovered.
 
 If you enable or don't configure this policy, it allows enabling NewBaseUrlInheritanceBehavior.
+
+This policy is being deprecated because the feature NewBaseUrlInheritanceBehaviorAllowed has been removed.
+
+This policy will be obsolete in release 133.
 
   #### Supported features:
 
@@ -33426,7 +34900,7 @@ If you enable or don't configure this policy, it allows enabling NewBaseUrlInher
   ##### Group Policy (ADMX) info
 
   - GP unique name: NewBaseUrlInheritanceBehaviorAllowed
-  - GP name: Allows enabling the feature NewBaseUrlInheritanceBehavior
+  - GP name: Allows enabling the feature NewBaseUrlInheritanceBehavior (deprecated)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -34174,6 +35648,72 @@ If you disable this policy, users can't change or override the setting. If this 
 
   [Back to top](#microsoft-edge---policies)
 
+  ### PersonalizeTopSitesInCustomizeSidebarEnabled
+
+  #### Personalize my top sites in Customize Sidebar enabled by default
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 132 or later
+
+  #### Description
+
+  This policy controls whether Microsoft Edge browser be allowed to use the browsing history to personalize the top sites in the customize sidebar page.
+
+If you enable this policy, Microsoft Edge will use the browsing history to personalize the top sites in the customize sidebar page.
+
+If you disable this policy, Microsoft Edge will not use the browsing history to personalize the top sites in the customize sidebar page.
+
+If you don't configure this policy, the default behavior is to use the browsing history to personalize the top sites in the customize sidebar page.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: PersonalizeTopSitesInCustomizeSidebarEnabled
+  - GP name: Personalize my top sites in Customize Sidebar enabled by default
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: PersonalizeTopSitesInCustomizeSidebarEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: PersonalizeTopSitesInCustomizeSidebarEnabled
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### PictureInPictureOverlayEnabled
 
   #### Enable Picture in Picture overlay feature on supported webpages in Microsoft Edge
@@ -34311,15 +35851,15 @@ User settings to enable or disable the Pin to taskbar wizard aren't available.
 
   #### Description
 
-  This policy configures whether Microsoft Edge will offer Kyber, a post-quantum key agreement algorithm, in TLS. This lets supporting servers protect user traffic from being decrypted by quantum computers.
+  This policy configures whether Microsoft Edge will offer a post-quantum key agreement algorithm in TLS. This lets supporting servers protect user traffic from being decrypted by quantum computers.
 
-If you enable this policy, Microsoft Edge will offer Kyber in TLS connections. TLS connections will be protected with Kyber key agreement when communicating with compatible servers that select Kyber during the TLS handshake.
+If you enable this policy, Microsoft Edge will offer a post-quantum key agreement in TLS connections. TLS connections will be protected from quantum computers when communicating with compatible servers.
 
-If this disable this policy, Microsoft Edge will not offer Kyber in TLS connections. User traffic will be unprotected from decryption by quantum computers.
+If you disable this policy, Microsoft Edge will not offer a post-quantum key agreement in TLS connections. User traffic will be unprotected from decryption by quantum computers.
 
-If you don't configure this policy, Microsoft Edge will follow the default rollout process for offering Kyber.
+If you don't configure this policy, Microsoft Edge will follow the default rollout process for offering a post-quantum key agreement.
 
-Offering Kyber is backwards-compatible. Existing TLS servers and networking middleware are expected to ignore the new option and continue selecting previous options.
+Offering a post-quantum key agreement is backwards-compatible. Existing TLS servers and networking middleware are expected to ignore the new option and continue selecting previous options.
 
 However, devices that don't implement TLS correctly may malfunction when offered the new option. For example, they might disconnect in response to unrecognized options or the resulting larger messages. These devices are not post-quantum-ready and will interfere with an enterprise's post-quantum transition. If this issue is encountered, administrators should contact the vendor for a fix.
 
@@ -34441,9 +35981,9 @@ If you don't configure this policy, Proactive Authentication is turned on.
 
   ### PromotionalTabsEnabled
 
-  #### Enable full-tab promotional content
+  #### Enable full-tab promotional content (deprecated)
 
-  
+  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.
   
   #### Supported versions:
 
@@ -34456,6 +35996,8 @@ If you don't configure this policy, Proactive Authentication is turned on.
 If you enable this policy (set it true) or don't configure it, Microsoft Edge can show full-tab content to users to provide product information.
 
 If you disable (set to false) this policy, Microsoft Edge can't show full-tab content to users.
+
+This is deprecated - use ShowRecommendationsEnabled instead.
 
   #### Supported features:
 
@@ -34474,7 +36016,7 @@ If you disable (set to false) this policy, Microsoft Edge can't show full-tab co
   ##### Group Policy (ADMX) info
 
   - GP unique name: PromotionalTabsEnabled
-  - GP name: Enable full-tab promotional content
+  - GP name: Enable full-tab promotional content (deprecated)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -34889,9 +36431,9 @@ If you disable this policy, these files will be downloaded to be viewed.
 
   ### RSAKeyUsageForLocalAnchorsEnabled
 
-  #### Check RSA key usage for server certificates issued by local trust anchors
+  #### Check RSA key usage for server certificates issued by local trust anchors (deprecated)
 
-  
+  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.
   
   #### Supported versions:
 
@@ -34899,23 +36441,37 @@ If you disable this policy, these files will be downloaded to be viewed.
 
   #### Description
 
-  The X.509 key usage extension declares how the key in a certificate can be
+  This policy is deprecated because RSAKeyUsageForLocalAnchorsEnabled feature has been removed.
+
+This policy will be removed in version 133.
+
+The X.509 key usage extension declares how the key in a certificate can be
 used. These instructions ensure certificates aren't used in an unintended
 context, which protects against a class of cross-protocol attacks on HTTPS and
 other protocols. HTTPS clients must verify that server certificates match the
 connection's TLS parameters.
 
-If this policy is enabled,
+Starting in Microsoft Edge 124, this
+check is always enabled.
+
+Microsoft Edge 123 and earlier have the
+following behavior:
+
+If this policy is set to enabled,
 Microsoft Edge will perform this key
 check. This helps prevent attacks where an attacker manipulates the browser into
 interpreting a key in ways that the certificate owner did not intend.
 
-If this policy is set to disabled or not configured,
+If this policy is set to disabled,
 Microsoft Edge will skip this key check in
 HTTPS connections that negotiate TLS 1.2 and use an RSA certificate that
 chains to a local trust anchor. Examples of local trust anchors include
 policy-provided or user-installed root certificates. In all other cases, the
 check is performed independent of this policy's setting.
+
+If this policy is not configured,
+Microsoft Edge will behave as if the
+policy is enabled.
 
 This policy is available for administrators to preview the behavior of a
 future release, which will enable this check by default. At that point, this
@@ -34946,7 +36502,7 @@ include both in RSA certificates meant for HTTPS.
   ##### Group Policy (ADMX) info
 
   - GP unique name: RSAKeyUsageForLocalAnchorsEnabled
-  - GP name: Check RSA key usage for server certificates issued by local trust anchors
+  - GP name: Check RSA key usage for server certificates issued by local trust anchors (deprecated)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -37195,6 +38751,70 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\1 = "contoso.com"
 <array>
   <string>contoso.com</string>
 </array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### SelectParserRelaxationEnabled
+
+  #### Controls whether the new HTML parser behavior for the \<select> element is enabled
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 132 or later
+
+  #### Description
+
+  The HTML parser is being changed to allow additional HTML tags inside the \<select> element. This policy supports the old HTML parser behavior until M136.
+
+If this policy is enabled or unset, the HTML parser will allow additional tags inside the \<select> element.
+
+If this policy is disabled, then the HTML parser will restrict which tags can be put in the \<select> element.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: SelectParserRelaxationEnabled
+  - GP name: Controls whether the new HTML parser behavior for the \<select> element is enabled
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: SelectParserRelaxationEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: SelectParserRelaxationEnabled
+  - Example value:
+``` xml
+<true/>
 ```
   
 
@@ -40756,7 +42376,7 @@ If you enable or don't configure this policy, the User-Agent Client Hints featur
   
   #### Supported versions:
 
-  - On Windows and macOS since 102 or later
+  - On Windows and macOS since 102, until 133
 
   #### Description
 
@@ -40766,7 +42386,7 @@ When enabled, the User-Agent Client Hints GREASE Update feature aligns the User-
 
 If this policy is enabled or not configured, the User-Agent GREASE algorithm from the specification will be used. If the policy is disabled, the prior User-Agent GREASE algorithm will be used.
 
-This policy is a temporary measure and will be removed in a future release.
+This policy will be obsolete after version 133 because the updated GREASE algorithm has been on by default since Microsoft Edge version 102.
 
   #### Supported features:
 
@@ -41229,7 +42849,7 @@ This policy affects all types of video inputs, not only the built-in camera.
 
   #### Description
 
-  Specify websites, based on URL patterns, that can use video capture devices without asking the user for permission. Patterns in this list are matched against the security origin of the requesting URL. If they match, the site is automatically granted access to video capture devices.
+  Specify websites, based on URL patterns, that can use video capture devices without asking the user for permission. Patterns in this list are matched against the security origin of the requesting URL. If they match, the site is automatically granted access to video capture devices. Note, however, that the pattern "*", which matches any URL, is not supported by this policy.
 
   #### Supported features:
 
@@ -41491,7 +43111,7 @@ If you disable this policy, users can't use the Wallet Donation feature.
 
   #### Description
 
-  Setting the policy specifies a list of web apps that install silently, without user interaction, and which users can't uninstall or turn off.
+  Setting the policy specifies a list of web apps that install silently, without user interaction.  Users can't turn off the policy or uninstall these web apps.
 
 Each list item of the policy is an object with a mandatory member:
 url (the URL of the web app to install)
@@ -41506,9 +43126,8 @@ Microsoft Windows desktop shortcuts).
 
 - fallback_app_name
 (Starting with Microsoft Edge version 90,
-allows you to override the app name if it is not a
-Progressive Web App (PWA), or the app name that is temporarily
-installed if it is a PWA but authentication is required before the
+lets you permanently override the app name if it is not a Progressive Web App (PWA)
+or temporarily override the app name if authentication is required before
 installation can be completed. If both
 custom_name and
 fallback_app_name are provided,
@@ -41516,22 +43135,24 @@ the latter will be ignored.)
 
 - custom_name
 (Starting with Microsoft Edge version 112
-on all desktop platforms, allows you to permanently override the app name for all
+on all desktop platforms, lets you permanently override the app name for all
 web apps and PWAs.)
 
 - custom_icon
 (Starting with Microsoft Edge version 112
-on all desktop platforms, allows you to override the app icon of installed apps.
+on all desktop platforms, lets you to override the app icon of installed apps.
 The icons have to be square, maximal 1 MB in size, and in one of the following formats:
-jpeg, png, gif, webp, ico. The hash value has to be the SHA256 hash of the icon file.)
+jpeg, png, gif, webp, ico. The hash value has to be the SHA256 hash of the icon file.
+The url should be accessible without authentication to
+ensure the icon can be used upon app installation.)
 
 - install_as_shortcut
 (Starting with Microsoft Edge
-version 107). If enabled the given url will be installed as a shortcut,
+version 107). If enabled, the given url will be installed as a shortcut,
 as if done via the "Create Shortcut..." option in the desktop browser GUI.
 Note that when installed as a shortcut it won't be updated if the manifest in url changes.
 If disabled or unset, the web app at the given url will be installed normally.
-(Not currently supported in Microsoft Edge.)
+(This is not currently supported in Microsoft Edge.)
 
   #### Supported features:
 

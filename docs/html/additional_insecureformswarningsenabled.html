@@ -1,6 +1,10 @@
 <h3>InsecureFormsWarningsEnabled</h3>
 
-<h4>Enable warnings for insecure forms</h4>
+<h4>Enable warnings for insecure forms (deprecated)</h4>
+
+<blockquote>
+  <p>DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.</p>
+</blockquote>
 
 <h4>Supported versions:</h4>
 
@@ -13,6 +17,8 @@
 <p>This policy controls the handling of insecure forms (forms submitted over HTTP) embedded in secure (HTTPS) sites in the browser.
 If you enable this policy or don't set it, a full page warning will be shown when an insecure form is submitted. Additionally, a warning bubble will be shown next to the form fields when they are focused, and autofill will be disabled for those forms.
 If you disable this policy, warnings will not be shown for insecure forms, and autofill will work normally.</p>
+
+<p>This policy may be removed as soon as Edge 132. The feature is enabled by default since Edge 131.</p>
 
 <h4>Supported features:</h4>
 
@@ -36,7 +42,7 @@ If you disable this policy, warnings will not be shown for insecure forms, and a
 
 <ul>
 <li>GP unique name: InsecureFormsWarningsEnabled</li>
-<li>GP name: Enable warnings for insecure forms</li>
+<li>GP name: Enable warnings for insecure forms (deprecated)</li>
 <li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>

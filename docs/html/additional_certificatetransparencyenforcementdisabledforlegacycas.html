@@ -1,11 +1,15 @@
 <h3>CertificateTransparencyEnforcementDisabledForLegacyCas</h3>
 
-<h4>Disable Certificate Transparency enforcement for a list of legacy certificate authorities</h4>
+<h4>Disable Certificate Transparency enforcement for a list of legacy certificate authorities (obsolete)</h4>
+
+<blockquote>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 131.</p>
+</blockquote>
 
 <h4>Supported versions:</h4>
 
 <ul>
-<li>On Windows and macOS since 77 or later</li>
+<li>On Windows and macOS since 77, until 131</li>
 </ul>
 
 <h4>Description</h4>
@@ -19,6 +23,8 @@
 <p>You specify a subjectPublicKeyInfo hash by concatenating the hash algorithm name, the "/" character, and the Base64 encoding of that hash algorithm applied to the DER-encoded subjectPublicKeyInfo of the specified certificate. This Base64 encoding is the same format as an SPKI Fingerprint, as defined in RFC 7469, Section 2.4. Unrecognized hash algorithms are ignored. The only supported hash algorithm at this time is "sha256".</p>
 
 <p>If you don't configure this policy, any certificate that's required to be disclosed via Certificate Transparency will be treated as untrusted if it isn't disclosed according to the Certificate Transparency policy.</p>
+
+<p>This policy is obsolete because the feature to disable Certificate Transparency enforcement for legacy certificates has been removed.</p>
 
 <h4>Supported features:</h4>
 
@@ -42,7 +48,7 @@
 
 <ul>
 <li>GP unique name: CertificateTransparencyEnforcementDisabledForLegacyCas</li>
-<li>GP name: Disable Certificate Transparency enforcement for a list of legacy certificate authorities</li>
+<li>GP name: Disable Certificate Transparency enforcement for a list of legacy certificate authorities (obsolete)</li>
 <li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>

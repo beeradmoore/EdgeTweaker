@@ -10,17 +10,19 @@
 
 <h4>Description</h4>
 
-<p>Third-party storage partitioning is on by default for some users starting with Microsoft Edge version 115, but it can be disabled with edge://flags.</p>
+<p>This policy controls whether third-party storage partitioning is allowed by default.</p>
 
-<p>If this policy is configured to "AllowPartitioning" or not configured, third-party storage partitioning can be enabled.</p>
+<p>If this policy is set to 1 - AllowPartitioning, or unset, third-party storage partitioning will be allowed by default. This default may be overridden for specific top-level origins by other means.</p>
 
-<p>If this policy is set to "BlockPartitioning", third-party storage partitioning can't be enabled.</p>
+<p>If this policy is set to 2 - BlockPartitioning, third-party storage partitioning will be disabled for all contexts.</p>
+
+<p>Use ThirdPartyStoragePartitioningBlockedForOrigins to disable third-party storage partitioning for specific top-level origins.</p>
 
 <p>Policy options mapping:</p>
 
 <ul>
-<li><p>AllowPartitioning (1) = Let third-party storage partitioning to be enabled.</p></li>
-<li><p>BlockPartitioning (2) = Block third-party storage partitioning from being enabled.</p></li>
+<li><p>AllowPartitioning (1) = Allow third-party storage partitioning by default.</p></li>
+<li><p>BlockPartitioning (2) = Disable third-party storage partitioning.</p></li>
 </ul>
 
 <p>Use the preceding information when configuring this policy.</p>

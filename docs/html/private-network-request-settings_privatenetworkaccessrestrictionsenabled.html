@@ -1,0 +1,79 @@
+<h3>PrivateNetworkAccessRestrictionsEnabled</h3>
+
+<h4>Specifies whether to apply restrictions to requests to more private network endpoints</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 131 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Specifies whether to apply restrictions to requests to more private
+network endpoints</p>
+
+<p>When this policy is Enabled, any time when a warning is supposed to be displayed in the DevTools due to Private Network Access checks failing, the request is blocked.</p>
+
+<p>When this policy is Disabled or unset, all Private Network Access warnings are not enforced and the requests are not blocked.</p>
+
+<p>See https://wicg.github.io/private-network-access/ for Private Network Access restrictions.</p>
+
+<p>Note: A network endpoint is more private than another if:
+1) Its IP address is localhost and the other is not.
+2) Its IP address is private and the other is public.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: PrivateNetworkAccessRestrictionsEnabled</li>
+<li>GP name: Specifies whether to apply restrictions to requests to more private network endpoints</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Private Network Request Settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: PrivateNetworkAccessRestrictionsEnabled</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: PrivateNetworkAccessRestrictionsEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

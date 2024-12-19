@@ -16,26 +16,25 @@
 
 <p>If you don't configure this policy, users can choose their own proxy settings.</p>
 
-<p>This policy overrides the following individual policies:</p>
-
-<p><a href="#proxymode">ProxyMode</a>
+<p>This policy overrides the following individual policies:
+<a href="#proxymode">ProxyMode</a>
 <a href="#proxypacurl">ProxyPacUrl</a>
 <a href="#proxyserver">ProxyServer</a>
 <a href="#proxybypasslist">ProxyBypassList</a></p>
 
 <p>Setting the <a href="#proxysettings">ProxySettings</a> policy accepts the following fields:
-  * ProxyMode, which lets you specify the proxy server used by Microsoft Edge and prevents users from changing proxy settings
-  * ProxyPacUrl, a URL to a proxy .pac file
-  * ProxyPacMandatory, a boolean flag which prevents the network stack from falling back to direct connections with invalid or unavailable PAC script
-  * ProxyServer, a URL for the proxy server
-  * ProxyBypassList, a list of proxy hosts that Microsoft Edge bypasses</p>
+* ProxyMode, which lets you specify the proxy server used by Microsoft Edge and prevents users from changing proxy settings
+* ProxyPacUrl, a URL to a proxy .pac file, or a PAC script encoded as a data URL with MIME type application/x-ns-proxy-autoconfig
+* ProxyPacMandatory, a boolean flag which prevents the network stack from falling back to direct connections with invalid or unavailable PAC script
+* ProxyServer, a URL for the proxy server
+* ProxyBypassList, a list of proxy hosts that Microsoft Edge bypasses</p>
 
 <p>For ProxyMode, if you choose the value:
-  * direct, a proxy is never used and all other fields are ignored.
-  * system, the systems's proxy is used and all other fields are ignored.
-  * auto<em>detect, all other fields are ignored.
-  * fixed</em>servers, the ProxyServer and ProxyBypassList fields are used.
-  * pac_script, the ProxyPacUrl, ProxyPacMandatory and ProxyBypassList fields are used.</p>
+* direct, a proxy is never used and all other fields are ignored.
+* system, the systems's proxy is used and all other fields are ignored.
+* auto<em>detect, all other fields are ignored.
+* fixed</em>servers, the ProxyServer and ProxyBypassList fields are used.
+* pac_script, the ProxyPacUrl, ProxyPacMandatory and ProxyBypassList fields are used.</p>
 
 <p>For more detailed examples go to <a href="https://go.microsoft.com/fwlink/?linkid=2094936">https://go.microsoft.com/fwlink/?linkid=2094936</a>.</p>
 

@@ -10,7 +10,7 @@
 
 <h4>Description</h4>
 
-<p>Define a list of sites, based on URL patterns, that are allowed to set cookies.</p>
+<p>Define a list of sites, based on URL patterns, that are allowed to set cookies. URL patterns may be a single URL indicating that the site may use cookies on all top-level sites. Patterns may also be two URLs delimited by a comma. The first specifies the site that should be allowed to use cookies. The second specifies the top-level site that the first value should be applied on. If you use a pair of URLs, the first value in the pair supports * but the second value does not. Using * for the first value indicates that all sites may use cookies when the second URL is the top-level site.</p>
 
 <p>If you don't configure this policy, the global default value from the <a href="#defaultcookiessetting">DefaultCookiesSetting</a> policy (if set) or the user's personal configuration is used for all sites.</p>
 

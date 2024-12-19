@@ -1,6 +1,6 @@
 <h3>ThirdPartyStoragePartitioningBlockedForOrigins</h3>
 
-<h4>Block third-party storage partitioning for these origins</h4>
+<h4>Disable third-party storage partitioning for specific top-level origins</h4>
 
 <h4>Supported versions:</h4>
 
@@ -10,11 +10,11 @@
 
 <h4>Description</h4>
 
-<p>Lets you set a list of url patterns that specify top-level origins (the url in the tab's address bar) that block third-party (cross-origin iframe) storage partitioning.</p>
+<p>This policy lets you set a list of URL patterns that specify top-level origins for which third-party storage partitioning (partitioning of cross-origin iframe storage) should be disabled.</p>
 
-<p>If this policy isn't set or a top-level origin doesn't match, then the value from <a href="#defaultthirdpartystoragepartitioningsetting">DefaultThirdPartyStoragePartitioningSetting</a> will be used.</p>
+<p>If this policy isn't set or a top-level origin doesn't match one of the URL patterns, then the value from <a href="#defaultthirdpartystoragepartitioningsetting">DefaultThirdPartyStoragePartitioningSetting</a> will be used.</p>
 
-<p>Note that the patterns you list are treated as origins, not URLs, so you shouldn't specify a path.</p>
+<p>Note that the patterns you list are treated as origins, not URLs, so you shouldn't specify a path. For detailed information about valid origin patterns, see <a href="https://go.microsoft.com/fwlink/?linkid=2095322">https://go.microsoft.com/fwlink/?linkid=2095322</a>.</p>
 
 <h4>Supported features:</h4>
 
@@ -38,7 +38,7 @@
 
 <ul>
 <li>GP unique name: ThirdPartyStoragePartitioningBlockedForOrigins</li>
-<li>GP name: Block third-party storage partitioning for these origins</li>
+<li>GP name: Disable third-party storage partitioning for specific top-level origins</li>
 <li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>

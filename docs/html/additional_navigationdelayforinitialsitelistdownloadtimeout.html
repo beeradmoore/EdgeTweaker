@@ -12,18 +12,13 @@
 
 <p>Allows you to set a timeout, in seconds, for Microsoft Edge tabs waiting to navigate until the browser has downloaded the initial Enterprise Mode Site List.</p>
 
-<p>This setting works in conjunction with:
-<a href="#internetexplorerintegrationlevel">InternetExplorerIntegrationLevel</a> is set to 'IEMode'
-and
-<a href="#internetexplorerintegrationsitelist">InternetExplorerIntegrationSiteList</a> policy where the list has at least one entry
-and
-<a href="#delaynavigationsforinitialsitelistdownload">DelayNavigationsForInitialSiteListDownload</a> is set to "All eligible navigations" (1).</p>
+<p>This setting works in conjunction with: <a href="#internetexplorerintegrationlevel">InternetExplorerIntegrationLevel</a> is set to 'IEMode' and <a href="#internetexplorerintegrationsitelist">InternetExplorerIntegrationSiteList</a> policy where the list has at least one entry and <a href="#delaynavigationsforinitialsitelistdownload">DelayNavigationsForInitialSiteListDownload</a> is set to "All eligible navigations" (1).</p>
 
 <p>Tabs will not wait longer than this timeout for the Enterprise Mode Site List to download. If the browser has not finished downloading the Enterprise Mode Site List when the timeout expires, Microsoft Edge tabs will continue navigating anyway. The value of the timeout should be no greater than 20 seconds and no fewer than 1 second.</p>
 
-<p>If you set the timeout in this policy to a value greater than the default of 2 seconds, an information bar is shown to the user after 2 seconds. The information bar contains a button that allows the user to quit waiting for the Enterprise Mode Site List download to complete.</p>
+<p>If you set the timeout in this policy to a value greater than 2 seconds, an information bar is shown to the user after 2 seconds. The information bar contains a button that allows the user to quit waiting for the Enterprise Mode Site List download to complete.</p>
 
-<p>If you don't configure this policy, the default timeout of 2 seconds is used. This default is subject to change in the future.</p>
+<p>If you don't configure this policy, the default timeout of 4 seconds is used. This default is subject to change in the future.</p>
 
 <h4>Supported features:</h4>
 

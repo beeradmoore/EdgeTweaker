@@ -10,7 +10,7 @@
 
 <h4>Description</h4>
 
-<p>Setting the policy specifies a list of web apps that install silently, without user interaction, and which users can't uninstall or turn off.</p>
+<p>Setting the policy specifies a list of web apps that install silently, without user interaction.  Users can't turn off the policy or uninstall these web apps.</p>
 
 <p>Each list item of the policy is an object with a mandatory member:
 url (the URL of the web app to install)</p>
@@ -25,29 +25,30 @@ url (the URL of the web app to install)</p>
 Microsoft Windows desktop shortcuts).</p></li>
 <li><p>fallback<em>app</em>name
 (Starting with Microsoft Edge version 90,
-allows you to override the app name if it is not a
-Progressive Web App (PWA), or the app name that is temporarily
-installed if it is a PWA but authentication is required before the
+lets you permanently override the app name if it is not a Progressive Web App (PWA)
+or temporarily override the app name if authentication is required before
 installation can be completed. If both
 custom<em>name and
 fallback</em>app_name are provided,
 the latter will be ignored.)</p></li>
 <li><p>custom_name
 (Starting with Microsoft Edge version 112
-on all desktop platforms, allows you to permanently override the app name for all
+on all desktop platforms, lets you permanently override the app name for all
 web apps and PWAs.)</p></li>
 <li><p>custom_icon
 (Starting with Microsoft Edge version 112
-on all desktop platforms, allows you to override the app icon of installed apps.
+on all desktop platforms, lets you to override the app icon of installed apps.
 The icons have to be square, maximal 1 MB in size, and in one of the following formats:
-jpeg, png, gif, webp, ico. The hash value has to be the SHA256 hash of the icon file.)</p></li>
+jpeg, png, gif, webp, ico. The hash value has to be the SHA256 hash of the icon file.
+The url should be accessible without authentication to
+ensure the icon can be used upon app installation.)</p></li>
 <li><p>install<em>as</em>shortcut
 (Starting with Microsoft Edge
-version 107). If enabled the given url will be installed as a shortcut,
+version 107). If enabled, the given url will be installed as a shortcut,
 as if done via the "Create Shortcut..." option in the desktop browser GUI.
 Note that when installed as a shortcut it won't be updated if the manifest in url changes.
 If disabled or unset, the web app at the given url will be installed normally.
-(Not currently supported in Microsoft Edge.)</p></li>
+(This is not currently supported in Microsoft Edge.)</p></li>
 </ul>
 
 <h4>Supported features:</h4>

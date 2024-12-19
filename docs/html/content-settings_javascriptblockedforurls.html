@@ -14,7 +14,9 @@
 
 <p>If you don't configure this policy, <a href="#defaultjavascriptsetting">DefaultJavaScriptSetting</a> applies for all sites, if it's set. If not, the user's personal setting applies.</p>
 
-<p>For detailed information on valid url patterns, please see <a href="https://go.microsoft.com/fwlink/?linkid=2095322">https://go.microsoft.com/fwlink/?linkid=2095322</a>. * is not an accepted value for this policy.</p>
+<p>For detailed information on valid url patterns, please see <a href="https://go.microsoft.com/fwlink/?linkid=2095322">https://go.microsoft.com/fwlink/?linkid=2095322</a>. Wildcards, *, are allowed.</p>
+
+<p>Note that this policy blocks JavaScript based on whether the origin of the top-level document (usually the page URL that is also displayed in the address bar) matches any of the patterns. Therefore this policy is not appropriate for mitigating web supply-chain attacks. For example, supplying the pattern "<code>https://[\*.]foo.com/</code>" will not prevent a page hosted on, say, <a href="https://contoso.com">https://contoso.com</a> from running a script loaded from <code>https://www.foo.com/example.js</code>. Furthermore, supplying the pattern "<a href="https://contoso.com/">https://contoso.com/</a>" will not prevent a document from <a href="https://contoso.com">https://contoso.com</a> from running scripts if it is not the top-level document, but embedded as a sub-frame into a page hosted on another origin, say, <a href="https://www.fabrikam.com">https://www.fabrikam.com</a>.</p>
 
 <h4>Supported features:</h4>
 

@@ -1,0 +1,58 @@
+<h3>CreatePasskeysInICloudKeychain</h3>
+
+<h4>Control whether passkey creation will default to iCloud Keychain.</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On macOS since 132 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Microsoft Edge may direct
+passkey/WebAuthn creation requests directly to iCloud Keychain on macOS 13.5
+or later. If iCloud Keychain syncing is not enabled yet, this will
+prompt the user to sign in with iCloud, or might prompt them to enable iCloud
+Keychain syncing.</p>
+
+<p>If this policy is set to "true" then iCloud Keychain will be the default
+whenever the WebAuthn request is compatible with that choice.</p>
+
+<p>If this policy isn't set then the default behavior depends on factors such as
+whether iCloud Drive is enabled, or whether the user has recently used or
+created a credential in their
+Microsoft Edge profile.</p>
+
+<p>If this policy is set to false, iCloud Keychain will not be used by default
+and the previous behavior (of creating the credential in the Microsoft Edge profile) may be used
+instead. Users will still be able to select iCloud Keychain as an option, and
+may still see iCloud Keychain credentials when signing in.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: CreatePasskeysInICloudKeychain</li>
+<li><p>Example value:
+<code>xml
+&lt;false/&gt;
+</code></p>
+
+</li>
+</ul>
