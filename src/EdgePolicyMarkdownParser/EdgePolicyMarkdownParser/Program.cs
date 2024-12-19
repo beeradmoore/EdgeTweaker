@@ -11,14 +11,25 @@ try
     var markdownFile = "microsoft-edge-policies.md";
     using (var memoryStream = new MemoryStream())
     {
+        var downloadFresh = true;
         if (File.Exists(markdownFile))
         {
-            using (var fileStream = File.OpenRead(markdownFile))
+            var fileInfo = new FileInfo(markdownFile);
+            if ((DateTime.Now - fileInfo.LastWriteTime).Days > 7)
             {
-                await fileStream.CopyToAsync(memoryStream);
+                downloadFresh = true;
+            }
+            else
+            {
+                downloadFresh = false;
+                using (var fileStream = File.OpenRead(markdownFile))
+                {
+                    await fileStream.CopyToAsync(memoryStream);
+                }
             }
         }
-        else
+        
+        if (downloadFresh == true)
         {
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync("https://raw.githubusercontent.com/MicrosoftDocs/Edge-Enterprise/public/edgeenterprise/microsoft-edge-policies.md");
