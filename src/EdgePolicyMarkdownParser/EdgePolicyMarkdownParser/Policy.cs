@@ -63,7 +63,10 @@ public class Policy
 
     [JsonPropertyName("macos_preference_example_value")]
     public string MacOSPreferenceExampleValue { get; set; } = string.Empty;
-    
+
+    [JsonPropertyName("supported")]
+    public bool Supported { get; set; } = false;
+
     public override string ToString()
     {
         return Name;
