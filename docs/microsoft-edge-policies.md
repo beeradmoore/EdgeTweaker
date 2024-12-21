@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: dan-wesley
 manager: venkatk
-ms.date: 12/06/2024
+ms.date: 12/13/2024
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -25,20 +25,17 @@ Starting in Microsoft Edge version 116, certain policies will not be applied to 
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
->
 > For Microsoft Edge Mobile policy reference, see [Microsoft Edge Mobile - Policies](/deployedge/microsoft-edge-mobile-policies).
 
 ## New policies
 
-The following table lists the new, and obsoleted policies that are in this article update.
+The following table lists the new, and deprecated policies that are in this article update.
 
 | Policy Name | Caption |
 |:-----|:-----|
-|[CAHintCertificates](#cahintcertificates)|TLS certificates that are not trusted or distrusted but can be used in path-building for server authentication|
-|[CAPlatformIntegrationEnabled](#caplatformintegrationenabled)|Use user-added TLS certificates from platform trust stores for server authentication|
-|[EdgeSidebarAppUrlHostForceList](#edgesidebarappurlhostforcelist)|Control which apps are forced to be shown in Microsoft Edge sidebar|
-|[CopilotCDPPageContext](#copilotcdppagecontext)|Control Copilot with Commercial Data Protection access to page context for Microsoft Entra ID profiles (obsolete)|
-
+|[CACertificatesWithConstraints](#cacertificateswithconstraints)|TLS certificates that should be trusted by Microsoft Edge for server authentication with constraints|
+|[CSSCustomStateDeprecatedSyntaxEnabled](#csscustomstatedeprecatedsyntaxenabled)|Controls whether the deprecated :--foo syntax for CSS custom state is enabled (deprecated)|
+|[SelectParserRelaxationEnabled](#selectparserrelaxationenabled)|Controls whether the new HTML parser behavior for the \<select> element is enabled|
 
 
 ## Available policies
@@ -101,6 +98,7 @@ These tables list all of the browser-related group policies available in this re
 |-|-|
 |[CACertificateManagementAllowed](#cacertificatemanagementallowed)|Allow users to manage installed CA certificates.|
 |[CACertificates](#cacertificates)|TLS server certificates that should be trusted by Microsoft Edge|
+|[CACertificatesWithConstraints](#cacertificateswithconstraints)|TLS certificates that should be trusted by Microsoft Edge for server authentication with constraints|
 |[CADistrustedCertificates](#cadistrustedcertificates)|TLS certificates that should be distrusted by Microsoft Edge for server authentication|
 |[CAHintCertificates](#cahintcertificates)|TLS certificates that are not trusted or distrusted but can be used in path-building for server authentication|
 |[CAPlatformIntegrationEnabled](#caplatformintegrationenabled)|Use user-added TLS certificates from platform trust stores for server authentication|
@@ -497,7 +495,7 @@ These tables list all of the browser-related group policies available in this re
 |[BuiltinCertificateVerifierEnabled](#builtincertificateverifierenabled)|Determines whether the built-in certificate verifier will be used to verify server certificates (obsolete)|
 |[CECPQ2Enabled](#cecpq2enabled)|CECPQ2 post-quantum key-agreement enabled for TLS (obsolete)|
 |[CORSNonWildcardRequestHeadersSupport](#corsnonwildcardrequestheaderssupport)|CORS non-wildcard request header support enabled|
-|[CSSCustomStateDeprecatedSyntaxEnabled](#csscustomstatedeprecatedsyntaxenabled)|Controls whether the deprecated :--foo syntax for CSS custom state is enabled|
+|[CSSCustomStateDeprecatedSyntaxEnabled](#csscustomstatedeprecatedsyntaxenabled)|Controls whether the deprecated :--foo syntax for CSS custom state is enabled (deprecated)|
 |[CertificateTransparencyEnforcementDisabledForCas](#certificatetransparencyenforcementdisabledforcas)|Disable Certificate Transparency enforcement for a list of subjectPublicKeyInfo hashes|
 |[CertificateTransparencyEnforcementDisabledForLegacyCas](#certificatetransparencyenforcementdisabledforlegacycas)|Disable Certificate Transparency enforcement for a list of legacy certificate authorities (obsolete)|
 |[CertificateTransparencyEnforcementDisabledForUrls](#certificatetransparencyenforcementdisabledforurls)|Disable Certificate Transparency enforcement for specific URLs|
@@ -1478,6 +1476,103 @@ SOFTWARE\Policies\Microsoft\Edge\CACertificates\1 = "MIICCTCCAY6gAwIBAgINAgPluIL
 ``` xml
 <array>
   <string>MIICCTCCAY6gAwIBAgINAgPluILrIPglJ209ZjAKBggqhkjOPQQDAzBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwHhcNMTYwNjIyMDAwMDAwWhcNMzYwNjIyMDAwMDAwWjBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAQfTzOHMymKoYTey8chWEGJ6ladK0uFxh1MJ7x/JlFyb+Kf1qPKzEUURout736GjOyxfi//qXGdGIRFBEFVbivqJn+7kAHjSxm65FSWRQmx1WyRRK2EE46ajA2ADDL24CejQjBAMA4GA1UdDwEB/wQEAwIBhjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTB8Sa6oC2uhYHP0/EqEr24Cmf9vDAKBggqhkjOPQQDAwNpADBmAjEA9uEglRR7VKOQFhG/hMjqb2sXnh5GmCCbn9MN2azTL818+FsuVbu/3ZL3pAzcMeGiAjEA/JdmZuVDFhOD3cffL74UOO0BzrEXGhF16b0DjyZ+hOXJYKaV11RZt+cRLInUue4X</string>
+</array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### CACertificatesWithConstraints
+
+  #### TLS certificates that should be trusted by Microsoft Edge for server authentication with constraints
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 133 or later
+
+  #### Description
+
+  This policy enables a list of TLS certificates that should be trusted by Microsoft Edge for server authentication, with constraints added outside the certificate. If no constraint of a certain type is present, then any name of that type is allowed.
+Certificates should be base64-encoded. At least one constraint must be specified for each certificate.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Dictionary
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: CACertificatesWithConstraints
+  - GP name: TLS certificates that should be trusted by Microsoft Edge for server authentication with constraints
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Certificate management settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: CACertificatesWithConstraints
+  - Value Type: REG_SZ
+
+  ##### Example value:
+
+```
+SOFTWARE\Policies\Microsoft\Edge\CACertificatesWithConstraints = [
+  {
+    "certificate": "MIICCTCCAY6gAwIBAgINAgPluILrIPglJ209ZjAKBggqhkjOPQQDAzBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwHhcNMTYwNjIyMDAwMDAwWhcNMzYwNjIyMDAwMDAwWjBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAQfTzOHMymKoYTey8chWEGJ6ladK0uFxh1MJ7x/JlFyb+Kf1qPKzEUURout736GjOyxfi//qXGdGIRFBEFVbivqJn+7kAHjSxm65FSWRQmx1WyRRK2EE46ajA2ADDL24CejQjBAMA4GA1UdDwEB/wQEAwIBhjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTB8Sa6oC2uhYHP0/EqEr24Cmf9vDAKBggqhkjOPQQDAwNpADBmAjEA9uEglRR7VKOQFhG/hMjqb2sXnh5GmCCbn9MN2azTL818+FsuVbu/3ZL3pAzcMeGiAjEA/JdmZuVDFhOD3cffL74UOO0BzrEXGhF16b0DjyZ+hOXJYKaV11RZt+cRLInUue4X",
+    "constraints": {
+      "permitted_cidrs": [
+        "10.1.1.0/24"
+      ],
+      "permitted_dns_names": [
+        "example.org"
+      ]
+    }
+  }
+]
+```
+
+  ##### Compact example value:
+
+  ```
+  SOFTWARE\Policies\Microsoft\Edge\CACertificatesWithConstraints = [{"certificate": "MIICCTCCAY6gAwIBAgINAgPluILrIPglJ209ZjAKBggqhkjOPQQDAzBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwHhcNMTYwNjIyMDAwMDAwWhcNMzYwNjIyMDAwMDAwWjBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAQfTzOHMymKoYTey8chWEGJ6ladK0uFxh1MJ7x/JlFyb+Kf1qPKzEUURout736GjOyxfi//qXGdGIRFBEFVbivqJn+7kAHjSxm65FSWRQmx1WyRRK2EE46ajA2ADDL24CejQjBAMA4GA1UdDwEB/wQEAwIBhjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTB8Sa6oC2uhYHP0/EqEr24Cmf9vDAKBggqhkjOPQQDAwNpADBmAjEA9uEglRR7VKOQFhG/hMjqb2sXnh5GmCCbn9MN2azTL818+FsuVbu/3ZL3pAzcMeGiAjEA/JdmZuVDFhOD3cffL74UOO0BzrEXGhF16b0DjyZ+hOXJYKaV11RZt+cRLInUue4X", "constraints": {"permitted_cidrs": ["10.1.1.0/24"], "permitted_dns_names": ["example.org"]}}]
+  ```
+  
+
+  #### Mac information and settings
+
+  - Preference Key Name: CACertificatesWithConstraints
+  - Example value:
+``` xml
+<key>CACertificatesWithConstraints</key>
+<array>
+  <dict>
+    <key>certificate</key>
+    <string>MIICCTCCAY6gAwIBAgINAgPluILrIPglJ209ZjAKBggqhkjOPQQDAzBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwHhcNMTYwNjIyMDAwMDAwWhcNMzYwNjIyMDAwMDAwWjBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAQfTzOHMymKoYTey8chWEGJ6ladK0uFxh1MJ7x/JlFyb+Kf1qPKzEUURout736GjOyxfi//qXGdGIRFBEFVbivqJn+7kAHjSxm65FSWRQmx1WyRRK2EE46ajA2ADDL24CejQjBAMA4GA1UdDwEB/wQEAwIBhjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTB8Sa6oC2uhYHP0/EqEr24Cmf9vDAKBggqhkjOPQQDAwNpADBmAjEA9uEglRR7VKOQFhG/hMjqb2sXnh5GmCCbn9MN2azTL818+FsuVbu/3ZL3pAzcMeGiAjEA/JdmZuVDFhOD3cffL74UOO0BzrEXGhF16b0DjyZ+hOXJYKaV11RZt+cRLInUue4X</string>
+    <key>constraints</key>
+    <dict>
+      <key>permitted_cidrs</key>
+      <array>
+        <string>10.1.1.0/24</string>
+      </array>
+      <key>permitted_dns_names</key>
+      <array>
+        <string>example.org</string>
+      </array>
+    </dict>
+  </dict>
 </array>
 ```
   
@@ -4285,7 +4380,7 @@ If you don't configure this policy, [DefaultJavaScriptSetting](#defaultjavascrip
 
 For detailed information on valid url patterns, please see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322). Wildcards, *, are allowed.
 
-Note that this policy blocks JavaScript based on whether the origin of the top-level document (usually the page URL that is also displayed in the address bar) matches any of the patterns. Therefore this policy is not appropriate for mitigating web supply-chain attacks. For example, supplying the pattern "`https://[\*.]foo.com/`" will not prevent a page hosted on, say, [https://contoso.com](https://contoso.com) from running a script loaded from `https://www.foo.com/example.js`. Furthermore, supplying the pattern "[https://contoso.com/](https://contoso.com/)" will not prevent a document from [https://contoso.com](https://contoso.com) from running scripts if it is not the top-level document, but embedded as a sub-frame into a page hosted on another origin, say, [https://www.fabrikam.com](https://www.fabrikam.com).
+Note that this policy blocks JavaScript based on whether the origin of the top-level document (usually the page URL that is also displayed in the address bar) matches any of the patterns. Therefore this policy is not appropriate for mitigating web supply-chain attacks. For example, supplying the pattern "`https://[\*.]foo.com/`" will not prevent a page hosted on, say, https://contoso.com from running a script loaded from `https://www.foo.com/example.js`. Furthermore, supplying the pattern "https://contoso.com/" will not prevent a document from https://contoso.com from running scripts if it is not the top-level document, but embedded as a sub-frame into a page hosted on another origin, say, https://www.fabrikam.com.
 
   #### Supported features:
 
@@ -8124,7 +8219,7 @@ On macOS instances, apps and extensions from outside the Microsoft Edge Add-ons 
 
 The source code of any extension can be altered by users with developer tools, potentially rendering the extension unfunctional. If this is a concern, configure the [DeveloperToolsAvailability](#developertoolsavailability) policy.
 
-Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document ( [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043) ). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy, see [https://learn.microsoft.com/en-us/deployedge/microsoft-edge-manage-extensions-ref-guide](/deployedge/microsoft-edge-manage-extensions-ref-guide).
+Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document (https://go.microsoft.com/fwlink/?linkid=2095043). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy, see [https://learn.microsoft.com/deployedge/microsoft-edge-manage-extensions-ref-guide](/deployedge/microsoft-edge-manage-extensions-ref-guide).
 
 Note: This policy doesn't apply to InPrivate mode. Read about hosting extensions at [Publish and update extensions in the Microsoft Edge Add-ons website](/microsoft-edge/extensions-chromium/enterprise/hosting-and-updating).
 
@@ -11535,7 +11630,7 @@ If you enable this policy, you can configure the list of base64 encoded SHA256 f
 
 If you disable or don't configure this policy, XFA PDFs won't be considered for opening via IE mode except the files from file origin mentioned in Policy [ViewXFAPDFInIEModeAllowedOrigins](#viewxfapdfiniemodeallowedorigins)
 
-For more information, see - [Get-FileHash](https://go.microsoft.com/fwlink/?linkid=2294823), [Dot Net Convert API](https://go.microsoft.com/fwlink/?linkid=22949130).
+For more information, see - [Get-FileHash](https://go.microsoft.com/fwlink/?linkid=2294823), [Dot Net Convert API](https://go.microsoft.com/fwlink/?linkid=2294913).
 
   #### Supported features:
 
@@ -15049,23 +15144,37 @@ If you enable this policy, Microsoft Edge ignores all proxy-related options spec
 If you don't configure this policy, users can choose their own proxy settings.
 
 This policy overrides the following individual policies:
+
 [ProxyMode](#proxymode)
+
 [ProxyPacUrl](#proxypacurl)
+
 [ProxyServer](#proxyserver)
+
 [ProxyBypassList](#proxybypasslist)
 
 Setting the [ProxySettings](#proxysettings) policy accepts the following fields:
+
 * ProxyMode, which lets you specify the proxy server used by Microsoft Edge and prevents users from changing proxy settings
+
 * ProxyPacUrl, a URL to a proxy .pac file, or a PAC script encoded as a data URL with MIME type application/x-ns-proxy-autoconfig
+
 * ProxyPacMandatory, a boolean flag which prevents the network stack from falling back to direct connections with invalid or unavailable PAC script
+
 * ProxyServer, a URL for the proxy server
+
 * ProxyBypassList, a list of proxy hosts that Microsoft Edge bypasses
 
 For ProxyMode, if you choose the value:
+
 * direct, a proxy is never used and all other fields are ignored.
+
 * system, the systems's proxy is used and all other fields are ignored.
+
 * auto_detect, all other fields are ignored.
+
 * fixed_servers, the ProxyServer and ProxyBypassList fields are used.
+
 * pac_script, the ProxyPacUrl, ProxyPacMandatory and ProxyBypassList fields are used.
 
 For more detailed examples go to [https://go.microsoft.com/fwlink/?linkid=2094936](https://go.microsoft.com/fwlink/?linkid=2094936).
@@ -21645,13 +21754,13 @@ This policy is a temporary workaround for the new CORS non-wildcard request head
 
   ### CSSCustomStateDeprecatedSyntaxEnabled
 
-  #### Controls whether the deprecated :--foo syntax for CSS custom state is enabled
+  #### Controls whether the deprecated :--foo syntax for CSS custom state is enabled (deprecated)
 
-  
+  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.
   
   #### Supported versions:
 
-  - On Windows and macOS since 127 or later
+  - On Windows and macOS since 127, until 132
 
   #### Description
 
@@ -21680,7 +21789,7 @@ If you disable this policy or don't set it, the deprecated syntax will be disabl
   ##### Group Policy (ADMX) info
 
   - GP unique name: CSSCustomStateDeprecatedSyntaxEnabled
-  - GP name: Controls whether the deprecated :--foo syntax for CSS custom state is enabled
+  - GP name: Controls whether the deprecated :--foo syntax for CSS custom state is enabled (deprecated)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -29064,7 +29173,7 @@ For this policy to work as intended,
 
   If you enable this policy all the specified data types will be included for synchronization for Azure AD/Azure AD-Degraded user profiles. This policy can be used to ensure the type of data uploaded to the Microsoft Edge synchronization service.
 
-You can provide one of the following data types for this policy: "favorites", "settings", "passwords", "addressesAndMore", "extensions", "history", "openTabs", "edgeWallet", and "collections". The "apps" data type will be supported starting in Microsoft Edge version 100. Note that these data type names are case sensitive.
+You can provide one of the following data types for this policy: "favorites", "settings", "passwords", "addressesAndMore", "extensions", "history", "openTabs", "edgeWallet", "collections", "apps", and "edgeFeatureUsage". The "edgeFeatureUsage" data type will be supported starting in Microsoft Edge version 134. Note that these data type names are case sensitive.
 
 Users will not be able to override the enabled data types.
 
@@ -33129,20 +33238,17 @@ If users choose to turn on Live captions, speech recognition files (approximatel
   
   #### Supported versions:
 
-  - On Windows since 132 or later
+  - On Windows since 133 or later
 
   #### Description
 
-  Allow users to turn the Realtime Video Translation feature on or off.
+  Lets users turn the Video translate feature on or off.
 
-This feature allows videos being watched to be translated to the selected language in real time or live. Users need to click the translate icon that appears when they hover over a video to get started.
+Video translate offers real-time translation of the audio in a user's video, in their selected language. Translation happens after the user selects the translate icon while watching a video.
 
-This is the on-device feature and none of the audio, data or even translated audio leave the device.
+This feature is available to users by default and admins can only turn it off after they configure the policy.
 
-If you enable or don't configure this policy, users can turn this feature on or off in edge://settings/languages.
-If you disable this policy, users will not be able to turn this feature on. If user has been using the feature already and policy gets disabled, the feature related files downloaded previously, will be deleted from the device after 30 days. We recommend not to disable the policy, unless it is needed in your environment.
-
-If users enable this feature, the feature related files (approximately 200 megabytes) will be downloaded to the device on the first run and periodically thereafter to enhance performance and accuracy. These files will be deleted 30 days after their last use.
+When users open the feature for the first time, the language models are downloaded to the device. This means a server isn't needed for translation. The language models are deleted from the device if the user doesn't open the feature for 30 days.
 
   #### Supported features:
 
@@ -40272,8 +40378,8 @@ If you enable or don't configure this policy, web-based applications that use th
 If you disable this policy, Speech Recognition is not available through the Web Speech API.
 
 Read more about this feature here:
-SpeechRecognition API: [https://go.microsoft.com/fwlink/?linkid=2143388](https://go.microsoft.com/fwlink/?linkid=2143388)
-Cognitive Services: [https://go.microsoft.com/fwlink/?linkid=2143680](https://go.microsoft.com/fwlink/?linkid=2143680)
+- SpeechRecognition API
+- Cognitive Services: [https://go.microsoft.com/fwlink/?linkid=2143680](https://go.microsoft.com/fwlink/?linkid=2143680)
 
   #### Supported features:
 
@@ -40896,7 +41002,7 @@ If you don't set this policy or apply it as recommended, users will be able to t
 
   If you enable this policy all the specified data types will be excluded from synchronization. This policy can be used to limit the type of data uploaded to the Microsoft Edge synchronization service.
 
-You can provide one of the following data types for this policy: "favorites", "settings", "passwords", "addressesAndMore", "extensions", "history", "openTabs", "edgeWallet", and "collections". The "apps" data type will be supported starting in Microsoft Edge version 100. Note that these data type names are case sensitive.
+You can provide one of the following data types for this policy: "favorites", "settings", "passwords", "addressesAndMore", "extensions", "history", "openTabs", "edgeWallet", "collections", "apps", and "edgeFeatureUsage". The "edgeFeatureUsage" data type will be supported starting in Microsoft Edge version 134. Note that these data type names are case sensitive.
 
 Users will not be able to override the disabled data types.
 
