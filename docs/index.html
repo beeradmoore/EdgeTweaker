@@ -35,6 +35,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+
     <script type="text/javascript">
         var jsonData;
         var settings = [];
@@ -42,6 +44,67 @@
         function resizeIframe(iframe) {
             //console.log(resizeIframe);
             iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        }
+
+        function createRadioGroupItem(group_name, text, value, checked, enabled) {
+            const formDiv = document.createElement("div");
+            formDiv.classList.add("form-check");
+
+            const input = document.createElement("input");
+            input.classList.add("form-check-input");
+            input.type = "radio";
+            input.name = group_name;
+            input.id = value;
+            input.value = value;
+
+            if (checked) {
+                input.setAttribute("checked", "checked");
+            }
+
+            if (enabled == false) {
+                input.setAttribute("disabled", "disabled");
+            }
+
+            const label = document.createElement("label");
+            label.classList.add("form-check-label");
+            label.setAttribute("for", value);
+            label.appendChild(document.createTextNode(text));
+
+            formDiv.appendChild(input);
+            formDiv.appendChild(label);
+
+            return formDiv;
+        }
+
+        function createCheckBoxItem(text, value, checked, enabled) {
+            const formDiv = document.createElement("div");
+            formDiv.classList.add("form-check");
+
+            const input = document.createElement("input");
+            input.classList.add("form-check-input");
+            input.type = "checkbox";
+            input.id = value;
+            input.value = value;
+
+            if (checked)
+            {
+                input.setAttribute("checked", "checked");
+            }
+
+            if (enabled == false)
+            {
+                input.setAttribute("disabled", "disabled");
+            }
+
+            const label = document.createElement("label");
+            label.classList.add("form-check-label");
+            label.setAttribute("for", value);
+            label.appendChild(document.createTextNode(text));
+
+            formDiv.appendChild(input);
+            formDiv.appendChild(label);
+
+            return formDiv;
         }
 
         function showModal(policy) {
@@ -53,6 +116,7 @@
             const modalDialog = document.createElement("div");
             modalDialog.classList.add("modal-dialog");
             modalDialog.classList.add("modal-dialog-scrollable");
+            modalDialog.classList.add("modal-lg");
 
             const modalContent = document.createElement("div");
             modalContent.classList.add("modal-content");
@@ -75,26 +139,163 @@
 
             const modalBody = document.createElement("div");
             modalBody.classList.add("modal-body");
-            //modalBody.innerHTML = "test";
+            modalBody.style = "display: flex; flex-direction: column; height: 100%;";
 
-            if (policy.data_type = "dictionary") {
+            var settingDiv = undefined;
+            
+            /*
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Default checkbox
+            </label>
+            </div>
+            */
+
+            if (policy.data_type == "dictionary") {
 
             }
-            else if (policy.data_type = "boolean") {
+            else if (policy.data_type == "boolean") {
+
+                settingDiv = document.createElement("div");
+                settingDiv.classList.add("mb-3");
+
+                const settingDivLabel = document.createElement("label");
+                settingDivLabel.classList.add("form-label");
+                settingDivLabel.appendChild(document.createTextNode("Setting:"));
+                settingDiv.appendChild(settingDivLabel);
+
+
+                const settingFormCheckDiv = document.createElement("div");
+                settingFormCheckDiv.classList.add("form-check");
+                const checkboxInput = document.createElement("input");
+                checkboxInput.classList.add("form-check-input");
+                checkboxInput.type = "checkbox";
+                checkboxInput.id = "policy-checkbox";
+
+                const checkboxLabel = document.createElement("label");
+                checkboxLabel.classList.add("form-check-label");
+                checkboxLabel.setAttribute("for", checkboxInput.id);
+                checkboxLabel.appendChild(document.createTextNode("Enabled"));
+
+                settingFormCheckDiv.appendChild(checkboxInput);
+                settingFormCheckDiv.appendChild(checkboxLabel);
+                settingDiv.appendChild(settingFormCheckDiv);
+            }
+            else if (policy.data_type == "string") {
+                settingDiv = document.createElement("div");
+                //settingDiv.classList.add("form-check");
+                const textInput = document.createElement("input");
+                textInput.classList.add("form-control");
+                textInput.type = "text";
+                textInput.id = "policy-text";
+                textInput.placeholder = policy.windows_registry_example_value;
+                settingDiv.appendChild(textInput);
+            }
+            else if (policy.data_type == "list_of_strings")
+            {
 
             }
-            else if (policy.data_type = "string") {
-
+            else if (policy.data_type == "integer")
+            {
+                settingDiv = document.createElement("div");
+                settingDiv.classList.add("mb-3");
+                const textInput = document.createElement("input");
+                textInput.classList.add("form-control");
+                textInput.type = "number";
+                textInput.id = "policy-text";
+                textInput.placeholder = "1";
+                settingDiv.appendChild(textInput);
             }
-            else if (policy.data_type = "list_of_strings") {
-
-            }
-            else if (policy.data_type = "integer") {
-
-            }
-            else {
+            else
+            {
                 console.error("Unknown data_type for policy " + policy.name);
             }
+            
+            if (settingDiv != undefined)
+            {
+                var settingWrapperDiv = document.createElement("div");
+                settingWrapperDiv.classList.add("mb-3");
+                settingWrapperDiv.appendChild(settingDiv);
+                modalBody.appendChild(settingWrapperDiv);
+            }
+
+            var mandatoryDiv = undefined;
+            var recommendedDiv = undefined;
+
+            if (policy.can_be_mandatory == true && policy.can_be_recommended == true)
+            {
+                // Show both options as a radio button
+                mandatoryDiv = createRadioGroupItem("can_be_mandatory_recommended", "Mandatory", "can_be_mandatory", false, policy.can_be_mandatory);
+                recommendedDiv = createRadioGroupItem("can_be_mandatory_recommended", "Recommended", "can_be_recommended", false, policy.can_be_recommended);
+            }
+            else if (policy.can_be_mandatory == true || policy.can_be_recommended == true)
+            {
+                // Use checkboxes as only one will be mandatory or recommended
+                mandatoryDiv = createCheckBoxItem("Mandatory", "can_be_mandatory", false, policy.can_be_mandatory);
+                recommendedDiv = createCheckBoxItem("Recommended", "can_be_recommended", false, policy.can_be_recommended);
+
+            }
+            else
+            {
+                // Don't show mandatory or recommended, this should never happen.
+            }
+
+
+
+            if (mandatoryDiv != undefined && recommendedDiv != undefined)
+            {
+                const mandatoryRecommendedWrapperDiv = document.createElement("div");
+                mandatoryRecommendedWrapperDiv.classList.add("mb-3");
+                
+                const mandatoryRecommendedWrapperLabel = document.createElement("label");
+                mandatoryRecommendedWrapperLabel.classList.add("form-label");
+                mandatoryRecommendedWrapperLabel.appendChild(document.createTextNode("Recommended or mandatory:"));
+                mandatoryRecommendedWrapperDiv.appendChild(mandatoryRecommendedWrapperLabel);
+
+
+                if (mandatoryDiv != undefined)
+                {
+                    mandatoryRecommendedWrapperDiv.appendChild(mandatoryDiv);
+                }
+
+                if (recommendedDiv != undefined)
+                {
+                    mandatoryRecommendedWrapperDiv.appendChild(recommendedDiv);
+                }
+
+                modalBody.appendChild(mandatoryRecommendedWrapperDiv);
+            }
+            
+
+
+
+            const bodySeparator = document.createElement("hr");
+            bodySeparator.classList.add("mx-0");
+            bodySeparator.classList.add("mb-0");
+            modalBody.appendChild(bodySeparator);
+
+
+            const converter = new showdown.Converter();
+            const docsDiv = document.createElement("div");
+            docsDiv.style = "overflow: auto; flex-grow: 1;";
+            docsDiv.innerHTML = converter.makeHtml(policy.markdown);
+            modalBody.appendChild(docsDiv);
+
+            const bodySeparator2 = document.createElement("hr");
+            bodySeparator2.classList.add("mx-0");
+            bodySeparator2.classList.add("mt-0");
+            modalBody.appendChild(bodySeparator2);
+
+            const docsSpan = document.createElement("span");
+            docsSpan.appendChild(document.createTextNode("Source: "));
+
+            const docsLink = document.createElement("a");
+            docsLink.href = "https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#" + policy.link;
+            docsLink.target = "_blank";
+            docsLink.appendChild(document.createTextNode("Microsoft Edge Browser Policy Documentation | Microsoft Learn"));
+            docsSpan.appendChild(docsLink);
+            modalBody.appendChild(docsSpan);
 
             const modalFooter = document.createElement("div");
             modalFooter.classList.add("modal-footer");
@@ -135,7 +336,7 @@
 
             settingsModalDiv.addEventListener('hidden.bs.modal', event => {
                 document.body.removeChild(settingsModalDiv);
-                settingsModalDiv.dispose();
+                //settingsModalDiv.dispose();
             });
 
             document.body.appendChild(settingsModalDiv);
@@ -342,7 +543,7 @@
                                     cardBody.classList.add("card-body");
 
                                     const cardBodyHeader = document.createElement("h5");
-                                    cardBodyHeader.classList.add("card-title");
+                                    cardBodyHeader.classList.add("card-header");
                                     cardBodyHeader.appendChild(
                                         document.createTextNode(policy.name)
                                     );
@@ -353,10 +554,18 @@
                                         document.createTextNode(policy.summary)
                                     );
 
-                                    cardBody.appendChild(cardBodyHeader);
+                                    cardDiv.appendChild(cardBodyHeader);
                                     cardBody.appendChild(cardBodySummary);
 
                                     cardDiv.appendChild(cardBody);
+                                    
+                                    const cardFooter = document.createElement("div");
+                                    cardFooter.classList.add("card-footer");
+                                    cardFooter.appendChild(
+                                        document.createTextNode(policy.data_type)
+                                    );
+
+                                    cardDiv.appendChild(cardFooter);
 
                                     policyGroupDiv.appendChild(cardDiv);
                                 });
