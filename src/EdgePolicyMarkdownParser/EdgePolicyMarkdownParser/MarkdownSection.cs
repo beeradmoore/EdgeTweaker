@@ -51,7 +51,9 @@ public class MarkdownSection
                 continue;
             }
 
-            return data.Trim();
+            var summary = data.Trim();
+            summary = Regex.Replace(summary, @"\[(?<name>.*?)\]\((.*?)\)", "${name}");
+            return summary;
         }
 
         return string.Empty;
