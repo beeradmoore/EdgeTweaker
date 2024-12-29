@@ -5163,7 +5163,7 @@
           "link": "accessibilityimagelabelsenabled",
           "data_type": "boolean",
           "markdown": "",
-          "summary": "",
+          "summary": "Lets screen reader users get descriptions of unlabeled images on the web.",
           "platform_windows": true,
           "platform_macos": true,
           "can_be_mandatory": true,

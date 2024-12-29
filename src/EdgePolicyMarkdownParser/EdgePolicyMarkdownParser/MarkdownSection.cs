@@ -38,7 +38,7 @@ public class MarkdownSection
             return string.Empty;
         }
 
-        var descriptionChild = Children.FirstOrDefault(c => c.Header.Contains("Description", StringComparison.OrdinalIgnoreCase));
+        var descriptionChild = Children.FirstOrDefault(c => c.Header.Contains("Description", StringComparison.Ordinal));
         if (descriptionChild is null)
         {
             return string.Empty;
