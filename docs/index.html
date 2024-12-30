@@ -186,7 +186,7 @@
             else if (policy.data_type == "boolean") {
 
                 settingDiv = document.createElement("div");
-                settingDiv.classList.add("mb-3");
+                settingDiv.classList.add("mb-2");
 
                 const settingDivLabel = document.createElement("label");
                 settingDivLabel.classList.add("form-label");
@@ -202,6 +202,7 @@
             }
             else if (policy.data_type == "string") {
                 settingDiv = document.createElement("div");
+                settingDiv.classList.add("mb-2");
                 //settingDiv.classList.add("form-check");
                 const textInput = document.createElement("input");
                 textInput.classList.add("form-control");
@@ -217,7 +218,7 @@
             else if (policy.data_type == "integer")
             {
                 settingDiv = document.createElement("div");
-                settingDiv.classList.add("mb-3");
+                settingDiv.classList.add("mb-2");
                 const textInput = document.createElement("input");
                 textInput.classList.add("form-control");
                 textInput.type = "number";
@@ -232,10 +233,13 @@
             
             if (settingDiv != undefined)
             {
+                /*
                 var settingWrapperDiv = document.createElement("div");
-                settingWrapperDiv.classList.add("mb-3");
+                settingWrapperDiv.classList.add("mb-2");
                 settingWrapperDiv.appendChild(settingDiv);
                 modalBody.appendChild(settingWrapperDiv);
+                */
+                modalBody.appendChild(settingDiv);
 
                 // Check that policy_mapping is defined
                 if (policy.policy_mapping != undefined)
@@ -247,8 +251,9 @@
                         // Create a row for the buttons
                         const policyMappingDiv = document.createElement("div");
                         policyMappingDiv.classList.add("d-flex");
+                        policyMappingDiv.classList.add("flex-wrap");
                         policyMappingDiv.classList.add("gap-2");
-                        policyMappingDiv.classList.add("mb-3");
+                        policyMappingDiv.classList.add("mb-2");
 
                         // For every policy mapping item add it here.
                         for (const [key, value] of policyMappingEntries)
@@ -301,7 +306,6 @@
             if (mandatoryDiv != undefined && recommendedDiv != undefined)
             {
                 const mandatoryRecommendedWrapperDiv = document.createElement("div");
-                mandatoryRecommendedWrapperDiv.classList.add("mb-3");
                 
                 const mandatoryRecommendedWrapperLabel = document.createElement("label");
                 mandatoryRecommendedWrapperLabel.classList.add("form-label");
