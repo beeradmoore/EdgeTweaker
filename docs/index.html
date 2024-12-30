@@ -155,17 +155,31 @@
             modalBody.classList.add("modal-body");
             modalBody.style = "display: flex; flex-direction: column; height: 100%;";
 
+            // Add a notice if the policy may not be supported by this tool yet.
+            if (policy.supported == false) {
+                const notSupportedDiv = document.createElement("div");
+                notSupportedDiv.classList.add("alert");
+                notSupportedDiv.classList.add("alert-danger");
+                notSupportedDiv.setAttribute('role', 'alert');
+                notSupportedDiv.appendChild(document.createTextNode("This property may not be fully supported by this tool at this time."));
+
+                modalBody.appendChild(notSupportedDiv);
+            }
+
+            // Add a notice if the policy has warnings
+            if (policy.warnings != undefined && policy.warnings.length > 0) {
+                for (var i = 0; i < policy.warnings.length; ++i) {
+                    const warningDiv = document.createElement("div");
+                    warningDiv.classList.add("alert");
+                    warningDiv.classList.add("alert-warning");
+                    warningDiv.setAttribute('role', 'alert');
+                    warningDiv.appendChild(document.createTextNode(policy.warnings[i]));
+
+                    modalBody.appendChild(warningDiv);
+                }
+            }
             var settingDiv = undefined;
             
-            /*
-            <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-                Default checkbox
-            </label>
-            </div>
-            */
-
             if (policy.data_type == "dictionary") {
 
             }
@@ -180,21 +194,11 @@
                 settingDiv.appendChild(settingDivLabel);
 
 
-                const settingFormCheckDiv = document.createElement("div");
-                settingFormCheckDiv.classList.add("form-check");
-                const checkboxInput = document.createElement("input");
-                checkboxInput.classList.add("form-check-input");
-                checkboxInput.type = "checkbox";
-                checkboxInput.id = "policy-checkbox";
+                const isEnabledDiv = createRadioGroupItem("is_enabled", "Enabled", "enabled", false, true);
+                const isDisabledDiv = createRadioGroupItem("is_enabled", "Disabled", "disabled", false, true);
 
-                const checkboxLabel = document.createElement("label");
-                checkboxLabel.classList.add("form-check-label");
-                checkboxLabel.setAttribute("for", checkboxInput.id);
-                checkboxLabel.appendChild(document.createTextNode("Enabled"));
-
-                settingFormCheckDiv.appendChild(checkboxInput);
-                settingFormCheckDiv.appendChild(checkboxLabel);
-                settingDiv.appendChild(settingFormCheckDiv);
+                settingDiv.appendChild(isEnabledDiv);
+                settingDiv.appendChild(isDisabledDiv);
             }
             else if (policy.data_type == "string") {
                 settingDiv = document.createElement("div");
@@ -232,6 +236,43 @@
                 settingWrapperDiv.classList.add("mb-3");
                 settingWrapperDiv.appendChild(settingDiv);
                 modalBody.appendChild(settingWrapperDiv);
+
+                // Check that policy_mapping is defined
+                if (policy.policy_mapping != undefined)
+                {
+                    // Also check it has items
+                    var policyMappingEntries = Object.entries(policy.policy_mapping);
+                    if (policyMappingEntries.length > 0)
+                    {
+                        // Create a row for the buttons
+                        const policyMappingDiv = document.createElement("div");
+                        policyMappingDiv.classList.add("d-flex");
+                        policyMappingDiv.classList.add("gap-2");
+                        policyMappingDiv.classList.add("mb-3");
+
+                        // For every policy mapping item add it here.
+                        for (const [key, value] of policyMappingEntries)
+                        {
+                            const mappingButton = document.createElement("button");
+                            mappingButton.classList.add("btn");
+                            mappingButton.classList.add("btn-primary");
+                            mappingButton.appendChild(document.createTextNode(value));
+                            policyMappingDiv.appendChild(mappingButton);
+
+                            // And when this button is clicked, set the text input to the key.
+                            mappingButton.addEventListener('click', function() {
+                                var policyTextInput = document.getElementById("policy-text");
+                                if (policyTextInput != undefined)
+                                {
+                                    policyTextInput.value = key;
+                                }
+                            });
+                        }
+
+                        modalBody.appendChild(policyMappingDiv);
+                    }                    
+                }
+                
             }
 
             var mandatoryDiv = undefined;
@@ -264,7 +305,7 @@
                 
                 const mandatoryRecommendedWrapperLabel = document.createElement("label");
                 mandatoryRecommendedWrapperLabel.classList.add("form-label");
-                mandatoryRecommendedWrapperLabel.appendChild(document.createTextNode("Recommended or mandatory:"));
+                mandatoryRecommendedWrapperLabel.appendChild(document.createTextNode("Set as mandatory or recommended:"));
                 mandatoryRecommendedWrapperDiv.appendChild(mandatoryRecommendedWrapperLabel);
 
 
@@ -333,7 +374,7 @@
             const saveButton = document.createElement("button");
             saveButton.type = "button";
             saveButton.classList.add("btn");
-            saveButton.classList.add("btn-primary");
+            saveButton.classList.add("btn-success");
             saveButton.appendChild(document.createTextNode("Save"));
 
             modalFooter.appendChild(clearButton);
@@ -358,10 +399,29 @@
             const settingsModal = new bootstrap.Modal(settingsModalDiv, []);
 
             clearButton.onclick = function () {
-                settingsModal.hide();
+
+                // Get all input types in this div
+                const settingInputs = settingsModalDiv.querySelectorAll('input');
+
+                // For each one, clear its value
+                settingInputs.forEach(input => {
+                    if (input.type == "text")
+                    {
+                        input.value = "";
+                    }
+                    else if (input.type == "checkbox" || input.type == "radio")
+                    {
+                        input.checked = false;
+                    }
+                    else
+                    {
+                        debugger;
+                    }
+                });
             };
 
             saveButton.onclick = function () {
+                // TODO: Save
                 settingsModal.hide();
             };
             settingsModal.show();
@@ -538,7 +598,6 @@
                                     policyKey
                                 ) {
                                     const policy = policyGroup.policies[policyKey];
-                                    //console.log(policy);
 
                                     const cardDiv = document.createElement("div");
                                     cardDiv.classList.add("card");
@@ -549,8 +608,9 @@
                                         showModal(policy);
                                     };
 
-                                    // cardDiv.classList.add("border");
-                                    // cardDiv.classList.add("border-primary");
+                                    if (policy.supported == false) {
+                                        cardDiv.classList.add("border-danger");
+                                    }
                                     policy.cardDiv = cardDiv;
 
                                     const cardBody = document.createElement("div");
