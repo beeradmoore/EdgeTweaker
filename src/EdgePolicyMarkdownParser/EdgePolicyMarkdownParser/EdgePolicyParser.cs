@@ -1,3 +1,4 @@
+using System.Security.Principal;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -491,6 +492,13 @@ public class EdgePolicyParser
                                                     {
                                                         readingExample = false;
                                                         policy.WindowsRegistryExampleValue = exampleBuffer.ToString().Trim();
+                                                        
+                                                        // If it's a string example, strip the double quotes from the example
+                                                        if (policy.DataType == "string")
+                                                        {
+                                                            policy.WindowsRegistryExampleValue = policy.WindowsRegistryExampleValue.Trim('"');
+                                                        }
+
                                                         break;
                                                     }
                                                     else

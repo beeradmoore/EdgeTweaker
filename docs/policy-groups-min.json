@@ -1864,7 +1864,7 @@
           "windows_registry_recommended_path": "SOFTWARE\\Policies\\Microsoft\\Edge\\Recommended",
           "windows_registry_value_name": "DefaultSearchProviderImageURL",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022https://search.contoso.com/searchbyimage/upload\u0022",
+          "windows_registry_example_value": "https://search.contoso.com/searchbyimage/upload",
           "macos_preference_key_name": "DefaultSearchProviderImageURL",
           "macos_preference_example_value": "\u003Cstring\u003Ehttps://search.contoso.com/searchbyimage/upload\u003C/string\u003E",
           "supported": true
@@ -1887,7 +1887,7 @@
           "windows_registry_recommended_path": "SOFTWARE\\Policies\\Microsoft\\Edge\\Recommended",
           "windows_registry_value_name": "DefaultSearchProviderImageURLPostParams",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022content={imageThumbnail},url={imageURL},sbisrc={SearchSource}\u0022",
+          "windows_registry_example_value": "content={imageThumbnail},url={imageURL},sbisrc={SearchSource}",
           "macos_preference_key_name": "DefaultSearchProviderImageURLPostParams",
           "macos_preference_example_value": "\u003Cstring\u003Econtent={imageThumbnail},url={imageURL},sbisrc={SearchSource}\u003C/string\u003E",
           "supported": false
@@ -1910,7 +1910,7 @@
           "windows_registry_recommended_path": "SOFTWARE\\Policies\\Microsoft\\Edge\\Recommended",
           "windows_registry_value_name": "DefaultSearchProviderKeyword",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022mis\u0022",
+          "windows_registry_example_value": "mis",
           "macos_preference_key_name": "DefaultSearchProviderKeyword",
           "macos_preference_example_value": "\u003Cstring\u003Emis\u003C/string\u003E",
           "supported": false
@@ -1933,7 +1933,7 @@
           "windows_registry_recommended_path": "SOFTWARE\\Policies\\Microsoft\\Edge\\Recommended",
           "windows_registry_value_name": "DefaultSearchProviderName",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022My Intranet Search\u0022",
+          "windows_registry_example_value": "My Intranet Search",
           "macos_preference_key_name": "DefaultSearchProviderName",
           "macos_preference_example_value": "\u003Cstring\u003EMy Intranet Search\u003C/string\u003E",
           "supported": false
@@ -1956,7 +1956,7 @@
           "windows_registry_recommended_path": "SOFTWARE\\Policies\\Microsoft\\Edge\\Recommended",
           "windows_registry_value_name": "DefaultSearchProviderSearchURL",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022https://search.contoso.com/search?q={searchTerms}\u0022",
+          "windows_registry_example_value": "https://search.contoso.com/search?q={searchTerms}",
           "macos_preference_key_name": "DefaultSearchProviderSearchURL",
           "macos_preference_example_value": "\u003Cstring\u003Ehttps://search.contoso.com/search?q={searchTerms}\u003C/string\u003E",
           "supported": false
@@ -1979,7 +1979,7 @@
           "windows_registry_recommended_path": "SOFTWARE\\Policies\\Microsoft\\Edge\\Recommended",
           "windows_registry_value_name": "DefaultSearchProviderSuggestURL",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022https://search.contoso.com/suggest?q={searchTerms}\u0022",
+          "windows_registry_example_value": "https://search.contoso.com/suggest?q={searchTerms}",
           "macos_preference_key_name": "DefaultSearchProviderSuggestURL",
           "macos_preference_example_value": "\u003Cstring\u003Ehttps://search.contoso.com/suggest?q={searchTerms}\u003C/string\u003E",
           "supported": false
@@ -2002,7 +2002,7 @@
           "windows_registry_recommended_path": "SOFTWARE\\Policies\\Microsoft\\Edge\\Recommended",
           "windows_registry_value_name": "NewTabPageSearchBox",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022bing\u0022",
+          "windows_registry_example_value": "bing",
           "macos_preference_key_name": "NewTabPageSearchBox",
           "macos_preference_example_value": "\u003Cstring\u003Ebing\u003C/string\u003E",
           "supported": false
@@ -2602,7 +2602,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "AuthNegotiateDelegateAllowlist",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022contoso.com\u0022",
+          "windows_registry_example_value": "contoso.com",
           "macos_preference_key_name": "AuthNegotiateDelegateAllowlist",
           "macos_preference_example_value": "\u003Cstring\u003Econtoso.com\u003C/string\u003E",
           "supported": false
@@ -2625,7 +2625,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "AuthSchemes",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022basic,digest,ntlm,negotiate\u0022",
+          "windows_registry_example_value": "basic,digest,ntlm,negotiate",
           "macos_preference_key_name": "AuthSchemes",
           "macos_preference_example_value": "\u003Cstring\u003Ebasic,digest,ntlm,negotiate\u003C/string\u003E",
           "supported": false
@@ -2648,7 +2648,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "AuthServerAllowlist",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022*contoso.com,contoso.com\u0022",
+          "windows_registry_example_value": "*contoso.com,contoso.com",
           "macos_preference_key_name": "AuthServerAllowlist",
           "macos_preference_example_value": "\u003Cstring\u003E*contoso.com,contoso.com\u003C/string\u003E",
           "supported": false
@@ -2815,7 +2815,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "EdgeDefaultProfileEnabled",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022Default\u0022",
+          "windows_registry_example_value": "Default",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
           "supported": false
@@ -3229,7 +3229,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "EdgeManagementEnrollmentToken",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022RgAAAACBbzoQDmUrRfq3WeKUoFeEBwBOqK2QPYsBT5V3lQFoKND-AAAAAAEVAAAOqK2QPYvBT5V4lQFoKMD-AAADTXvzAAAA0\u0022",
+          "windows_registry_example_value": "RgAAAACBbzoQDmUrRfq3WeKUoFeEBwBOqK2QPYsBT5V3lQFoKND-AAAAAAEVAAAOqK2QPYvBT5V4lQFoKMD-AAADTXvzAAAA0",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
           "supported": false
@@ -3782,7 +3782,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "PasswordProtectionChangePasswordURL",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022https://contoso.com/change_password.html\u0022",
+          "windows_registry_example_value": "https://contoso.com/change_password.html",
           "macos_preference_key_name": "PasswordProtectionChangePasswordURL",
           "macos_preference_example_value": "\u003Cstring\u003Ehttps://contoso.com/change_password.html\u003C/string\u003E",
           "supported": false
@@ -4168,7 +4168,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "DefaultPrinterSelection",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022{ \\\u0022idPattern\\\u0022: \\\u0022.*public\\\u0022, \\\u0022namePattern\\\u0022: \\\u0022.*Color\\\u0022 }\u0022",
+          "windows_registry_example_value": "{ \\\u0022idPattern\\\u0022: \\\u0022.*public\\\u0022, \\\u0022namePattern\\\u0022: \\\u0022.*Color\\\u0022 }",
           "macos_preference_key_name": "DefaultPrinterSelection",
           "macos_preference_example_value": "\u003Cstring\u003E{ \u0022idPattern\u0022: \u0022.*public\u0022, \u0022namePattern\u0022: \u0022.*Color\u0022 }\u003C/string\u003E",
           "supported": false
@@ -4398,7 +4398,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "PrintingAllowedBackgroundGraphicsModes",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022enabled\u0022",
+          "windows_registry_example_value": "enabled",
           "macos_preference_key_name": "PrintingAllowedBackgroundGraphicsModes",
           "macos_preference_example_value": "\u003Cstring\u003Eenabled\u003C/string\u003E",
           "supported": false
@@ -4421,7 +4421,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "PrintingBackgroundGraphicsDefault",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022enabled\u0022",
+          "windows_registry_example_value": "enabled",
           "macos_preference_key_name": "PrintingBackgroundGraphicsDefault",
           "macos_preference_example_value": "\u003Cstring\u003Eenabled\u003C/string\u003E",
           "supported": false
@@ -4640,7 +4640,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "ProxyBypassList",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022https://www.contoso.com, https://www.fabrikam.com\u0022",
+          "windows_registry_example_value": "https://www.contoso.com, https://www.fabrikam.com",
           "macos_preference_key_name": "ProxyBypassList",
           "macos_preference_example_value": "\u003Cstring\u003Ehttps://www.contoso.com, https://www.fabrikam.com\u003C/string\u003E",
           "supported": false
@@ -4663,7 +4663,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "ProxyMode",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022direct\u0022",
+          "windows_registry_example_value": "direct",
           "macos_preference_key_name": "ProxyMode",
           "macos_preference_example_value": "\u003Cstring\u003Edirect\u003C/string\u003E",
           "supported": false
@@ -4686,7 +4686,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "ProxyPacUrl",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022https://internal.contoso.com/example.pac\u0022",
+          "windows_registry_example_value": "https://internal.contoso.com/example.pac",
           "macos_preference_key_name": "ProxyPacUrl",
           "macos_preference_example_value": "\u003Cstring\u003Ehttps://internal.contoso.com/example.pac\u003C/string\u003E",
           "supported": false
@@ -4709,7 +4709,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "ProxyServer",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022123.123.123.123:8080\u0022",
+          "windows_registry_example_value": "123.123.123.123:8080",
           "macos_preference_key_name": "ProxyServer",
           "macos_preference_example_value": "\u003Cstring\u003E123.123.123.123:8080\u003C/string\u003E",
           "supported": false
@@ -5589,7 +5589,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "AllowedDomainsForApps",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022example.com\u0022",
+          "windows_registry_example_value": "example.com",
           "macos_preference_key_name": "AllowedDomainsForApps",
           "macos_preference_example_value": "\u003Cstring\u003Eexample.com\u003C/string\u003E",
           "supported": false
@@ -5727,7 +5727,7 @@
           "windows_registry_recommended_path": "SOFTWARE\\Policies\\Microsoft\\Edge\\Recommended",
           "windows_registry_value_name": "ApplicationLocaleValue",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022en\u0022",
+          "windows_registry_example_value": "en",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
           "supported": false
@@ -7061,7 +7061,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "CustomHelpLink",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022https://go.microsoft.com/fwlink/?linkid=2080734\u0022",
+          "windows_registry_example_value": "https://go.microsoft.com/fwlink/?linkid=2080734",
           "macos_preference_key_name": "CustomHelpLink",
           "macos_preference_example_value": "\u003Cstring\u003Ehttps://go.microsoft.com/fwlink/?linkid=2080734\u003C/string\u003E",
           "supported": false
@@ -7268,7 +7268,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "DefinePreferredLanguages",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022en-US,fr,es\u0022",
+          "windows_registry_example_value": "en-US,fr,es",
           "macos_preference_key_name": "DefinePreferredLanguages",
           "macos_preference_example_value": "\u003Cstring\u003Een-US,fr,es\u003C/string\u003E",
           "supported": false
@@ -7475,7 +7475,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "DiskCacheDir",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022${user_home}/Edge_cache\u0022",
+          "windows_registry_example_value": "${user_home}/Edge_cache",
           "macos_preference_key_name": "DiskCacheDir",
           "macos_preference_example_value": "\u003Cstring\u003E${user_home}/Edge_cache\u003C/string\u003E",
           "supported": false
@@ -7544,7 +7544,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "DnsOverHttpsMode",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022off\u0022",
+          "windows_registry_example_value": "off",
           "macos_preference_key_name": "DnsOverHttpsMode",
           "macos_preference_example_value": "\u003Cstring\u003Eoff\u003C/string\u003E",
           "supported": false
@@ -7567,7 +7567,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "DnsOverHttpsTemplates",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022https://dns.example.net/dns-query{?dns}\u0022",
+          "windows_registry_example_value": "https://dns.example.net/dns-query{?dns}",
           "macos_preference_key_name": "DnsOverHttpsTemplates",
           "macos_preference_example_value": "\u003Cstring\u003Ehttps://dns.example.net/dns-query{?dns}\u003C/string\u003E",
           "supported": false
@@ -7636,7 +7636,7 @@
           "windows_registry_recommended_path": "SOFTWARE\\Policies\\Microsoft\\Edge\\Recommended",
           "windows_registry_value_name": "DownloadDirectory",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022\\n        Linux-based OSes (including Mac): /home/${user_name}/Downloads\\n        Windows: C:\\\\Users\\\\${user_name}\\\\Downloads\u0022",
+          "windows_registry_example_value": "\\n        Linux-based OSes (including Mac): /home/${user_name}/Downloads\\n        Windows: C:\\\\Users\\\\${user_name}\\\\Downloads",
           "macos_preference_key_name": "DownloadDirectory",
           "macos_preference_example_value": "\u003Cstring\u003E\nLinux-based OSes (including Mac): /home/${user_name}/Downloads\nWindows: C:\\Users\\${user_name}\\Downloads\u003C/string\u003E",
           "supported": false
@@ -9660,7 +9660,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "InternetExplorerIntegrationCloudNeutralSitesReporting",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022aba95e58-070f-4784-8dcd-e5fd46c2c6d6\u0022",
+          "windows_registry_example_value": "aba95e58-070f-4784-8dcd-e5fd46c2c6d6",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
           "supported": false
@@ -9683,7 +9683,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "InternetExplorerIntegrationCloudSiteList",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022aba95e58-070f-4784-8dcd-e5fd46c2c6d6\u0022",
+          "windows_registry_example_value": "aba95e58-070f-4784-8dcd-e5fd46c2c6d6",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
           "supported": false
@@ -9706,7 +9706,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "InternetExplorerIntegrationCloudUserSitesReporting",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022aba95e58-070f-4784-8dcd-e5fd46c2c6d6\u0022",
+          "windows_registry_example_value": "aba95e58-070f-4784-8dcd-e5fd46c2c6d6",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
           "supported": false
@@ -9936,7 +9936,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "InternetExplorerIntegrationSiteList",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022https://internal.contoso.com/sitelist.xml\u0022",
+          "windows_registry_example_value": "https://internal.contoso.com/sitelist.xml",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
           "supported": false
@@ -10258,7 +10258,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "IsolateOrigins",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022https://contoso.com/,https://fabrikam.com/\u0022",
+          "windows_registry_example_value": "https://contoso.com/,https://fabrikam.com/",
           "macos_preference_key_name": "IsolateOrigins",
           "macos_preference_example_value": "\u003Cstring\u003Ehttps://contoso.com/,https://fabrikam.com/\u003C/string\u003E",
           "supported": false
@@ -11753,7 +11753,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "RestrictSigninToPattern",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022.*@contoso.com\u0022",
+          "windows_registry_example_value": ".*@contoso.com",
           "macos_preference_key_name": "RestrictSigninToPattern",
           "macos_preference_example_value": "\u003Cstring\u003E.*@contoso.com\u003C/string\u003E",
           "supported": false
@@ -11776,7 +11776,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "RoamingProfileLocation",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022${roaming_app_data}\\\\edge-profile\u0022",
+          "windows_registry_example_value": "${roaming_app_data}\\\\edge-profile",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
           "supported": false
@@ -11891,7 +11891,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "SSLVersionMin",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022tls1\u0022",
+          "windows_registry_example_value": "tls1",
           "macos_preference_key_name": "SSLVersionMin",
           "macos_preference_example_value": "\u003Cstring\u003Etls1\u003C/string\u003E",
           "supported": false
@@ -13501,7 +13501,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "UserDataDir",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022${users}/${user_name}/Edge\u0022",
+          "windows_registry_example_value": "${users}/${user_name}/Edge",
           "macos_preference_key_name": "UserDataDir",
           "macos_preference_example_value": "\u003Cstring\u003E${users}/${user_name}/Edge\u003C/string\u003E",
           "supported": false
@@ -13869,7 +13869,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "WebRtcLocalhostIpHandling",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u0022default\u0022",
+          "windows_registry_example_value": "default",
           "macos_preference_key_name": "WebRtcLocalhostIpHandling",
           "macos_preference_example_value": "\u003Cstring\u003Edefault\u003C/string\u003E",
           "supported": false
@@ -13915,7 +13915,7 @@
           "windows_registry_recommended_path": "",
           "windows_registry_value_name": "WebRtcUdpPortRange",
           "windows_registry_value_type": "REG_SZ",
-          "windows_registry_example_value": "\u002210000-11999\u0022",
+          "windows_registry_example_value": "10000-11999",
           "macos_preference_key_name": "WebRtcUdpPortRange",
           "macos_preference_example_value": "\u003Cstring\u003E10000-11999\u003C/string\u003E",
           "supported": false
