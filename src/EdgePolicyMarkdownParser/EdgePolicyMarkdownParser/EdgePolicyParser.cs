@@ -1,4 +1,3 @@
-using System.Security.Principal;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -104,6 +103,7 @@ public class EdgePolicyParser
         //var policyGroups = new Dictionary<string, PolicyGroup>();
         //var headerRegex = new Regex(@"^(\s*)##\s+(?<header>.*)$");
         var hashDepthRegex = new Regex(@"^( *)(?<hash_depth>#+)");
+        var policyMappingRegex = new Regex(@"^\* (?<value>.*) \((?<key>.*?)\) = (?<description>.*)$");
         var markdownSectionsDocument = new MarkdownSection();
         var currnetMarkdownSection = markdownSectionsDocument;
         foreach (var line in lines)
@@ -281,6 +281,11 @@ public class EdgePolicyParser
 
                             var policy = policyGroup.Policies[policyNameKey];
 
+                            if (policy.Id == "DownloadDirectory")
+                            {
+                                policy.Warnings.Add("This policy has different expected values for Windows, macOS, and Linux. If you plan to use it on multiple operating systems you will need to use different values for each.");
+                            }
+
                             for (var i = 0; i < rootPolicyChildrenChildren.Children.Count; ++i)
                             {
                                 var policyChildren = rootPolicyChildrenChildren.Children[i];
@@ -294,7 +299,37 @@ public class EdgePolicyParser
                                 }
                                 else if (policyChildren.Header == "#### Description")
                                 {
-                                    // No-op, not needed at the moment
+                                    var readingPolicyMapping = false;
+                                    for (int j = 0; j < policyChildren.Data.Count; ++j)
+                                    {
+                                        var policyChildrenLine = policyChildren.Data[j];
+
+                                        if (string.IsNullOrWhiteSpace(policyChildrenLine))
+                                        {
+                                            continue;
+                                        }
+
+                                        if (readingPolicyMapping == true)
+                                        {
+                                            var match = policyMappingRegex.Match(policyChildrenLine);
+                                            if (match.Success)
+                                            {
+                                                policy.PolicyMapping.Add(match.Groups["key"].Value, match.Groups["value"].Value);
+                                            }
+                                            else
+                                            {
+                                                readingPolicyMapping = false;
+                                                break;
+                                            }
+
+                                            continue;
+                                        }
+
+                                        if (policyChildrenLine.StartsWith("Policy options mapping:"))
+                                        {
+                                            readingPolicyMapping = true;
+                                        }
+                                    }
                                 }
                                 else if (policyChildren.Header == "#### Supported features:")
                                 {
@@ -499,6 +534,12 @@ public class EdgePolicyParser
                                                             policy.WindowsRegistryExampleValue = policy.WindowsRegistryExampleValue.Trim('"');
                                                         }
 
+                                                        // This policy has some new lines and other descriptions in its example, this is to tidy it.
+                                                        if (policy.Id == "DownloadDirectory")
+                                                        {
+                                                            policy.WindowsRegistryExampleValue = policy.WindowsRegistryExampleValue.Replace("\\n", string.Empty).Trim().Replace("        ", ", ");
+                                                        }
+
                                                         break;
                                                     }
                                                     else
@@ -531,6 +572,15 @@ public class EdgePolicyParser
                                             {
                                                 readingExample = false;
                                                 policy.MacOSPreferenceExampleValue = exampleBuffer.ToString().Trim();
+                                                
+                                                
+                                                // This policy has some new lines and other descriptions in its example, this is to tidy it.
+                                                if (policy.Id == "DownloadDirectory")
+                                                {
+                                                    policy.MacOSPreferenceExampleValue = policy.MacOSPreferenceExampleValue.Replace("\\n", string.Empty).Trim().Replace("        ", ", ");
+                                                }
+                                                
+                                                break;
                                             }
                                             else
                                             {

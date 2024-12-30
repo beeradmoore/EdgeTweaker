@@ -66,6 +66,12 @@ public class Policy
 
     [JsonPropertyName("supported")]
     public bool Supported { get; set; } = false;
+    
+    [JsonPropertyName("policy_mapping")]
+    public Dictionary<string, string> PolicyMapping { get; set; } = new Dictionary<string, string>();
+    
+    [JsonPropertyName("warnings")]
+    public List<string> Warnings { get; set; } = new List<string>();
 
     public override string ToString()
     {
