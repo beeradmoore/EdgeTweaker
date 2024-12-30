@@ -208,7 +208,17 @@
                 textInput.classList.add("form-control");
                 textInput.type = "text";
                 textInput.id = "policy-text";
-                textInput.placeholder = policy.windows_registry_example_value;
+                
+                // If the Windows example does not exist, use the macOS one.
+                if (policy.windows_registry_example_value != "")
+                {
+                    textInput.placeholder = policy.windows_registry_example_value;
+                }
+                else
+                {
+                    textInput.placeholder = policy.macos_preference_example_value.replace('<string>', '').replace('</string>', '');
+                }
+
                 settingDiv.appendChild(textInput);
             }
             else if (policy.data_type == "list_of_strings")
@@ -222,8 +232,17 @@
                 const textInput = document.createElement("input");
                 textInput.classList.add("form-control");
                 textInput.type = "number";
-                textInput.id = "policy-text";
-                textInput.placeholder = "1";
+                textInput.id = "policy-text";                
+                if (policy.windows_registry_example_value != "")
+                {
+                    // Windows examples are base 16, convert it to base 10
+                    textInput.placeholder = parseInt(policy.windows_registry_example_value);
+                }
+                else
+                {
+                    // macOS examples have integer tags around it, so strip them.
+                    textInput.placeholder = policy.macos_preference_example_value.replace('<integer>', '').replace('</integer>', '');
+                }
                 settingDiv.appendChild(textInput);
             }
             else
