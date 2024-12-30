@@ -38,6 +38,20 @@
     <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
 
     <script type="text/javascript">
+
+        // via https://stackoverflow.com/a/75065536
+        // Set theme to the user's preferred color scheme
+        function updateTheme() {
+            const colorMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            document.querySelector("html").setAttribute("data-bs-theme", colorMode);
+        }
+
+        // Set theme on load
+        updateTheme();
+
+        // Update theme when the preferred scheme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
+
         var jsonData;
         var settings = [];
 
