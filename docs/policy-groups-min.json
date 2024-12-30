@@ -238,7 +238,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "CACertificateManagementAllowed",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "All",
             "1": "UserOnly",
@@ -623,7 +623,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "DefaultAutomaticDownloadsSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "1": "AllowAutomaticDownloads",
             "2": "BlockAutomaticDownloads"
@@ -651,7 +651,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "DefaultCookiesSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "1": "AllowCookies",
             "2": "BlockCookies",
@@ -680,7 +680,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "DefaultFileSystemReadGuardSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "2": "BlockFileSystemRead",
             "3": "AskFileSystemRead"
@@ -708,7 +708,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "DefaultFileSystemWriteGuardSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "2": "BlockFileSystemWrite",
             "3": "AskFileSystemWrite"
@@ -736,7 +736,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "DefaultGeolocationSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "1": "AllowGeolocation",
             "2": "BlockGeolocation",
@@ -765,7 +765,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "DefaultImagesSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "1": "AllowImages",
             "2": "BlockImages"
@@ -793,7 +793,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "DefaultInsecureContentSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "2": "BlockInsecureContent",
             "3": "AllowExceptionsInsecureContent"
@@ -821,7 +821,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "DefaultJavaScriptJitSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "1": "AllowJavaScriptJit",
             "2": "BlockJavaScriptJit"
@@ -849,7 +849,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "DefaultJavaScriptSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "1": "AllowJavaScript",
             "2": "BlockJavaScript"
@@ -877,7 +877,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "DefaultNotificationsSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "1": "AllowNotifications",
             "2": "BlockNotifications",
@@ -906,7 +906,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "DefaultPluginsSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "2": "BlockPlugins",
             "3": "ClickToPlay"
@@ -934,7 +934,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "DefaultPopupsSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "1": "AllowPopups",
             "2": "BlockPopups"
@@ -962,7 +962,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "DefaultThirdPartyStoragePartitioningSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "1": "AllowPartitioning",
             "2": "BlockPartitioning"
@@ -990,7 +990,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "DefaultWebBluetoothGuardSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "2": "BlockWebBluetooth",
             "3": "AskWebBluetooth"
@@ -1018,7 +1018,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "DefaultWebHidGuardSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "2": "BlockWebHid",
             "3": "AskWebHid"
@@ -1046,7 +1046,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "DefaultWebUsbGuardSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "2": "BlockWebUsb",
             "3": "AskWebUsb"
@@ -1074,7 +1074,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "DefaultWindowManagementSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "2": "BlockWindowManagement",
             "3": "AskWindowManagement"
@@ -1427,7 +1427,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "LegacySameSiteCookieBehaviorEnabled",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "1": "DefaultToLegacySameSiteCookieBehavior",
             "2": "DefaultToSameSiteByDefaultCookieBehavior"
@@ -2438,7 +2438,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "FeatureFlagOverridesControl",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "2": "CommandLineOverridesEnabled",
             "1": "OverridesEnabled",
@@ -2555,7 +2555,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "ExtensionDeveloperModeSettings",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Allow",
             "1": "Disallow"
@@ -2735,7 +2735,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "ExtensionManifestV2Availability",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Default",
             "1": "Disable",
@@ -2827,7 +2827,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "GenAILocalFoundationalModelSettings",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Allowed",
             "1": "Disabled"
@@ -4239,7 +4239,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "PasswordProtectionWarningTrigger",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "PasswordProtectionWarningOff",
             "1": "PasswordProtectionWarningOnPasswordReuse"
@@ -4292,7 +4292,7 @@
           "windows_registry_example_value": "0x00000000",
           "macos_preference_key_name": "PrimaryPasswordSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E0\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Automatically",
             "1": "WithDevicePassword",
@@ -4328,7 +4328,7 @@
           "windows_registry_example_value": "0x00000003",
           "macos_preference_key_name": "EfficiencyMode",
           "macos_preference_example_value": "\u003Cinteger\u003E3\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "AlwaysActive",
             "1": "NeverActive",
@@ -4697,7 +4697,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Default",
             "1": "Type42"
@@ -4775,7 +4775,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Full",
             "1": "Fast"
@@ -4803,7 +4803,7 @@
           "windows_registry_example_value": "0x0000012c",
           "macos_preference_key_name": "PrintRasterizePdfDpi",
           "macos_preference_example_value": "\u003Cinteger\u003E300\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -4828,7 +4828,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "PrintStickySettings",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "EnableAll",
             "1": "DisableAll",
@@ -5021,7 +5021,7 @@
           "windows_registry_example_value": "0x00000000",
           "macos_preference_key_name": "PrintingWebpageLayout",
           "macos_preference_example_value": "\u003Cinteger\u003E0\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "portrait",
             "1": "landscape"
@@ -5429,7 +5429,7 @@
           "windows_registry_example_value": "0x00000384",
           "macos_preference_key_name": "SleepingTabsTimeout",
           "macos_preference_example_value": "\u003Cinteger\u003E900\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "30": "30Seconds",
             "300": "5Minutes",
@@ -5881,7 +5881,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "AdsSettingForIntrusiveAdsSites",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "1": "AllowAds",
             "2": "BlockAds"
@@ -6284,7 +6284,7 @@
           "windows_registry_example_value": "0x00000000",
           "macos_preference_key_name": "AmbientAuthenticationInPrivateModesEnabled",
           "macos_preference_example_value": "\u003Cinteger\u003E0\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "RegularOnly",
             "1": "InPrivateAndRegular",
@@ -6514,7 +6514,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "AutoImportAtFirstRun",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "FromDefaultBrowser",
             "1": "FromInternetExplorer",
@@ -6721,7 +6721,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "AutomaticHttpsDefault",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "DisableAutomaticHttps",
             "1": "UpgradeCapableDomains",
@@ -6950,7 +6950,7 @@
           "windows_registry_example_value": "0x00000000",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Disabled",
             "1": "Audit",
@@ -7054,7 +7054,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "BrowserSignin",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Disable",
             "1": "Enable",
@@ -7566,7 +7566,7 @@
           "windows_registry_example_value": "0x00000003",
           "macos_preference_key_name": "ConfigureFriendlyURLFormat",
           "macos_preference_example_value": "\u003Cinteger\u003E3\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "1": "PlainText",
             "3": "TitledHyperlink",
@@ -7620,7 +7620,7 @@
           "windows_registry_example_value": "0x00000000",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Disabled",
             "1": "SignInAndMakeDomainAccountNonRemovable"
@@ -7673,7 +7673,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "ConfigureShare",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "ShareAllowed",
             "1": "ShareDisallowed"
@@ -7951,7 +7951,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "DefaultClipboardSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "2": "BlockClipboard",
             "3": "AskClipboard"
@@ -8004,7 +8004,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "DefaultSensorsSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "1": "AllowSensors",
             "2": "BlockSensors"
@@ -8032,7 +8032,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "DefaultSerialGuardSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "2": "BlockSerial",
             "3": "AskSerial"
@@ -8060,7 +8060,7 @@
           "windows_registry_example_value": "0x00000000",
           "macos_preference_key_name": "DefaultShareAdditionalOSRegionSetting",
           "macos_preference_example_value": "\u003Cinteger\u003E0\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Limited",
             "1": "Always",
@@ -8114,7 +8114,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "None",
             "1": "All"
@@ -8167,7 +8167,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "DeveloperToolsAvailability",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "DeveloperToolsDisallowedForForceInstalledExtensions",
             "1": "DeveloperToolsAllowed",
@@ -8196,7 +8196,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "DiagnosticData",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Off",
             "1": "RequiredData",
@@ -8350,7 +8350,7 @@
           "windows_registry_example_value": "0x06400000",
           "macos_preference_key_name": "DiskCacheSize",
           "macos_preference_example_value": "\u003Cinteger\u003E104857600\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -8504,10 +8504,10 @@
           "windows_registry_example_value": "Linux-based OSes (including Mac): /home/${user_name}/Downloads, Windows: C:\\\\Users\\\\${user_name}\\\\Downloads",
           "macos_preference_key_name": "DownloadDirectory",
           "macos_preference_example_value": "\u003Cstring\u003E\nLinux-based OSes (including Mac): /home/${user_name}/Downloads\nWindows: C:\\Users\\${user_name}\\Downloads\u003C/string\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": [
-            "This policy has different values for macOS and for Windows. If you plan to use it on both operating systems you will need to use different values for each."
+            "This policy has different expected values for Windows, macOS, and Linux. If you plan to use it on multiple operating systems you will need to use different values for each."
           ]
         },
         "DownloadRestrictions": {
@@ -8531,7 +8531,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "DownloadRestrictions",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "DefaultDownloadSecurity",
             "1": "BlockDangerousDownloads",
@@ -8562,7 +8562,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Default",
             "1": "EnabledForBrowser"
@@ -9167,7 +9167,7 @@
           "windows_registry_example_value": "0x00000000",
           "macos_preference_key_name": "EnhanceSecurityMode",
           "macos_preference_example_value": "\u003Cinteger\u003E0\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "StandardMode",
             "1": "BalancedMode",
@@ -9472,7 +9472,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "ExperimentationAndConfigurationServiceControl",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "2": "FullMode",
             "1": "ConfigurationsOnlyMode",
@@ -9607,7 +9607,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "FetchKeepaliveDurationSecondsOnShutdown",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -9657,7 +9657,7 @@
           "windows_registry_example_value": "0x00000000",
           "macos_preference_key_name": "ForceBingSafeSearch",
           "macos_preference_example_value": "\u003Cinteger\u003E0\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "BingSafeSearchNoRestrictionsMode",
             "1": "BingSafeSearchModerateMode",
@@ -9811,7 +9811,7 @@
           "windows_registry_example_value": "0x00000000",
           "macos_preference_key_name": "ForceMajorVersionToMinorPositionInUserAgent",
           "macos_preference_example_value": "\u003Cinteger\u003E0\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Default",
             "1": "ForceDisabled",
@@ -9940,7 +9940,7 @@
           "windows_registry_example_value": "0x00000000",
           "macos_preference_key_name": "ForceYouTubeRestrict",
           "macos_preference_example_value": "\u003Cinteger\u003E0\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Off",
             "1": "Moderate",
@@ -10619,7 +10619,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "InPrivateModeAvailability",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Enabled",
             "1": "Disabled",
@@ -10823,7 +10823,7 @@
           "windows_registry_example_value": "0x00000003",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "IncludeNone",
             "1": "IncludeFormDataOnly",
@@ -10853,7 +10853,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Disabled",
             "1": "Enabled"
@@ -10881,7 +10881,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "None",
             "1": "IEMode",
@@ -11010,7 +11010,7 @@
           "windows_registry_example_value": "0x0000001e",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -11085,7 +11085,7 @@
           "windows_registry_example_value": "0x000000f0",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -11110,7 +11110,7 @@
           "windows_registry_example_value": "0x00000000",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Default",
             "1": "AutomaticNavigationsOnly",
@@ -11164,7 +11164,7 @@
           "windows_registry_example_value": "0x00000005",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -11189,7 +11189,7 @@
           "windows_registry_example_value": "0x00000004",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -11389,7 +11389,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "IntranetRedirectBehavior",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Default",
             "1": "DisableInterceptionChecksDisableInfobar",
@@ -11719,7 +11719,7 @@
           "windows_registry_example_value": "0x00000020",
           "macos_preference_key_name": "MaxConnectionsPerProxy",
           "macos_preference_example_value": "\u003Cinteger\u003E32\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -12019,7 +12019,7 @@
           "windows_registry_example_value": "0x0000000a",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -12044,7 +12044,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "NetworkPredictionOptions",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "NetworkPredictionAlways",
             "1": "NetworkPredictionWifiOnly",
@@ -12773,7 +12773,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Disable",
             "1": "Sitelist"
@@ -12826,7 +12826,7 @@
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "RelaunchNotification",
           "macos_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "1": "Recommended",
             "2": "Required"
@@ -12854,7 +12854,7 @@
           "windows_registry_example_value": "0x240c8400",
           "macos_preference_key_name": "RelaunchNotificationPeriod",
           "macos_preference_example_value": "\u003Cinteger\u003E604800000\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -13433,7 +13433,7 @@
           "windows_registry_example_value": "0x00000000",
           "macos_preference_key_name": "SearchInSidebarEnabled",
           "macos_preference_example_value": "\u003Cinteger\u003E0\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "EnableSearchInSidebar",
             "1": "DisableSearchInSidebarForKidsMode",
@@ -13787,7 +13787,7 @@
           "windows_registry_example_value": "0x00000000",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Disable",
             "1": "DisableUntilUpdate",
@@ -14595,7 +14595,7 @@
           "windows_registry_example_value": "0x00000800",
           "macos_preference_key_name": "TotalMemoryLimitMb",
           "macos_preference_example_value": "\u003Cinteger\u003E2048\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -14620,7 +14620,7 @@
           "windows_registry_example_value": "0x00000002",
           "macos_preference_key_name": "TrackingPrevention",
           "macos_preference_example_value": "\u003Cinteger\u003E2\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "TrackingPreventionOff",
             "1": "TrackingPreventionBasic",
@@ -14953,7 +14953,7 @@
           "windows_registry_example_value": "0x00000000",
           "macos_preference_key_name": "UserAgentReduction",
           "macos_preference_example_value": "\u003Cinteger\u003E0\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "0": "Default",
             "1": "ForceDisabled",
@@ -15007,7 +15007,7 @@
           "windows_registry_example_value": "0x00000003",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
