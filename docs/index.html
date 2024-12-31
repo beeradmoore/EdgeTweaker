@@ -122,7 +122,7 @@
             return formDiv;
         }
 
-        function showModal(policy) {
+        function showModal(policy, cardDiv) {
             const settingsModalDiv = document.createElement("div");
             settingsModalDiv.id = "settingsModal";
             settingsModalDiv.classList.add("modal");
@@ -595,10 +595,23 @@
 
                 if (removeSetting == true)
                 {
+                    if (policy.supported == true)
+                    {
+                        cardDiv.classList.remove("border-success");
+                    }
+
                     delete settings[policy.id];
                 }
                 else
                 {
+                    if (policy.supported == true)
+                    {
+                        if (cardDiv.classList.contains("border-success") == false)
+                        {
+                            cardDiv.classList.add("border-success");
+                        }
+                    }
+                    
                     settings[policy.id] = {
                         "value": value,
                         "mandatory_or_recommended": "none"
@@ -668,6 +681,23 @@
                                 try {
                                     const json = JSON.parse(e.target.result);
                                     settings = json;
+
+                                    const cardDivs = document.getElementsByClassName("card");
+                                    for (let i = 0; i < cardDivs.length; ++i) {
+                                        const cardDiv = cardDivs[i];
+
+                                        // Remove border-success from all cards
+                                        if (cardDiv.classList.contains("border-success"))
+                                        {
+                                            cardDiv.classList.remove("border-success");
+                                        }
+                                        
+                                        const policyId = cardDiv.getAttribute('data-policy-id');
+                                        if (settings[policyId] != undefined)
+                                        {
+                                            cardDiv.classList.add("border-success");
+                                        }
+                                    }                                    
                                 } catch (error) {
                                     console.error('Error parsing JSON:', error);
                                     alert('Could not load settings file.');
@@ -804,10 +834,11 @@
                                     const cardDiv = document.createElement("div");
                                     cardDiv.classList.add("card");
                                     cardDiv.style = "width: 18rem;";
+                                    cardDiv.setAttribute('data-policy-id', policy.id);
 
                                     // Handle showing of model when this card is clicked.
                                     cardDiv.onclick = function () {
-                                        showModal(policy);
+                                        showModal(policy, cardDiv);
                                     };
 
                                     if (policy.supported == false) {
