@@ -53,7 +53,7 @@
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme);
 
         var jsonData;
-        var settings = [];
+        var settings = {};
 
         function resizeIframe(iframe) {
             //console.log(resizeIframe);
@@ -194,9 +194,24 @@
                 settingDivLabel.appendChild(document.createTextNode("Setting:"));
                 settingDiv.appendChild(settingDivLabel);
 
+                let isEnabled = false;
+                let isDisabled = false;
 
-                const isEnabledDiv = createRadioGroupItem("is_enabled", "Enabled", "enabled", false, true);
-                const isDisabledDiv = createRadioGroupItem("is_enabled", "Disabled", "disabled", false, true);
+                // Set the existing value if it exists.
+                if (settings[policy.id] != undefined)
+                {
+                    if (settings[policy.id].value == true)
+                    {
+                        isEnabled = true;
+                    }
+                    else if (settings[policy.id].value == false)
+                    {
+                        isDisabled = true;
+                    }
+                }
+
+                const isEnabledDiv = createRadioGroupItem("is_enabled", "Enabled", "enabled", isEnabled, true);
+                const isDisabledDiv = createRadioGroupItem("is_enabled", "Disabled", "disabled", isDisabled, true);
 
                 settingDiv.appendChild(isEnabledDiv);
                 settingDiv.appendChild(isDisabledDiv);
@@ -209,6 +224,12 @@
                 textInput.classList.add("form-control");
                 textInput.type = "text";
                 textInput.id = "policy-text";
+
+                // Set the existing value if it exists.
+                if (settings[policy.id] != undefined)
+                {
+                    textInput.Value = settings[policy.id].value;
+                }
                 
                 // If the Windows example does not exist, use the macOS one.
                 if (policy.windows_registry_example_value != "")
@@ -233,7 +254,14 @@
                 const textInput = document.createElement("input");
                 textInput.classList.add("form-control");
                 textInput.type = "number";
-                textInput.id = "policy-text";                
+                textInput.id = "policy-text";
+                
+                // Set the existing value if it exists.
+                if (settings[policy.id] != undefined)
+                {
+                    textInput.Value = settings[policy.id].value;
+                }
+
                 if (policy.windows_registry_example_value != "")
                 {
                     // Windows examples are base 16, convert it to base 10
@@ -306,15 +334,49 @@
 
             if (policy.can_be_mandatory == true && policy.can_be_recommended == true)
             {
+                let isMandatory = false;
+                let isRecommended = false;
+
+                // Set the existing value if it exists.
+                if (settings[policy.id] != undefined)
+                {
+                    var mandatoryOrRecommended = settings[policy.id].mandatory_or_recommended;
+                    if (mandatoryOrRecommended == "mandatory")
+                    {
+                        isMandatory = true;
+                    }
+                    else if (mandatoryOrRecommended == "recommended")
+                    {
+                        isRecommended = true;
+                    }
+                }
+
                 // Show both options as a radio button
-                mandatoryDiv = createRadioGroupItem("can_be_mandatory_recommended", "Mandatory", "can_be_mandatory", false, policy.can_be_mandatory);
-                recommendedDiv = createRadioGroupItem("can_be_mandatory_recommended", "Recommended", "can_be_recommended", false, policy.can_be_recommended);
+                mandatoryDiv = createRadioGroupItem("can_be_mandatory_recommended", "Mandatory", "can_be_mandatory", isMandatory, policy.can_be_mandatory);
+                recommendedDiv = createRadioGroupItem("can_be_mandatory_recommended", "Recommended", "can_be_recommended", isRecommended, policy.can_be_recommended);
             }
             else if (policy.can_be_mandatory == true || policy.can_be_recommended == true)
             {
+                let isMandatory = false;
+                let isRecommended = false;
+
+                // Set the existing value if it exists.
+                if (settings[policy.id] != undefined)
+                {
+                    var mandatoryOrRecommended = settings[policy.id].mandatory_or_recommended;
+                    if (mandatoryOrRecommended == "mandatory")
+                    {
+                        isMandatory = true;
+                    }
+                    else if (mandatoryOrRecommended == "recommended")
+                    {
+                        isRecommended = true;
+                    }
+                }
+                
                 // Use checkboxes as only one will be mandatory or recommended
-                mandatoryDiv = createCheckBoxItem("Mandatory", "can_be_mandatory", false, policy.can_be_mandatory);
-                recommendedDiv = createCheckBoxItem("Recommended", "can_be_recommended", false, policy.can_be_recommended);
+                mandatoryDiv = createCheckBoxItem("Mandatory", "can_be_mandatory", isMandatory, policy.can_be_mandatory);
+                recommendedDiv = createCheckBoxItem("Recommended", "can_be_recommended", isRecommended, policy.can_be_recommended);
 
             }
             else
@@ -606,20 +668,6 @@
                                 try {
                                     const json = JSON.parse(e.target.result);
                                     settings = json;
-
-                                    /*
-                                    Object.keys(jsonData.policy_groups).forEach(function (
-                                        policyGroupsKey
-                                    ) {
-                                        const policyGroup = jsonData.policy_groups[policyGroupsKey];
-
-                                        Object.keys(policyGroup.policies).forEach(function (policyKey) {
-                                            const policy = policyGroup.policies[policyKey];
-
-                                        });
-
-                                    });
-                                    */
                                 } catch (error) {
                                     console.error('Error parsing JSON:', error);
                                     alert('Could not load settings file.');
@@ -637,7 +685,7 @@
 
                 const saveButton = document.getElementById("save-button");
                 saveButton.onclick = function () {
-                    const jsonString = JSON.stringify(data);
+                    const jsonString = JSON.stringify(settings);
                     const blob = new Blob([jsonString], { type: 'application/json' });
                     const url = URL.createObjectURL(blob);
                     const a = document.createElement('a');
@@ -651,13 +699,11 @@
 
                 const exportButton = document.getElementById("export-button");
                 exportButton.onclick = function () {
-
+                    // TODO:
                 };
 
                 const searchBox = document.getElementById("search-box");
                 const searchHandler = function (e) {
-                    //const cards = document.getElementsByClassName("card");
-
                     if (e.target.value == "") {
                         Object.keys(jsonData.policy_groups).forEach(function (
                             policyGroupsKey
