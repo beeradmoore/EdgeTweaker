@@ -122,6 +122,237 @@
             return formDiv;
         }
 
+        function showExportModal()
+        {
+            
+            const exportModalDiv = document.createElement("div");
+            exportModalDiv.id = "exportModal";
+            exportModalDiv.classList.add("modal");
+            exportModalDiv.tabIndex = -1;
+
+            const modalDialog = document.createElement("div");
+            modalDialog.classList.add("modal-dialog");
+            modalDialog.classList.add("modal-dialog-scrollable");
+            modalDialog.classList.add("modal-lg");
+
+            const modalContent = document.createElement("div");
+            modalContent.classList.add("modal-content");
+
+            const modalHeader = document.createElement("div");
+            modalHeader.classList.add("modal-header");
+
+            const modalTitle = document.createElement("h5");
+            modalTitle.classList.add("modal-title");
+            modalTitle.appendChild(document.createTextNode("Select export type"));
+
+            const modalCloseButton = document.createElement("button");
+            modalCloseButton.type = "button";
+            modalCloseButton.classList.add("btn-close");
+            modalCloseButton.setAttribute('data-bs-dismiss', 'modal');
+            modalCloseButton.setAttribute('aria-label', 'Close');
+
+            modalHeader.appendChild(modalTitle);
+            modalHeader.appendChild(modalCloseButton);
+
+            const modalBody = document.createElement("div");
+            modalBody.classList.add("modal-body");
+            modalBody.style = "display: flex; flex-direction: column; height: 100%;";
+            
+            const windowsDiv = document.createElement("div");
+            windowsDiv.classList.add("d-flex");
+            windowsDiv.classList.add("flex-wrap")
+            windowsDiv.classList.add("mb-3");
+            windowsDiv.classList.add("gap-2");
+
+            const windowsHeading = document.createElement("h5");
+            windowsHeading.appendChild(
+                document.createTextNode("Windows")
+            );
+
+            const groupPolicyButton = document.createElement("button");
+            groupPolicyButton.type = "button";
+            groupPolicyButton.classList.add("btn");
+            groupPolicyButton.classList.add("disabled"); // Group policy is not currently supported
+            groupPolicyButton.classList.add("btn-primary");
+            groupPolicyButton.appendChild(document.createTextNode("Group Policy (ADMX)"));
+            groupPolicyButton.onclick = function () {
+                exportWindowsGroupPolicy();
+            };
+            windowsDiv.appendChild(groupPolicyButton);
+
+            const registryButton = document.createElement("button");
+            registryButton.type = "button";
+            registryButton.classList.add("btn");
+            registryButton.classList.add("btn-primary");
+            registryButton.appendChild(document.createTextNode("Registry"));
+            registryButton.onclick = function () {
+                exportWindowsRegistry();
+            };
+            windowsDiv.appendChild(registryButton);
+
+            const macOSDiv = document.createElement("div");
+            macOSDiv.classList.add("d-flex");
+            macOSDiv.classList.add("flex-wrap")
+            macOSDiv.classList.add("mb-3");
+            macOSDiv.classList.add("gap-2");
+
+            const macOSHeading = document.createElement("h5");
+            macOSHeading.appendChild(document.createTextNode("macOS"));
+
+
+            const pListButton = document.createElement("button");
+            pListButton.type = "button";
+            pListButton.classList.add("btn");
+            pListButton.classList.add("btn-primary");
+            pListButton.appendChild(document.createTextNode("Plist"));
+            pListButton.onclick = function () {
+                exportMacOSPlist();
+            };
+            macOSDiv.appendChild(pListButton);
+
+
+            modalBody.appendChild(windowsHeading);
+            modalBody.appendChild(windowsDiv);
+            modalBody.appendChild(macOSHeading);
+            modalBody.appendChild(macOSDiv);
+            
+
+            modalContent.appendChild(modalHeader);
+            modalContent.appendChild(modalBody);
+
+            modalDialog.appendChild(modalContent);
+
+            exportModalDiv.appendChild(modalDialog);
+
+            exportModalDiv.addEventListener('hidden.bs.modal', event => {
+                document.body.removeChild(exportModalDiv);
+                //exportModalDiv.dispose();
+            });
+
+            document.body.appendChild(exportModalDiv);
+
+            const exportModal = new bootstrap.Modal(exportModalDiv, []);
+            
+            exportModal.show();
+        }
+
+        function getEnabledPolicies()
+        {
+            var enabledPolicies = {};
+            for (const [key, value] of Object.entries(settings))
+            {
+                let foundPolicy = false;
+                for (const [policyGroupId, policyGroup] of Object.entries(jsonData.policy_groups))
+                {
+                    for (const [policyId, policy] of Object.entries(policyGroup.policies))
+                    {
+                        if (policy.id == key)
+                        {
+                            enabledPolicies[policy.id] = policy;
+                            foundPolicy = true;
+                            break;
+                        }
+                    }
+
+                    if (foundPolicy)
+                    {
+                        break;
+                    }
+                }
+            }
+            return enabledPolicies;
+        }
+
+        function exportWindowsGroupPolicy()
+        {
+            const enabledPolicies = getEnabledPolicies();
+            // TODO: 
+        }
+
+        function exportWindowsRegistry()
+        {
+            const enabledPolicies = getEnabledPolicies();
+            // TODO: 
+        }
+
+        function exportMacOSPlist()
+        {
+            const enabledPolicies = getEnabledPolicies();
+
+            let plist = `<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+`;
+
+            for (const [key, value] of Object.entries(settings))
+            {
+                const policy = enabledPolicies[key];
+                if (policy == undefined)
+                {
+                    console.error("Could not find policy for key " + key);
+                    debugger;
+                    continue;
+                }
+
+                if (policy.platform_macos == true)
+                {
+                    plist += `    <key>${policy.macos_preference_key_name}</key>
+`;
+                    if (policy.data_type == "string")
+                    {
+                        plist += `    <string>${value.value}</string>
+`;
+                    }
+                    else if (policy.data_type == "integer")
+                    {
+                        plist += `    <integer>${value.value}</integer>
+`;
+                    }
+                    else if (policy.data_type == "boolean")
+                    {
+                        if (value.value == true)
+                        {
+                            plist += `    <true/>
+`;
+                        }
+                        else if (value.value == false)
+                        {
+                            plist += `    <false/>
+`;
+                        }
+                    }
+                    else if (policy.data_type == "list_of_strings")
+                    {
+                        
+                    }
+                    else if (policy.data_type == "dictionary")
+                    {
+                        
+                    }
+                    else
+                    {
+                        console.error("Unknown data_type for policy " + policy.name);
+                        debugger;
+                    }
+                }
+
+            }
+
+            plist += `</dict>
+</plist>`;
+
+            const blob = new Blob([plist], { type: 'application/x-plist' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'com.microsoft.Edge.plist';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
         function showModal(policy, cardDiv) {
             const settingsModalDiv = document.createElement("div");
             settingsModalDiv.id = "settingsModal";
@@ -650,8 +881,6 @@
                     }
                 }
                 
-                console.log(settings);
-                
                 settingsModal.hide();
             };
             settingsModal.show();
@@ -729,7 +958,7 @@
 
                 const exportButton = document.getElementById("export-button");
                 exportButton.onclick = function () {
-                    // TODO:
+                    showExportModal();
                 };
 
                 const searchBox = document.getElementById("search-box");
@@ -836,7 +1065,7 @@
                                     cardDiv.style = "width: 18rem;";
                                     cardDiv.setAttribute('data-policy-id', policy.id);
 
-                                    // Handle showing of model when this card is clicked.
+                                    // Handle showing of modal when this card is clicked.
                                     cardDiv.onclick = function () {
                                         showModal(policy, cardDiv);
                                     };
