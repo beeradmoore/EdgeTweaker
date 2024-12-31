@@ -98,6 +98,7 @@
             input.classList.add("form-check-input");
             input.type = "checkbox";
             input.id = value;
+            input.name = value;
             input.value = value;
 
             if (checked)
@@ -248,6 +249,7 @@
             else
             {
                 console.error("Unknown data_type for policy " + policy.name);
+                debugger;
             }
             
             if (settingDiv != undefined)
@@ -445,6 +447,136 @@
 
             saveButton.onclick = function () {
                 // TODO: Save
+
+                let removeSetting = true;
+                let value = undefined;
+
+                if (policy.data_type == "dictionary") {
+                    // TODO: Add support
+                    alert("Saving dictionary data type is not supported yet.");
+                    return;
+                }
+                else if (policy.data_type == "boolean") {
+                    const isEnabledInput = settingsModalDiv.querySelector('input[name="is_enabled"]:checked');
+                    if (isEnabledInput != null)
+                    {
+                        if (isEnabledInput.value == "enabled")
+                        {
+                            value = true;
+                            removeSetting = false;
+                        }
+                        else if (isEnabledInput.value == "disabled")
+                        {
+                            value = false;
+                            removeSetting = false;
+                        }
+                        else
+                        {
+                            alert("Could not save value for policy \"" + policy.id + "\"");
+                            return;
+                        }                        
+                    }
+                }
+                else if (policy.data_type == "string" || policy.data_type == "integer") {
+                    
+                    const textInput = settingsModalDiv.querySelector('input[id="policy-text"]');
+                    
+                    // Make sure we loaded the property
+                    if (textInput == null)
+                    {
+                        console.error("Could not find text input for policy \"" + policy.Id + "\"");
+                        alert("Could not save value for policy \"" + policy.id + "\"");
+                        return;
+                    }
+
+                    // Check if we have a value, if we don't we are removing it.
+                    if (textInput.value != "")
+                    {
+                        if (policy.data_type == "integer")
+                        {
+                            const number = Number(textInput.value);
+                            if (Number.isInteger(number) == false)
+                            {
+                                alert("Please input a valid integer.");
+                                return;
+                            }
+
+                            value = number;
+                            removeSetting = false;
+                        }
+                        else if (policy.data_type == "string")
+                        {
+                            value = textInput.value;
+                            removeSetting = false;
+                        }
+                        else
+                        {
+                            console.error("Unknown data_type for policy " + policy.id);
+                            debugger;
+                            return;
+                        }
+                    }
+                
+                }
+                else if (policy.data_type == "list_of_strings")
+                {
+                    // TODO: Add support
+                    alert("Saving list of strings data type is not supported yet.");
+                    return;
+                }
+                else
+                {
+                    console.error("Unknown data_type for policy " + policy.id);
+                    debugger;
+                    return;
+                }
+
+                if (removeSetting == true)
+                {
+                    delete settings[policy.id];
+                }
+                else
+                {
+                    settings[policy.id] = {
+                        "value": value,
+                        "mandatory_or_recommended": "none"
+                    };
+
+                    const canBeMandatoryOrRecommendedChecked = settingsModalDiv.querySelector('input[name="can_be_mandatory_recommended"]:checked');
+                    if (canBeMandatoryOrRecommendedChecked != null)
+                    {
+                        if (canBeMandatoryOrRecommendedChecked.value == "can_be_mandatory")
+                        {
+                            settings[policy.id].mandatory_or_recommended = "mandatory";
+                        }
+                        else if (canBeMandatoryOrRecommendedChecked.value == "can_be_recommended")
+                        {
+                            settings[policy.id].mandatory_or_recommended = "recommended";
+                        }
+                        else
+                        {
+                            alert("Could not save mandatory or recommended value for policy \"" + policy.id + "\"");
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        const canBeMandatoryChecked = settingsModalDiv.querySelector('input[name="can_be_mandatory"]:checked');
+                        const canBeRecommendedChecked = settingsModalDiv.querySelector('input[name="can_be_recommended"]:checked');
+
+                        if (canBeMandatoryChecked != null)
+                        {
+                            settings[policy.id].mandatory_or_recommended = "mandatory";
+                        }
+                        else if (canBeRecommendedChecked != null)
+                        {
+                            settings[policy.id].mandatory_or_recommended = "recommended";
+                        }
+                    }
+                }
+                
+                console.log(settings);
+                
                 settingsModal.hide();
             };
             settingsModal.show();
