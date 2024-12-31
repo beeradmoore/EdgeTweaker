@@ -301,7 +301,9 @@
 `;
                     if (policy.data_type == "string")
                     {
-                        plist += `    <string>${value.value}</string>
+                        // Escape &
+                        let stringValue = value.value.replace("&", "&amp;");
+                        plist += `    <string>${stringValue}</string>
 `;
                     }
                     else if (policy.data_type == "integer")
