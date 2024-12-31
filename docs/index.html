@@ -556,6 +556,7 @@
                                 const policy = policyGroup.policies[policyKey];
 
                                 var searchTerms = [
+                                    policy.id.toLowerCase(),
                                     policy.name.toLowerCase(),
                                     policy.summary.toLowerCase(),
                                 ];
