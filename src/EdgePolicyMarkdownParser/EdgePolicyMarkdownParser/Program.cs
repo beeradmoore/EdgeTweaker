@@ -29,7 +29,88 @@ try
     {
         Directory.CreateDirectory(htmlDirectory);
     }
-    
+
+
+    // Create reg cleanup for Windows
+    var regCleanupStringBuilder = new LFStringBuilder();
+    regCleanupStringBuilder.AppendLine("Windows Registry Editor Version 5.00");
+    regCleanupStringBuilder.AppendLine();
+    regCleanupStringBuilder.AppendLine("; Created with EdgeTweaker");
+    regCleanupStringBuilder.AppendLine("; https://beeradmoore.github.io/EdgeTweaker/");
+    regCleanupStringBuilder.AppendLine();
+
+    var registryCleanupDirectory = new Dictionary<string, List<string>>();
+    var registryCleanupSubKeyList = new List<string>();
+    foreach (var policyGroup in policyGroupDocument.PolicyGroups.Values)
+    {
+        foreach (var policy in policyGroup.Policies.Values)
+        {
+
+            if (policy.PlatformWindows == true)
+            {
+                if (policy.DataType == "list_of_strings")
+                {
+                    if (string.IsNullOrEmpty(policy.WindowsRegistryMandatoryPath) == false)
+                    {
+                        registryCleanupSubKeyList.Add(policy.WindowsRegistryMandatoryPath);
+                    }
+
+                    if (string.IsNullOrEmpty(policy.WindowsRegistryRecommendedPath) == false)
+                    {
+                        registryCleanupSubKeyList.Add(policy.WindowsRegistryRecommendedPath);
+                    }
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(policy.WindowsRegistryMandatoryPath) == false)
+                    {
+                        if (registryCleanupDirectory.ContainsKey(policy.WindowsRegistryMandatoryPath) == false)
+                        {
+                            registryCleanupDirectory[policy.WindowsRegistryMandatoryPath] = new List<string>();
+                        }
+
+                        registryCleanupDirectory[policy.WindowsRegistryMandatoryPath].Add(policy.WindowsRegistryValueName);
+                    }
+
+                    if (string.IsNullOrEmpty(policy.WindowsRegistryRecommendedPath) == false)
+                    {
+                        if (registryCleanupDirectory.ContainsKey(policy.WindowsRegistryRecommendedPath) == false)
+                        {
+                            registryCleanupDirectory[policy.WindowsRegistryRecommendedPath] = new List<string>();
+                        }
+
+                        registryCleanupDirectory[policy.WindowsRegistryRecommendedPath].Add(policy.WindowsRegistryValueName);
+                    }
+
+                    if (string.IsNullOrEmpty(policy.WindowsRegistryValueName))
+                    {
+                        Debugger.Break();
+                    }
+                }
+            }
+        }
+    }
+
+    foreach (var regKey in registryCleanupSubKeyList)
+    {
+        regCleanupStringBuilder.AppendLine($"[-HKEY_CURRENT_USER\\{regKey}]");
+    }
+
+    regCleanupStringBuilder.AppendLine();
+
+    foreach (var (regKey, regNames) in registryCleanupDirectory)
+    {
+        regCleanupStringBuilder.AppendLine($"[HKEY_CURRENT_USER\\{regKey}]");
+        foreach (var regName in regNames)
+        {
+            regCleanupStringBuilder.AppendLine($"\"{regName}\"=-");
+        }
+        regCleanupStringBuilder.AppendLine();
+    }
+
+    File.WriteAllText(Path.Combine(edgePolicyParser.OutputPath, "EdgeRegCleanup.reg"), regCleanupStringBuilder.ToString());
+
+
     var markdownSharp = new Markdown();
 
     foreach (var policyGroup in policyGroupDocument.PolicyGroups.Values)
