@@ -794,23 +794,18 @@ function showModal(policy, cardDiv) {
 		const linkUrl = new URL(link.href);
 
 		// If it goes to the same site show/hide modals
-		if (linkUrl.origin == window.location.origin)
-		{
-			if (linkUrl.hash == "#microsoft-edge---policies")
-			{
+		if (linkUrl.origin == window.location.origin) {
+			if (linkUrl.hash == "#microsoft-edge---policies") {
 				// NOOP
 			}
-			else
-			{
+			else {
 				link.onclick = function () {
 					var linkName = linkUrl.hash.replace('#', '');
 					const newCardForModal = document.querySelector('div[data-policy-link="' + linkName + '"]');
-					if (newCardForModal != null)
-					{
+					if (newCardForModal != null) {
 						const continueWithoutSaving = confirm("Open new setting without saving your changes?");
 
-						if (continueWithoutSaving == true)
-						{
+						if (continueWithoutSaving == true) {
 							settingsModal.hide();
 							newCardForModal.click();
 						}
@@ -818,8 +813,7 @@ function showModal(policy, cardDiv) {
 				};
 			}
 		}
-		else
-		{
+		else {
 			// If its an external site, open in new tab
 			link.target = '_blank';
 		}
