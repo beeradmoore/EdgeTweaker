@@ -98,9 +98,9 @@ function showExportModal() {
 	const modalHeader = document.createElement("div");
 	modalHeader.classList.add("modal-header");
 
-	const modalTitle = document.createElement("h5");
+	const modalTitle = document.createElement("h3");
 	modalTitle.classList.add("modal-title");
-	modalTitle.appendChild(document.createTextNode("Select export type"));
+	modalTitle.appendChild(document.createTextNode("Export"));
 
 	const modalCloseButton = document.createElement("button");
 	modalCloseButton.type = "button";
@@ -115,11 +115,27 @@ function showExportModal() {
 	modalBody.classList.add("modal-body");
 	modalBody.style = "display: flex; flex-direction: column; height: 100%;";
 
+	const alertDiv = document.createElement("div");
+	alertDiv.classList.add("alert");
+	alertDiv.classList.add("alert-warning");
+	alertDiv.setAttribute('role', 'alert');
+	alertDiv.appendChild(document.createTextNode("While these exports should be safe to use, by continuing you agree to use these them at your own risk. As always, have a backup in case things go wrong."));
+	modalBody.appendChild(alertDiv);
+
+	const infoDiv = document.createElement("div");
+	infoDiv.classList.add("mb-3");
+	infoDiv.innerHTML = 'See the project <a href="https://github.com/beeradmoore/edgetweaker" target="_blank">readme</a> on how to use these different exports.';
+
+	modalBody.appendChild(infoDiv);
+
 	const windowsDiv = document.createElement("div");
-	windowsDiv.classList.add("d-flex");
-	windowsDiv.classList.add("flex-wrap")
 	windowsDiv.classList.add("mb-3");
-	windowsDiv.classList.add("gap-2");
+
+	const windowsButtonsDiv = document.createElement("div");
+	windowsButtonsDiv.classList.add("d-flex");
+	windowsButtonsDiv.classList.add("flex-wrap")
+	windowsButtonsDiv.classList.add("mb-3");
+	windowsButtonsDiv.classList.add("gap-2");
 
 	const windowsHeading = document.createElement("h5");
 	windowsHeading.appendChild(
@@ -135,7 +151,7 @@ function showExportModal() {
 	groupPolicyButton.onclick = function () {
 		exportWindowsGroupPolicy();
 	};
-	windowsDiv.appendChild(groupPolicyButton);
+	windowsButtonsDiv.appendChild(groupPolicyButton);
 
 	const registryButton = document.createElement("button");
 	registryButton.type = "button";
@@ -145,13 +161,25 @@ function showExportModal() {
 	registryButton.onclick = function () {
 		exportWindowsRegistry();
 	};
-	windowsDiv.appendChild(registryButton);
+	windowsButtonsDiv.appendChild(registryButton);
+
+	windowsDiv.appendChild(windowsButtonsDiv);
+
+
+	const edgeRegCleanerTag = document.createElement("a");
+	edgeRegCleanerTag.href = "EdgeRegCleanup.reg";
+	edgeRegCleanerTag.setAttribute("download", "EdgeRegCleanup.reg");
+	edgeRegCleanerTag.appendChild(document.createTextNode("EdgeRegCleanup.reg"));
+	windowsDiv.appendChild(edgeRegCleanerTag);
 
 	const macOSDiv = document.createElement("div");
-	macOSDiv.classList.add("d-flex");
-	macOSDiv.classList.add("flex-wrap")
 	macOSDiv.classList.add("mb-3");
-	macOSDiv.classList.add("gap-2");
+
+	const macOSButtonsDiv = document.createElement("div");
+	macOSButtonsDiv.classList.add("d-flex");
+	macOSButtonsDiv.classList.add("flex-wrap")
+	macOSButtonsDiv.classList.add("mb-3");
+	macOSButtonsDiv.classList.add("gap-2");
 
 	const macOSHeading = document.createElement("h5");
 	macOSHeading.appendChild(document.createTextNode("macOS"));
@@ -165,7 +193,14 @@ function showExportModal() {
 	pListButton.onclick = function () {
 		exportMacOSPlist();
 	};
-	macOSDiv.appendChild(pListButton);
+	macOSButtonsDiv.appendChild(pListButton);
+	macOSDiv.appendChild(macOSButtonsDiv);
+
+	const macOSEnablerTool = document.createElement("a");
+	macOSEnablerTool.href = "https://github.com/beeradmoore/edgetweaker?#macos-enabler-tool";
+	macOSEnablerTool.target = "_blank";
+	macOSEnablerTool.appendChild(document.createTextNode("macOS enabler tool"));
+	macOSDiv.appendChild(macOSEnablerTool);
 
 
 	modalBody.appendChild(windowsHeading);
