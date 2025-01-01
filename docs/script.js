@@ -380,10 +380,10 @@ function exportMacOSPlist() {
 				}
 			}
 			else if (policy.data_type == "list_of_strings") {
-
+				// TODO: Implement
 			}
 			else if (policy.data_type == "dictionary") {
-
+				// TODO: Implement
 			}
 			else {
 				console.error("Unknown data_type for policy " + policy.name);
