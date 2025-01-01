@@ -846,12 +846,11 @@ function showModal(policy, cardDiv) {
 	};
 
 	saveButton.onclick = function () {
-		// TODO: Save
 
 		let removeSetting = true;
 		let value = undefined;
 
-		if (policy.data_type == "dictionary") {
+		if (policy.data_type == "dictionary" || policy.data_type == "list_of_strings") {
 			const textInput = settingsModalDiv.querySelector('textarea[id="policy-text"]');
 
 			// Make sure we loaded the property
@@ -917,11 +916,6 @@ function showModal(policy, cardDiv) {
 					return;
 				}
 			}
-		}
-		else if (policy.data_type == "list_of_strings") {
-			// TODO: Add support
-			alert("Saving list of strings data type is not supported yet.");
-			return;
 		}
 		else {
 			console.error("Unknown data_type for policy " + policy.id);
