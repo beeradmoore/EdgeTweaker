@@ -262,10 +262,29 @@ function exportWindowsRegistry() {
 			}
 			else if (policy.windows_registry_value_type == "REG_SZ") {
 				if (policy.data_type == "string") {
+					// Append double quotes to the string
 					regValueData = "\"" + setting.value + "\"";
 				}
 				else if (policy.data_type == "dictionary") {
+					// Minify json and escape double quotes
 					regValueData = "\"" + JSON.stringify(JSON.parse(setting.value)).replaceAll("\"", "\\\"") + "\"";
+				}
+			}
+			else if (policy.windows_registry_value_type == "list of REG_SZ") {
+
+				// Split string into an array, and then filter out blank lines
+				regValueData = setting.value.split('\n').filter(item => item.trim() !== '');
+
+				// Foreach item, check if it is an json by first trying to do json.parse.
+				// If it is minify and escape double quotes like we did for dictionary and add its double quotes to the ends
+				// If not, just add its double quotes to the ends.
+				for (let i = 0; i < regValueData.length; ++i) {
+					try {
+						const parsedJson = JSON.parse(regValueData[i]);
+						regValueData[i] = "\"" + JSON.stringify(parsedJson).replaceAll("\"", "\\\"") + "\"";
+					} catch (e) {
+						regValueData[i] = "\"" + regValueData[i] + "\"";
+					}
 				}
 			}
 			else {
@@ -279,7 +298,17 @@ function exportWindowsRegistry() {
 					regFileKeys[regKey] = [];
 				}
 
-				regFileKeys[regKey].push("\"" + regValueName + "\"=" + regValueData);
+				// Handle "list of REG_SZ" differently to every other type, its already split into an array
+				// Now we nee to make each item be its own data entry.
+				if (policy.windows_registry_value_type == "list of REG_SZ") {
+					for (let i = 0; i < regValueData.length; ++i) {
+						regFileKeys[regKey].push("\"" + (i + 1) + "\"=" + regValueData[i]);
+					}
+					regValueData = setting.value.split('\n');
+				}
+				else {
+					regFileKeys[regKey].push("\"" + regValueName + "\"=" + regValueData);
+				}
 			}
 		}
 
