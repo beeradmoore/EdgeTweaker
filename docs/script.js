@@ -222,7 +222,8 @@ function exportWindowsGroupPolicy() {
 function exportWindowsRegistry() {
     const enabledPolicies = getEnabledPolicies();
 
-    let regFile = 'Windows Registry Editor Version 5.00\n\n; Created with EdgeTweaker\n; https://beeradmoore.github.io/EdgeTweaker/\n\n';
+    var regFileKeys = {};
+
     for (const [key, setting] of Object.entries(settings)) {
         const policy = enabledPolicies[key];
         if (policy == undefined) {
@@ -261,12 +262,11 @@ function exportWindowsRegistry() {
             }
             else if (policy.windows_registry_value_type == "REG_SZ") {
                 if (policy.data_type == "string") {
-
                     regValueData = "\"" + setting.value + "\"";
                 }
                 else if (policy.data_type == "dictionary") {
-                regValueData = "\"" + JSON.stringify(JSON.parse(setting.value)) + "\"";
-              }
+                    regValueData = "\"" + JSON.stringify(JSON.parse(setting.value)).replaceAll("\"", "\\\"") + "\"";
+                }
             }
             else {
                 console.error("Unknown windows_registry_value_type for policy " + policy.name);
@@ -274,11 +274,28 @@ function exportWindowsRegistry() {
             }
 
             if (regKey != undefined && regValueName != undefined && regValueData != undefined) {
-                regFile += "[" + regKey + "]\n";
-                regFile += "\"" + regValueName + "\"=" + regValueData + "\n\n";
+
+                if (regFileKeys[regKey] == undefined) {
+                    regFileKeys[regKey] = [];
+                }
+
+                regFileKeys[regKey].push("\"" + regValueName + "\"=" + regValueData);
             }
         }
 
+    }
+
+
+    let regFile = 'Windows Registry Editor Version 5.00\n\n; Created with EdgeTweaker\n; https://beeradmoore.github.io/EdgeTweaker/\n\n';
+
+    for (const [regKey, regEntry] of Object.entries(regFileKeys)) {
+        regFile += "[" + regKey + "]\n";
+
+        for (var i = 0; i < regEntry.length; ++i) {
+            regFile += regEntry[i] + "\n";
+        }
+
+        regFile += "\n";
     }
 
     const blob = new Blob([regFile], { type: 'text/plain' });
@@ -315,7 +332,7 @@ function exportMacOSPlist() {
 `;
             if (policy.data_type == "string") {
                 // Escape &
-                let stringValue = value.value.replace("&", "&amp;");
+                let stringValue = value.value.replaceAll("&", "&amp;");
                 plist += `    <string>${stringValue}</string>
 `;
             }
@@ -436,8 +453,8 @@ function showModal(policy, cardDiv) {
         textInput.rows = 10;
         textInput.id = "policy-text";
 
-         // Set the existing value if it exists.
-         if (settings[policy.id] != undefined) {
+        // Set the existing value if it exists.
+        if (settings[policy.id] != undefined) {
             textInput.value = settings[policy.id].value;
         }
 
@@ -499,7 +516,7 @@ function showModal(policy, cardDiv) {
             textInput.placeholder = policy.windows_registry_example_value;
         }
         else {
-            textInput.placeholder = policy.macos_preference_example_value.replace('<string>', '').replace('</string>', '');
+            textInput.placeholder = policy.macos_preference_example_value.replaceAll('<string>', '').replaceAll('</string>', '');
         }
 
         settingDiv.appendChild(textInput);
@@ -526,7 +543,7 @@ function showModal(policy, cardDiv) {
         }
         else {
             // macOS examples have integer tags around it, so strip them.
-            textInput.placeholder = policy.macos_preference_example_value.replace('<integer>', '').replace('</integer>', '');
+            textInput.placeholder = policy.macos_preference_example_value.replaceAll('<integer>', '').replaceAll('</integer>', '');
         }
         settingDiv.appendChild(textInput);
     }
@@ -720,7 +737,7 @@ function showModal(policy, cardDiv) {
         let removeSetting = true;
         let value = undefined;
 
-        if (policy.data_type == "dictionary") {            
+        if (policy.data_type == "dictionary") {
             const textInput = settingsModalDiv.querySelector('textarea[id="policy-text"]');
 
             // Make sure we loaded the property
