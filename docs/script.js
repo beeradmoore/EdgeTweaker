@@ -395,7 +395,7 @@ function showModal(policy, cardDiv) {
 	const modalHeader = document.createElement("div");
 	modalHeader.classList.add("modal-header");
 
-	const modalTitle = document.createElement("h5");
+	const modalTitle = document.createElement("h3");
 	modalTitle.classList.add("modal-title");
 	modalTitle.appendChild(document.createTextNode(policy.name));
 
@@ -412,6 +412,16 @@ function showModal(policy, cardDiv) {
 	modalBody.classList.add("modal-body");
 	//modalBody.style = "display: flex; flex-direction: column; height: 100%;";
 	modalBody.style = "overflow: auto; flex-grow: 1;";
+
+
+	const modalSubTitle = document.createElement("h5");
+	modalSubTitle.classList.add("modal-subtitle");
+	modalSubTitle.classList.add("mb-2");
+	modalSubTitle.id = "microsoft-edge---policies"; // lol
+	modalSubTitle.appendChild(document.createTextNode(policy.id));
+	modalBody.appendChild(modalSubTitle);
+
+
 	// Add a notice if the policy may not be supported by this tool yet.
 	if (policy.supported == false) {
 		const notSupportedDiv = document.createElement("div");
@@ -740,6 +750,43 @@ function showModal(policy, cardDiv) {
 	document.body.appendChild(settingsModalDiv);
 
 	const settingsModal = new bootstrap.Modal(settingsModalDiv, []);
+
+	// Update modal links
+	modalBody.querySelectorAll('a').forEach(link => {
+		const linkUrl = new URL(link.href);
+
+		// If it goes to the same site show/hide modals
+		if (linkUrl.origin == window.location.origin)
+		{
+			if (linkUrl.hash == "#microsoft-edge---policies")
+			{
+				// NOOP
+			}
+			else
+			{
+				link.onclick = function () {
+					var linkName = linkUrl.hash.replace('#', '');
+					const newCardForModal = document.querySelector('div[data-policy-link="' + linkName + '"]');
+					if (newCardForModal != null)
+					{
+						const continueWithoutSaving = confirm("Open new setting without saving your changes?");
+
+						if (continueWithoutSaving == true)
+						{
+							settingsModal.hide();
+							newCardForModal.click();
+						}
+					}
+				};
+			}
+		}
+		else
+		{
+			// If its an external site, open in new tab
+			link.target = '_blank';
+		}
+	});
+
 
 	clearButton.onclick = function () {
 
@@ -1070,6 +1117,7 @@ document.addEventListener(
 							cardDiv.classList.add("card");
 							cardDiv.style = "width: 18rem;";
 							cardDiv.setAttribute('data-policy-id', policy.id);
+							cardDiv.setAttribute('data-policy-link', policy.link);
 
 							// Handle showing of modal when this card is clicked.
 							cardDiv.onclick = function () {
