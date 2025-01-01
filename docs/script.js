@@ -267,86 +267,92 @@ function exportWindowsRegistry() {
 			continue;
 		}
 
-		if (policy.platform_windows == true) {
+		try {
 
-			let regKey = undefined;
-			let regValueName = undefined;
-			let regValueData = undefined;
+			if (policy.platform_windows == true) {
 
-			if (setting.mandatory_or_recommended == "mandatory") {
-				regKey = "HKEY_CURRENT_USER\\" + policy.windows_registry_mandatory_path;
-			}
-			else if (mandatory_or_recommended == "recommended") {
-				regKey = "HKEY_CURRENT_USER\\" + policy.windows_registry_recommended_path;
-			}
+				let regKey = undefined;
+				let regValueName = undefined;
+				let regValueData = undefined;
 
-			regValueName = policy.windows_registry_value_name;
-
-			if (policy.windows_registry_value_type == "REG_DWORD") {
-				if (policy.data_type == "integer") {
-					regValueData = "dword:" + (setting.value).toString(16).padStart(8, '0');
+				if (setting.mandatory_or_recommended == "mandatory") {
+					regKey = "HKEY_CURRENT_USER\\" + policy.windows_registry_mandatory_path;
 				}
-				else if (policy.data_type == "boolean") {
-					if (setting.value == true) {
-						regValueData = "dword:00000001";
+				else if (mandatory_or_recommended == "recommended") {
+					regKey = "HKEY_CURRENT_USER\\" + policy.windows_registry_recommended_path;
+				}
+
+				regValueName = policy.windows_registry_value_name;
+
+				if (policy.windows_registry_value_type == "REG_DWORD") {
+					if (policy.data_type == "integer") {
+						regValueData = "dword:" + (setting.value).toString(16).padStart(8, '0');
 					}
-					else {
-						regValueData = "dword:00000000";
-					}
-				}
-			}
-			else if (policy.windows_registry_value_type == "REG_SZ") {
-				if (policy.data_type == "string") {
-					// Append double quotes to the string
-					regValueData = "\"" + setting.value + "\"";
-				}
-				else if (policy.data_type == "dictionary") {
-					// Minify json and escape double quotes
-					regValueData = "\"" + JSON.stringify(JSON.parse(setting.value)).replaceAll("\"", "\\\"") + "\"";
-				}
-			}
-			else if (policy.windows_registry_value_type == "list of REG_SZ") {
-
-				// Split string into an array, and then filter out blank lines
-				regValueData = setting.value.split('\n').filter(item => item.trim() !== '');
-
-				// Foreach item, check if it is an json by first trying to do json.parse.
-				// If it is minify and escape double quotes like we did for dictionary and add its double quotes to the ends
-				// If not, just add its double quotes to the ends.
-				for (let i = 0; i < regValueData.length; ++i) {
-					try {
-						const parsedJson = JSON.parse(regValueData[i]);
-						regValueData[i] = "\"" + JSON.stringify(parsedJson).replaceAll("\"", "\\\"") + "\"";
-					} catch (e) {
-						regValueData[i] = "\"" + regValueData[i] + "\"";
+					else if (policy.data_type == "boolean") {
+						if (setting.value == true) {
+							regValueData = "dword:00000001";
+						}
+						else {
+							regValueData = "dword:00000000";
+						}
 					}
 				}
-			}
-			else {
-				console.error("Unknown windows_registry_value_type for policy " + policy.name);
-				debugger;
-			}
-
-			if (regKey != undefined && regValueName != undefined && regValueData != undefined) {
-
-				if (regFileKeys[regKey] == undefined) {
-					regFileKeys[regKey] = [];
+				else if (policy.windows_registry_value_type == "REG_SZ") {
+					if (policy.data_type == "string") {
+						// Append double quotes to the string
+						regValueData = "\"" + setting.value + "\"";
+					}
+					else if (policy.data_type == "dictionary") {
+						// Minify json and escape double quotes
+						regValueData = "\"" + JSON.stringify(JSON.parse(setting.value)).replaceAll("\"", "\\\"") + "\"";
+					}
 				}
+				else if (policy.windows_registry_value_type == "list of REG_SZ") {
 
-				// Handle "list of REG_SZ" differently to every other type, its already split into an array
-				// Now we nee to make each item be its own data entry.
-				if (policy.windows_registry_value_type == "list of REG_SZ") {
+					// Split string into an array, and then filter out blank lines
+					regValueData = setting.value.split('\n').filter(item => item.trim() !== '');
+
+					// Foreach item, check if it is an json by first trying to do json.parse.
+					// If it is minify and escape double quotes like we did for dictionary and add its double quotes to the ends
+					// If not, just add its double quotes to the ends.
 					for (let i = 0; i < regValueData.length; ++i) {
-						regFileKeys[regKey].push("\"" + (i + 1) + "\"=" + regValueData[i]);
+						try {
+							const parsedJson = JSON.parse(regValueData[i]);
+							regValueData[i] = "\"" + JSON.stringify(parsedJson).replaceAll("\"", "\\\"") + "\"";
+						} catch (e) {
+							regValueData[i] = "\"" + regValueData[i] + "\"";
+						}
 					}
-					regValueData = setting.value.split('\n');
 				}
 				else {
-					regFileKeys[regKey].push("\"" + regValueName + "\"=" + regValueData);
+					console.error("Unknown windows_registry_value_type for policy " + policy.name);
+					debugger;
+				}
+
+				if (regKey != undefined && regValueName != undefined && regValueData != undefined) {
+
+					if (regFileKeys[regKey] == undefined) {
+						regFileKeys[regKey] = [];
+					}
+
+					// Handle "list of REG_SZ" differently to every other type, its already split into an array
+					// Now we nee to make each item be its own data entry.
+					if (policy.windows_registry_value_type == "list of REG_SZ") {
+						for (let i = 0; i < regValueData.length; ++i) {
+							regFileKeys[regKey].push("\"" + (i + 1) + "\"=" + regValueData[i]);
+						}
+						regValueData = setting.value.split('\n');
+					}
+					else {
+						regFileKeys[regKey].push("\"" + regValueName + "\"=" + regValueData);
+					}
 				}
 			}
 		}
-
+		catch (e) {
+			alert('Error exporting policy: ' + policy.id);
+			return;
+		}
 	}
 
 
@@ -391,55 +397,110 @@ function exportMacOSPlist() {
 			continue;
 		}
 
-		if (policy.platform_macos == true) {
-			plist += `    <key>${policy.macos_preference_key_name}</key>
+		try {
+
+			if (policy.platform_macos == true) {
+				plist += `    <key>${policy.macos_preference_key_name}</key>
 `;
-			if (policy.data_type == "string") {
-				// Escape &
-				let stringValue = value.value.replaceAll("&", "&amp;");
-				plist += `    <string>${stringValue}</string>
-`;
-			}
-			else if (policy.data_type == "integer") {
-				plist += `    <integer>${value.value}</integer>
-`;
-			}
-			else if (policy.data_type == "boolean") {
-				if (value.value == true) {
-					plist += `    <true/>
+				if (policy.data_type == "string") {
+					// Escape &
+					let stringValue = value.value.replaceAll("&", "&amp;");
+					plist += `    <string>${stringValue}</string>
 `;
 				}
-				else if (value.value == false) {
-					plist += `    <false/>
+				else if (policy.data_type == "integer") {
+					plist += `    <integer>${value.value}</integer>
 `;
 				}
-			}
-			else if (policy.data_type == "list_of_strings") {
-				// TODO: Implement
-			}
-			else if (policy.data_type == "dictionary") {
-				// TODO: Implement
-			}
-			else {
-				console.error("Unknown data_type for policy " + policy.name);
-				debugger;
+				else if (policy.data_type == "boolean") {
+					if (value.value == true) {
+						plist += `    <true/>
+`;
+					}
+					else if (value.value == false) {
+						plist += `    <false/>
+`;
+					}
+				}
+				else if (policy.data_type == "list_of_strings") {
+					plist += `    <array>
+`;
+					value.value.split('\n').forEach(function (stringValue) {
+						plist += `        <string>${stringValue}</string>
+`;
+					});
+					plist += `    </array>
+`;
+				}
+				else if (policy.data_type == "dictionary") {
+					const json = JSON.parse(value.value);
+					plist += jsonObjectToPlist(json, '    ');
+				}
+				else {
+					console.error("Unknown data_type for policy " + policy.name);
+					debugger;
+				}
 			}
 		}
+		catch (e) {
+			alert('Error exporting policy: ' + policy.id);
+			return;
+		}
 
-	}
-
-	plist += `</dict>
+		plist += `</dict>
 </plist>`;
 
-	const blob = new Blob([plist], { type: 'application/x-plist' });
-	const url = URL.createObjectURL(blob);
-	const a = document.createElement('a');
-	a.href = url;
-	a.download = 'com.microsoft.Edge.plist';
-	document.body.appendChild(a);
-	a.click();
-	document.body.removeChild(a);
-	URL.revokeObjectURL(url);
+		const blob = new Blob([plist], { type: 'application/x-plist' });
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = 'com.microsoft.Edge.plist';
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		URL.revokeObjectURL(url);
+	}
+}
+
+function jsonObjectToPlist(obj, indent = "") {
+	let plistContent = `${indent}<dict>\n`;
+
+	for (const [key, value] of Object.entries(obj)) {
+		plistContent += `${indent}    <key>${key}</key>\n`;
+		plistContent += jsonObjectToPlistNode(value, indent);
+	}
+
+	plistContent += `${indent}</dict>\n`;
+	return plistContent;
+}
+
+
+function jsonObjectToPlistNode(value, indent = "") {
+	let plistContent = '';
+
+	if (typeof value === 'object' && value !== null) {
+		if (Array.isArray(value)) {
+			plistContent += `${indent}    <array>\n`;
+			value.forEach(item => {
+				plistContent += jsonObjectToPlistNode(item, `${indent}        `);
+			});
+			plistContent += `${indent}    </array>\n`;
+		} else {
+			plistContent += jsonObjectToPlist(value, indent + "    ");
+		}
+	} else if (typeof value === 'boolean') {
+		plistContent += `${indent}    <${value}/>\n`;
+	} else if (typeof value === 'string') {
+		plistContent += `${indent}    <string>${value}</string>\n`;
+	} else if (typeof value === 'number') {
+		plistContent += `${indent}    <integer>${value}</integer>\n`;
+	}
+	else {
+		console.error("Unknown type while generating plist: " + typeof value);
+		debugger;
+	}
+
+	return plistContent;
 }
 
 function showModal(policy, cardDiv) {
