@@ -367,8 +367,8 @@ function showModal(policy, cardDiv) {
 
     const modalBody = document.createElement("div");
     modalBody.classList.add("modal-body");
-    modalBody.style = "display: flex; flex-direction: column; height: 100%;";
-
+    //modalBody.style = "display: flex; flex-direction: column; height: 100%;";
+    modalBody.style = "overflow: auto; flex-grow: 1;";
     // Add a notice if the policy may not be supported by this tool yet.
     if (policy.supported == false) {
         const notSupportedDiv = document.createElement("div");
@@ -577,7 +577,6 @@ function showModal(policy, cardDiv) {
 
     const converter = new showdown.Converter();
     const docsDiv = document.createElement("div");
-    docsDiv.style = "overflow: auto; flex-grow: 1;";
     docsDiv.innerHTML = converter.makeHtml(policy.markdown);
     modalBody.appendChild(docsDiv);
 
