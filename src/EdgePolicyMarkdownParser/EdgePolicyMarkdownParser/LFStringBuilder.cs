@@ -10,7 +10,7 @@ internal class LFStringBuilder
 {
     StringBuilder _internal = new StringBuilder();
 
-    public void AppendLine(string? value)
+    public void AppendLine(string? value = null)
     {
         _internal.Append(value);
         _internal.Append("\n");

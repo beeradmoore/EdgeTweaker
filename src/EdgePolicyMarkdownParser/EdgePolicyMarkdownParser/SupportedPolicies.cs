@@ -511,7 +511,7 @@ public static class SupportedPolicies
         { "MSAWebSiteSSOUsingThisProfileAllowed", true },
         { "ManagedConfigurationPerOrigin", false },
         { "ManagedFavorites", false },
-        { "ManagedSearchEngines", false },
+        { "ManagedSearchEngines", true },
         { "MathSolverEnabled", true },
         { "MaxConnectionsPerProxy", true },
         { "MediaRouterCastAllowAllIPs", true },
