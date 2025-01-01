@@ -39,7 +39,7 @@ try
             var htmlDoc = markdownSharp.Transform(policy.Markdown);
             // Bad way to do this, but oh well.
             htmlDoc = htmlDoc.Replace("<p><a href=\"#microsoft-edge---policies\">Back to top</a></p>", string.Empty);
-            var outputFile = Path.Combine("html", $"{policyGroup.Link}_{policy.Link}.html");
+            var outputFile = Path.Combine(htmlDirectory, $"{policyGroup.Link}_{policy.Link}.html");
             File.WriteAllText(outputFile, htmlDoc);
             policy.Markdown = string.Empty;
         }
