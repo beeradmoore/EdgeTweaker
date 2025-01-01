@@ -523,6 +523,35 @@ function showModal(policy, cardDiv) {
 	}
 	else if (policy.data_type == "list_of_strings") {
 
+		settingDiv = document.createElement("div");
+		settingDiv.classList.add("mb-2");
+
+
+		const settingDivLabel = document.createElement("label");
+		settingDivLabel.classList.add("form-label");
+		settingDivLabel.appendChild(document.createTextNode("One entry per line:"));
+		settingDiv.appendChild(settingDivLabel);
+
+		const textInput = document.createElement("textarea");
+		textInput.classList.add("form-control");
+		textInput.rows = 10;
+		textInput.id = "policy-text";
+
+		// Set the existing value if it exists.
+		if (settings[policy.id] != undefined) {
+			textInput.value = settings[policy.id].value;
+		}
+
+		// If the Windows example does not exist, use the macOS one.
+		if (policy.windows_registry_example_value != "") {
+			textInput.placeholder = policy.windows_registry_example_value.replaceAll('\\"', '\"');
+		}
+		else {
+			textInput.placeholder = "Each entry on a new line"
+		}
+
+		settingDiv.appendChild(textInput);
+
 	}
 	else if (policy.data_type == "integer") {
 		settingDiv = document.createElement("div");

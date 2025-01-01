@@ -106,6 +106,9 @@ public class EdgePolicyParser
         var hashDepthRegex = new Regex(@"^( *)(?<hash_depth>#+)");
         var policyMappingRegex = new Regex(@"^\* (?<value>.*) \((?<key>.*?)\) = (?<description>.*)$");
         var windowsExampleRegex = new Regex(@"^SOFTWARE\\(.*) = (?<json_dictionary>(.|\n)*)$");
+        var windowsListOfStringsExampleRegex = new Regex(@"^SOFTWARE\\(.*) = (?<example_value>.*)$");
+
+        
         var markdownSectionsDocument = new MarkdownSection();
         var currnetMarkdownSection = markdownSectionsDocument;
         foreach (var line in lines)
@@ -553,7 +556,32 @@ public class EdgePolicyParser
                                                                 Console.WriteLine($"Error: Could not prepare example for {policy.Id}.");
                                                                 Debugger.Break();
                                                             }
+                                                        }
+                                                        else if (policy.DataType == "list_of_strings")
+                                                        {
+                                                            if (policy.PlatformMacOS == true && policy.PlatformWindows == false)
+                                                            {
+                                                                Console.WriteLine($"Error: Policy {policy.Id} is a list of strings, but there may be issues generating its example as it is macOS only.");
+                                                                Debugger.Break();
+                                                            }
 
+                                                            var exampleLines = policy.WindowsRegistryExampleValue.Split('\n');
+
+                                                            for (var k = 0; k < exampleLines.Length; ++k)
+                                                            {
+                                                                var match = windowsListOfStringsExampleRegex.Match(exampleLines[k]);
+                                                                if (match.Success)
+                                                                {
+                                                                    exampleLines[k] = match.Groups["example_value"].Value.Trim('"');
+                                                                }
+                                                                else
+                                                                {
+                                                                    Console.WriteLine($"Error: Could not prepare example for {policy.Id}.");
+                                                                    Debugger.Break();
+                                                                }
+                                                            }
+
+                                                            policy.WindowsRegistryExampleValue = string.Join('\n', exampleLines);
                                                         }
 
                                                         // This policy has some new lines and other descriptions in its example, this is to tidy it.
