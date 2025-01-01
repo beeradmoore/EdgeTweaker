@@ -522,18 +522,18 @@ function showModal(policy, cardDiv) {
                 modalBody.appendChild(policyMappingDiv);
             }
         }
-
     }
 
-    var mandatoryDiv = undefined;
-    var recommendedDiv = undefined;
+
+    let isMandatory = false;
+    let isRecommended = false;
 
     if (policy.can_be_mandatory == true && policy.can_be_recommended == true) {
-        let isMandatory = false;
-        let isRecommended = false;
-
-        // Set the existing value if it exists.
-        if (settings[policy.id] != undefined) {
+        // Set the existing value if it exists, otherwise default to recommended.
+        if (settings[policy.id] == undefined) {
+            isRecommended = true;
+        }
+        else {
             var mandatoryOrRecommended = settings[policy.id].mandatory_or_recommended;
             if (mandatoryOrRecommended == "mandatory") {
                 isMandatory = true;
@@ -541,60 +541,33 @@ function showModal(policy, cardDiv) {
             else if (mandatoryOrRecommended == "recommended") {
                 isRecommended = true;
             }
-        }
-
-        // Show both options as a radio button
-        mandatoryDiv = createRadioGroupItem("can_be_mandatory_recommended", "Mandatory", "can_be_mandatory", isMandatory, policy.can_be_mandatory);
-        recommendedDiv = createRadioGroupItem("can_be_mandatory_recommended", "Recommended", "can_be_recommended", isRecommended, policy.can_be_recommended);
-    }
-    else if (policy.can_be_mandatory == true || policy.can_be_recommended == true) {
-        let isMandatory = false;
-        let isRecommended = false;
-
-        // Set the existing value if it exists.
-        if (settings[policy.id] != undefined) {
-            var mandatoryOrRecommended = settings[policy.id].mandatory_or_recommended;
-            if (mandatoryOrRecommended == "mandatory") {
-                isMandatory = true;
-            }
-            else if (mandatoryOrRecommended == "recommended") {
+            else {
+                // Fallback
                 isRecommended = true;
             }
         }
-
-        // Use checkboxes as only one will be mandatory or recommended
-        mandatoryDiv = createCheckBoxItem("Mandatory", "can_be_mandatory", isMandatory, policy.can_be_mandatory);
-        recommendedDiv = createCheckBoxItem("Recommended", "can_be_recommended", isRecommended, policy.can_be_recommended);
-
     }
-    else {
-        // Don't show mandatory or recommended, this should never happen.
+    else if (policy.can_be_mandatory == true && policy.can_be_recommended == false) {
+        isMandatory = true;
+    }
+    else if (policy.can_be_mandatory == false && policy.can_be_recommended == true) {
+        isRecommended = true;
     }
 
+    // Show both options as a radio button
+    const mandatoryDiv = createRadioGroupItem("can_be_mandatory_recommended", "Mandatory", "can_be_mandatory", isMandatory, policy.can_be_mandatory);
+    const recommendedDiv = createRadioGroupItem("can_be_mandatory_recommended", "Recommended", "can_be_recommended", isRecommended, policy.can_be_recommended);
 
 
-    if (mandatoryDiv != undefined && recommendedDiv != undefined) {
-        const mandatoryRecommendedWrapperDiv = document.createElement("div");
+    const mandatoryRecommendedWrapperDiv = document.createElement("div");
+    const mandatoryRecommendedWrapperLabel = document.createElement("label");
+    mandatoryRecommendedWrapperLabel.classList.add("form-label");
+    mandatoryRecommendedWrapperLabel.appendChild(document.createTextNode("Set as mandatory or recommended:"));
 
-        const mandatoryRecommendedWrapperLabel = document.createElement("label");
-        mandatoryRecommendedWrapperLabel.classList.add("form-label");
-        mandatoryRecommendedWrapperLabel.appendChild(document.createTextNode("Set as mandatory or recommended:"));
-        mandatoryRecommendedWrapperDiv.appendChild(mandatoryRecommendedWrapperLabel);
-
-
-        if (mandatoryDiv != undefined) {
-            mandatoryRecommendedWrapperDiv.appendChild(mandatoryDiv);
-        }
-
-        if (recommendedDiv != undefined) {
-            mandatoryRecommendedWrapperDiv.appendChild(recommendedDiv);
-        }
-
-        modalBody.appendChild(mandatoryRecommendedWrapperDiv);
-    }
-
-
-
+    mandatoryRecommendedWrapperDiv.appendChild(mandatoryRecommendedWrapperLabel);
+    mandatoryRecommendedWrapperDiv.appendChild(mandatoryDiv);
+    mandatoryRecommendedWrapperDiv.appendChild(recommendedDiv);
+    modalBody.appendChild(mandatoryRecommendedWrapperDiv);
 
     const bodySeparator = document.createElement("hr");
     bodySeparator.classList.add("mx-0");
