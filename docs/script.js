@@ -684,10 +684,19 @@ function showModal(policy, cardDiv) {
 	bodySeparator.classList.add("mb-0");
 	modalBody.appendChild(bodySeparator);
 
-
 	const converter = new showdown.Converter();
+	converter.setOption('noHeaderId', true);
+
+	// Replace the header and subheader, as the dialog already has them.
+	// This could be done in the markdown, but we also want to keep the markdown
+	// as true to form as it originally was.
+
+	let markdown = policy.markdown;
+	markdown = markdown.replace(/^###.*$/m, '');
+	markdown = markdown.replace(/^####.*$/m, '');
+
 	const docsDiv = document.createElement("div");
-	docsDiv.innerHTML = converter.makeHtml(policy.markdown);
+	docsDiv.innerHTML = converter.makeHtml(markdown);
 	modalBody.appendChild(docsDiv);
 
 	const bodySeparator2 = document.createElement("hr");
