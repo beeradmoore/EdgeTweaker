@@ -19,7 +19,7 @@ public class MarkdownSection
 
     public string GenerateMarkdown()
     {
-        var stringBuilder = new StringBuilder();
+        var stringBuilder = new LFStringBuilder();
         stringBuilder.AppendLine(Header);
         foreach (var data in Data)
         {

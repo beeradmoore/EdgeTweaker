@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -104,6 +105,7 @@ public class EdgePolicyParser
         //var headerRegex = new Regex(@"^(\s*)##\s+(?<header>.*)$");
         var hashDepthRegex = new Regex(@"^( *)(?<hash_depth>#+)");
         var policyMappingRegex = new Regex(@"^\* (?<value>.*) \((?<key>.*?)\) = (?<description>.*)$");
+        var windowsExampleRegex = new Regex(@"^SOFTWARE\\(.*) = (?<json_dictionary>(.|\n)*)$");
         var markdownSectionsDocument = new MarkdownSection();
         var currnetMarkdownSection = markdownSectionsDocument;
         foreach (var line in lines)
@@ -516,7 +518,7 @@ public class EdgePolicyParser
                                         else if (policyChildrenChild.Header.StartsWith("##### Example value:", StringComparison.OrdinalIgnoreCase))
                                         {
                                             var readingExample = false;
-                                            var exampleBuffer = new StringBuilder();
+                                            var exampleBuffer = new LFStringBuilder();
                                             for (int j = 0; j < policyChildrenChild.Data.Count; ++j)
                                             {
                                                 var policyChildrenLine = policyChildrenChild.Data[j];
@@ -527,11 +529,31 @@ public class EdgePolicyParser
                                                     {
                                                         readingExample = false;
                                                         policy.WindowsRegistryExampleValue = exampleBuffer.ToString().Trim();
-                                                        
+
                                                         // If it's a string example, strip the double quotes from the example
                                                         if (policy.DataType == "string")
                                                         {
                                                             policy.WindowsRegistryExampleValue = policy.WindowsRegistryExampleValue.Trim('"');
+                                                        }
+                                                        else if (policy.DataType == "dictionary")
+                                                        {
+                                                            if (policy.PlatformMacOS == true && policy.PlatformWindows == false)
+                                                            {
+                                                                Console.WriteLine($"Error: Policy {policy.Id} is a dictionary, but there may be issues generating its example as it is macOS only.");
+                                                                Debugger.Break();
+                                                            }
+
+                                                            var match = windowsExampleRegex.Match(policy.WindowsRegistryExampleValue);
+                                                            if (match.Success)
+                                                            {
+                                                                policy.WindowsRegistryExampleValue = match.Groups["json_dictionary"].Value;
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine($"Error: Could not prepare example for {policy.Id}.");
+                                                                Debugger.Break();
+                                                            }
+
                                                         }
 
                                                         // This policy has some new lines and other descriptions in its example, this is to tidy it.
@@ -561,7 +583,7 @@ public class EdgePolicyParser
                                 else if (policyChildren.Header == "#### Mac information and settings")
                                 {
                                     var readingExample = false;
-                                    var exampleBuffer = new StringBuilder();
+                                    var exampleBuffer = new LFStringBuilder();
                                     for (int j = 0; j < policyChildren.Data.Count; ++j)
                                     {
                                         var policyChildrenLine = policyChildren.Data[j];

@@ -14,12 +14,13 @@ try
 
     // This will throw exception if something is not right.
     policyGroupDocument.ValidatePolicyGroups();
-    
+
     var jsonSerializerOptions = new JsonSerializerOptions()
     {
-        WriteIndented = true
+        WriteIndented = true,
+        NewLine = "\n",
     };
-    
+
     var policyGroupsJson = JsonSerializer.Serialize(policyGroupDocument, jsonSerializerOptions);
     await File.WriteAllTextAsync(Path.Combine(edgePolicyParser.OutputPath, "policy-groups.json"), policyGroupsJson);
 
