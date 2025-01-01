@@ -222,8 +222,8 @@ function exportWindowsGroupPolicy() {
 function exportWindowsRegistry() {
     const enabledPolicies = getEnabledPolicies();
 
-    let regFile = '; Created with EdgeTweaker\n; https://beeradmoore.github.io/EdgeTweaker/\n';
-    for (const [key, value] of Object.entries(settings)) {
+    let regFile = 'Windows Registry Editor Version 5.00\n\n; Created with EdgeTweaker\n; https://beeradmoore.github.io/EdgeTweaker/\n\n';
+    for (const [key, setting] of Object.entries(settings)) {
         const policy = enabledPolicies[key];
         if (policy == undefined) {
             console.error("Could not find policy for key " + key);
@@ -232,30 +232,56 @@ function exportWindowsRegistry() {
         }
 
         if (policy.platform_windows == true) {
-            // TODO: Change system, if it can only be mandatroy OR recommended that is then enforced
+
+            let regKey = undefined;
+            let regValueName = undefined;
+            let regValueData = undefined;
+
+            if (setting.mandatory_or_recommended == "mandatory") {
+                regKey = "HKEY_CURRENT_USER\\" + policy.windows_registry_mandatory_path;
+            }
+            else if (mandatory_or_recommended == "recommended") {
+                regKey = "HKEY_CURRENT_USER\\" + policy.windows_registry_recommended_path;
+            }
+
+            regValueName = policy.windows_registry_value_name;
+
             if (policy.windows_registry_value_type == "REG_DWORD") {
-                if (value.mandatory_or_recommended == "mandatory") {
-
+                if (policy.data_type == "integer") {
+                    regValueData = "dword:" + (setting.value).toString(16).padStart(8, '0');
                 }
-                else if (mandatory_or_recommended == "recommended") {
-
-                }
-                else {
-
+                else if (policy.data_type == "boolean") {
+                    if (setting.value == true) {
+                        regValueData = "dword:00000001";
+                    }
+                    else {
+                        regValueData = "dword:00000000";
+                    }
                 }
             }
             else if (policy.windows_registry_value_type == "REG_SZ") {
+                if (policy.data_type == "string") {
 
+                    regValueData = "\"" + setting.value + "\"";
+                }
+                else if (policy.data_type == "dictionary") {
+                regValueData = "\"" + JSON.stringify(JSON.parse(setting.value)) + "\"";
+              }
             }
             else {
                 console.error("Unknown windows_registry_value_type for policy " + policy.name);
                 debugger;
             }
+
+            if (regKey != undefined && regValueName != undefined && regValueData != undefined) {
+                regFile += "[" + regKey + "]\n";
+                regFile += "\"" + regValueName + "\"=" + regValueData + "\n\n";
+            }
         }
 
     }
 
-    const blob = new Blob([plist], { type: 'text/plain' });
+    const blob = new Blob([regFile], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -395,7 +421,35 @@ function showModal(policy, cardDiv) {
     var settingDiv = undefined;
 
     if (policy.data_type == "dictionary") {
+        settingDiv = document.createElement("div");
+        settingDiv.classList.add("mb-2");
 
+        /*
+        const settingDivLabel = document.createElement("label");
+        settingDivLabel.classList.add("form-label");
+        settingDivLabel.appendChild(document.createTextNode("JSON dictionary:"));
+        settingDiv.appendChild(settingDivLabel);
+        */
+
+        const textInput = document.createElement("textarea");
+        textInput.classList.add("form-control");
+        textInput.rows = 10;
+        textInput.id = "policy-text";
+
+         // Set the existing value if it exists.
+         if (settings[policy.id] != undefined) {
+            textInput.value = settings[policy.id].value;
+        }
+
+        // If the Windows example does not exist, use the macOS one.
+        if (policy.windows_registry_example_value != "") {
+            textInput.placeholder = policy.windows_registry_example_value;
+        }
+        else {
+            textInput.placeholder = "JSON dictionary"
+        }
+
+        settingDiv.appendChild(textInput);
     }
     else if (policy.data_type == "boolean") {
 
@@ -666,10 +720,21 @@ function showModal(policy, cardDiv) {
         let removeSetting = true;
         let value = undefined;
 
-        if (policy.data_type == "dictionary") {
-            // TODO: Add support
-            alert("Saving dictionary data type is not supported yet.");
-            return;
+        if (policy.data_type == "dictionary") {            
+            const textInput = settingsModalDiv.querySelector('textarea[id="policy-text"]');
+
+            // Make sure we loaded the property
+            if (textInput == null) {
+                console.error("Could not find text input for policy \"" + policy.Id + "\"");
+                alert("Could not save value for policy \"" + policy.id + "\"");
+                return;
+            }
+
+            // Check if we have a value, if we don't we are removing it.
+            if (textInput.value != "") {
+                value = textInput.value;
+                removeSetting = false;
+            }
         }
         else if (policy.data_type == "boolean") {
             const isEnabledInput = settingsModalDiv.querySelector('input[name="is_enabled"]:checked');
