@@ -30,11 +30,12 @@ body:
       label: Preset json
       description: Formatted json of your preset
       placeholder: |
-        ```
-		{
-
-		}
-		```
+        {
+            "NewTabPageSearchBox": {
+                "value": "redirect",
+                "mandatory_or_recommended": "recommended"
+            }
+        }
       render: JSON
     validations:
       required: true
