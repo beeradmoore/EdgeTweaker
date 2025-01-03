@@ -22,3 +22,5 @@ launchctl load -w /Library/LaunchDaemons/com.edgetweaker.prefs.plist
 
 chmod 744 /Library/EdgeTweaker/scripts/apply_prefs.sh
 /Library/EdgeTweaker/scripts/apply_prefs.sh 0
+
+echo "If Edge was previously configured you may need to reboot to see the changes"
