@@ -30,7 +30,11 @@ body:
       label: Preset json
       description: Formatted json of your preset
       placeholder: |
-        json goes here
-      render: json
+        ```
+		{
+
+		}
+		```
+      render: JSON
     validations:
       required: true
