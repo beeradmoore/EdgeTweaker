@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://beeradmoore.github.io/EdgeTweaker/icon-large.png" width="300" />
+</p>
+
 # EdgeTweaker
 
 EdgeTweaker is a tool that allows you to configure Microsoft Edge Enterprise Policies for your non-enterprise computers.
