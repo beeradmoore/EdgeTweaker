@@ -128,7 +128,7 @@ function showExportModal() {
 
 	const infoDiv = document.createElement("div");
 	infoDiv.classList.add("mb-3");
-	infoDiv.innerHTML = 'See the project <a href="https://github.com/beeradmoore/edgetweaker" target="_blank">readme</a> on how to use these different exports.';
+	infoDiv.innerHTML = 'See the project <a href="https://github.com/beeradmoore/edgetweaker?tab=readme-ov-file#how-to-use" target="_blank">readme</a> on how to use these different exports.';
 
 	modalBody.appendChild(infoDiv);
 
@@ -221,9 +221,9 @@ function showExportModal() {
 	macOSDiv.appendChild(macOSButtonsDiv);
 
 	const macOSEnablerTool = document.createElement("a");
-	macOSEnablerTool.href = "https://github.com/beeradmoore/edgetweaker?#macos-enabler-tool";
+	macOSEnablerTool.href = "https://github.com/beeradmoore/edgetweaker?tab=readme-ov-file#installer-bundle";
 	macOSEnablerTool.target = "_blank";
-	macOSEnablerTool.appendChild(document.createTextNode("macOS enabler tool"));
+	macOSEnablerTool.appendChild(document.createTextNode("EdgeTweaker launch daemon"));
 	macOSDiv.appendChild(macOSEnablerTool);
 
 
