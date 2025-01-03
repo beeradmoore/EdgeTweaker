@@ -1167,6 +1167,8 @@ function showModal(policy, cardDiv) {
 		}
 
 		settingsModal.hide();
+
+		applySearchFilter();
 	};
 	settingsModal.show();
 }
@@ -1325,6 +1327,82 @@ function reloadCards() {
 	}
 }
 
+function applySearchFilter() {
+	const searchBox = document.getElementById("search-box");
+	const filterBox = document.getElementById("filter-box");
+
+	var searchText = searchBox.value.trim().toLowerCase();
+	var filterType = filterBox.value;
+
+	Object.keys(jsonData.policy_groups).forEach(function (
+		policyGroupsKey
+	) {
+		const policyGroup = jsonData.policy_groups[policyGroupsKey];
+
+		var allHidden = true;
+
+		// Loop through each policy and see if it matches our filters
+		Object.keys(policyGroup.policies).forEach(function (policyKey) {
+			const policy = policyGroup.policies[policyKey];
+
+			let textMatch = false;
+			let policyMatch = false;
+
+			if (filterType == 'all') {
+				policyMatch = true;
+			}
+			else if (filterType == 'unsupported' && policy.supported == false) {
+				policyMatch = true;
+			}
+			else if (filterType == 'supported' && policy.supported == true) {
+				policyMatch = true;
+			} else if (filterType == 'enabled') {
+				if (settings[policy.id] != undefined) {
+					policyMatch = true;
+				}
+			}
+
+
+			if (searchText == "") {
+				// If search text is empty then match every text
+				textMatch = true;
+			}
+			else {
+				var searchTerms = [
+					policy.id.toLowerCase(),
+					policy.name.toLowerCase(),
+					policy.summary.toLowerCase(),
+				];
+
+				for (let i = 0; i < searchTerms.length; ++i) {
+					if (searchTerms[i].indexOf(searchText) >= 0) {
+						textMatch = true;
+						break;
+					}
+				}
+			}
+
+			if (textMatch == true && policyMatch == true) {
+				allHidden = false;
+				policy.cardDiv.classList.remove("d-none");
+			}
+			else {
+				policy.cardDiv.classList.add("d-none");
+			}
+
+		});
+
+		if (allHidden == true) {
+			// Hide the policyRow if all cardDivs were hidden.
+			policyGroup.policyRow.classList.add("d-none");
+		}
+		else {
+			// Show the policyRow if not all of cardDivs were hidden.
+			policyGroup.policyRow.classList.remove("d-none");
+		}
+	});
+}
+
 document.addEventListener(
 	"DOMContentLoaded",
 	function () {
@@ -1388,70 +1466,13 @@ document.addEventListener(
 		};
 
 		const searchBox = document.getElementById("search-box");
-		const searchHandler = function (e) {
-			if (e.target.value == "") {
-				Object.keys(jsonData.policy_groups).forEach(function (
-					policyGroupsKey
-				) {
-					const policyGroup = jsonData.policy_groups[policyGroupsKey];
+		searchBox.addEventListener("input", applySearchFilter);
 
-					// Show cardDiv again
-					Object.keys(policyGroup.policies).forEach(function (policyKey) {
-						const policy = policyGroup.policies[policyKey];
-						policy.cardDiv.classList.remove("d-none");
-					});
+		const filterBox = document.getElementById("filter-box");
+		filterBox.addEventListener("input", applySearchFilter);
 
-					// Show the policyRow again
-					policyGroup.policyRow.classList.remove("d-none");
-				});
-			} else {
-				var lowerSearchValue = e.target.value.toLowerCase();
 
-				Object.keys(jsonData.policy_groups).forEach(function (
-					policyGroupsKey
-				) {
-					const policyGroup = jsonData.policy_groups[policyGroupsKey];
 
-					var allHidden = true;
-
-					// Hide cardDiv if it matches the search filter
-					Object.keys(policyGroup.policies).forEach(function (policyKey) {
-						const policy = policyGroup.policies[policyKey];
-
-						var searchTerms = [
-							policy.id.toLowerCase(),
-							policy.name.toLowerCase(),
-							policy.summary.toLowerCase(),
-						];
-
-						for (let i = 0; i < searchTerms.length; ++i) {
-							if (searchTerms[i].indexOf(lowerSearchValue) === -1) {
-								// Search term was not found, so hide the card
-								policy.cardDiv.classList.add("d-none");
-							} else {
-								// Search term was found, so re-show the card in case it was hidden)
-								policy.cardDiv.classList.remove("d-none");
-
-								// There is at least 1 visible card, so we want to ensure the row is shown.
-								allHidden = false;
-
-								// I hope this breaks the for loop
-								break;
-							}
-						}
-					});
-
-					if (allHidden == true) {
-						// Hide the policyRow if all cardDivs were hidden.
-						policyGroup.policyRow.classList.add("d-none");
-					} else {
-						// Show the policyRow if not all of cardDivs were hidden.
-						policyGroup.policyRow.classList.remove("d-none");
-					}
-				});
-			}
-		};
-		searchBox.addEventListener("input", searchHandler);
 
 		function enablePresetsButtonIfReady() {
 			if (presetsLoaded == true && policiesLoaded == true) {
@@ -1486,7 +1507,7 @@ document.addEventListener(
 
 						const policyRow = document.createElement("div");
 						policyRow.classList.add("row");
-						policyRow.classList.add("mt-4");
+						policyRow.classList.add("m-4");
 						policyGroup.policyRow = policyRow;
 
 						const policyGroupHeading = document.createElement("h2");
@@ -1559,12 +1580,14 @@ document.addEventListener(
 					});
 
 					searchBox.removeAttribute("disabled");
+					filterBox.removeAttribute("disabled");
 					loadButton.removeAttribute("disabled");
 					saveButton.removeAttribute("disabled");
 					exportButton.removeAttribute("disabled");
 
 					policiesLoaded = true;
 					enablePresetsButtonIfReady();
+					applySearchFilter();
 				}
 			}
 		};
