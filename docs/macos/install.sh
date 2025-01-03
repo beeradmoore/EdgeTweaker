@@ -10,12 +10,13 @@ fi
 
 umask 022
 mkdir -p '/Library/EdgeTweaker/scripts/'
-mkdir -p '/Library/EdgeTweaker/prefs/'
+mkdir -p '/Library/EdgeTweaker/prefs/mandatory/'
+mkdir -p '/Library/EdgeTweaker/prefs/recommended/'
 mkdir -p '/Library/Managed Preferences/'
 
 
-cp 'mandatory/com.microsoft.Edge.plist' '/Library/EdgeTweaker/prefs/com.microsoft.Edge_mandatory.plist'
-cp 'recommended/com.microsoft.Edge.plist' '/Library/EdgeTweaker/prefs/com.microsoft.Edge_recommended.plist'
+cp 'mandatory/com.microsoft.Edge.plist' '/Library/EdgeTweaker/prefs/mandatory/com.microsoft.Edge.plist'
+cp 'recommended/com.microsoft.Edge.plist' '/Library/EdgeTweaker/prefs/recommended/com.microsoft.Edge.plist'
 cp 'additional_files/apply_prefs.sh' '/Library/EdgeTweaker/scripts/'
 cp 'additional_files/com.edgetweaker.prefs.plist' '/Library/LaunchDaemons/'
 launchctl load -w /Library/LaunchDaemons/com.edgetweaker.prefs.plist
