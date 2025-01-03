@@ -184,16 +184,36 @@ function showExportModal() {
 	const macOSHeading = document.createElement("h5");
 	macOSHeading.appendChild(document.createTextNode("macOS"));
 
-
-	const pListButton = document.createElement("button");
-	pListButton.type = "button";
-	pListButton.classList.add("btn");
-	pListButton.classList.add("btn-primary");
-	pListButton.appendChild(document.createTextNode("Plist"));
-	pListButton.onclick = function () {
-		exportMacOSPlist();
+	const pListInstallerBundle = document.createElement("button");
+	pListInstallerBundle.type = "button";
+	pListInstallerBundle.classList.add("btn");
+	pListInstallerBundle.classList.add("btn-primary");
+	pListInstallerBundle.appendChild(document.createTextNode("Installer bundle"));
+	pListInstallerBundle.onclick = function () {
+		exportMacOSPlist('installer_bundle');
 	};
-	macOSButtonsDiv.appendChild(pListButton);
+	macOSButtonsDiv.appendChild(pListInstallerBundle);
+
+	const pListMandatoryButton = document.createElement("button");
+	pListMandatoryButton.type = "button";
+	pListMandatoryButton.classList.add("btn");
+	pListMandatoryButton.classList.add("btn-primary");
+	pListMandatoryButton.appendChild(document.createTextNode("Plist (only mandatory options)"));
+	pListMandatoryButton.onclick = function () {
+		exportMacOSPlist('mandatory');
+	};
+	macOSButtonsDiv.appendChild(pListMandatoryButton);
+
+	const pListRecommendedButton = document.createElement("button");
+	pListRecommendedButton.type = "button";
+	pListRecommendedButton.classList.add("btn");
+	pListRecommendedButton.classList.add("btn-primary");
+	pListRecommendedButton.appendChild(document.createTextNode("Plist (only recommended options)"));
+	pListRecommendedButton.onclick = function () {
+		exportMacOSPlist('recommended');
+	};
+	macOSButtonsDiv.appendChild(pListRecommendedButton);
+
 	macOSDiv.appendChild(macOSButtonsDiv);
 
 	const macOSEnablerTool = document.createElement("a");
@@ -380,16 +400,91 @@ function exportWindowsRegistry() {
 
 }
 
-function exportMacOSPlist() {
+function exportMacOSPlist(export_type) {
 	const enabledPolicies = getEnabledPolicies();
 
+	if (export_type == 'mandatory') {
+		const mandatoryPlist = generateMacOSPlist("mandatory", enabledPolicies);
+
+		const blob = new Blob([mandatoryPlist], { type: 'application/x-plist' });
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = 'com.microsoft.Edge.plist';
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		URL.revokeObjectURL(url);
+	}
+	else if (export_type == 'recommended') {
+		const recommendedPlist = generateMacOSPlist("recommended", enabledPolicies);
+
+		const blob = new Blob([recommendedPlist], { type: 'application/x-plist' });
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = 'com.microsoft.Edge.plist';
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		URL.revokeObjectURL(url);
+	}
+	else if (export_type == 'installer_bundle') {
+
+
+		const mandatoryPlist = generateMacOSPlist("mandatory", enabledPolicies);
+		const recommendedPlist = generateMacOSPlist("recommended", enabledPolicies);
+
+		const zip = new JSZip();
+
+		const mandatoryFolder = zip.folder("mandatory");
+		mandatoryFolder.file("com.microsoft.Edge.plist", mandatoryPlist);
+
+		const recommendedFolder = zip.folder("recommended");
+		recommendedFolder.file("com.microsoft.Edge.plist", recommendedPlist);
+
+		zip.generateAsync({type:"blob"}).then(function(content) {
+			const url = URL.createObjectURL(content);
+			const a = document.createElement('a');
+			a.href = url;
+			a.download = 'edgetweaker-settings.zip';
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
+			URL.revokeObjectURL(url);
+		});
+				/*
+zip.file("Hello.txt", "Hello World\n");
+zip.file("script.sh", "#!/bin/bash", {
+    unixPermissions: "755"
+});
+*/
+	}
+
+
+
+}
+
+function generateMacOSPlist(mandatory_or_recommended, enabledPolicies) {
+	if (mandatory_or_recommended != "mandatory" && mandatory_or_recommended != "recommended")
+	{
+		return "";
+	}
 	let plist = `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Created with EdgeTweaker -->
+<!-- https://beeradmoore.github.io/EdgeTweaker/ -->
+<!-- Policy type: ${mandatory_or_recommended} -->
 <plist version="1.0">
 <dict>
 `;
 
 	for (const [key, value] of Object.entries(settings)) {
+		// Only put the policy here if it is recommended or mandatory
+		if (value.mandatory_or_recommended != mandatory_or_recommended) {
+			continue;
+		}
+
 		const policy = enabledPolicies[key];
 		if (policy == undefined) {
 			console.error("Could not find policy for key " + key);
@@ -426,7 +521,7 @@ function exportMacOSPlist() {
 					plist += `    <array>
 `;
 					value.value.split('\n').forEach(function (stringValue) {
-						plist += `        <string>${stringValue}</string>
+						plist += `        <string>${stringValue.replaceAll("&", "&amp;")}</string>
 `;
 					});
 					plist += `    </array>
@@ -434,7 +529,15 @@ function exportMacOSPlist() {
 				}
 				else if (policy.data_type == "dictionary") {
 					const json = JSON.parse(value.value);
-					plist += jsonObjectToPlist(json, '    ');
+
+					if (Array.isArray(json)) {
+						plist += jsonObjectToPlistNode(json, '    ');
+					}
+					else
+					{
+						plist += jsonObjectToPlist(json, '    ');
+					}
+
 				}
 				else {
 					console.error("Unknown data_type for policy " + policy.name);
@@ -446,20 +549,12 @@ function exportMacOSPlist() {
 			alert('Error exporting policy: ' + policy.id);
 			return;
 		}
+	}
 
-		plist += `</dict>
+	plist += `</dict>
 </plist>`;
 
-		const blob = new Blob([plist], { type: 'application/x-plist' });
-		const url = URL.createObjectURL(blob);
-		const a = document.createElement('a');
-		a.href = url;
-		a.download = 'com.microsoft.Edge.plist';
-		document.body.appendChild(a);
-		a.click();
-		document.body.removeChild(a);
-		URL.revokeObjectURL(url);
-	}
+	return plist;
 }
 
 function jsonObjectToPlist(obj, indent = "") {
@@ -491,7 +586,7 @@ function jsonObjectToPlistNode(value, indent = "") {
 	} else if (typeof value === 'boolean') {
 		plistContent += `${indent}    <${value}/>\n`;
 	} else if (typeof value === 'string') {
-		plistContent += `${indent}    <string>${value}</string>\n`;
+		plistContent += `${indent}    <string>${value.replaceAll("&", "&amp;")}</string>\n`;
 	} else if (typeof value === 'number') {
 		plistContent += `${indent}    <integer>${value}</integer>\n`;
 	}
