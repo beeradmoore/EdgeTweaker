@@ -1129,8 +1129,13 @@ function showModal(policy, cardDiv) {
 
 			settings[policy.id] = {
 				"value": value,
-				"mandatory_or_recommended": "none"
+				"mandatory_or_recommended": "recommended"
 			};
+
+			// Default to recommended, and then fall back to mandatory if recommended is not available.
+			if (policy.can_be_mandatory == true && policy.can_be_recommended == false) {
+				settings[policy.id].mandatory_or_recommended = "mandatory";
+			}
 
 			const canBeMandatoryOrRecommendedChecked = settingsModalDiv.querySelector('input[name="can_be_mandatory_recommended"]:checked');
 			if (canBeMandatoryOrRecommendedChecked != null) {
