@@ -166,11 +166,11 @@ function showExportModal() {
 	windowsDiv.appendChild(windowsButtonsDiv);
 
 
-	const edgeRegCleanerTag = document.createElement("a");
-	edgeRegCleanerTag.href = "EdgeRegCleanup.reg";
-	edgeRegCleanerTag.setAttribute("download", "EdgeRegCleanup.reg");
-	edgeRegCleanerTag.appendChild(document.createTextNode("EdgeRegCleanup.reg"));
-	windowsDiv.appendChild(edgeRegCleanerTag);
+	const edgeRegCleanup = document.createElement("a");
+	edgeRegCleanup.href = "windows/EdgeRegCleanup.reg";
+	edgeRegCleanup.setAttribute("download", "EdgeRegCleanup.reg");
+	edgeRegCleanup.appendChild(document.createTextNode("EdgeRegCleanup.reg"));
+	windowsDiv.appendChild(edgeRegCleanup);
 
 	const macOSDiv = document.createElement("div");
 	macOSDiv.classList.add("mb-3");

@@ -108,7 +108,7 @@ try
         regCleanupStringBuilder.AppendLine();
     }
 
-    File.WriteAllText(Path.Combine(edgePolicyParser.OutputPath, "EdgeRegCleanup.reg"), regCleanupStringBuilder.ToString());
+    File.WriteAllText(Path.Combine(edgePolicyParser.OutputPath, "windows", "EdgeRegCleanup.reg"), regCleanupStringBuilder.ToString());
 
 
     var markdownSharp = new Markdown();
