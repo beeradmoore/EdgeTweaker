@@ -437,13 +437,20 @@ function exportMacOSPlist(export_type) {
 
 		const zip = new JSZip();
 
+		zip.file("install.sh", jsZipUrlToPromise("macos/install.sh"), { binary: true, unixPermissions: "755" });
+		zip.file("uninstall.sh", jsZipUrlToPromise("macos/uninstall.sh"), { binary: true, unixPermissions: "755" });
+
+		const additionalFilesFolder = zip.folder("additional_files");
+		additionalFilesFolder.file("apply_prefs.sh", jsZipUrlToPromise("macos/additional_files/apply_prefs.sh"), { binary: true, unixPermissions: "755" });
+		additionalFilesFolder.file("com.edgetweaker.prefs.plist", jsZipUrlToPromise("macos/additional_files/com.edgetweaker.prefs.plist"), { binary: true });
+
 		const mandatoryFolder = zip.folder("mandatory");
 		mandatoryFolder.file("com.microsoft.Edge.plist", mandatoryPlist);
 
 		const recommendedFolder = zip.folder("recommended");
 		recommendedFolder.file("com.microsoft.Edge.plist", recommendedPlist);
 
-		zip.generateAsync({ type: "blob" }).then(function (content) {
+		zip.generateAsync({ type: "blob", platform:'UNIX' }).then(function (content) {
 			const url = URL.createObjectURL(content);
 			const a = document.createElement('a');
 			a.href = url;
@@ -453,12 +460,6 @@ function exportMacOSPlist(export_type) {
 			document.body.removeChild(a);
 			URL.revokeObjectURL(url);
 		});
-		/*
-zip.file("Hello.txt", "Hello World\n");
-zip.file("script.sh", "#!/bin/bash", {
-unixPermissions: "755"
-});
-*/
 	}
 
 
@@ -1402,3 +1403,17 @@ document.addEventListener(
 	},
 	false
 );
+
+
+
+function jsZipUrlToPromise(url) {
+	return new Promise(function (resolve, reject) {
+		JSZipUtils.getBinaryContent(url, function (err, data) {
+			if (err) {
+				reject(err);
+			} else {
+				resolve(data);
+			}
+		});
+	});
+}
