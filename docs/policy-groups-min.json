@@ -26,7 +26,7 @@
           "windows_registry_example_value": "{\n  \u0022ProxyMode\u0022: \u0022direct\u0022,\n  \u0022ProxyPacUrl\u0022: \u0022https://internal.site/example.pac\u0022,\n  \u0022ProxyServer\u0022: \u0022123.123.123.123:8080\u0022\n}",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -267,7 +267,7 @@
           "windows_registry_example_value": "MIICCTCCAY6gAwIBAgINAgPluILrIPglJ209ZjAKBggqhkjOPQQDAzBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwHhcNMTYwNjIyMDAwMDAwWhcNMzYwNjIyMDAwMDAwWjBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAQfTzOHMymKoYTey8chWEGJ6ladK0uFxh1MJ7x/JlFyb\u002BKf1qPKzEUURout736GjOyxfi//qXGdGIRFBEFVbivqJn\u002B7kAHjSxm65FSWRQmx1WyRRK2EE46ajA2ADDL24CejQjBAMA4GA1UdDwEB/wQEAwIBhjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTB8Sa6oC2uhYHP0/EqEr24Cmf9vDAKBggqhkjOPQQDAwNpADBmAjEA9uEglRR7VKOQFhG/hMjqb2sXnh5GmCCbn9MN2azTL818\u002BFsuVbu/3ZL3pAzcMeGiAjEA/JdmZuVDFhOD3cffL74UOO0BzrEXGhF16b0DjyZ\u002BhOXJYKaV11RZt\u002BcRLInUue4X",
           "macos_preference_key_name": "CACertificates",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003EMIICCTCCAY6gAwIBAgINAgPluILrIPglJ209ZjAKBggqhkjOPQQDAzBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwHhcNMTYwNjIyMDAwMDAwWhcNMzYwNjIyMDAwMDAwWjBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAQfTzOHMymKoYTey8chWEGJ6ladK0uFxh1MJ7x/JlFyb\u002BKf1qPKzEUURout736GjOyxfi//qXGdGIRFBEFVbivqJn\u002B7kAHjSxm65FSWRQmx1WyRRK2EE46ajA2ADDL24CejQjBAMA4GA1UdDwEB/wQEAwIBhjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTB8Sa6oC2uhYHP0/EqEr24Cmf9vDAKBggqhkjOPQQDAwNpADBmAjEA9uEglRR7VKOQFhG/hMjqb2sXnh5GmCCbn9MN2azTL818\u002BFsuVbu/3ZL3pAzcMeGiAjEA/JdmZuVDFhOD3cffL74UOO0BzrEXGhF16b0DjyZ\u002BhOXJYKaV11RZt\u002BcRLInUue4X\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -292,7 +292,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022certificate\u0022: \u0022MIICCTCCAY6gAwIBAgINAgPluILrIPglJ209ZjAKBggqhkjOPQQDAzBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwHhcNMTYwNjIyMDAwMDAwWhcNMzYwNjIyMDAwMDAwWjBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAQfTzOHMymKoYTey8chWEGJ6ladK0uFxh1MJ7x/JlFyb\u002BKf1qPKzEUURout736GjOyxfi//qXGdGIRFBEFVbivqJn\u002B7kAHjSxm65FSWRQmx1WyRRK2EE46ajA2ADDL24CejQjBAMA4GA1UdDwEB/wQEAwIBhjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTB8Sa6oC2uhYHP0/EqEr24Cmf9vDAKBggqhkjOPQQDAwNpADBmAjEA9uEglRR7VKOQFhG/hMjqb2sXnh5GmCCbn9MN2azTL818\u002BFsuVbu/3ZL3pAzcMeGiAjEA/JdmZuVDFhOD3cffL74UOO0BzrEXGhF16b0DjyZ\u002BhOXJYKaV11RZt\u002BcRLInUue4X\u0022,\n    \u0022constraints\u0022: {\n      \u0022permitted_cidrs\u0022: [\n        \u002210.1.1.0/24\u0022\n      ],\n      \u0022permitted_dns_names\u0022: [\n        \u0022example.org\u0022\n      ]\n    }\n  }\n]",
           "macos_preference_key_name": "CACertificatesWithConstraints",
           "macos_preference_example_value": "\u003Ckey\u003ECACertificatesWithConstraints\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Ecertificate\u003C/key\u003E\n\u003Cstring\u003EMIICCTCCAY6gAwIBAgINAgPluILrIPglJ209ZjAKBggqhkjOPQQDAzBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwHhcNMTYwNjIyMDAwMDAwWhcNMzYwNjIyMDAwMDAwWjBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjMwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAQfTzOHMymKoYTey8chWEGJ6ladK0uFxh1MJ7x/JlFyb\u002BKf1qPKzEUURout736GjOyxfi//qXGdGIRFBEFVbivqJn\u002B7kAHjSxm65FSWRQmx1WyRRK2EE46ajA2ADDL24CejQjBAMA4GA1UdDwEB/wQEAwIBhjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTB8Sa6oC2uhYHP0/EqEr24Cmf9vDAKBggqhkjOPQQDAwNpADBmAjEA9uEglRR7VKOQFhG/hMjqb2sXnh5GmCCbn9MN2azTL818\u002BFsuVbu/3ZL3pAzcMeGiAjEA/JdmZuVDFhOD3cffL74UOO0BzrEXGhF16b0DjyZ\u002BhOXJYKaV11RZt\u002BcRLInUue4X\u003C/string\u003E\n\u003Ckey\u003Econstraints\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Epermitted_cidrs\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003E10.1.1.0/24\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Epermitted_dns_names\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Eexample.org\u003C/string\u003E\n\u003C/array\u003E\n\u003C/dict\u003E\n\u003C/dict\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -317,7 +317,7 @@
           "windows_registry_example_value": "MIIB/TCCAaOgAwIBAgIUQthnWVsd1jWpUCNBf/uILjXC\u002Bt4wCgYIKoZIzj0EAwIwVDELMAkGA1UEBhMCVVMxETAPBgNVBAgMCFZpcmdpbmlhMQ8wDQYDVQQHDAZSZXN0b24xITAfBgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDAeFw0yMzEyMDcxNjE5NTVaFw0yMzEyMjExNjE5NTVaMFQxCzAJBgNVBAYTAlVTMREwDwYDVQQIDAhWaXJnaW5pYTEPMA0GA1UEBwwGUmVzdG9uMSEwHwYDVQQKDBhJbnRlcm5ldCBXaWRnaXRzIFB0eSBMdGQwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQ9Akav/KB0aVA9FM1QK4J1CEHn5rFOyY/nxcr5HG3\u002BFom0Kwu5zTR/kz9eOYgtG/1NmCzbiEKaULDfzA8V9aJ7o1MwUTAdBgNVHQ4EFgQUq37bLKiuw8Y/G\u002BrurMf46hw7EekwHwYDVR0jBBgwFoAUq37bLKiuw8Y/G\u002BrurMf46hw7EekwDwYDVR0TAQH/BAUwAwEB/zAKBggqhkjOPQQDAgNIADBFAiEA/JhtLSgtVOcXkgFJ9V5Vb6lhGdiKQFfzO9wTxPeCxCECIFePYPucys2n/r9MOBMHiX/8068ssv\u002BuceqokzUg0mAb",
           "macos_preference_key_name": "CADistrustedCertificates",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003EMIIB/TCCAaOgAwIBAgIUQthnWVsd1jWpUCNBf/uILjXC\u002Bt4wCgYIKoZIzj0EAwIwVDELMAkGA1UEBhMCVVMxETAPBgNVBAgMCFZpcmdpbmlhMQ8wDQYDVQQHDAZSZXN0b24xITAfBgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDAeFw0yMzEyMDcxNjE5NTVaFw0yMzEyMjExNjE5NTVaMFQxCzAJBgNVBAYTAlVTMREwDwYDVQQIDAhWaXJnaW5pYTEPMA0GA1UEBwwGUmVzdG9uMSEwHwYDVQQKDBhJbnRlcm5ldCBXaWRnaXRzIFB0eSBMdGQwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQ9Akav/KB0aVA9FM1QK4J1CEHn5rFOyY/nxcr5HG3\u002BFom0Kwu5zTR/kz9eOYgtG/1NmCzbiEKaULDfzA8V9aJ7o1MwUTAdBgNVHQ4EFgQUq37bLKiuw8Y/G\u002BrurMf46hw7EekwHwYDVR0jBBgwFoAUq37bLKiuw8Y/G\u002BrurMf46hw7EekwDwYDVR0TAQH/BAUwAwEB/zAKBggqhkjOPQQDAgNIADBFAiEA/JhtLSgtVOcXkgFJ9V5Vb6lhGdiKQFfzO9wTxPeCxCECIFePYPucys2n/r9MOBMHiX/8068ssv\u002BuceqokzUg0mAb\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -342,7 +342,7 @@
           "windows_registry_example_value": "MIIFljCCA36gAwIBAgINAgO8U1lrNMcY9QFQZjANBgkqhkiG9w0BAQsFADBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjEwHhcNMjAwODEzMDAwMDQyWhcNMjcwOTMwMDAwMDQyWjBGMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzETMBEGA1UEAxMKR1RTIENBIDFDMzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPWI3\u002BdijB43\u002BDdCkH9sh9D7ZYIl/ejLa6T/belaI\u002BKZ9hzpkgOZE3wJCor6QtZeViSqejOEH9Hpabu5dOxXTGZok3c3VVP\u002BORBNtzS7XyV3NzsXlOo85Z3VvMO0Q\u002Bsup0fvsEQRY9i0QYXdQTBIkxu/t/bgRQIh4JZCF8/ZK2VWNAcmBA2o/X3KLu/qSHw3TT8An4Pf73WELnlXXPxXbhqW//yMmqaZviXZf5YsBvcRKgKAgOtjGDxQSYflispfGStZloEAoPtR28p3CwvJlk/vcEnHXG0g/Zm0tOLKLnf9LdwLtmsTDIwZKxeWmLnwi/agJ7u2441Rj72ux5uxiZ0CAwEAAaOCAYAwggF8MA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQUinR/r4XN7pXNPZzQ4kYU83E1HScwHwYDVR0jBBgwFoAU5K8rJnEaK0gnhS9SZizv8IkTcT4waAYIKwYBBQUHAQEEXDBaMCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC5wa2kuZ29vZy9ndHNyMTAwBggrBgEFBQcwAoYkaHR0cDovL3BraS5nb29nL3JlcG8vY2VydHMvZ3RzcjEuZGVyMDQGA1UdHwQtMCswKaAnoCWGI2h0dHA6Ly9jcmwucGtpLmdvb2cvZ3RzcjEvZ3RzcjEuY3JsMFcGA1UdIARQME4wOAYKKwYBBAHWeQIFAzAqMCgGCCsGAQUFBwIBFhxodHRwczovL3BraS5nb29nL3JlcG9zaXRvcnkvMAgGBmeBDAECATAIBgZngQwBAgIwDQYJKoZIhvcNAQELBQADggIBAIl9rCBcDDy\u002BmqhXlRu0rvqrpXJxtDaV/d9AEQNMwkYUuxQkq/BQcSLbrcRuf8/xam/IgxvYzolfh2yHuKkMo5uhYpSTld9brmYZCwKWnvy15xBpPnrLRklfRuFBsdeYTWU0AIAaP0\u002BfbH9JAIFTQaSSIYKCGvGjRFsqUBITTcFTNvNCCK9U\u002Bo53UxtkOCcXCb1YyRt8OS1b887U7ZfbFAO/CVMkH8IMBHmYJvJh8VNS/UKMG2YrPxWhu//2m\u002BOBmgEGcYk1KCTd4b3rGS3hSMs9WYNRtHTGnXzGsYZbr8w0xNPM1IERlQCh9BIiAfq0g3GvjLeMcySsN1PCAJA/Ef5c7TaUEDu9Ka7ixzpiO2xj2YC/WXGsYye5TBeg2vZzFb8q3o/zpWwygTMD0IZRcZk0upONXbVRWPeyk\u002BgB9lm\u002BcZv9TSjOz23HFtz30dZGm6fKa\u002Bl3D/2gthsjgx0QGtkJAITgRNOidSOzNIb2ILCkXhAd4FJGAJ2xDx8hcFH1mt0G/FX0Kw4zd8NLQsLxdxP8c4CU6x\u002B7Nz/OAipmsHMdMqUybDKwjuDEI/9bfU1lcKwrmz3O2\u002BBtjjKAvpafkmO8l7tdufThcV4q5O8DIrGKZTqPwJNl1IXNDw9bg1kWRxYtnCQ6yICmJhSFm/Y3m6xv\u002BcXDBlHz4n/FsRC6UfTd",
           "macos_preference_key_name": "CAHintCertificates",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003EMIIFljCCA36gAwIBAgINAgO8U1lrNMcY9QFQZjANBgkqhkiG9w0BAQsFADBHMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjEwHhcNMjAwODEzMDAwMDQyWhcNMjcwOTMwMDAwMDQyWjBGMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzETMBEGA1UEAxMKR1RTIENBIDFDMzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPWI3\u002BdijB43\u002BDdCkH9sh9D7ZYIl/ejLa6T/belaI\u002BKZ9hzpkgOZE3wJCor6QtZeViSqejOEH9Hpabu5dOxXTGZok3c3VVP\u002BORBNtzS7XyV3NzsXlOo85Z3VvMO0Q\u002Bsup0fvsEQRY9i0QYXdQTBIkxu/t/bgRQIh4JZCF8/ZK2VWNAcmBA2o/X3KLu/qSHw3TT8An4Pf73WELnlXXPxXbhqW//yMmqaZviXZf5YsBvcRKgKAgOtjGDxQSYflispfGStZloEAoPtR28p3CwvJlk/vcEnHXG0g/Zm0tOLKLnf9LdwLtmsTDIwZKxeWmLnwi/agJ7u2441Rj72ux5uxiZ0CAwEAAaOCAYAwggF8MA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQUinR/r4XN7pXNPZzQ4kYU83E1HScwHwYDVR0jBBgwFoAU5K8rJnEaK0gnhS9SZizv8IkTcT4waAYIKwYBBQUHAQEEXDBaMCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC5wa2kuZ29vZy9ndHNyMTAwBggrBgEFBQcwAoYkaHR0cDovL3BraS5nb29nL3JlcG8vY2VydHMvZ3RzcjEuZGVyMDQGA1UdHwQtMCswKaAnoCWGI2h0dHA6Ly9jcmwucGtpLmdvb2cvZ3RzcjEvZ3RzcjEuY3JsMFcGA1UdIARQME4wOAYKKwYBBAHWeQIFAzAqMCgGCCsGAQUFBwIBFhxodHRwczovL3BraS5nb29nL3JlcG9zaXRvcnkvMAgGBmeBDAECATAIBgZngQwBAgIwDQYJKoZIhvcNAQELBQADggIBAIl9rCBcDDy\u002BmqhXlRu0rvqrpXJxtDaV/d9AEQNMwkYUuxQkq/BQcSLbrcRuf8/xam/IgxvYzolfh2yHuKkMo5uhYpSTld9brmYZCwKWnvy15xBpPnrLRklfRuFBsdeYTWU0AIAaP0\u002BfbH9JAIFTQaSSIYKCGvGjRFsqUBITTcFTNvNCCK9U\u002Bo53UxtkOCcXCb1YyRt8OS1b887U7ZfbFAO/CVMkH8IMBHmYJvJh8VNS/UKMG2YrPxWhu//2m\u002BOBmgEGcYk1KCTd4b3rGS3hSMs9WYNRtHTGnXzGsYZbr8w0xNPM1IERlQCh9BIiAfq0g3GvjLeMcySsN1PCAJA/Ef5c7TaUEDu9Ka7ixzpiO2xj2YC/WXGsYye5TBeg2vZzFb8q3o/zpWwygTMD0IZRcZk0upONXbVRWPeyk\u002BgB9lm\u002BcZv9TSjOz23HFtz30dZGm6fKa\u002Bl3D/2gthsjgx0QGtkJAITgRNOidSOzNIb2ILCkXhAd4FJGAJ2xDx8hcFH1mt0G/FX0Kw4zd8NLQsLxdxP8c4CU6x\u002B7Nz/OAipmsHMdMqUybDKwjuDEI/9bfU1lcKwrmz3O2\u002BBtjjKAvpafkmO8l7tdufThcV4q5O8DIrGKZTqPwJNl1IXNDw9bg1kWRxYtnCQ6yICmJhSFm/Y3m6xv\u002BcXDBlHz4n/FsRC6UfTd\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -398,7 +398,7 @@
           "windows_registry_example_value": "{\\\u0022pattern\\\u0022:\\\u0022https://www.contoso.com\\\u0022,\\\u0022filter\\\u0022:{\\\u0022ISSUER\\\u0022:{\\\u0022CN\\\u0022:\\\u0022certificate issuer name\\\u0022, \\\u0022L\\\u0022: \\\u0022certificate issuer location\\\u0022, \\\u0022O\\\u0022: \\\u0022certificate issuer org\\\u0022, \\\u0022OU\\\u0022: \\\u0022certificate issuer org unit\\\u0022}, \\\u0022SUBJECT\\\u0022:{\\\u0022CN\\\u0022:\\\u0022certificate subject name\\\u0022, \\\u0022L\\\u0022: \\\u0022certificate subject location\\\u0022, \\\u0022O\\\u0022: \\\u0022certificate subject org\\\u0022, \\\u0022OU\\\u0022: \\\u0022certificate subject org unit\\\u0022}}}",
           "macos_preference_key_name": "AutoSelectCertificateForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003E{\u0022pattern\u0022:\u0022https://www.contoso.com\u0022,\u0022filter\u0022:{\u0022ISSUER\u0022:{\u0022CN\u0022:\u0022certificate issuer name\u0022, \u0022L\u0022: \u0022certificate issuer location\u0022, \u0022O\u0022: \u0022certificate issuer org\u0022, \u0022OU\u0022: \u0022certificate issuer org unit\u0022}, \u0022SUBJECT\u0022:{\u0022CN\u0022:\u0022certificate subject name\u0022, \u0022L\u0022: \u0022certificate subject location\u0022, \u0022O\u0022: \u0022certificate subject org\u0022, \u0022OU\u0022: \u0022certificate subject org unit\u0022}}}\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -423,7 +423,7 @@
           "windows_registry_example_value": "https://contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "AutomaticDownloadsAllowedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -448,7 +448,7 @@
           "windows_registry_example_value": "https://contoso.com\n[*.]contoso.com",
           "macos_preference_key_name": "AutomaticDownloadsBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.com\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -473,7 +473,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "AutomaticFullscreenAllowedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -498,7 +498,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "AutomaticFullscreenBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -523,7 +523,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu\nhttps://loaded-as-third-party.fabrikam.com,https://www.contoso.com\n*,https://www.contoso.com",
           "macos_preference_key_name": "CookiesAllowedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003Cstring\u003Ehttps://loaded-as-third-party.fabrikam.com,https://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E*,https://www.contoso.com\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -548,7 +548,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "CookiesBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -573,7 +573,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "CookiesSessionOnlyForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1102,7 +1102,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "FileSystemReadAskForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1127,7 +1127,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "FileSystemReadBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1152,7 +1152,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "FileSystemWriteAskForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1177,7 +1177,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "FileSystemWriteBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1202,7 +1202,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "ImagesAllowedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1227,7 +1227,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "ImagesBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1252,7 +1252,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "InsecureContentAllowedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1277,7 +1277,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "InsecureContentBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1327,7 +1327,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "JavaScriptAllowedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1352,7 +1352,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "JavaScriptBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1377,7 +1377,7 @@
           "windows_registry_example_value": "[*.]example.edu",
           "macos_preference_key_name": "JavaScriptJitAllowedForSites",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1402,7 +1402,7 @@
           "windows_registry_example_value": "[*.]example.edu",
           "macos_preference_key_name": "JavaScriptJitBlockedForSites",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1455,7 +1455,7 @@
           "windows_registry_example_value": "www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "LegacySameSiteCookieBehaviorEnabledForDomainList",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ewww.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1480,7 +1480,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "NotificationsAllowedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1505,7 +1505,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "NotificationsBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1530,7 +1530,7 @@
           "windows_registry_example_value": "https://www.contoso.com\nhttp://contoso.edu:8080",
           "macos_preference_key_name": "PluginsAllowedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003Ehttp://contoso.edu:8080\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1555,7 +1555,7 @@
           "windows_registry_example_value": "https://www.contoso.com\nhttp://contoso.edu:8080",
           "macos_preference_key_name": "PluginsBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003Ehttp://contoso.edu:8080\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1580,7 +1580,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "PopupsAllowedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1605,7 +1605,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "PopupsBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1630,7 +1630,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022default\u0022: true,\n    \u0022protocol\u0022: \u0022mailto\u0022,\n    \u0022url\u0022: \u0022https://mail.contoso.com/mail/?extsrc=mailto\u0026url=%s\u0022\n  }\n]",
           "macos_preference_key_name": "RegisteredProtocolHandlers",
           "macos_preference_example_value": "\u003Ckey\u003ERegisteredProtocolHandlers\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Edefault\u003C/key\u003E\n\u003Ctrue/\u003E\n\u003Ckey\u003Eprotocol\u003C/key\u003E\n\u003Cstring\u003Emailto\u003C/string\u003E\n\u003Ckey\u003Eurl\u003C/key\u003E\n\u003Cstring\u003Ehttps://mail.contoso.com/mail/?extsrc=mailto\u0026url=%s\u003C/string\u003E\n\u003C/dict\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1655,7 +1655,7 @@
           "windows_registry_example_value": "https://www.example.com",
           "macos_preference_key_name": "SerialAllowAllPortsForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1680,7 +1680,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022devices\u0022: [\n      {\n        \u0022product_id\u0022: 5678,\n        \u0022vendor_id\u0022: 1234\n      }\n    ],\n    \u0022urls\u0022: [\n      \u0022https://specific-device.example.com\u0022\n    ]\n  },\n  {\n    \u0022devices\u0022: [\n      {\n        \u0022vendor_id\u0022: 1234\n      }\n    ],\n    \u0022urls\u0022: [\n      \u0022https://all-vendor-devices.example.com\u0022\n    ]\n  }\n]",
           "macos_preference_key_name": "SerialAllowUsbDevicesForUrls",
           "macos_preference_example_value": "\u003Ckey\u003ESerialAllowUsbDevicesForUrls\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Edevices\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eproduct_id\u003C/key\u003E\n\u003Cinteger\u003E5678\u003C/integer\u003E\n\u003Ckey\u003Evendor_id\u003C/key\u003E\n\u003Cinteger\u003E1234\u003C/integer\u003E\n\u003C/dict\u003E\n\u003C/array\u003E\n\u003Ckey\u003Eurls\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://specific-device.example.com\u003C/string\u003E\n\u003C/array\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Edevices\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Evendor_id\u003C/key\u003E\n\u003Cinteger\u003E1234\u003C/integer\u003E\n\u003C/dict\u003E\n\u003C/array\u003E\n\u003Ckey\u003Eurls\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://all-vendor-devices.example.com\u003C/string\u003E\n\u003C/array\u003E\n\u003C/dict\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1755,7 +1755,7 @@
           "windows_registry_example_value": "www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "ThirdPartyStoragePartitioningBlockedForOrigins",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ewww.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1780,7 +1780,7 @@
           "windows_registry_example_value": "https://microsoft.com\nhttps://chromium.org",
           "macos_preference_key_name": "WebHidAllowAllDevicesForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://microsoft.com\u003C/string\u003E\n\u003Cstring\u003Ehttps://chromium.org\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1805,7 +1805,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022devices\u0022: [\n      {\n        \u0022product_id\u0022: 5678,\n        \u0022vendor_id\u0022: 1234\n      }\n    ],\n    \u0022urls\u0022: [\n      \u0022https://microsoft.com\u0022,\n      \u0022https://chromium.org\u0022\n    ]\n  }\n]",
           "macos_preference_key_name": "WebHidAllowDevicesForUrls",
           "macos_preference_example_value": "\u003Ckey\u003EWebHidAllowDevicesForUrls\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Edevices\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eproduct_id\u003C/key\u003E\n\u003Cinteger\u003E5678\u003C/integer\u003E\n\u003Ckey\u003Evendor_id\u003C/key\u003E\n\u003Cinteger\u003E1234\u003C/integer\u003E\n\u003C/dict\u003E\n\u003C/array\u003E\n\u003Ckey\u003Eurls\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://microsoft.com\u003C/string\u003E\n\u003Cstring\u003Ehttps://chromium.org\u003C/string\u003E\n\u003C/array\u003E\n\u003C/dict\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1830,7 +1830,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022urls\u0022: [\n      \u0022https://microsoft.com\u0022,\n      \u0022https://chromium.org\u0022\n    ],\n    \u0022usages\u0022: [\n      {\n        \u0022usage\u0022: 5678,\n        \u0022usage_page\u0022: 1234\n      }\n    ]\n  }\n]",
           "macos_preference_key_name": "WebHidAllowDevicesWithHidUsagesForUrls",
           "macos_preference_example_value": "\u003Ckey\u003EWebHidAllowDevicesWithHidUsagesForUrls\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eurls\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://microsoft.com\u003C/string\u003E\n\u003Cstring\u003Ehttps://chromium.org\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Eusages\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eusage\u003C/key\u003E\n\u003Cinteger\u003E5678\u003C/integer\u003E\n\u003Ckey\u003Eusage_page\u003C/key\u003E\n\u003Cinteger\u003E1234\u003C/integer\u003E\n\u003C/dict\u003E\n\u003C/array\u003E\n\u003C/dict\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1855,7 +1855,7 @@
           "windows_registry_example_value": "https://microsoft.com\nhttps://chromium.org",
           "macos_preference_key_name": "WebHidAskForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://microsoft.com\u003C/string\u003E\n\u003Cstring\u003Ehttps://chromium.org\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1880,7 +1880,7 @@
           "windows_registry_example_value": "https://microsoft.com\nhttps://chromium.org",
           "macos_preference_key_name": "WebHidBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://microsoft.com\u003C/string\u003E\n\u003Cstring\u003Ehttps://chromium.org\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1905,7 +1905,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022devices\u0022: [\n      {\n        \u0022product_id\u0022: 5678,\n        \u0022vendor_id\u0022: 1234\n      }\n    ],\n    \u0022urls\u0022: [\n      \u0022https://contoso.com\u0022,\n      \u0022https://fabrikam.com\u0022\n    ]\n  }\n]",
           "macos_preference_key_name": "WebUsbAllowDevicesForUrls",
           "macos_preference_example_value": "\u003Ckey\u003EWebUsbAllowDevicesForUrls\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Edevices\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eproduct_id\u003C/key\u003E\n\u003Cinteger\u003E5678\u003C/integer\u003E\n\u003Ckey\u003Evendor_id\u003C/key\u003E\n\u003Cinteger\u003E1234\u003C/integer\u003E\n\u003C/dict\u003E\n\u003C/array\u003E\n\u003Ckey\u003Eurls\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://contoso.com\u003C/string\u003E\n\u003Cstring\u003Ehttps://fabrikam.com\u003C/string\u003E\n\u003C/array\u003E\n\u003C/dict\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1930,7 +1930,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "WebUsbAskForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1955,7 +1955,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "WebUsbBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -1980,7 +1980,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "WindowManagementAllowedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -2005,7 +2005,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "WindowManagementBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         }
@@ -2061,7 +2061,7 @@
           "windows_registry_example_value": "UTF-8\nUTF-16\nGB2312\nISO-8859-1",
           "macos_preference_key_name": "DefaultSearchProviderEncodings",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003EUTF-8\u003C/string\u003E\n\u003Cstring\u003EUTF-16\u003C/string\u003E\n\u003Cstring\u003EGB2312\u003C/string\u003E\n\u003Cstring\u003EISO-8859-1\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -2326,7 +2326,7 @@
           "windows_registry_example_value": "mydomain.com\nmyuniversity.edu",
           "macos_preference_key_name": "TyposquattingAllowListDomains",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Emydomain.com\u003C/string\u003E\n\u003Cstring\u003Emyuniversity.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -2407,7 +2407,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022navigation_options\u0022: {\n      \u0022do_not_send_to\u0022: true,\n      \u0022remove_all_query_parameters\u0022: true\n    },\n    \u0022url_patterns\u0022: [\n      \u0022https://contoso.com\u0022,\n      \u0022https://www.fabrikam.com\u0022,\n      \u0022.exact.hostname.com\u0022\n    ]\n  },\n  {\n    \u0022navigation_options\u0022: {\n      \u0022query_parameters_to_remove\u0022: [\n        \u0022username\u0022,\n        \u0022login_hint\u0022\n      ]\n    },\n    \u0022url_patterns\u0022: [\n      \u0022https://adatum.com\u0022\n    ]\n  },\n  {\n    \u0022navigation_options\u0022: {\n      \u0022do_not_send_from\u0022: true,\n      \u0022prefer_initial_url\u0022: true\n    },\n    \u0022url_regex_patterns\u0022: [\n      \u0022\\\\Ahttps://.*?tafe\\\\..*?trs.*?\\\\.fabrikam.com/Sts\u0022\n    ]\n  }\n]",
           "macos_preference_key_name": "WorkspacesNavigationSettings",
           "macos_preference_example_value": "\u003Ckey\u003EWorkspacesNavigationSettings\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Enavigation_options\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Edo_not_send_to\u003C/key\u003E\n\u003Ctrue/\u003E\n\u003Ckey\u003Eremove_all_query_parameters\u003C/key\u003E\n\u003Ctrue/\u003E\n\u003C/dict\u003E\n\u003Ckey\u003Eurl_patterns\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://contoso.com\u003C/string\u003E\n\u003Cstring\u003Ehttps://www.fabrikam.com\u003C/string\u003E\n\u003Cstring\u003E.exact.hostname.com\u003C/string\u003E\n\u003C/array\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Enavigation_options\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Equery_parameters_to_remove\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Eusername\u003C/string\u003E\n\u003Cstring\u003Elogin_hint\u003C/string\u003E\n\u003C/array\u003E\n\u003C/dict\u003E\n\u003Ckey\u003Eurl_patterns\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://adatum.com\u003C/string\u003E\n\u003C/array\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Enavigation_options\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Edo_not_send_from\u003C/key\u003E\n\u003Ctrue/\u003E\n\u003Ckey\u003Eprefer_initial_url\u003C/key\u003E\n\u003Ctrue/\u003E\n\u003C/dict\u003E\n\u003Ckey\u003Eurl_regex_patterns\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003E\\Ahttps://.*?tafe\\..*?trs.*?\\.fabrikam.com/Sts\u003C/string\u003E\n\u003C/array\u003E\n\u003C/dict\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         }
@@ -2523,7 +2523,7 @@
           "windows_registry_example_value": "hosted_app",
           "macos_preference_key_name": "ExtensionAllowedTypes",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehosted_app\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "extension": "extension",
             "theme": "theme",
@@ -2583,7 +2583,7 @@
           "windows_registry_example_value": "chrome-extension://abcdefghijklmnopabcdefghijklmnop/\nchrome-extension://bcdefghijklmnopabcdefghijklmnopa/",
           "macos_preference_key_name": "ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Echrome-extension://abcdefghijklmnopabcdefghijklmnop/\u003C/string\u003E\n\u003Cstring\u003Echrome-extension://bcdefghijklmnopabcdefghijklmnopa/\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -2608,7 +2608,7 @@
           "windows_registry_example_value": "extension_id1\nextension_id2",
           "macos_preference_key_name": "ExtensionInstallAllowlist",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Eextension_id1\u003C/string\u003E\n\u003Cstring\u003Eextension_id2\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -2633,7 +2633,7 @@
           "windows_registry_example_value": "extension_id1\nextension_id2",
           "macos_preference_key_name": "ExtensionInstallBlocklist",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Eextension_id1\u003C/string\u003E\n\u003Cstring\u003Eextension_id2\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -2658,7 +2658,7 @@
           "windows_registry_example_value": "gbchcmhmhahfdphkhkmpfmihenigjmpp;https://edge.microsoft.com/extensionwebstorebase/v1/crx\nabcdefghijklmnopabcdefghijklmnop",
           "macos_preference_key_name": "ExtensionInstallForcelist",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Egbchcmhmhahfdphkhkmpfmihenigjmpp;https://edge.microsoft.com/extensionwebstorebase/v1/crx\u003C/string\u003E\n\u003Cstring\u003Eabcdefghijklmnopabcdefghijklmnop\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -2683,7 +2683,7 @@
           "windows_registry_example_value": "https://corp.contoso.com/*",
           "macos_preference_key_name": "ExtensionInstallSources",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://corp.contoso.com/*\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -2708,7 +2708,7 @@
           "windows_registry_example_value": "command_line",
           "macos_preference_key_name": "ExtensionInstallTypeBlocklist",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ecommand_line\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "command_line": "command_line"
           },
@@ -2765,7 +2765,7 @@
           "windows_registry_example_value": "{\n  \u0022*\u0022: {\n    \u0022allowed_types\u0022: [\n      \u0022hosted_app\u0022\n    ],\n    \u0022blocked_install_message\u0022: \u0022Custom error message.\u0022,\n    \u0022blocked_permissions\u0022: [\n      \u0022downloads\u0022,\n      \u0022bookmarks\u0022\n    ],\n    \u0022install_sources\u0022: [\n      \u0022https://company-intranet/apps\u0022\n    ],\n    \u0022installation_mode\u0022: \u0022blocked\u0022,\n    \u0022runtime_allowed_hosts\u0022: [\n      \u0022*://good.contoso.com\u0022\n    ],\n    \u0022runtime_blocked_hosts\u0022: [\n      \u0022*://*.contoso.com\u0022\n    ]\n  },\n  \u0022abcdefghijklmnopabcdefghijklmnop\u0022: {\n    \u0022blocked_permissions\u0022: [\n      \u0022history\u0022\n    ],\n    \u0022file_url_navigation_allowed\u0022: true,\n    \u0022installation_mode\u0022: \u0022allowed\u0022,\n    \u0022minimum_version_required\u0022: \u00221.0.1\u0022\n  },\n  \u0022bcdefghijklmnopabcdefghijklmnopa\u0022: {\n    \u0022allowed_permissions\u0022: [\n      \u0022downloads\u0022\n    ],\n    \u0022installation_mode\u0022: \u0022force_installed\u0022,\n    \u0022override_update_url\u0022: true,\n    \u0022runtime_allowed_hosts\u0022: [\n      \u0022*://good.contoso.com\u0022\n    ],\n    \u0022runtime_blocked_hosts\u0022: [\n      \u0022*://*.contoso.com\u0022\n    ],\n    \u0022sidebar_auto_open_blocked\u0022: true,\n    \u0022toolbar_state\u0022: \u0022force_shown\u0022,\n    \u0022update_url\u0022: \u0022https://contoso.com/update_url\u0022\n  },\n  \u0022cdefghijklmnopabcdefghijklmnopab\u0022: {\n    \u0022blocked_install_message\u0022: \u0022Custom error message.\u0022,\n    \u0022installation_mode\u0022: \u0022blocked\u0022\n  },\n  \u0022defghijklmnopabcdefghijklmnopabc,efghijklmnopabcdefghijklmnopabcd\u0022: {\n    \u0022blocked_install_message\u0022: \u0022Custom error message.\u0022,\n    \u0022installation_mode\u0022: \u0022blocked\u0022\n  },\n  \u0022fghijklmnopabcdefghijklmnopabcde\u0022: {\n    \u0022blocked_install_message\u0022: \u0022Custom removal message.\u0022,\n    \u0022installation_mode\u0022: \u0022removed\u0022\n  },\n  \u0022update_url:https://www.contoso.com/update.xml\u0022: {\n    \u0022allowed_permissions\u0022: [\n      \u0022downloads\u0022\n    ],\n    \u0022blocked_permissions\u0022: [\n      \u0022wallpaper\u0022\n    ],\n    \u0022installation_mode\u0022: \u0022allowed\u0022\n  }\n}",
           "macos_preference_key_name": "ExtensionSettings",
           "macos_preference_example_value": "\u003Ckey\u003EExtensionSettings\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003E*\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eallowed_types\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehosted_app\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Eblocked_install_message\u003C/key\u003E\n\u003Cstring\u003ECustom error message.\u003C/string\u003E\n\u003Ckey\u003Eblocked_permissions\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Edownloads\u003C/string\u003E\n\u003Cstring\u003Ebookmarks\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Einstall_sources\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://company-intranet/apps\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Einstallation_mode\u003C/key\u003E\n\u003Cstring\u003Eblocked\u003C/string\u003E\n\u003Ckey\u003Eruntime_allowed_hosts\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003E*://good.contoso.com\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Eruntime_blocked_hosts\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003E*://*.contoso.com\u003C/string\u003E\n\u003C/array\u003E\n\u003C/dict\u003E\n\u003Ckey\u003Eabcdefghijklmnopabcdefghijklmnop\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eblocked_permissions\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehistory\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Efile_url_navigation_allowed\u003C/key\u003E\n\u003Ctrue/\u003E\n\u003Ckey\u003Einstallation_mode\u003C/key\u003E\n\u003Cstring\u003Eallowed\u003C/string\u003E\n\u003Ckey\u003Eminimum_version_required\u003C/key\u003E\n\u003Cstring\u003E1.0.1\u003C/string\u003E\n\u003C/dict\u003E\n\u003Ckey\u003Ebcdefghijklmnopabcdefghijklmnopa\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eallowed_permissions\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Edownloads\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Einstallation_mode\u003C/key\u003E\n\u003Cstring\u003Eforce_installed\u003C/string\u003E\n\u003Ckey\u003Eoverride_update_url\u003C/key\u003E\n\u003Ctrue/\u003E\n\u003Ckey\u003Eruntime_allowed_hosts\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003E*://good.contoso.com\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Eruntime_blocked_hosts\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003E*://*.contoso.com\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Esidebar_auto_open_blocked\u003C/key\u003E\n\u003Ctrue/\u003E\n\u003Ckey\u003Etoolbar_state\u003C/key\u003E\n\u003Cstring\u003Eforce_shown\u003C/string\u003E\n\u003Ckey\u003Eupdate_url\u003C/key\u003E\n\u003Cstring\u003Ehttps://contoso.com/update_url\u003C/string\u003E\n\u003C/dict\u003E\n\u003Ckey\u003Ecdefghijklmnopabcdefghijklmnopab\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eblocked_install_message\u003C/key\u003E\n\u003Cstring\u003ECustom error message.\u003C/string\u003E\n\u003Ckey\u003Einstallation_mode\u003C/key\u003E\n\u003Cstring\u003Eblocked\u003C/string\u003E\n\u003C/dict\u003E\n\u003Ckey\u003Edefghijklmnopabcdefghijklmnopabc,efghijklmnopabcdefghijklmnopabcd\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eblocked_install_message\u003C/key\u003E\n\u003Cstring\u003ECustom error message.\u003C/string\u003E\n\u003Ckey\u003Einstallation_mode\u003C/key\u003E\n\u003Cstring\u003Eblocked\u003C/string\u003E\n\u003C/dict\u003E\n\u003Ckey\u003Efghijklmnopabcdefghijklmnopabcde\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eblocked_install_message\u003C/key\u003E\n\u003Cstring\u003ECustom removal message.\u003C/string\u003E\n\u003Ckey\u003Einstallation_mode\u003C/key\u003E\n\u003Cstring\u003Eremoved\u003C/string\u003E\n\u003C/dict\u003E\n\u003Ckey\u003Eupdate_url:https://www.contoso.com/update.xml\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eallowed_permissions\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Edownloads\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Eblocked_permissions\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ewallpaper\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Einstallation_mode\u003C/key\u003E\n\u003Cstring\u003Eallowed\u003C/string\u003E\n\u003C/dict\u003E\n\u003C/dict\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         }
@@ -2861,7 +2861,7 @@
           "windows_registry_example_value": "*.example.com",
           "macos_preference_key_name": "AllHttpAuthSchemesAllowedForOrigins",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003E*.example.com\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -3117,7 +3117,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022profile\u0022: \u0022Work\u0022,\n    \u0022site\u0022: \u0022work.com\u0022\n  },\n  {\n    \u0022profile\u0022: \u0022Personal\u0022,\n    \u0022site\u0022: \u0022personal.com\u0022\n  },\n  {\n    \u0022profile\u0022: \u0022No preference\u0022,\n    \u0022site\u0022: \u0022nopreference.com\u0022\n  },\n  {\n    \u0022profile\u0022: \u0022*@contoso.com\u0022,\n    \u0022site\u0022: \u0022contoso.com\u0022\n  }\n]",
           "macos_preference_key_name": "AutomaticProfileSwitchingSiteList",
           "macos_preference_example_value": "\u003Ckey\u003EAutomaticProfileSwitchingSiteList\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eprofile\u003C/key\u003E\n\u003Cstring\u003EWork\u003C/string\u003E\n\u003Ckey\u003Esite\u003C/key\u003E\n\u003Cstring\u003Ework.com\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eprofile\u003C/key\u003E\n\u003Cstring\u003EPersonal\u003C/string\u003E\n\u003Ckey\u003Esite\u003C/key\u003E\n\u003Cstring\u003Epersonal.com\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eprofile\u003C/key\u003E\n\u003Cstring\u003ENo preference\u003C/string\u003E\n\u003Ckey\u003Esite\u003C/key\u003E\n\u003Cstring\u003Enopreference.com\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eprofile\u003C/key\u003E\n\u003Cstring\u003E*@contoso.com\u003C/string\u003E\n\u003Ckey\u003Esite\u003C/key\u003E\n\u003Cstring\u003Econtoso.com\u003C/string\u003E\n\u003C/dict\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -3721,7 +3721,7 @@
           "windows_registry_example_value": "com.native.messaging.host.name1\ncom.native.messaging.host.name2",
           "macos_preference_key_name": "NativeMessagingAllowlist",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ecom.native.messaging.host.name1\u003C/string\u003E\n\u003Cstring\u003Ecom.native.messaging.host.name2\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -3746,7 +3746,7 @@
           "windows_registry_example_value": "com.native.messaging.host.name1\ncom.native.messaging.host.name2",
           "macos_preference_key_name": "NativeMessagingBlocklist",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ecom.native.messaging.host.name1\u003C/string\u003E\n\u003Cstring\u003Ecom.native.messaging.host.name2\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -3958,7 +3958,7 @@
           "windows_registry_example_value": "pZGm1Av0IEBKARczz7exkNYsZb8LzaMrV7J32a2fFG4=\nnFeL0Q\u002B9HX7WFI3RsmSDFTlUtrbclXH67MTdXDwWuu4=",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -3983,7 +3983,7 @@
           "windows_registry_example_value": "https://contesso.sharepoint.com/accounts/\nhttps://contesso.sharepoint.com/transport/\nfile://account_forms/",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         }
@@ -4089,7 +4089,7 @@
           "windows_registry_example_value": "https://contoso.com/\nhttps://login.contoso.com",
           "macos_preference_key_name": "PasswordManagerBlocklist",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://contoso.com/\u003C/string\u003E\n\u003Cstring\u003Ehttps://login.contoso.com\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -4214,7 +4214,7 @@
           "windows_registry_example_value": "https://contoso.com/login.html\nhttps://login.contoso.com",
           "macos_preference_key_name": "PasswordProtectionLoginURLs",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://contoso.com/login.html\u003C/string\u003E\n\u003Cstring\u003Ehttps://login.contoso.com\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -4516,7 +4516,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "SameOriginTabCaptureAllowedByOrigins",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -4541,7 +4541,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "ScreenCaptureAllowedByOrigins",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -4566,7 +4566,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "TabCaptureAllowedByOrigins",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -4591,7 +4591,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "WindowCaptureAllowedByOrigins",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         }
@@ -4725,7 +4725,7 @@
           "windows_registry_example_value": "{\n  \u0022layout\u0022: false,\n  \u0022margins\u0022: true,\n  \u0022scaleType\u0022: false,\n  \u0022size\u0022: true\n}",
           "macos_preference_key_name": "PrintPreviewStickySettings",
           "macos_preference_example_value": "\u003Ckey\u003EPrintPreviewStickySettings\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Elayout\u003C/key\u003E\n\u003Cfalse/\u003E\n\u003Ckey\u003Emargins\u003C/key\u003E\n\u003Ctrue/\u003E\n\u003Ckey\u003EscaleType\u003C/key\u003E\n\u003Cfalse/\u003E\n\u003Ckey\u003Esize\u003C/key\u003E\n\u003Ctrue/\u003E\n\u003C/dict\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -4858,7 +4858,7 @@
           "windows_registry_example_value": "local\nprivet",
           "macos_preference_key_name": "PrinterTypeDenyList",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Elocal\u003C/string\u003E\n\u003Cstring\u003Eprivet\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "privet": "privet",
             "extension": "extension",
@@ -4996,7 +4996,7 @@
           "windows_registry_example_value": "{\n  \u0022custom_size\u0022: {\n    \u0022height\u0022: 297000,\n    \u0022width\u0022: 210000\n  },\n  \u0022name\u0022: \u0022custom\u0022\n}",
           "macos_preference_key_name": "PrintingPaperSizeDefault",
           "macos_preference_example_value": "\u003Ckey\u003EPrintingPaperSizeDefault\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Ecustom_size\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eheight\u003C/key\u003E\n\u003Cinteger\u003E297000\u003C/integer\u003E\n\u003Ckey\u003Ewidth\u003C/key\u003E\n\u003Cinteger\u003E210000\u003C/integer\u003E\n\u003C/dict\u003E\n\u003Ckey\u003Ename\u003C/key\u003E\n\u003Cstring\u003Ecustom\u003C/string\u003E\n\u003C/dict\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -5105,7 +5105,7 @@
           "windows_registry_example_value": "http://www.example.com:8080\n[*.]example.edu",
           "macos_preference_key_name": "InsecurePrivateNetworkRequestsAllowedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttp://www.example.com:8080\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -5267,7 +5267,7 @@
           "windows_registry_example_value": "{\n  \u0022ProxyBypassList\u0022: \u0022https://www.example1.com,https://www.example2.com,https://internalsite/\u0022,\n  \u0022ProxyMode\u0022: \u0022pac_script\u0022,\n  \u0022ProxyPacMandatory\u0022: false,\n  \u0022ProxyPacUrl\u0022: \u0022https://internal.site/example.pac\u0022,\n  \u0022ProxyServer\u0022: \u0022123.123.123.123:8080\u0022\n}",
           "macos_preference_key_name": "ProxySettings",
           "macos_preference_example_value": "\u003Ckey\u003EProxySettings\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003EProxyBypassList\u003C/key\u003E\n\u003Cstring\u003Ehttps://www.example1.com,https://www.example2.com,https://internalsite/\u003C/string\u003E\n\u003Ckey\u003EProxyMode\u003C/key\u003E\n\u003Cstring\u003Epac_script\u003C/string\u003E\n\u003Ckey\u003EProxyPacMandatory\u003C/key\u003E\n\u003Cfalse/\u003E\n\u003Ckey\u003EProxyPacUrl\u003C/key\u003E\n\u003Cstring\u003Ehttps://internal.site/example.pac\u003C/string\u003E\n\u003Ckey\u003EProxyServer\u003C/key\u003E\n\u003Cstring\u003E123.123.123.123:8080\u003C/string\u003E\n\u003C/dict\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         }
@@ -5323,7 +5323,7 @@
           "windows_registry_example_value": "{\n  \u0022additions\u0022: [\n    {\n      \u0022associatedSites\u0022: [\n        \u0022https://associate2.test\u0022\n      ],\n      \u0022ccTLDs\u0022: {\n        \u0022https://associate2.test\u0022: [\n          \u0022https://associate2.com\u0022\n        ]\n      },\n      \u0022primary\u0022: \u0022https://primary2.test\u0022,\n      \u0022serviceSites\u0022: [\n        \u0022https://associate2-content.test\u0022\n      ]\n    }\n  ],\n  \u0022replacements\u0022: [\n    {\n      \u0022associatedSites\u0022: [\n        \u0022https://associate1.test\u0022\n      ],\n      \u0022ccTLDs\u0022: {\n        \u0022https://associate1.test\u0022: [\n          \u0022https://associate1.co.uk\u0022\n        ]\n      },\n      \u0022primary\u0022: \u0022https://primary1.test\u0022,\n      \u0022serviceSites\u0022: [\n        \u0022https://associate1-content.test\u0022\n      ]\n    }\n  ]\n}",
           "macos_preference_key_name": "RelatedWebsiteSetsOverrides",
           "macos_preference_example_value": "\u003Ckey\u003ERelatedWebsiteSetsOverrides\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eadditions\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003EassociatedSites\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://associate2.test\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003EccTLDs\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Ehttps://associate2.test\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://associate2.com\u003C/string\u003E\n\u003C/array\u003E\n\u003C/dict\u003E\n\u003Ckey\u003Eprimary\u003C/key\u003E\n\u003Cstring\u003Ehttps://primary2.test\u003C/string\u003E\n\u003Ckey\u003EserviceSites\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://associate2-content.test\u003C/string\u003E\n\u003C/array\u003E\n\u003C/dict\u003E\n\u003C/array\u003E\n\u003Ckey\u003Ereplacements\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003EassociatedSites\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://associate1.test\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003EccTLDs\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Ehttps://associate1.test\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://associate1.co.uk\u003C/string\u003E\n\u003C/array\u003E\n\u003C/dict\u003E\n\u003Ckey\u003Eprimary\u003C/key\u003E\n\u003Cstring\u003Ehttps://primary1.test\u003C/string\u003E\n\u003Ckey\u003EserviceSites\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://associate1-content.test\u003C/string\u003E\n\u003C/array\u003E\n\u003C/dict\u003E\n\u003C/array\u003E\n\u003C/dict\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         }
@@ -5379,7 +5379,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "SleepingTabsBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -5470,7 +5470,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022domains\u0022: [\n      \u0022https://contoso.com\u0022,\n      \u0022contoso2.com\u0022\n    ],\n    \u0022file_extension\u0022: \u0022msi\u0022\n  },\n  {\n    \u0022domains\u0022: [\n      \u0022*\u0022\n    ],\n    \u0022file_extension\u0022: \u0022vbe\u0022\n  }\n]",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -5570,7 +5570,7 @@
           "windows_registry_example_value": "mydomain.com\nmyuniversity.edu",
           "macos_preference_key_name": "SmartScreenAllowListDomains",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Emydomain.com\u003C/string\u003E\n\u003Cstring\u003Emyuniversity.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -6134,7 +6134,7 @@
           "windows_registry_example_value": "mydomain.com\n[*.]mydomain2.com\n[*.].mydomain2.com",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -6159,7 +6159,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "AllowTrackingForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -6439,7 +6439,7 @@
           "windows_registry_example_value": "https://www.contoso.com/\nhttps://[*.]contoso.edu/",
           "macos_preference_key_name": "AudioCaptureAllowedUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com/\u003C/string\u003E\n\u003Cstring\u003Ehttps://[*.]contoso.edu/\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -6571,7 +6571,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022allowed_origins\u0022: [\n      \u0022example.com\u0022,\n      \u0022http://www.example.com:8080\u0022\n    ],\n    \u0022protocol\u0022: \u0022spotify\u0022\n  },\n  {\n    \u0022allowed_origins\u0022: [\n      \u0022https://example.com\u0022,\n      \u0022https://.mail.example.com\u0022\n    ],\n    \u0022protocol\u0022: \u0022msteams\u0022\n  },\n  {\n    \u0022allowed_origins\u0022: [\n      \u0022*\u0022\n    ],\n    \u0022protocol\u0022: \u0022msoutlook\u0022\n  }\n]",
           "macos_preference_key_name": "AutoLaunchProtocolsFromOrigins",
           "macos_preference_example_value": "\u003Ckey\u003EAutoLaunchProtocolsFromOrigins\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eallowed_origins\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Eexample.com\u003C/string\u003E\n\u003Cstring\u003Ehttp://www.example.com:8080\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Eprotocol\u003C/key\u003E\n\u003Cstring\u003Espotify\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eallowed_origins\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://example.com\u003C/string\u003E\n\u003Cstring\u003Ehttps://.mail.example.com\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Eprotocol\u003C/key\u003E\n\u003Cstring\u003Emsteams\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eallowed_origins\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003E*\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Eprotocol\u003C/key\u003E\n\u003Cstring\u003Emsoutlook\u003C/string\u003E\n\u003C/dict\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -6596,7 +6596,7 @@
           "windows_registry_example_value": "example.com\nhttps://ssl.server.com\nhosting.com/good_path\nhttps://server:8080/path\n.exact.hostname.com",
           "macos_preference_key_name": "AutoOpenAllowedForURLs",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Eexample.com\u003C/string\u003E\n\u003Cstring\u003Ehttps://ssl.server.com\u003C/string\u003E\n\u003Cstring\u003Ehosting.com/good_path\u003C/string\u003E\n\u003Cstring\u003Ehttps://server:8080/path\u003C/string\u003E\n\u003Cstring\u003E.exact.hostname.com\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -6621,7 +6621,7 @@
           "windows_registry_example_value": "exe\ntxt",
           "macos_preference_key_name": "AutoOpenFileTypes",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Eexe\u003C/string\u003E\n\u003Cstring\u003Etxt\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -6775,7 +6775,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "AutoplayAllowlist",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -7083,7 +7083,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022data_types\u0022: [\n      \u0022browsing_history\u0022\n    ],\n    \u0022time_to_live_in_hours\u0022: 24\n  },\n  {\n    \u0022data_types\u0022: [\n      \u0022password_signin\u0022,\n      \u0022autofill\u0022\n    ],\n    \u0022time_to_live_in_hours\u0022: 12\n  }\n]",
           "macos_preference_key_name": "BrowsingDataLifetime",
           "macos_preference_example_value": "\u003Ckey\u003EBrowsingDataLifetime\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Edata_types\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ebrowsing_history\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Etime_to_live_in_hours\u003C/key\u003E\n\u003Cinteger\u003E24\u003C/integer\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Edata_types\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Epassword_signin\u003C/string\u003E\n\u003Cstring\u003Eautofill\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Etime_to_live_in_hours\u003C/key\u003E\n\u003Cinteger\u003E12\u003C/integer\u003E\n\u003C/dict\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -7233,7 +7233,7 @@
           "windows_registry_example_value": "sha256/AAAAAAAAAAAAAAAAAAAAAA==\nsha256//////////////////////w==",
           "macos_preference_key_name": "CertificateTransparencyEnforcementDisabledForCas",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Esha256/AAAAAAAAAAAAAAAAAAAAAA==\u003C/string\u003E\n\u003Cstring\u003Esha256//////////////////////w==\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -7258,7 +7258,7 @@
           "windows_registry_example_value": "sha256/AAAAAAAAAAAAAAAAAAAAAA==\nsha256//////////////////////w==",
           "macos_preference_key_name": "CertificateTransparencyEnforcementDisabledForLegacyCas",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Esha256/AAAAAAAAAAAAAAAAAAAAAA==\u003C/string\u003E\n\u003Cstring\u003Esha256//////////////////////w==\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -7283,7 +7283,7 @@
           "windows_registry_example_value": "contoso.com\n.contoso.com",
           "macos_preference_key_name": "CertificateTransparencyEnforcementDisabledForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Econtoso.com\u003C/string\u003E\n\u003Cstring\u003E.contoso.com\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -7383,7 +7383,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "ClipboardAllowedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -7408,7 +7408,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "ClipboardBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -7433,7 +7433,7 @@
           "windows_registry_example_value": "collections_share\nlocal_pdf\nsend_word\nsend_excel\nsend_onenote",
           "macos_preference_key_name": "CollectionsServicesAndExportsBlockList",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ecollections_share\u003C/string\u003E\n\u003Cstring\u003Elocal_pdf\u003C/string\u003E\n\u003Cstring\u003Esend_word\u003C/string\u003E\n\u003Cstring\u003Esend_excel\u003C/string\u003E\n\u003Cstring\u003Esend_onenote\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "pinterest_suggestions": "pinterest_suggestions",
             "collections_share": "collections_share",
@@ -7595,7 +7595,7 @@
           "windows_registry_example_value": "{\n  \u0022disabled\u0022: [\n    \u0022new_tab\u0022,\n    \u0022fullscreen\u0022\n  ]\n}",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -7701,7 +7701,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022cookies\u0022: [\n      \u0022rtFa\u0022,\n      \u0022FedAuth\u0022\n    ],\n    \u0022domain\u0022: \u0022contoso.sharepoint.com\u0022\n  },\n  {\n    \u0022cookies\u0022: [\n      \u0022rtFa\u0022,\n      \u0022FedAuth\u0022\n    ],\n    \u0022domain\u0022: \u0022contoso2.sharepoint.com\u0022\n  }\n]",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -8454,7 +8454,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022allowed_origins\u0022: [\n      \u0022example.com\u0022,\n      \u0022http://www.example.com:8080\u0022\n    ],\n    \u0022protocol\u0022: \u0022spotify\u0022\n  },\n  {\n    \u0022allowed_origins\u0022: [\n      \u0022https://example.com\u0022,\n      \u0022https://.mail.example.com\u0022\n    ],\n    \u0022protocol\u0022: \u0022msteams\u0022\n  },\n  {\n    \u0022allowed_origins\u0022: [\n      \u0022*\u0022\n    ],\n    \u0022protocol\u0022: \u0022msoutlook\u0022\n  }\n]",
           "macos_preference_key_name": "DoNotSilentlyBlockProtocolsFromOrigins",
           "macos_preference_example_value": "\u003Ckey\u003EDoNotSilentlyBlockProtocolsFromOrigins\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eallowed_origins\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Eexample.com\u003C/string\u003E\n\u003Cstring\u003Ehttp://www.example.com:8080\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Eprotocol\u003C/key\u003E\n\u003Cstring\u003Espotify\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eallowed_origins\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://example.com\u003C/string\u003E\n\u003Cstring\u003Ehttps://.mail.example.com\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Eprotocol\u003C/key\u003E\n\u003Cstring\u003Emsteams\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eallowed_origins\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003E*\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Eprotocol\u003C/key\u003E\n\u003Cstring\u003Emsoutlook\u003C/string\u003E\n\u003C/dict\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -8840,7 +8840,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "EdgeSidebarAppUrlHostAllowList",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -8865,7 +8865,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "EdgeSidebarAppUrlHostBlockList",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -8890,7 +8890,7 @@
           "windows_registry_example_value": "https://www.contoso.com",
           "macos_preference_key_name": "EdgeSidebarAppUrlHostForceList",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -9015,7 +9015,7 @@
           "windows_registry_example_value": "ExampleDeprecatedFeature_EffectiveUntil20080902",
           "macos_preference_key_name": "EnableDeprecatedWebPlatformFeatures",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003EExampleDeprecatedFeature_EffectiveUntil20080902\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "ExampleDeprecatedFeature_EffectiveUntil20080902": "ExampleDeprecatedFeature"
           },
@@ -9247,7 +9247,7 @@
           "windows_registry_example_value": "mydomain.com\nmyuniversity.edu",
           "macos_preference_key_name": "EnhanceSecurityModeBypassListDomains",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Emydomain.com\u003C/string\u003E\n\u003Cstring\u003Emyuniversity.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -9272,7 +9272,7 @@
           "windows_registry_example_value": "mydomain.com\nmyuniversity.edu",
           "macos_preference_key_name": "EnhanceSecurityModeEnforceListDomains",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Emydomain.com\u003C/string\u003E\n\u003Cstring\u003Emyuniversity.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -9422,7 +9422,7 @@
           "windows_registry_example_value": "{\u0022domains\u0022: [\u0022https://contoso.com\u0022, \u0022contoso2.com\u0022], \u0022file_extension\u0022: \u0022jnlp\u0022}\n{\u0022domains\u0022: [\u0022*\u0022], \u0022file_extension\u0022: \u0022swf\u0022}",
           "macos_preference_key_name": "ExemptDomainFileTypePairsFromFileTypeDownloadWarnings",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003E{\u0027domains\u0027: [\u0027https://contoso.com\u0027, \u0027contoso2.com\u0027], \u0027file_extension\u0027: \u0027jnlp\u0027}\u003C/string\u003E\n\u003Cstring\u003E{\u0027domains\u0027: [\u0027*\u0027], \u0027file_extension\u0027: \u0027swf\u0027}\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -9447,7 +9447,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022domains\u0022: [\n      \u0022https://contoso.com\u0022,\n      \u0022contoso2.com\u0022\n    ],\n    \u0022file_extension\u0022: \u0022jnlp\u0022\n  },\n  {\n    \u0022domains\u0022: [\n      \u0022*\u0022\n    ],\n    \u0022file_extension\u0022: \u0022swf\u0022\n  }\n]",
           "macos_preference_key_name": "ExemptFileTypeDownloadWarnings",
           "macos_preference_example_value": "\u003Ckey\u003EExemptFileTypeDownloadWarnings\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Edomains\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003Ehttps://contoso.com\u003C/string\u003E\n\u003Cstring\u003Econtoso2.com\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Efile_extension\u003C/key\u003E\n\u003Cstring\u003Ejnlp\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Edomains\u003C/key\u003E\n\u003Carray\u003E\n\u003Cstring\u003E*\u003C/string\u003E\n\u003C/array\u003E\n\u003Ckey\u003Efile_extension\u003C/key\u003E\n\u003Cstring\u003Eswf\u003C/string\u003E\n\u003C/dict\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -9501,7 +9501,7 @@
           "windows_registry_example_value": "10080",
           "macos_preference_key_name": "ExplicitlyAllowedNetworkPorts",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003E10080\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "554": "554",
             "10080": "10080",
@@ -9632,7 +9632,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "FileOrDirectoryPickerWithoutGestureAllowedForOrigins",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -9915,7 +9915,7 @@
           "windows_registry_example_value": "favorites",
           "macos_preference_key_name": "ForceSyncTypes",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Efavorites\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -10044,7 +10044,7 @@
           "windows_registry_example_value": "meet",
           "macos_preference_key_name": "HSTSPolicyBypassList",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Emeet\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -10194,7 +10194,7 @@
           "windows_registry_example_value": "testserver.example.com\n[*.]example.org",
           "macos_preference_key_name": "HttpAllowlist",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Etestserver.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.org\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -10935,7 +10935,7 @@
           "windows_registry_example_value": ".mht\n.pdf\n.vsdx",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -11619,7 +11619,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022managed_configuration_hash\u0022: \u0022asd891jedasd12ue9h\u0022,\n    \u0022managed_configuration_url\u0022: \u0022https://static.contoso.com/configuration.json\u0022,\n    \u0022origin\u0022: \u0022https://www.contoso.com\u0022\n  },\n  {\n    \u0022managed_configuration_hash\u0022: \u0022djio12easd89u12aws\u0022,\n    \u0022managed_configuration_url\u0022: \u0022https://static.contoso.com/configuration2.json\u0022,\n    \u0022origin\u0022: \u0022https://www.example.com\u0022\n  }\n]",
           "macos_preference_key_name": "ManagedConfigurationPerOrigin",
           "macos_preference_example_value": "\u003Ckey\u003EManagedConfigurationPerOrigin\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Emanaged_configuration_hash\u003C/key\u003E\n\u003Cstring\u003Easd891jedasd12ue9h\u003C/string\u003E\n\u003Ckey\u003Emanaged_configuration_url\u003C/key\u003E\n\u003Cstring\u003Ehttps://static.contoso.com/configuration.json\u003C/string\u003E\n\u003Ckey\u003Eorigin\u003C/key\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Emanaged_configuration_hash\u003C/key\u003E\n\u003Cstring\u003Edjio12easd89u12aws\u003C/string\u003E\n\u003Ckey\u003Emanaged_configuration_url\u003C/key\u003E\n\u003Cstring\u003Ehttps://static.contoso.com/configuration2.json\u003C/string\u003E\n\u003Ckey\u003Eorigin\u003C/key\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003C/dict\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -11644,7 +11644,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022toplevel_name\u0022: \u0022My managed favorites folder\u0022\n  },\n  {\n    \u0022name\u0022: \u0022Microsoft\u0022,\n    \u0022url\u0022: \u0022microsoft.com\u0022\n  },\n  {\n    \u0022name\u0022: \u0022Bing\u0022,\n    \u0022url\u0022: \u0022bing.com\u0022\n  },\n  {\n    \u0022children\u0022: [\n      {\n        \u0022name\u0022: \u0022Microsoft Edge Insiders\u0022,\n        \u0022url\u0022: \u0022www.microsoftedgeinsider.com\u0022\n      },\n      {\n        \u0022name\u0022: \u0022Microsoft Edge\u0022,\n        \u0022url\u0022: \u0022www.microsoft.com/windows/microsoft-edge\u0022\n      }\n    ],\n    \u0022name\u0022: \u0022Microsoft Edge links\u0022\n  }\n]",
           "macos_preference_key_name": "ManagedFavorites",
           "macos_preference_example_value": "\u003Ckey\u003EManagedFavorites\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Etoplevel_name\u003C/key\u003E\n\u003Cstring\u003EMy managed favorites folder\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Ename\u003C/key\u003E\n\u003Cstring\u003EMicrosoft\u003C/string\u003E\n\u003Ckey\u003Eurl\u003C/key\u003E\n\u003Cstring\u003Emicrosoft.com\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Ename\u003C/key\u003E\n\u003Cstring\u003EBing\u003C/string\u003E\n\u003Ckey\u003Eurl\u003C/key\u003E\n\u003Cstring\u003Ebing.com\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Echildren\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Ename\u003C/key\u003E\n\u003Cstring\u003EMicrosoft Edge Insiders\u003C/string\u003E\n\u003Ckey\u003Eurl\u003C/key\u003E\n\u003Cstring\u003Ewww.microsoftedgeinsider.com\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Ename\u003C/key\u003E\n\u003Cstring\u003EMicrosoft Edge\u003C/string\u003E\n\u003Ckey\u003Eurl\u003C/key\u003E\n\u003Cstring\u003Ewww.microsoft.com/windows/microsoft-edge\u003C/string\u003E\n\u003C/dict\u003E\n\u003C/array\u003E\n\u003Ckey\u003Ename\u003C/key\u003E\n\u003Cstring\u003EMicrosoft Edge links\u003C/string\u003E\n\u003C/dict\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -12273,7 +12273,7 @@
           "windows_registry_example_value": "http://testserver.contoso.com/\n*.contoso.com",
           "macos_preference_key_name": "OverrideSecurityRestrictionsOnInsecureOrigin",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttp://testserver.contoso.com/\u003C/string\u003E\n\u003Cstring\u003E*.contoso.com\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -12879,7 +12879,7 @@
           "windows_registry_example_value": "{\n  \u0022entries\u0022: [\n    {\n      \u0022duration_mins\u0022: 240,\n      \u0022start\u0022: {\n        \u0022hour\u0022: 2,\n        \u0022minute\u0022: 15\n      }\n    }\n  ]\n}",
           "macos_preference_key_name": "RelaunchWindow",
           "macos_preference_example_value": "\u003Ckey\u003ERelaunchWindow\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eentries\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eduration_mins\u003C/key\u003E\n\u003Cinteger\u003E240\u003C/integer\u003E\n\u003Ckey\u003Estart\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Ehour\u003C/key\u003E\n\u003Cinteger\u003E2\u003C/integer\u003E\n\u003Ckey\u003Eminute\u003C/key\u003E\n\u003Cinteger\u003E15\u003C/integer\u003E\n\u003C/dict\u003E\n\u003C/dict\u003E\n\u003C/array\u003E\n\u003C/dict\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -13179,7 +13179,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "SSLErrorOverrideAllowedForOrigins",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -13258,7 +13258,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "SaveCookiesOnExit",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -13333,7 +13333,7 @@
           "windows_registry_example_value": "https://www.example.com\n[*.]example.edu",
           "macos_preference_key_name": "ScreenCaptureWithoutGestureAllowedForOrigins",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -13537,7 +13537,7 @@
           "windows_registry_example_value": "contoso.com",
           "macos_preference_key_name": "SecurityKeyPermitAttestation",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Econtoso.com\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -13662,7 +13662,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "SensorsAllowedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -13687,7 +13687,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "SensorsBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -13712,7 +13712,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "SerialAskForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -13737,7 +13737,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n[*.]contoso.edu",
           "macos_preference_key_name": "SerialBlockedForUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E[*.]contoso.edu\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -14091,7 +14091,7 @@
           "windows_registry_example_value": "smart_actions\nsmart_actions_website\nsmart_actions_pdf",
           "macos_preference_key_name": "SmartActionsBlockList",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Esmart_actions\u003C/string\u003E\n\u003Cstring\u003Esmart_actions_website\u003C/string\u003E\n\u003Cstring\u003Esmart_actions_pdf\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {
             "smart_actions": "smart_actions",
             "smart_actions_website": "smart_actions_website",
@@ -14170,7 +14170,7 @@
           "windows_registry_example_value": "fr\nes",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -14195,7 +14195,7 @@
           "windows_registry_example_value": "fr\nes",
           "macos_preference_key_name": "",
           "macos_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -14370,7 +14370,7 @@
           "windows_registry_example_value": "favorites",
           "macos_preference_key_name": "SyncTypesListDisabled",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Efavorites\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -14420,7 +14420,7 @@
           "windows_registry_example_value": "0x1303\n0xcca8\n0xcca9",
           "macos_preference_key_name": "TLSCipherSuiteDenyList",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003E0x1303\u003C/string\u003E\n\u003Cstring\u003E0xcca8\u003C/string\u003E\n\u003Cstring\u003E0xcca9\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -14750,7 +14750,7 @@
           "windows_registry_example_value": "contoso.com\nhttps://ssl.server.com\nhosting.com/good_path\nhttps://server:8080/path\n.exact.hostname.com",
           "macos_preference_key_name": "URLAllowlist",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Econtoso.com\u003C/string\u003E\n\u003Cstring\u003Ehttps://ssl.server.com\u003C/string\u003E\n\u003Cstring\u003Ehosting.com/good_path\u003C/string\u003E\n\u003Cstring\u003Ehttps://server:8080/path\u003C/string\u003E\n\u003Cstring\u003E.exact.hostname.com\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -14775,7 +14775,7 @@
           "windows_registry_example_value": "contoso.com\nhttps://ssl.server.com\nhosting.com/bad_path\nhttps://server:8080/path\n.exact.hostname.com\ncustom_scheme:*\n*",
           "macos_preference_key_name": "URLBlocklist",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Econtoso.com\u003C/string\u003E\n\u003Cstring\u003Ehttps://ssl.server.com\u003C/string\u003E\n\u003Cstring\u003Ehosting.com/bad_path\u003C/string\u003E\n\u003Cstring\u003Ehttps://server:8080/path\u003C/string\u003E\n\u003Cstring\u003E.exact.hostname.com\u003C/string\u003E\n\u003Cstring\u003Ecustom_scheme:*\u003C/string\u003E\n\u003Cstring\u003E*\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -15107,7 +15107,7 @@
           "windows_registry_example_value": "https://www.contoso.com/\nhttps://[*.]contoso.edu/",
           "macos_preference_key_name": "VideoCaptureAllowedUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com/\u003C/string\u003E\n\u003Cstring\u003Ehttps://[*.]contoso.edu/\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -15207,7 +15207,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022create_desktop_shortcut\u0022: true,\n    \u0022default_launch_container\u0022: \u0022window\u0022,\n    \u0022url\u0022: \u0022https://www.contoso.com/maps\u0022\n  },\n  {\n    \u0022default_launch_container\u0022: \u0022tab\u0022,\n    \u0022url\u0022: \u0022https://app.contoso.edu\u0022\n  },\n  {\n    \u0022default_launch_container\u0022: \u0022window\u0022,\n    \u0022fallback_app_name\u0022: \u0022Editor\u0022,\n    \u0022url\u0022: \u0022https://app.contoso.edu/editor\u0022\n  },\n  {\n    \u0022custom_name\u0022: \u0022Spreadsheets\u0022,\n    \u0022default_launch_container\u0022: \u0022window\u0022,\n    \u0022install_as_shortcut\u0022: true,\n    \u0022url\u0022: \u0022https://app.contoso.edu/sheets\u0022\n  },\n  {\n    \u0022custom_icon\u0022: {\n      \u0022hash\u0022: \u0022c28f469c450e9ab2b86ea47038d2b324c6ad3b1e9a4bd8960da13214afd0ca38\u0022,\n      \u0022url\u0022: \u0022https://mydomain.example.com/sunny_icon.png\u0022\n    },\n    \u0022url\u0022: \u0022https://weather.example.com\u0022\n  }\n]",
           "macos_preference_key_name": "WebAppInstallForceList",
           "macos_preference_example_value": "\u003Ckey\u003EWebAppInstallForceList\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Ecreate_desktop_shortcut\u003C/key\u003E\n\u003Ctrue/\u003E\n\u003Ckey\u003Edefault_launch_container\u003C/key\u003E\n\u003Cstring\u003Ewindow\u003C/string\u003E\n\u003Ckey\u003Eurl\u003C/key\u003E\n\u003Cstring\u003Ehttps://www.contoso.com/maps\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Edefault_launch_container\u003C/key\u003E\n\u003Cstring\u003Etab\u003C/string\u003E\n\u003Ckey\u003Eurl\u003C/key\u003E\n\u003Cstring\u003Ehttps://app.contoso.edu\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Edefault_launch_container\u003C/key\u003E\n\u003Cstring\u003Ewindow\u003C/string\u003E\n\u003Ckey\u003Efallback_app_name\u003C/key\u003E\n\u003Cstring\u003EEditor\u003C/string\u003E\n\u003Ckey\u003Eurl\u003C/key\u003E\n\u003Cstring\u003Ehttps://app.contoso.edu/editor\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Ecustom_name\u003C/key\u003E\n\u003Cstring\u003ESpreadsheets\u003C/string\u003E\n\u003Ckey\u003Edefault_launch_container\u003C/key\u003E\n\u003Cstring\u003Ewindow\u003C/string\u003E\n\u003Ckey\u003Einstall_as_shortcut\u003C/key\u003E\n\u003Ctrue/\u003E\n\u003Ckey\u003Eurl\u003C/key\u003E\n\u003Cstring\u003Ehttps://app.contoso.edu/sheets\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Ecustom_icon\u003C/key\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Ehash\u003C/key\u003E\n\u003Cstring\u003Ec28f469c450e9ab2b86ea47038d2b324c6ad3b1e9a4bd8960da13214afd0ca38\u003C/string\u003E\n\u003Ckey\u003Eurl\u003C/key\u003E\n\u003Cstring\u003Ehttps://mydomain.example.com/sunny_icon.png\u003C/string\u003E\n\u003C/dict\u003E\n\u003Ckey\u003Eurl\u003C/key\u003E\n\u003Cstring\u003Ehttps://weather.example.com\u003C/string\u003E\n\u003C/dict\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -15232,7 +15232,7 @@
           "windows_registry_example_value": "[\n  {\n    \u0022manifest_id\u0022: \u0022https://foo.example/index.html\u0022,\n    \u0022run_on_os_login\u0022: \u0022allowed\u0022\n  },\n  {\n    \u0022manifest_id\u0022: \u0022https://bar.example/index.html\u0022,\n    \u0022run_on_os_login\u0022: \u0022allowed\u0022\n  },\n  {\n    \u0022manifest_id\u0022: \u0022https://foobar.example/index.html\u0022,\n    \u0022prevent_close_after_run_on_os_login\u0022: true,\n    \u0022run_on_os_login\u0022: \u0022run_windowed\u0022\n  },\n  {\n    \u0022manifest_id\u0022: \u0022*\u0022,\n    \u0022run_on_os_login\u0022: \u0022blocked\u0022\n  },\n  {\n    \u0022force_unregister_os_integration\u0022: true,\n    \u0022manifest_id\u0022: \u0022https://foo.example/index.html\u0022\n  }\n]",
           "macos_preference_key_name": "WebAppSettings",
           "macos_preference_example_value": "\u003Ckey\u003EWebAppSettings\u003C/key\u003E\n\u003Carray\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Emanifest_id\u003C/key\u003E\n\u003Cstring\u003Ehttps://foo.example/index.html\u003C/string\u003E\n\u003Ckey\u003Erun_on_os_login\u003C/key\u003E\n\u003Cstring\u003Eallowed\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Emanifest_id\u003C/key\u003E\n\u003Cstring\u003Ehttps://bar.example/index.html\u003C/string\u003E\n\u003Ckey\u003Erun_on_os_login\u003C/key\u003E\n\u003Cstring\u003Eallowed\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Emanifest_id\u003C/key\u003E\n\u003Cstring\u003Ehttps://foobar.example/index.html\u003C/string\u003E\n\u003Ckey\u003Eprevent_close_after_run_on_os_login\u003C/key\u003E\n\u003Ctrue/\u003E\n\u003Ckey\u003Erun_on_os_login\u003C/key\u003E\n\u003Cstring\u003Erun_windowed\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Emanifest_id\u003C/key\u003E\n\u003Cstring\u003E*\u003C/string\u003E\n\u003Ckey\u003Erun_on_os_login\u003C/key\u003E\n\u003Cstring\u003Eblocked\u003C/string\u003E\n\u003C/dict\u003E\n\u003Cdict\u003E\n\u003Ckey\u003Eforce_unregister_os_integration\u003C/key\u003E\n\u003Ctrue/\u003E\n\u003Ckey\u003Emanifest_id\u003C/key\u003E\n\u003Cstring\u003Ehttps://foo.example/index.html\u003C/string\u003E\n\u003C/dict\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
@@ -15357,7 +15357,7 @@
           "windows_registry_example_value": "https://www.contoso.com\n*contoso.com*",
           "macos_preference_key_name": "WebRtcLocalIpsAllowedUrls",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Ehttps://www.contoso.com\u003C/string\u003E\n\u003Cstring\u003E*contoso.com*\u003C/string\u003E\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_mapping": {},
           "warnings": []
         },
