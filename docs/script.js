@@ -847,7 +847,28 @@ function showModal(policy, cardDiv) {
 					mappingButton.addEventListener('click', function () {
 						var policyTextInput = document.getElementById("policy-text");
 						if (policyTextInput != undefined) {
-							policyTextInput.value = key;
+							if (policy.data_type == "list_of_strings") {
+								var existingPolicyText = policyTextInput.value.trim();
+								if (existingPolicyText == "") {
+									policyTextInput.value = key;
+								}
+								else {
+									let foundMappingValue = false;
+									existingPolicyText.split("\n").forEach(function (line) {
+										if (line.trim() == key) {
+											foundMappingValue = true;
+											return;
+										}
+									});
+
+									if (foundMappingValue == false) {
+										policyTextInput.value += '\n' + key;
+									}
+								}
+							}
+							else {
+								policyTextInput.value = key;
+							}
 						}
 					});
 				}
