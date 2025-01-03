@@ -31,6 +31,6 @@ body:
       description: Formatted json of your preset
       placeholder: |
         json goes here
-	  render: json
+      render: json
     validations:
       required: true
