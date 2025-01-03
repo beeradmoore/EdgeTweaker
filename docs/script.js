@@ -1012,13 +1012,11 @@ function showModal(policy, cardDiv) {
 
 
 	clearButton.onclick = function () {
-
 		// Get all input types in this div
 		const settingInputs = settingsModalDiv.querySelectorAll('input');
-
 		// For each one, clear its value
 		settingInputs.forEach(input => {
-			if (input.type == "text") {
+			if (input.type == "text" || input.type == "number") {
 				input.value = "";
 			}
 			else if (input.type == "checkbox" || input.type == "radio") {
@@ -1027,6 +1025,13 @@ function showModal(policy, cardDiv) {
 			else {
 				debugger;
 			}
+		});
+
+		// Get all textarea types in this div
+		const settingTextArea = settingsModalDiv.querySelectorAll('textarea');
+		// There should only be one, but we will clear all incase this changes in future
+		settingTextArea.forEach(textarea => {
+			textarea.value = "";
 		});
 	};
 
