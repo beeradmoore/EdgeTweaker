@@ -443,7 +443,7 @@ function exportMacOSPlist(export_type) {
 		const recommendedFolder = zip.folder("recommended");
 		recommendedFolder.file("com.microsoft.Edge.plist", recommendedPlist);
 
-		zip.generateAsync({type:"blob"}).then(function(content) {
+		zip.generateAsync({ type: "blob" }).then(function (content) {
 			const url = URL.createObjectURL(content);
 			const a = document.createElement('a');
 			a.href = url;
@@ -453,10 +453,10 @@ function exportMacOSPlist(export_type) {
 			document.body.removeChild(a);
 			URL.revokeObjectURL(url);
 		});
-				/*
+		/*
 zip.file("Hello.txt", "Hello World\n");
 zip.file("script.sh", "#!/bin/bash", {
-    unixPermissions: "755"
+unixPermissions: "755"
 });
 */
 	}
@@ -466,8 +466,7 @@ zip.file("script.sh", "#!/bin/bash", {
 }
 
 function generateMacOSPlist(mandatory_or_recommended, enabledPolicies) {
-	if (mandatory_or_recommended != "mandatory" && mandatory_or_recommended != "recommended")
-	{
+	if (mandatory_or_recommended != "mandatory" && mandatory_or_recommended != "recommended") {
 		return "";
 	}
 	let plist = `<?xml version="1.0" encoding="UTF-8"?>
@@ -533,8 +532,7 @@ function generateMacOSPlist(mandatory_or_recommended, enabledPolicies) {
 					if (Array.isArray(json)) {
 						plist += jsonObjectToPlistNode(json, '    ');
 					}
-					else
-					{
+					else {
 						plist += jsonObjectToPlist(json, '    ');
 					}
 
