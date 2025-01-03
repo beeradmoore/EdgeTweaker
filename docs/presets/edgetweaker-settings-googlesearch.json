@@ -1,0 +1,10 @@
+{
+	"ManagedSearchEngines": {
+		"value": "[\n  {\n    \"allow_search_engine_discovery\": true\n  },\n  {\n    \"is_default\": true,\n    \"keyword\": \"google\",\n    \"name\": \"Google\",\n    \"search_url\": \"{google:baseURL}search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}ie={inputEncoding}\",\n    \"suggest_url\": \"{google:baseURL}complete/search?output=chrome&q={searchTerms}\",\n    \"image_search_url\": \"{google:baseURL}searchbyimage/upload\",\n    \"image_search_post_params\": \"encoded_image={google:imageThumbnail},image_url={google:imageURL},sbisrc={google:imageSearchSource},original_width={google:imageOriginalWidth},original_height={google:imageOriginalHeight}\"\n  }\n]",
+		"mandatory_or_recommended": "recommended"
+	},
+	"NewTabPageSearchBox": {
+		"value": "redirect",
+		"mandatory_or_recommended": "recommended"
+	}
+}

@@ -15,6 +15,10 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', upd
 var jsonData;
 var settings = {};
 
+var presetsLoaded = false;
+var policiesLoaded = false;
+var presets = undefined;
+
 function resizeIframe(iframe) {
 	//console.log(resizeIframe);
 	iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
@@ -450,7 +454,7 @@ function exportMacOSPlist(export_type) {
 		const recommendedFolder = zip.folder("recommended");
 		recommendedFolder.file("com.microsoft.Edge.plist", recommendedPlist);
 
-		zip.generateAsync({ type: "blob", platform:'UNIX' }).then(function (content) {
+		zip.generateAsync({ type: "blob", platform: 'UNIX' }).then(function (content) {
 			const url = URL.createObjectURL(content);
 			const a = document.createElement('a');
 			a.href = url;
@@ -1167,6 +1171,160 @@ function showModal(policy, cardDiv) {
 	settingsModal.show();
 }
 
+function showPresetsModal() {
+	const presetsModalDiv = document.createElement("div");
+	presetsModalDiv.id = "presetsModal";
+	presetsModalDiv.classList.add("modal");
+	presetsModalDiv.tabIndex = -1;
+
+	const modalDialog = document.createElement("div");
+	modalDialog.classList.add("modal-dialog");
+	modalDialog.classList.add("modal-dialog-scrollable");
+	modalDialog.classList.add("modal-lg");
+
+	const modalContent = document.createElement("div");
+	modalContent.classList.add("modal-content");
+
+	const modalHeader = document.createElement("div");
+	modalHeader.classList.add("modal-header");
+
+	const modalTitle = document.createElement("h3");
+	modalTitle.classList.add("modal-title");
+	modalTitle.appendChild(document.createTextNode("Presets"));
+
+	const modalCloseButton = document.createElement("button");
+	modalCloseButton.type = "button";
+	modalCloseButton.classList.add("btn-close");
+	modalCloseButton.setAttribute('data-bs-dismiss', 'modal');
+	modalCloseButton.setAttribute('aria-label', 'Close');
+
+	modalHeader.appendChild(modalTitle);
+	modalHeader.appendChild(modalCloseButton);
+
+	const modalBody = document.createElement("div");
+	modalBody.classList.add("modal-body");
+	//modalBody.style = "display: flex; flex-direction: column; height: 100%;";
+	modalBody.style = "overflow: auto; flex-grow: 1;";
+
+
+
+	const warningDiv = document.createElement("div");
+	warningDiv.classList.add("alert");
+	warningDiv.classList.add("alert-warning");
+	warningDiv.setAttribute('role', 'alert');
+	warningDiv.appendChild(document.createTextNode("Loading a preset will overwrite existing settings."));
+	modalBody.appendChild(warningDiv);
+
+
+	const descriptionSpan = document.createElement("span");
+	descriptionSpan.appendChild(document.createTextNode("Presets can be submitted : "));
+	modalBody.appendChild(descriptionSpan);
+
+	const modalFooter = document.createElement("div");
+	modalFooter.classList.add("modal-footer");
+	modalFooter.classList.add("justify-content-end");
+
+	const presetLoadButton = document.createElement("button");
+	presetLoadButton.type = "button";
+	presetLoadButton.classList.add("btn");
+	presetLoadButton.classList.add("btn-success");
+	presetLoadButton.setAttribute("disabled", "disabled");
+	presetLoadButton.appendChild(document.createTextNode("Load"));
+
+	modalFooter.appendChild(presetLoadButton);
+
+	let currentPreset = undefined;
+
+	const presetsListDiv = document.createElement("div");
+	presetsListDiv.classList.add("list-group");
+	for (let i = 0; i < presets.length; ++i) {
+		let presetAnchor = document.createElement("a");
+		presetAnchor.classList.add("list-group-item");
+		presetAnchor.classList.add("list-group-item-action");
+
+		let presetHeader = document.createElement("h5");
+		presetHeader.classList.add("mb-1");
+		presetHeader.appendChild(document.createTextNode(presets[i].name));
+		presetAnchor.appendChild(presetHeader);
+
+		let presetDescription = document.createElement("p");
+		presetDescription.classList.add("mb-1");
+		presetDescription.appendChild(document.createTextNode(presets[i].description));
+		presetAnchor.appendChild(presetDescription);
+		presetAnchor.onclick = function () {
+
+			// Deselect all other presets
+			presetsListDiv.querySelectorAll('a').forEach(anchor => {
+				anchor.classList.remove("active");
+			});
+
+			// Select this preset
+			presetAnchor.classList.add("active");
+
+			// Enable loading button
+			presetLoadButton.removeAttribute("disabled");
+
+			currentPreset = presets[i];
+		};
+		presetsListDiv.appendChild(presetAnchor);
+
+	}
+
+	modalBody.appendChild(presetsListDiv);
+
+
+	modalContent.appendChild(modalHeader);
+	modalContent.appendChild(modalBody);
+	modalContent.appendChild(modalFooter);
+
+	modalDialog.appendChild(modalContent);
+
+	presetsModalDiv.appendChild(modalDialog);
+
+	presetsModalDiv.addEventListener('hidden.bs.modal', event => {
+		document.body.removeChild(presetsModalDiv);
+		//settingsModalDiv.dispose();
+	});
+
+	document.body.appendChild(presetsModalDiv);
+
+	const presetsModal = new bootstrap.Modal(presetsModalDiv, []);
+
+	presetLoadButton.onclick = function () {
+		var httpPresetRequest = new XMLHttpRequest();
+		httpPresetRequest.onreadystatechange = function () {
+			if (httpPresetRequest.readyState === 4) {
+				if (httpPresetRequest.status === 200) {
+					settings = JSON.parse(httpPresetRequest.responseText);
+					reloadCards();
+					presetsModal.hide();
+				}
+			}
+		};
+		httpPresetRequest.open("GET", "presets/" + currentPreset.file);
+		httpPresetRequest.send();
+	};
+
+	presetsModal.show();
+}
+
+function reloadCards() {
+	const cardDivs = document.getElementsByClassName("card");
+	for (let i = 0; i < cardDivs.length; ++i) {
+		const cardDiv = cardDivs[i];
+
+		// Remove border-success from all cards
+		if (cardDiv.classList.contains("border-success")) {
+			cardDiv.classList.remove("border-success");
+		}
+
+		const policyId = cardDiv.getAttribute('data-policy-id');
+		if (settings[policyId] != undefined) {
+			cardDiv.classList.add("border-success");
+		}
+	}
+}
+
 document.addEventListener(
 	"DOMContentLoaded",
 	function () {
@@ -1191,21 +1349,7 @@ document.addEventListener(
 						try {
 							const json = JSON.parse(e.target.result);
 							settings = json;
-
-							const cardDivs = document.getElementsByClassName("card");
-							for (let i = 0; i < cardDivs.length; ++i) {
-								const cardDiv = cardDivs[i];
-
-								// Remove border-success from all cards
-								if (cardDiv.classList.contains("border-success")) {
-									cardDiv.classList.remove("border-success");
-								}
-
-								const policyId = cardDiv.getAttribute('data-policy-id');
-								if (settings[policyId] != undefined) {
-									cardDiv.classList.add("border-success");
-								}
-							}
+							reloadCards();
 						} catch (error) {
 							console.error('Error parsing JSON:', error);
 							alert('Could not load settings file.');
@@ -1216,9 +1360,7 @@ document.addEventListener(
 				document.body.removeChild(uploadButton);
 			});
 
-
 			uploadButton.click();
-
 		};
 
 		const saveButton = document.getElementById("save-button");
@@ -1233,6 +1375,11 @@ document.addEventListener(
 			a.click();
 			document.body.removeChild(a);
 			URL.revokeObjectURL(url);
+		};
+
+		const presetsButton = document.getElementById("load-presets");
+		presetsButton.onclick = function () {
+			showPresetsModal();
 		};
 
 		const exportButton = document.getElementById("export-button");
@@ -1305,6 +1452,26 @@ document.addEventListener(
 			}
 		};
 		searchBox.addEventListener("input", searchHandler);
+
+		function enablePresetsButtonIfReady() {
+			if (presetsLoaded == true && policiesLoaded == true) {
+				presetsButton.removeAttribute("disabled");
+			}
+		}
+
+		var httpPresetsRequest = new XMLHttpRequest();
+		httpPresetsRequest.onreadystatechange = function () {
+			if (httpPresetsRequest.readyState === 4) {
+				if (httpPresetsRequest.status === 200) {
+
+					presetsLoaded = true;;
+					presets = JSON.parse(httpPresetsRequest.responseText);
+					enablePresetsButtonIfReady();
+				}
+			}
+		};
+		httpPresetsRequest.open("GET", "presets/manifest.json");
+		httpPresetsRequest.send();
 
 		var httpRequest = new XMLHttpRequest();
 		httpRequest.onreadystatechange = function () {
@@ -1395,6 +1562,9 @@ document.addEventListener(
 					loadButton.removeAttribute("disabled");
 					saveButton.removeAttribute("disabled");
 					exportButton.removeAttribute("disabled");
+
+					policiesLoaded = true;
+					enablePresetsButtonIfReady();
 				}
 			}
 		};

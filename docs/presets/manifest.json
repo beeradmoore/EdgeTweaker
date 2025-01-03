@@ -1,0 +1,12 @@
+[
+	{
+		"name": "beeradmoore",
+		"description": "Preset used by the creator of EdgeTweaker.",
+		"file": "edgetweaker-settings-beeradmoore.json"
+	},
+	{
+		"name": "Google Search",
+		"description": "Changes default search engine and image search to Google.",
+		"file": "edgetweaker-settings-googlesearch.json"
+	}
+]

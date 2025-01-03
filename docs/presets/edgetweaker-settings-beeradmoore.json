@@ -1,0 +1,142 @@
+{
+	"AdsSettingForIntrusiveAdsSites": {
+		"value": 2,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"ClearCachedImagesAndFilesOnExit": {
+		"value": true,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"ConfigureDoNotTrack": {
+		"value": true,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"EdgeShoppingAssistantEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"HubsSidebarEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"ManagedSearchEngines": {
+		"value": "[\n  {\n    \"allow_search_engine_discovery\": true\n  },\n  {\n    \"is_default\": true,\n    \"keyword\": \"google\",\n    \"name\": \"Google\",\n    \"search_url\": \"{google:baseURL}search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}ie={inputEncoding}\",\n    \"suggest_url\": \"{google:baseURL}complete/search?output=chrome&q={searchTerms}\",\n    \"image_search_url\": \"{google:baseURL}searchbyimage/upload\",\n    \"image_search_post_params\": \"encoded_image={google:imageThumbnail},image_url={google:imageURL},sbisrc={google:imageSearchSource},original_width={google:imageOriginalWidth},original_height={google:imageOriginalHeight}\"\n  }\n]",
+		"mandatory_or_recommended": "recommended"
+	},
+	"EdgeCollectionsEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"PersonalizationReportingEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"BackgroundTemplateListUpdatesEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"EdgeWalletCheckoutEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"EdgeWalletEtreeEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"WalletDonationEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"GenAILocalFoundationalModelSettings": {
+		"value": 1,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"AIGenThemesEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"StandaloneHubsSidebarEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"CopilotPageContext": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"EdgeEntraCopilotPageContext": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"EdgeOpenInSidebarEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"EdgeSidebarCustomizeEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"SearchInSidebarEnabled": {
+		"value": 2,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"NewTabPageSearchBox": {
+		"value": "redirect",
+		"mandatory_or_recommended": "mandatory"
+	},
+	"AdditionalSearchBoxEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"AddressBarMicrosoftSearchInBingProviderEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"BingAdsSuppression": {
+		"value": true,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"QuickSearchShowMiniMenu": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"SearchSuggestEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"SearchbarAllowed": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"SearchbarIsEnabledOnStartup": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"WebWidgetAllowed": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"VisualSearchEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"StartupBoostEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"BackgroundModeEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"LocalBrowserDataShareEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"EdgeWorkspacesEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	},
+	"SplitScreenEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
+	}
+}
