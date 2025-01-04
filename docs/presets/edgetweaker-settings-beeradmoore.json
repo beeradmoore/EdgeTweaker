@@ -138,5 +138,9 @@
 	"SplitScreenEnabled": {
 		"value": false,
 		"mandatory_or_recommended": "mandatory"
+	},
+	"PictureInPictureOverlayEnabled": {
+		"value": false,
+		"mandatory_or_recommended": "mandatory"
 	}
 }
