@@ -1,0 +1,25 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+permissions:
+  contents: read
+  issues: write
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out the repository to the runner
+        uses: actions/checkout@v4
+      - name: Get policy hashes
+        run: |
+          OLD_HASH=$(sha1sum ./docs/microsoft-edge-policies.md | head -c 40)
+          NEW_HASH=$(curl --silent https://raw.githubusercontent.com/MicrosoftDocs/Edge-Enterprise/refs/heads/public/edgeenterprise/microsoft-edge-policies.md | sha1sum | head -c 40)
+          echo "OLD_HASH=$OLD_HASH" >> "$GITHUB_ENV"
+          echo "NEW_HASH=$NEW_HASH" >> "$GITHUB_ENV"
+      - name: Create issue if hashes are different
+        if: env.OLD_HASH != env.NEW_HASH
+        uses: JasonEtco/create-an-issue@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          filename: .github/ISSUE_TEMPLATE/new_policy_detected.md
