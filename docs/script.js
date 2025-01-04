@@ -302,7 +302,7 @@ function exportWindowsRegistry() {
 				if (setting.mandatory_or_recommended == "mandatory") {
 					regKey = "HKEY_CURRENT_USER\\" + policy.windows_registry_mandatory_path;
 				}
-				else if (mandatory_or_recommended == "recommended") {
+				else if (setting.mandatory_or_recommended == "recommended") {
 					regKey = "HKEY_CURRENT_USER\\" + policy.windows_registry_recommended_path;
 				}
 
