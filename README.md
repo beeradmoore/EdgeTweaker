@@ -32,6 +32,8 @@ When you have downloaded your `EdgeTweaker-Policies.reg` file double click it to
 >
 > It is recommended to use [EdgeRegCleanup.reg](https://beeradmoore.github.io/EdgeTweaker/windows/EdgeRegCleanup.reg) to deleted pre-existing Edge policies before importing new ones.
 
+After applying your reg file you must go to [edge://policy](edge://policy) and click `Reload Policies` for them  to actually be loaded.
+
 #### Group policy (ADMX)
 
 Currently not supported. I don't know how group policies work, or what their format is. If people want them file a new issue with some info and I can add support.
