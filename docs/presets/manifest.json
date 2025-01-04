@@ -2,11 +2,13 @@
 	{
 		"name": "beeradmoore",
 		"description": "Preset used by the creator of EdgeTweaker.",
-		"file": "edgetweaker-settings-beeradmoore.json"
+		"file": "edgetweaker-settings-beeradmoore.json",
+		"last_updated": "2025-01-04"
 	},
 	{
 		"name": "Google Search",
 		"description": "Changes default search engine and image search to Google.",
-		"file": "edgetweaker-settings-googlesearch.json"
+		"file": "edgetweaker-settings-googlesearch.json",
+		"last_updated": "2025-01-04"
 	}
 ]

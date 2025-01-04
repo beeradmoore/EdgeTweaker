@@ -1265,9 +1265,19 @@ function showPresetsModal() {
 		presetAnchor.classList.add("list-group-item");
 		presetAnchor.classList.add("list-group-item-action");
 
-		let presetHeader = document.createElement("h5");
-		presetHeader.classList.add("mb-1");
-		presetHeader.appendChild(document.createTextNode(presets[i].name));
+
+		let presetHeader = document.createElement("div");
+		presetHeader.classList.add("d-flex", "w-100", "justify-content-between");
+
+		let presetTitle = document.createElement("h5");
+		presetTitle.classList.add("mb-1");
+		presetTitle.appendChild(document.createTextNode(presets[i].name));
+		presetHeader.appendChild(presetTitle);
+
+		let presetLastUpdated = document.createElement("small");
+		presetLastUpdated.appendChild(document.createTextNode(presets[i].last_updated));
+		presetHeader.appendChild(presetLastUpdated);
+
 		presetAnchor.appendChild(presetHeader);
 
 		let presetDescription = document.createElement("p");
