@@ -1,5 +1,5 @@
 ---
-title: Edge policies source changed - {{ date | date('dddd, MMMM Do') }}
+title: Edge policies source changed - {{ date | date('Do MMM YYYY') }}
 assignees: beeradmoore
 labels: new policy detected
 ---

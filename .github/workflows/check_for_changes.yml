@@ -1,6 +1,8 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: Check for Edge policy changes
+run-name: Checking for new Edge policies - {{ date | date('Do MMM YYYY') }}
+on:
+  schedule:
+    - cron: "0 0 * * *"
 permissions:
   contents: read
   issues: write

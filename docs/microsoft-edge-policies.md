@@ -1,4 +1,3 @@
-test
 ---
 title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
