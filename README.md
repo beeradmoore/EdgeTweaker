@@ -4,7 +4,7 @@
 
 # EdgeTweaker
 
-EdgeTweaker is a tool that allows you to configure Microsoft Edge Enterprise Policies for your non-enterprise computers.
+EdgeTweaker is a tool that allows you to configure Microsoft Edge policies for your non-enterprise computers.
 
 (New) Microsoft Edge launched January 15th 2020. In those 4 years since the browser has gone from being a slimmed down fast Chrome alternative to something that is just as cluttered with with junk features I don't care about (eg. [copilot](https://www.microsoft.com/en-us/edge/features/copilot?form=MA13FJ), [collections](https://support.microsoft.com/en-au/microsoft-edge/organize-your-ideas-with-collections-in-microsoft-edge-60fd7bba-6cfd-00b9-3787-b197231b507e), [sidebar](https://www.microsoft.com/en-us/edge/features/sidebar?form=MA13FJ), [split screen](https://www.microsoft.com/en-us/edge/features/split-screen?form=MA13FJ), etc)
 
