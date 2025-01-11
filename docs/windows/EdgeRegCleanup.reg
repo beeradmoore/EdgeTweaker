@@ -359,6 +359,7 @@ Windows Registry Editor Version 5.00
 "DynamicCodeSettings"=-
 "Edge3PSerpTelemetryEnabled"=-
 "EdgeAssetDeliveryServiceEnabled"=-
+"EdgeAutofillMlEnabled"=-
 "EdgeCollectionsEnabled"=-
 "EdgeDiscoverEnabled"=-
 "EdgeEDropEnabled"=-
@@ -489,6 +490,7 @@ Windows Registry Editor Version 5.00
 "PDFSecureMode"=-
 "PDFXFAEnabled"=-
 "PaymentMethodQueryEnabled"=-
+"PdfViewerOutOfProcessIframeEnabled"=-
 "PersonalizationReportingEnabled"=-
 "PersonalizeTopSitesInCustomizeSidebarEnabled"=-
 "PictureInPictureOverlayEnabled"=-
@@ -660,6 +662,7 @@ Windows Registry Editor Version 5.00
 "DownloadRestrictions"=-
 "Edge3PSerpTelemetryEnabled"=-
 "EdgeAssetDeliveryServiceEnabled"=-
+"EdgeAutofillMlEnabled"=-
 "EdgeDiscoverEnabled"=-
 "EdgeShoppingAssistantEnabled"=-
 "EdgeWalletCheckoutEnabled"=-

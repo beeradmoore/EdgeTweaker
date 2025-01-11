@@ -1,15 +1,15 @@
 ---
 title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
-author: dan-wesley
+author: vmliramichael
 manager: venkatk
-ms.date: 12/13/2024
+ms.date: 01/10/2025
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
-ms.custom: generated
+ms.custom:generated
 description: "Windows and Mac documentation for all policies supported by the Microsoft Edge Browser"
 ---
 
@@ -25,7 +25,6 @@ Starting in Microsoft Edge version 116, certain policies will not be applied to 
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
-> For Microsoft Edge Mobile policy reference, see [Microsoft Edge Mobile - Policies](/deployedge/microsoft-edge-mobile-policies).
 
 ## New policies
 
@@ -33,10 +32,10 @@ The following table lists the new, and deprecated policies that are in this arti
 
 | Policy Name | Caption |
 |:-----|:-----|
-|[CACertificatesWithConstraints](#cacertificateswithconstraints)|TLS certificates that should be trusted by Microsoft Edge for server authentication with constraints|
-|[CSSCustomStateDeprecatedSyntaxEnabled](#csscustomstatedeprecatedsyntaxenabled)|Controls whether the deprecated :--foo syntax for CSS custom state is enabled (deprecated)|
-|[SelectParserRelaxationEnabled](#selectparserrelaxationenabled)|Controls whether the new HTML parser behavior for the \<select> element is enabled|
-
+|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Revert to legacy SameSite behavior for cookies on specified sites (deprecated)|
+|[EdgeAutofillMlEnabled](#edgeautofillmlenabled)|Machine learning powered autofill suggestions|
+|[EdgeEntraCopilotPageContext](#edgeentracopilotpagecontext)|Control Copilot access to Microsoft Edge page content for Entra account user profiles when using Copilot in the Microsoft Edge sidepane|
+|[PdfViewerOutOfProcessIframeEnabled](#pdfvieweroutofprocessiframeenabled)|Use out-of-process iframe PDF Viewer|
 
 ## Available policies
 
@@ -146,7 +145,7 @@ These tables list all of the browser-related group policies available in this re
 |[JavaScriptJitAllowedForSites](#javascriptjitallowedforsites)|Allow JavaScript to use JIT on these sites|
 |[JavaScriptJitBlockedForSites](#javascriptjitblockedforsites)|Block JavaScript from using JIT on these sites|
 |[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Enable default legacy SameSite cookie behavior setting (obsolete)|
-|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Revert to legacy SameSite behavior for cookies on specified sites|
+|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Revert to legacy SameSite behavior for cookies on specified sites (obsolete)|
 |[NotificationsAllowedForUrls](#notificationsallowedforurls)|Allow notifications on specific sites|
 |[NotificationsBlockedForUrls](#notificationsblockedforurls)|Block notifications on specific sites|
 |[PluginsAllowedForUrls](#pluginsallowedforurls)|Allow the Adobe Flash plug-in on specific sites (obsolete)|
@@ -550,11 +549,12 @@ These tables list all of the browser-related group policies available in this re
 |[DynamicCodeSettings](#dynamiccodesettings)|Dynamic Code Settings|
 |[Edge3PSerpTelemetryEnabled](#edge3pserptelemetryenabled)|Edge 3P SERP Telemetry Enabled|
 |[EdgeAssetDeliveryServiceEnabled](#edgeassetdeliveryserviceenabled)|Allow features to download assets from the Asset Delivery Service|
+|[EdgeAutofillMlEnabled](#edgeautofillmlenabled)|Machine learning powered autofill suggestions|
 |[EdgeCollectionsEnabled](#edgecollectionsenabled)|Enable the Collections feature|
 |[EdgeDiscoverEnabled](#edgediscoverenabled)|Discover feature In Microsoft Edge (obsolete)|
 |[EdgeEDropEnabled](#edgeedropenabled)|Enable Drop feature in Microsoft Edge|
 |[EdgeEnhanceImagesEnabled](#edgeenhanceimagesenabled)|Enhance images enabled (obsolete)|
-|[EdgeEntraCopilotPageContext](#edgeentracopilotpagecontext)|Control access to page content for Entra ID Profiles accessing Microsoft Copilot with Enterprise Data Protection (EDP) from the Microsoft Edge sidebar|
+|[EdgeEntraCopilotPageContext](#edgeentracopilotpagecontext)|Control Copilot access to Microsoft Edge page content for Entra account user profiles when using Copilot in the Microsoft Edge sidepane|
 |[EdgeFollowEnabled](#edgefollowenabled)|Enable Follow service in Microsoft Edge (obsolete)|
 |[EdgeOpenInSidebarEnabled](#edgeopeninsidebarenabled)|Enable open in sidebar|
 |[EdgeShoppingAssistantEnabled](#edgeshoppingassistantenabled)|Shopping in Microsoft Edge Enabled|
@@ -662,7 +662,6 @@ These tables list all of the browser-related group policies available in this re
 |[IsolateOrigins](#isolateorigins)|Enable site isolation for specific origins|
 |[KeyboardFocusableScrollersEnabled](#keyboardfocusablescrollersenabled)|Enable keyboard focusable scrollers|
 |[LiveCaptionsAllowed](#livecaptionsallowed)|Live captions allowed|
-|[LiveTranslationAllowed](#livetranslationallowed)|Live translation allowed|
 |[LocalBrowserDataShareEnabled](#localbrowserdatashareenabled)|Enable Windows to search local Microsoft Edge browsing data|
 |[LocalProvidersEnabled](#localprovidersenabled)|Allow suggestions from local providers|
 |[MAUEnabled](#mauenabled)|Always use Microsoft AutoUpdate as the updater for Microsoft Edge|
@@ -697,6 +696,7 @@ These tables list all of the browser-related group policies available in this re
 |[PDFSecureMode](#pdfsecuremode)|Secure mode and Certificate-based Digital Signature validation in native PDF reader|
 |[PDFXFAEnabled](#pdfxfaenabled)|XFA support in native PDF reader enabled|
 |[PaymentMethodQueryEnabled](#paymentmethodqueryenabled)|Allow websites to query for available payment methods|
+|[PdfViewerOutOfProcessIframeEnabled](#pdfvieweroutofprocessiframeenabled)|Use out-of-process iframe PDF Viewer|
 |[PersonalizationReportingEnabled](#personalizationreportingenabled)|Allow personalization of ads, Microsoft Edge, search, news and other Microsoft services by sending browsing history, favorites and collections, usage and other browsing data to Microsoft|
 |[PersonalizeTopSitesInCustomizeSidebarEnabled](#personalizetopsitesincustomizesidebarenabled)|Personalize my top sites in Customize Sidebar enabled by default|
 |[PictureInPictureOverlayEnabled](#pictureinpictureoverlayenabled)|Enable Picture in Picture overlay feature on supported webpages in Microsoft Edge|
@@ -744,7 +744,7 @@ These tables list all of the browser-related group policies available in this re
 |[SearchbarAllowed](#searchbarallowed)|Enable the Search bar|
 |[SearchbarIsEnabledOnStartup](#searchbarisenabledonstartup)|Allow the Search bar at Windows startup|
 |[SecurityKeyPermitAttestation](#securitykeypermitattestation)|Websites or domains that don't need permission to use direct Security Key attestation|
-|[SelectParserRelaxationEnabled](#selectparserrelaxationenabled)|Controls whether the new HTML parser behavior for the \<select> element is enabled|
+|[SelectParserRelaxationEnabled](#selectparserrelaxationenabled)|Controls whether the new HTML parser behavior for the \<select\> element is enabled|
 |[SendIntranetToInternetExplorer](#sendintranettointernetexplorer)|Send all intranet sites to Internet Explorer|
 |[SendMouseEventsDisabledFormControlsEnabled](#sendmouseeventsdisabledformcontrolsenabled)|Control the new behavior for event dispatching on disabled form controls (obsolete)|
 |[SendSiteInfoToImproveServices](#sendsiteinfotoimproveservices)|Send site information to improve Microsoft services (obsolete)|
@@ -2467,14 +2467,19 @@ If this policy is Disabled or left not set, Data URLs won't work in SVGUseElemen
 
   #### Description
 
-  Set whether websites can perform multiple downloads successively without user interaction. You can enable it for all sites (AllowAutomaticDownloads) or block it for all sites (BlockAutomaticDownloads).
-If you don't configure this policy, multiple automatic downloads can be performed in all sites, and the user can change this setting.
+  Administrators can use this policy to control whether websites can perform multiple downloads successively. Individual site behavior can be managed using the AutomaticDownloadsAllowedForUrls and AutomaticDownloadsBlockedForUrls policies.
+
+Default behavior:
+
+- A user gesture is required for each additional download.
+
+- Users can modify their browser settings to disable successive downloads.
 
 Policy options mapping:
 
-* AllowAutomaticDownloads (1) = Allow all websites to perform automatic downloads
+* AllowAutomaticDownloads (1) = Allow all websites to perform multiple downloads without requiring a user gesture between each download.
 
-* BlockAutomaticDownloads (2) = Don't allow any website to perform automatic downloads
+* BlockAutomaticDownloads (2) = Prevent all websites from performing multiple downloads, even after a user gesture.
 
 Use the preceding information when configuring this policy.
 
@@ -4380,7 +4385,7 @@ If you don't configure this policy, [DefaultJavaScriptSetting](#defaultjavascrip
 
 For detailed information on valid url patterns, please see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322). Wildcards, *, are allowed.
 
-Note that this policy blocks JavaScript based on whether the origin of the top-level document (usually the page URL that is also displayed in the address bar) matches any of the patterns. Therefore this policy is not appropriate for mitigating web supply-chain attacks. For example, supplying the pattern "`https://[\*.]foo.com/`" will not prevent a page hosted on, say, https://contoso.com from running a script loaded from `https://www.foo.com/example.js`. Furthermore, supplying the pattern "https://contoso.com/" will not prevent a document from https://contoso.com from running scripts if it is not the top-level document, but embedded as a sub-frame into a page hosted on another origin, say, https://www.fabrikam.com.
+Note that this policy blocks JavaScript based on whether the origin of the top-level document (usually the page URL that is also displayed in the address bar) matches any of the patterns. Therefore this policy is not appropriate for mitigating web supply-chain attacks. For example, supplying the pattern `https://[\*.]foo.com/` will not prevent a page hosted on, say, `https://contoso.com` from running a script loaded from `https://www.foo.com/example.js`. Furthermore, supplying the pattern `https://contoso.com/` will not prevent a document from `https://contoso.com` from running scripts if it is not the top-level document, but embedded as a sub-frame into a page hosted on another origin, say, `https://www.fabrikam.com`.
 
   #### Supported features:
 
@@ -4653,13 +4658,13 @@ Use the preceding information when configuring this policy.
 
   ### LegacySameSiteCookieBehaviorEnabledForDomainList
 
-  #### Revert to legacy SameSite behavior for cookies on specified sites
+  #### Revert to legacy SameSite behavior for cookies on specified sites (obsolete)
 
   
-  
+  >OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 132.
   #### Supported versions:
 
-  - On Windows and macOS since 80 or later
+  - On Windows and macOS since 80, until 132
 
   #### Description
 
@@ -4674,6 +4679,8 @@ The global default value can be configured using the [LegacySameSiteCookieBehavi
 For detailed information about valid URL patterns, see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
 
 Note that patterns you list in this policy are treated as domains, not URLs, so you should not specify a scheme or port.
+
+The policy has been discontinued starting from Edge 132.
 
   #### Supported features:
 
@@ -4692,7 +4699,7 @@ Note that patterns you list in this policy are treated as domains, not URLs, so 
   ##### Group Policy (ADMX) info
 
   - GP unique name: LegacySameSiteCookieBehaviorEnabledForDomainList
-  - GP name: Revert to legacy SameSite behavior for cookies on specified sites
+  - GP name: Revert to legacy SameSite behavior for cookies on specified sites (obsolete)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -6615,7 +6622,7 @@ SOFTWARE\Policies\Microsoft\Edge\DefaultSearchProviderEncodings\4 = "ISO-8859-1"
 This policy is optional. If you don't configure it, image search isn't available.
 
 Specify Bing's Image Search URL as:
-'{bing:baseURL}images/detail/search?iss=sbiupload&FORM=ANCMS1#enterInsights'.
+'{bing:baseURL}images/detail/search?iss=sbiupload&amp;FORM=ANCMS1#enterInsights'.
 
 Specify Google's Image Search URL as: '{google:baseURL}searchbyimage/upload'.
 
@@ -6893,7 +6900,7 @@ Specify Bing's search URL as:
 
 '{bing:baseURL}search?q={searchTerms}'.
 
-Specify Google's search URL as: '{google:baseURL}search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}ie={inputEncoding}'.
+Specify Google's search URL as: '{google:baseURL}search?q={searchTerms}&amp;{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}ie={inputEncoding}'.
 
 This policy is required when you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) policy; if you don't enable the latter policy, this policy is ignored.
 
@@ -6965,7 +6972,7 @@ Bing's suggest URL can be specified as:
 
 '{bing:baseURL}qbox?query={searchTerms}'.
 
-Google's suggest URL can be specified as: '{google:baseURL}complete/search?output=chrome&q={searchTerms}'.
+Google's suggest URL can be specified as: '{google:baseURL}complete/search?output=chrome&amp;q={searchTerms}'.
 
 This policy is applied only if you enable the [DefaultSearchProviderEnabled](#defaultsearchproviderenabled) and [DefaultSearchProviderSearchURL](#defaultsearchprovidersearchurl) policies.
 
@@ -7257,7 +7264,7 @@ If you disable or don't set this policy, default Edge Website Typo Protection pr
 This will only take effect when TyposquattingCheckerEnabled policy is not set or set to enabled.
 
 This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain, Windows 10/11 Pro or Enterprise instances that enrolled for device management, or macOS instances that are that are managed via MDM or joined to a domain via MCX.
-Also note that this policy does not apply if your organization has enabled Microsoft Defender for Endpoint. You must configure your allow and block lists in Microsoft 365 Defender portal using Indicators (Settings > Endpoints > Indicators).
+Also note that this policy does not apply if your organization has enabled Microsoft Defender for Endpoint. You must configure your allow and block lists in Microsoft 365 Defender portal using Indicators (Settings &gt; Endpoints &gt; Indicators).
 
   #### Supported features:
 
@@ -8219,7 +8226,7 @@ On macOS instances, apps and extensions from outside the Microsoft Edge Add-ons 
 
 The source code of any extension can be altered by users with developer tools, potentially rendering the extension unfunctional. If this is a concern, configure the [DeveloperToolsAvailability](#developertoolsavailability) policy.
 
-Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document (https://go.microsoft.com/fwlink/?linkid=2095043). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy, see [https://learn.microsoft.com/deployedge/microsoft-edge-manage-extensions-ref-guide](/deployedge/microsoft-edge-manage-extensions-ref-guide).
+Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document ( [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043) ). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy, see https://learn.microsoft.com/deployedge/microsoft-edge-manage-extensions-ref-guide.
 
 Note: This policy doesn't apply to InPrivate mode. Read about hosting extensions at [Publish and update extensions in the Microsoft Edge Add-ons website](/microsoft-edge/extensions-chromium/enterprise/hosting-and-updating).
 
@@ -9891,7 +9898,7 @@ If you disable this policy, linked accounts will be turned off and no extra info
 
   This policy allows users to decide whether to use the OneAuth library for sign-in and token fetch in Microsoft Edge on Windows 10 RS3 and above.
 
-If you disable or don't configure this policy, signin process will use Windows Account Manager. Microsoft Edge would be able to use accounts you logged in to Windows, Microsoft Office, or other Microsoft applications for login, without the needing of password. Or you can provide valid account and password to sign in, which will be stored in Windows Account Manager for future usage. You will be able to investigate all accounts stored in Windows Account Manager through Windows Settings -> Accounts -> Email and accounts page.
+If you disable or don't configure this policy, signin process will use Windows Account Manager. Microsoft Edge would be able to use accounts you logged in to Windows, Microsoft Office, or other Microsoft applications for login, without the needing of password. Or you can provide valid account and password to sign in, which will be stored in Windows Account Manager for future usage. You will be able to investigate all accounts stored in Windows Account Manager through Windows Settings -&gt; Accounts -&gt; Email and accounts page.
 
 If you enable this policy, OneAuth authentication flow will be used for account signin. The OneAuth authentication flow has fewer dependencies and can work without Windows shell. The account you use would not be stored in the Email and accounts page.
 
@@ -11630,7 +11637,8 @@ If you enable this policy, you can configure the list of base64 encoded SHA256 f
 
 If you disable or don't configure this policy, XFA PDFs won't be considered for opening via IE mode except the files from file origin mentioned in Policy [ViewXFAPDFInIEModeAllowedOrigins](#viewxfapdfiniemodeallowedorigins)
 
-For more information, see - [Get-FileHash](https://go.microsoft.com/fwlink/?linkid=2294823), [Dot Net Convert API](https://go.microsoft.com/fwlink/?linkid=2294913).
+For more information, see [Get-FileHash](https://go.microsoft.com/fwlink/?linkid=2294823), [Dot Net Convert API](https://go.microsoft.com/fwlink/?linkid=2294913).
+
 
   #### Supported features:
 
@@ -12156,7 +12164,7 @@ If you disable or don't configure this policy, Microsoft Edge will let the user 
 
   Allow Microsoft Edge to monitor user passwords.
 
-If you enable this policy, the user will get alerted if any of their passwords stored in Microsoft Edge are found to be unsafe. Microsoft Edge will show an alert and this information will also be available in Settings > Passwords > Password Monitor.
+If you enable this policy, the user will get alerted if any of their passwords stored in Microsoft Edge are found to be unsafe. Microsoft Edge will show an alert and this information will also be available in Settings &gt; Passwords &gt; Password Monitor.
 
 If you disable this policy, users will not be asked for permission to enable this feature. Their passwords will not be scanned and they will not be alerted either.
 
@@ -16101,7 +16109,7 @@ If you enable this policy, Microsoft Defender SmartScreen trusts these domains.
 If you disable or don't set this policy, default Microsoft Defender SmartScreen protection is applied to all resources.
 
 This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain, Windows 10/11 Pro or Enterprise instances that enrolled for device management, or macOS instances that are that are managed via MDM or joined to a domain via MCX.
-Note: If your organization has enabled Microsoft Defender for Endpoint, this policy and any allow list created with it will be ignored. You must configure your allow and block lists in Microsoft 365 Defender portal using Indicators (Settings > Endpoints > Indicators).
+Note: If your organization has enabled Microsoft Defender for Endpoint, this policy and any allow list created with it will be ignored. You must configure your allow and block lists in Microsoft 365 Defender portal using Indicators (Settings &gt; Endpoints &gt; Indicators).
 
   #### Supported features:
 
@@ -17743,7 +17751,7 @@ If you don't configure the policy, users can choose whether to show the home but
 
   #### Description
 
-  'Allow single sign-on for work or school sites using this profile' option allows non-AAD profiles to be able to use single sign-on for work or school sites using work or school credentials present on the machine. This option shows up for end-users as a toggle in Settings -> Profiles -> Profile Preferences for non-AAD profiles only.
+  'Allow single sign-on for work or school sites using this profile' option allows non-AAD profiles to be able to use single sign-on for work or school sites using work or school credentials present on the machine. This option shows up for end-users as a toggle in Settings -&gt; Profiles -&gt; Profile Preferences for non-AAD profiles only.
 
 If you enable or disable this policy, 'Intelligent enablement of Single sign-on (SSO) for all Windows Azure Active Directory (Azure AD) accounts for users with a single non-Azure AD Microsoft Edge profile' will be turned off.
 
@@ -20120,7 +20128,7 @@ SOFTWARE\Policies\Microsoft\Edge\AutoLaunchProtocolsFromOrigins = [
 
   #### Description
 
-  A list of URLs to which [AutoOpenFileTypes](#autoopenfiletypes) will apply to. This policy has no impact on automatically open values set by users via the download shelf ... > "Always open files of this type" menu entry.
+  A list of URLs to which [AutoOpenFileTypes](#autoopenfiletypes) will apply to. This policy has no impact on automatically open values set by users via the download shelf ... &gt; "Always open files of this type" menu entry.
 
 If you set URLs in this policy, files will only automatically open by policy if the URL is part of this set and the file type is listed in [AutoOpenFileTypes](#autoopenfiletypes). If either condition is false, the download won't automatically open by policy.
 
@@ -25677,6 +25685,70 @@ If you disable this policy, features won't be able to download assets needed for
 
   [Back to top](#microsoft-edge---policies)
 
+  ### EdgeAutofillMlEnabled
+
+  #### Machine learning powered autofill suggestions
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 132 or later
+
+  #### Description
+
+  Allows ML technology to predict and fill in forms and text fields for better browsing. Your personal data is secure and will not be used elsewhere.
+
+If you enable this policy or don't configure it, users can benefit from machine learning powered autofill suggestions, which improve efficiency by offering more accurate, context aware form recommendations based on historical autofill data.
+
+If you disable this policy, machine learning powered autofill suggestions will not be shown, and autofill will no longer use cloud-based machine learning models to enhance form filling with smarter, context aware suggestions. Instead, autofill will rely on basic form data without the benefits of machine learning.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: Yes
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: EdgeAutofillMlEnabled
+  - GP name: Machine learning powered autofill suggestions
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
+  - Value Name: EdgeAutofillMlEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000000
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: EdgeAutofillMlEnabled
+  - Example value:
+``` xml
+<false/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### EdgeCollectionsEnabled
 
   #### Enable the Collections feature
@@ -25941,7 +26013,7 @@ If you disable this policy, Microsoft Edge will not enhance images.
 
   ### EdgeEntraCopilotPageContext
 
-  #### Control access to page content for Entra ID Profiles accessing Microsoft Copilot with Enterprise Data Protection (EDP) from the Microsoft Edge sidebar
+  #### Control Copilot access to Microsoft Edge page content for Entra account user profiles when using Copilot in the Microsoft Edge sidepane
 
   
   
@@ -25951,17 +26023,23 @@ If you disable this policy, Microsoft Edge will not enhance images.
 
   #### Description
 
-  This policy controls access to page contents for Microsoft Copilot with enterprise data protection (EDP) in the Microsoft Edge sidebar for the web tab only. This policy controls whether Microsoft Copilot can perform page summarization and similar contextual queries.
+  This policy controls whether Copilot in the Microsoft Edge sidepane can access Microsoft Edge page content. This includes page summarization and similar contextual queries sent to Copilot.
 
-This policy applies only to Microsoft Entra ID Microsoft Edge profiles. It does not apply to MSA Microsoft Edge profiles. For users with M365 Copilot license, this control applies only to the web tab in the Microsoft Edge sidebar and not the work tab.
+This policy only applies to users who are signed in to Microsoft Edge with their Entra account and are using Copilot in the sidepane. This policy applies to all Copilot products in the Microsoft Edge sidepane - namely, Microsoft 365 Copilot Business Chat and Microsoft Copilot with enterprise data protection (EDP).
 
-If you enable this policy, Copilot will have access to page content when logged in with Entra ID.
+If you enable this policy, Copilot will be able to access Microsoft Edge page content when users ask a contextual query to Copilot in the Microsoft Edge sidepane.
 
-If this policy is not configured, the default behavior for non-EU countries is that access is initially enabled. For EU countries, the default behavior is that access is initially disabled. In both cases, if the policy is not configured, users can enable or disable Copilot's access to page content using the setting toggle in Microsoft Edge.
+If you disable this policy, Copilot will not be able to access Microsoft Edge page content.
 
-If you disable this policy, Copilot will not be able to access page contents.
+If you don't configure this policy, the default behavior is as follows:
 
-Exceptions to the preceding behavior include when a page is protected using data loss prevention (DLP) measures. In that case, the page content will not be shared to Copilot even when this policy is enabled. This behavior ensures the integrity of DLP.
+- For non-EU countries, access is enabled by default.
+
+- For EU countries, access is disabled by default.
+
+- In both cases, if the policy is not configured, users can enable or disable Copilot access to Microsoft Edge page content using the toggle in Microsoft Edge settings.
+
+Exceptions to the preceding behavior include when a page is protected using data loss prevention (DLP) measures. In that case, Copilot will not be able to access Microsoft Edge page content even when this policy is enabled. This behavior is to ensure the integrity of DLP.
 
 Learn more about Copilot's data usage and consent at [https://go.microsoft.com/fwlink/?linkid=2288056](https://go.microsoft.com/fwlink/?linkid=2288056)
 
@@ -25982,7 +26060,7 @@ Learn more about Copilot's data usage and consent at [https://go.microsoft.com/f
   ##### Group Policy (ADMX) info
 
   - GP unique name: EdgeEntraCopilotPageContext
-  - GP name: Control access to page content for Entra ID Profiles accessing Microsoft Copilot with Enterprise Data Protection (EDP) from the Microsoft Edge sidebar
+  - GP name: Control Copilot access to Microsoft Edge page content for Entra account user profiles when using Copilot in the Microsoft Edge sidepane
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -33230,65 +33308,6 @@ If users choose to turn on Live captions, speech recognition files (approximatel
 
   [Back to top](#microsoft-edge---policies)
 
-  ### LiveTranslationAllowed
-
-  #### Live translation allowed
-
-  
-  
-  #### Supported versions:
-
-  - On Windows since 133 or later
-
-  #### Description
-
-  Lets users turn the Video translate feature on or off.
-
-Video translate offers real-time translation of the audio in a user's video, in their selected language. Translation happens after the user selects the translate icon while watching a video.
-
-This feature is available to users by default and admins can only turn it off after they configure the policy.
-
-When users open the feature for the first time, the language models are downloaded to the device. This means a server isn't needed for translation. The language models are deleted from the device if the user doesn't open the feature for 30 days.
-
-  #### Supported features:
-
-  - Can be mandatory: Yes
-  - Can be recommended: No
-  - Dynamic Policy Refresh: Yes
-  - Per Profile: Yes
-  - Applies to a profile that is signed in with a Microsoft account: No
-
-  #### Data Type:
-
-  - Boolean
-
-  #### Windows information and settings
-
-  ##### Group Policy (ADMX) info
-
-  - GP unique name: LiveTranslationAllowed
-  - GP name: Live translation allowed
-  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
-  - GP path (Recommended): N/A
-  - GP ADMX file name: MSEdge.admx
-
-  ##### Windows Registry Settings
-
-  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
-  - Path (Recommended): N/A
-  - Value Name: LiveTranslationAllowed
-  - Value Type: REG_DWORD
-
-  ##### Example value:
-
-```
-0x00000001
-```
-
-  
-
-  [Back to top](#microsoft-edge---policies)
-
   ### LocalBrowserDataShareEnabled
 
   #### Enable Windows to search local Microsoft Edge browsing data
@@ -33473,7 +33492,7 @@ If you disable or don't configure this policy, Microsoft Edge will be updated by
 
   #### Description
 
-  'Allow single sign-on for Microsoft personal sites using this profile' option allows non-MSA profiles to be able to use single sign-on for Microsoft sites using MSA credentials present on the machine. This option shows up for end-users as a toggle in Settings -> Profiles -> Profile Preferences for non-MSA profiles only.
+  'Allow single sign-on for Microsoft personal sites using this profile' option allows non-MSA profiles to be able to use single sign-on for Microsoft sites using MSA credentials present on the machine. This option shows up for end-users as a toggle in Settings -&gt; Profiles -&gt; Profile Preferences for non-MSA profiles only.
 
 If you disable this policy, non-MSA profiles will not be able to use single sign-on for Microsoft sites using MSA credentials present on the machine.
 
@@ -35690,6 +35709,73 @@ If you enable this policy or don't set this policy, websites can check if the us
 
   [Back to top](#microsoft-edge---policies)
 
+  ### PdfViewerOutOfProcessIframeEnabled
+
+  #### Use out-of-process iframe PDF Viewer
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 133 or later
+
+  #### Description
+
+  Determines whether the PDF viewer in Microsoft Edge uses an out-of-process iframe (OOPIF).
+This will be the new PDF viewer architecture going forward, as it is simpler in design and makes adding new features easier. The current GuestView PDF viewer, which relies on an outdated and overly complex architecture, is being deprecated.
+
+When this policy is set to Enabled or not set, Microsoft Edge will use the OOPIF PDF viewer architecture. Once Enabled or not set, the default behavior will be decided by Microsoft Edge.
+
+When this policy is set to Disabled, Microsoft Edge will strictly use the existing GuestView PDF viewer. This approach embeds a web page with its own separate frame tree into another web page.
+
+This policy will be removed in the future, after the OOPIF PDF viewer feature has fully rolled out.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: PdfViewerOutOfProcessIframeEnabled
+  - GP name: Use out-of-process iframe PDF Viewer
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: PdfViewerOutOfProcessIframeEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: PdfViewerOutOfProcessIframeEnabled
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### PersonalizationReportingEnabled
 
   #### Allow personalization of ads, Microsoft Edge, search, news and other Microsoft services by sending browsing history, favorites and collections, usage and other browsing data to Microsoft
@@ -36848,7 +36934,7 @@ Use the preceding information when configuring this policy.
 
   #### Description
 
-  Specifies how the user receives related matches in Find on Page, which provides spellcheck, synonyms, and Q&A results in Microsoft Edge.
+  Specifies how the user receives related matches in Find on Page, which provides spellcheck, synonyms, and Q&amp;A results in Microsoft Edge.
 
 If you enable or don't configure this policy, users can receive related matches in Find on Page on all sites. The results are processed in a cloud service.
 
@@ -38864,7 +38950,7 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\1 = "contoso.com"
 
   ### SelectParserRelaxationEnabled
 
-  #### Controls whether the new HTML parser behavior for the \<select> element is enabled
+  #### Controls whether the new HTML parser behavior for the &lt;select&gt; element is enabled
 
   
   
@@ -38874,11 +38960,11 @@ SOFTWARE\Policies\Microsoft\Edge\SecurityKeyPermitAttestation\1 = "contoso.com"
 
   #### Description
 
-  The HTML parser is being changed to allow additional HTML tags inside the \<select> element. This policy supports the old HTML parser behavior until M136.
+  The HTML parser is being changed to allow additional HTML tags inside the &lt;select&gt; element. This policy supports the old HTML parser behavior until M136.
 
-If this policy is enabled or unset, the HTML parser will allow additional tags inside the \<select> element.
+If this policy is enabled or unset, the HTML parser will allow additional tags inside the &lt;select&gt; element.
 
-If this policy is disabled, then the HTML parser will restrict which tags can be put in the \<select> element.
+If this policy is disabled, then the HTML parser will restrict which tags can be put in the &lt;select&gt; element.
 
   #### Supported features:
 
@@ -38897,7 +38983,7 @@ If this policy is disabled, then the HTML parser will restrict which tags can be
   ##### Group Policy (ADMX) info
 
   - GP unique name: SelectParserRelaxationEnabled
-  - GP name: Controls whether the new HTML parser behavior for the \<select> element is enabled
+  - GP name: Controls whether the new HTML parser behavior for the \<select\> element is enabled
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -40378,8 +40464,8 @@ If you enable or don't configure this policy, web-based applications that use th
 If you disable this policy, Speech Recognition is not available through the Web Speech API.
 
 Read more about this feature here:
-- SpeechRecognition API
-- Cognitive Services: [https://go.microsoft.com/fwlink/?linkid=2143680](https://go.microsoft.com/fwlink/?linkid=2143680)
+SpeechRecognition API: [https://go.microsoft.com/fwlink/?linkid=2143388](https://go.microsoft.com/fwlink/?linkid=2143388)
+Cognitive Services: [https://go.microsoft.com/fwlink/?linkid=2143680](https://go.microsoft.com/fwlink/?linkid=2143680)
 
   #### Supported features:
 

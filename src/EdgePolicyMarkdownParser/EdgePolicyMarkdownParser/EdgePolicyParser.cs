@@ -72,7 +72,7 @@ public class EdgePolicyParser
             }
         }
 
-        if (needsDownload == false)
+		if (needsDownload == false)
         {
             return;
         }
