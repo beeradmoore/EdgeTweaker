@@ -62,7 +62,7 @@ public class EdgePolicyParser
         {
             // TODO: Check git hash or etag or something else
             var fileInfo = new FileInfo(MarkdownFilePath);
-            if ((DateTime.Now - fileInfo.LastWriteTime).Days > 7)
+            if ((DateTime.Now - fileInfo.LastWriteTime).Days > 1)
             {
                 needsDownload = true;
             }

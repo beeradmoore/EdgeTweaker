@@ -1,0 +1,103 @@
+<h3>IdleTimeoutActions</h3>
+
+<h4>Actions to run when the computer is idle</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 134 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>List of actions to run when the timeout from the IdleTimeout policy is reached.</p>
+
+<p>If the IdleTimeout policy is unset, this policy has no effect.</p>
+
+<p>When the timeout from the IdleTimeout policy is reached, the browser runs the actions configured in this policy.</p>
+
+<p>If you do not set this policy or no actions are selected, the IdleTimeout policy has no effect.</p>
+
+<p>Supported actions are:</p>
+
+<p>'close_browsers': close all browser windows and PWAs for this profile.</p>
+
+<p>'reload_pages': reload all webpages. For some pages, the user may be prompted for confirmation first.</p>
+
+<p>'clear<em>browsing</em>history', 'clear<em>download</em>history', 'clear<em>cookies</em>and<em>other</em>site<em>data', 'clear</em>cached<em>images</em>and<em>files', 'clear</em>password<em>signing', 'clear</em>autofill', 'clear<em>site</em>settings': clear the corresponding browsing data.</p>
+
+<p>Setting 'clear<em>browsing</em>history', 'clear<em>password</em>signing', 'clear<em>autofill', and 'clear</em>site_settings' will disable sync for the respective data types if neither <code>Chrome Sync</code> is disabled by setting the SyncDisabled policy nor BrowserSignin is disabled.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>close<em>browsers (close</em>browsers) = Close Browsers</p></li>
+<li><p>clear<em>browsing</em>history (clear<em>browsing</em>history) = Clear Browsing History</p></li>
+<li><p>clear<em>download</em>history (clear<em>download</em>history) = Clear Download History</p></li>
+<li><p>clear<em>cookies</em>and<em>other</em>site<em>data (clear</em>cookies<em>and</em>other<em>site</em>data) = Clear Cookies and Other Site Data</p></li>
+<li><p>clear<em>cached</em>images<em>and</em>files (clear<em>cached</em>images<em>and</em>files) = Clear Cached Images and Files</p></li>
+<li><p>clear<em>password</em>signin (clear<em>password</em>signin) = Clear Password Signin</p></li>
+<li><p>clear<em>autofill (clear</em>autofill) = Clear Autofill</p></li>
+<li><p>clear<em>site</em>settings (clear<em>site</em>settings) = Clear Site Settings</p></li>
+<li><p>reload<em>pages (reload</em>pages) = Reload Pages</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: IdleTimeoutActions</li>
+<li>GP name: Actions to run when the computer is idle</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Idle Browser Actions</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\IdleTimeoutActions</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\IdleTimeoutActions\1 = "close_browsers"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: IdleTimeoutActions</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;close_browsers&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

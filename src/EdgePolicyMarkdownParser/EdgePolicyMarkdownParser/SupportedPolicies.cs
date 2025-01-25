@@ -155,12 +155,16 @@ public static class SupportedPolicies
 		{ "OneAuthAuthenticationEnforced", true },
 		{ "OnlyOnPremisesImplicitSigninEnabled", true },
 		{ "ProactiveAuthWorkflowEnabled", true },
+		{ "SeamlessWebToBrowserSignInEnabled", true },
 		{ "SignInCtaOnNtpEnabled", true },
 		{ "SwitchIntranetSitesToWorkProfile", true },
 		{ "SwitchSitesOnIEModeSiteListToWorkProfile", true },
 		{ "WAMAuthBelowWin10RS3Enabled", true },
+		{ "WebToBrowserSignInEnabled", true },
 
         // Idle Browser Actions
+		{ "IdleTimeout", true },
+		{ "IdleTimeoutActions", true },
 
         // Immersive Reader settings
         { "ImmersiveReaderGrammarToolsEnabled", true },
@@ -227,6 +231,7 @@ public static class SupportedPolicies
 
         // Printing
         { "DefaultPrinterSelection", true },
+		{ "OopPrintDriversAllowed", true },
 		{ "PrintHeaderFooter", true },
 		{ "PrintPdfAsImageDefault", true },
 		{ "PrintPostScriptMode", true },
@@ -655,6 +660,7 @@ public static class SupportedPolicies
 		{ "WalletDonationEnabled", true },
 		{ "WebAppInstallForceList", true },
 		{ "WebAppSettings", true },
+		{ "WebAudioOutputBufferingEnabled", true },
 		{ "WebCaptureEnabled", true },
 		{ "WebComponentsV0Enabled", true },
 		{ "WebDriverOverridesIncompatiblePolicies", true },

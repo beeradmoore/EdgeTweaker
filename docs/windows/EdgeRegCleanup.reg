@@ -53,6 +53,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallSources]
 [-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallTypeBlocklist]
 [-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\AllHttpAuthSchemesAllowedForOrigins]
+[-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\IdleTimeoutActions]
 [-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\NativeMessagingAllowlist]
 [-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\NativeMessagingBlocklist]
 [-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\ViewXFAPDFInIEModeAllowedFileHash]
@@ -187,9 +188,12 @@ Windows Registry Editor Version 5.00
 "OneAuthAuthenticationEnforced"=-
 "OnlyOnPremisesImplicitSigninEnabled"=-
 "ProactiveAuthWorkflowEnabled"=-
+"SeamlessWebToBrowserSignInEnabled"=-
 "SwitchIntranetSitesToWorkProfile"=-
 "SwitchSitesOnIEModeSiteListToWorkProfile"=-
 "WAMAuthBelowWin10RS3Enabled"=-
+"WebToBrowserSignInEnabled"=-
+"IdleTimeout"=-
 "ImmersiveReaderGrammarToolsEnabled"=-
 "ImmersiveReaderPictureDictionaryEnabled"=-
 "KioskAddressBarEditingEnabled"=-
@@ -225,6 +229,7 @@ Windows Registry Editor Version 5.00
 "PinBrowserEssentialsToolbarButton"=-
 "StartupBoostEnabled"=-
 "DefaultPrinterSelection"=-
+"OopPrintDriversAllowed"=-
 "PrintHeaderFooter"=-
 "PrintPdfAsImageDefault"=-
 "PrintPostScriptMode"=-
@@ -588,6 +593,7 @@ Windows Registry Editor Version 5.00
 "WalletDonationEnabled"=-
 "WebAppInstallForceList"=-
 "WebAppSettings"=-
+"WebAudioOutputBufferingEnabled"=-
 "WebCaptureEnabled"=-
 "WebComponentsV0Enabled"=-
 "WebDriverOverridesIncompatiblePolicies"=-

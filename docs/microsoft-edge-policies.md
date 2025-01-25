@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: vmliramichael
 manager: venkatk
-ms.date: 01/10/2025
+ms.date: 01/22/2025
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -30,12 +30,18 @@ Starting in Microsoft Edge version 116, certain policies will not be applied to 
 
 The following table lists the new, and deprecated policies that are in this article update.
 
+The following table lists the new, and deprecated policies that are in this article update.
+
 | Policy Name | Caption |
 |:-----|:-----|
-|[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Revert to legacy SameSite behavior for cookies on specified sites (deprecated)|
-|[EdgeAutofillMlEnabled](#edgeautofillmlenabled)|Machine learning powered autofill suggestions|
-|[EdgeEntraCopilotPageContext](#edgeentracopilotpagecontext)|Control Copilot access to Microsoft Edge page content for Entra account user profiles when using Copilot in the Microsoft Edge sidepane|
-|[PdfViewerOutOfProcessIframeEnabled](#pdfvieweroutofprocessiframeenabled)|Use out-of-process iframe PDF Viewer|
+|[SeamlessWebToBrowserSignInEnabled](#seamlesswebtobrowsersigninenabled)|Seamless Web To Browser Sign-in Enabled|
+|[WebToBrowserSignInEnabled](#webtobrowsersigninenabled)|Web To Browser Sign-in Enabled|
+|[IdleTimeout](#idletimeout)|Delay before running idle actions|
+|[IdleTimeoutActions](#idletimeoutactions)|Actions to run when the computer is idle|
+|[OopPrintDriversAllowed](#oopprintdriversallowed)|Out-of-process print drivers allowed|
+|[SelectParserRelaxationEnabled](#selectparserrelaxationenabled)|Controls whether the new HTML parser behavior for the \<select\> element is enabled|
+|[UserAgentClientHintsGREASEUpdateEnabled](#useragentclienthintsgreaseupdateenabled)|Control the User-Agent Client Hints GREASE Update feature (deprecated)|
+|[WebAudioOutputBufferingEnabled](#webaudiooutputbufferingenabled)|Enable adaptive buffering for Web Audio|
 
 ## Available policies
 
@@ -256,14 +262,18 @@ These tables list all of the browser-related group policies available in this re
 |[OneAuthAuthenticationEnforced](#oneauthauthenticationenforced)|OneAuth Authentication Flow Enforced for signin|
 |[OnlyOnPremisesImplicitSigninEnabled](#onlyonpremisesimplicitsigninenabled)|Only on-premises account enabled for implicit sign-in|
 |[ProactiveAuthWorkflowEnabled](#proactiveauthworkflowenabled)|Enable proactive authentication|
+|[SeamlessWebToBrowserSignInEnabled](#seamlesswebtobrowsersigninenabled)|Seamless Web To Browser Sign-in Enabled|
 |[SignInCtaOnNtpEnabled](#signinctaonntpenabled)|Enable sign in click to action dialog (obsolete)|
 |[SwitchIntranetSitesToWorkProfile](#switchintranetsitestoworkprofile)|Switch intranet sites to a work profile|
 |[SwitchSitesOnIEModeSiteListToWorkProfile](#switchsitesoniemodesitelisttoworkprofile)|Switch sites on the IE mode site list to a work profile|
 |[WAMAuthBelowWin10RS3Enabled](#wamauthbelowwin10rs3enabled)|WAM for authentication below Windows 10 RS3 enabled|
+|[WebToBrowserSignInEnabled](#webtobrowsersigninenabled)|Web To Browser Sign-in Enabled|
 ### [*Idle Browser Actions*](#idle-browser-actions-policies)
 
 |Policy Name|Caption|
 |-|-|
+|[IdleTimeout](#idletimeout)|Delay before running idle actions|
+|[IdleTimeoutActions](#idletimeoutactions)|Actions to run when the computer is idle|
 ### [*Immersive Reader settings*](#immersive-reader-settings-policies)
 
 |Policy Name|Caption|
@@ -350,6 +360,7 @@ These tables list all of the browser-related group policies available in this re
 |Policy Name|Caption|
 |-|-|
 |[DefaultPrinterSelection](#defaultprinterselection)|Default printer selection rules|
+|[OopPrintDriversAllowed](#oopprintdriversallowed)|Out-of-process print drivers allowed|
 |[PrintHeaderFooter](#printheaderfooter)|Print headers and footers|
 |[PrintPdfAsImageDefault](#printpdfasimagedefault)|Print PDF as Image Default|
 |[PrintPostScriptMode](#printpostscriptmode)|Print PostScript Mode|
@@ -798,7 +809,7 @@ These tables list all of the browser-related group policies available in this re
 |[UploadFromPhoneEnabled](#uploadfromphoneenabled)|Enable upload files from mobile in Microsoft Edge desktop|
 |[UrlDiagnosticDataEnabled](#urldiagnosticdataenabled)|URL reporting in Edge diagnostic data enabled|
 |[UserAgentClientHintsEnabled](#useragentclienthintsenabled)|Enable the User-Agent Client Hints feature (obsolete)|
-|[UserAgentClientHintsGREASEUpdateEnabled](#useragentclienthintsgreaseupdateenabled)|Control the User-Agent Client Hints GREASE Update feature|
+|[UserAgentClientHintsGREASEUpdateEnabled](#useragentclienthintsgreaseupdateenabled)|Control the User-Agent Client Hints GREASE Update feature (obsolete)|
 |[UserAgentReduction](#useragentreduction)|Enable or disable the User-Agent Reduction|
 |[UserDataDir](#userdatadir)|Set the user data directory|
 |[UserDataSnapshotRetentionLimit](#userdatasnapshotretentionlimit)|Limits the number of user data snapshots retained for use in case of emergency rollback|
@@ -811,6 +822,7 @@ These tables list all of the browser-related group policies available in this re
 |[WalletDonationEnabled](#walletdonationenabled)|Wallet Donation Enabled|
 |[WebAppInstallForceList](#webappinstallforcelist)|Configure list of force-installed Web Apps|
 |[WebAppSettings](#webappsettings)|Web App management settings|
+|[WebAudioOutputBufferingEnabled](#webaudiooutputbufferingenabled)|Enable adaptive buffering for Web Audio|
 |[WebCaptureEnabled](#webcaptureenabled)|Enable the Screenshot (previously named Web Capture) feature in Microsoft Edge|
 |[WebComponentsV0Enabled](#webcomponentsv0enabled)|Re-enable Web Components v0 API until M84 (obsolete)|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Allow WebDriver to Override Incompatible Policies (obsolete)|
@@ -8226,7 +8238,7 @@ On macOS instances, apps and extensions from outside the Microsoft Edge Add-ons 
 
 The source code of any extension can be altered by users with developer tools, potentially rendering the extension unfunctional. If this is a concern, configure the [DeveloperToolsAvailability](#developertoolsavailability) policy.
 
-Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document ( [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043) ). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy, see [A detailed guide to configuring extensions using the ExtensionSettings policy](/deployedge/microsoft-edge-manage-extensions-ref-guide).
+Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy, see [A detailed guide to configuring extensions using the ExtensionSettings policy](/deployedge/microsoft-edge-manage-extensions-ref-guide).
 
 Note: This policy doesn't apply to InPrivate mode. Read about hosting extensions at [Publish and update extensions in the Microsoft Edge Add-ons website](/microsoft-edge/extensions-chromium/enterprise/hosting-and-updating).
 
@@ -10066,6 +10078,69 @@ If you disable this policy, Microsoft Edge does not send authentications request
 
   [Back to top](#microsoft-edge---policies)
 
+  ### SeamlessWebToBrowserSignInEnabled
+
+  #### Seamless Web To Browser Sign-in Enabled
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 107 or later
+
+  #### Description
+
+  This policy only takes effect when the [WebToBrowserSignInEnabled](#webtobrowsersigninenabled) is enabled.
+If you enable this policy and set this policy to True, users cannot turn off Seamless Web to Browser Sign-in feature from "Automatic sign in on Microsoft Edge" setting on Microsoft Edge profile settings page and that toggle will be greyed out.
+If you enable this policy and set this policy to False, users cannot turn on Seamless Web to Browser Sign-in feature from "Automatic sign in on Microsoft Edge" setting on Microsoft Edge profile settings page and that toggle will be greyed out.
+If you enable this policy but not configured or disabled, users can turn on/off Seamless Web to Browser Sign-in feature from settings by themselves.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: No
+  - Applies to a profile that is signed in with a Microsoft account: Yes
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: SeamlessWebToBrowserSignInEnabled
+  - GP name: Seamless Web To Browser Sign-in Enabled
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Identity and sign-in
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: SeamlessWebToBrowserSignInEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: SeamlessWebToBrowserSignInEnabled
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### SignInCtaOnNtpEnabled
 
   #### Enable sign in click to action dialog (obsolete)
@@ -10314,7 +10389,238 @@ This policy will only take effect on Windows 10 RS1 and RS2. On Windows 10 RS3 a
 
   [Back to top](#microsoft-edge---policies)
 
+  ### WebToBrowserSignInEnabled
+
+  #### Web To Browser Sign-in Enabled
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 133 or later
+
+  #### Description
+
+  Allow user to sign in to the same account in Microsoft Edge when a user signs in to a Microsoft website.
+If this policy is enabled or not configured, user are able to get sign in CTA or seamless sign in experience(if [SeamlessWebToBrowserSignInEnabled](#seamlesswebtobrowsersigninenabled) is enabled) when user sign in on Microsoft website.
+If this policy is disabled, user will not get sign in CTA or seamless sign in experience when user sign in on Microsoft website.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: No
+  - Applies to a profile that is signed in with a Microsoft account: Yes
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: WebToBrowserSignInEnabled
+  - GP name: Web To Browser Sign-in Enabled
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Identity and sign-in
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: WebToBrowserSignInEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000000
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: WebToBrowserSignInEnabled
+  - Example value:
+``` xml
+<false/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ## Idle Browser Actions policies
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### IdleTimeout
+
+  #### Delay before running idle actions
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 134 or later
+
+  #### Description
+
+  Triggers an action when the computer is idle.
+
+If you set this policy, it specifies the length of time without user input (in minutes) before the browser runs actions configured via the IdleTimeoutActions policy.
+
+If you not set this policy, no action will be ran.
+
+The minimum threshold is 1 minute.
+
+"User input" is defined by Operating System APIs, and includes things like moving the mouse or typing on the keyboard.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Integer
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: IdleTimeout
+  - GP name: Delay before running idle actions
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Idle Browser Actions
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: IdleTimeout
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x0000001e
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: IdleTimeout
+  - Example value:
+``` xml
+<integer>30</integer>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### IdleTimeoutActions
+
+  #### Actions to run when the computer is idle
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 134 or later
+
+  #### Description
+
+  List of actions to run when the timeout from the IdleTimeout policy is reached.
+
+If the IdleTimeout policy is unset, this policy has no effect.
+
+When the timeout from the IdleTimeout policy is reached, the browser runs the actions configured in this policy.
+
+If you do not set this policy or no actions are selected, the IdleTimeout policy has no effect.
+
+Supported actions are:
+
+'close_browsers': close all browser windows and PWAs for this profile.
+
+'reload_pages': reload all webpages. For some pages, the user may be prompted for confirmation first.
+
+'clear_browsing_history', 'clear_download_history', 'clear_cookies_and_other_site_data', 'clear_cached_images_and_files', 'clear_password_signing', 'clear_autofill', 'clear_site_settings': clear the corresponding browsing data.
+
+Setting 'clear_browsing_history', 'clear_password_signing', 'clear_autofill', and 'clear_site_settings' will disable sync for the respective data types if neither `Chrome Sync` is disabled by setting the SyncDisabled policy nor BrowserSignin is disabled.
+
+Policy options mapping:
+
+* close_browsers (close_browsers) = Close Browsers
+
+* clear_browsing_history (clear_browsing_history) = Clear Browsing History
+
+* clear_download_history (clear_download_history) = Clear Download History
+
+* clear_cookies_and_other_site_data (clear_cookies_and_other_site_data) = Clear Cookies and Other Site Data
+
+* clear_cached_images_and_files (clear_cached_images_and_files) = Clear Cached Images and Files
+
+* clear_password_signin (clear_password_signin) = Clear Password Signin
+
+* clear_autofill (clear_autofill) = Clear Autofill
+
+* clear_site_settings (clear_site_settings) = Clear Site Settings
+
+* reload_pages (reload_pages) = Reload Pages
+
+Use the preceding information when configuring this policy.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - List of strings
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: IdleTimeoutActions
+  - GP name: Actions to run when the computer is idle
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Idle Browser Actions
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\IdleTimeoutActions
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+
+  ##### Example value:
+
+```
+SOFTWARE\Policies\Microsoft\Edge\IdleTimeoutActions\1 = "close_browsers"
+
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: IdleTimeoutActions
+  - Example value:
+``` xml
+<array>
+  <string>close_browsers</string>
+</array>
+```
+  
 
   [Back to top](#microsoft-edge---policies)
 
@@ -11637,8 +11943,7 @@ If you enable this policy, you can configure the list of base64 encoded SHA256 f
 
 If you disable or don't configure this policy, XFA PDFs won't be considered for opening via IE mode except the files from file origin mentioned in Policy [ViewXFAPDFInIEModeAllowedOrigins](#viewxfapdfiniemodeallowedorigins)
 
-For more information, see [Get-FileHash](https://go.microsoft.com/fwlink/?linkid=2294823), [Dot Net Convert API](https://go.microsoft.com/fwlink/?linkid=2294913).
-
+For more information, see - [Get-FileHash](https://go.microsoft.com/fwlink/?linkid=2294823), [Dot Net Convert API](https://go.microsoft.com/fwlink/?linkid=2294913).
 
   #### Supported features:
 
@@ -12525,7 +12830,7 @@ This policy only affects the browser password reveal button, it doesn't affect w
 
   #### Description
 
-  The feature helps users add an additional layer of privacy to their online accounts by requiring device authentication (as a way of confirming the user's identity) before the saved password is auto-filled into a web form. This ensures that non-authorized persons can't use saved passwords for autofill.
+  The feature helps users add an additional layer of privacy to their online accounts by requiring device authentication (as a way of confirming the user's identity) before the saved password is auto-filled into a web form. This ensures that non-authorized persons can't use saved passwords for autofill. Note that this feature does not protect against locally-running malware.
 
 This group policy configures the radio button selector that enables this feature for users. It also has a frequency control where users can specify how often they would like to be prompted for authentication.
 
@@ -12611,7 +12916,7 @@ Use the preceding information when configuring this policy.
 
   #### Description
 
-  This policy setting lets you configure when efficiency mode will become active. By default, efficiency mode is set to 'BalancedSavings'. On devices with no battery, the default is for efficiency mode to never become active.
+  This policy setting lets you configure when efficiency mode will become active. By default, efficiency mode is set to 'BalancedSavings'. On devices with no battery, efficiency mode is disabled by default and will not become active. Please note that Windows Energy Saver settings can influence when efficiency mode becomes active on all devices.
 
 Individual sites may be blocked from participating in efficiency mode by configuring the policy [SleepingTabsBlockedForUrls](#sleepingtabsblockedforurls).
 
@@ -12631,7 +12936,9 @@ If the device does not have a battery, efficiency mode will never become active 
 
 This policy has no effect if the [EfficiencyModeEnabled](#efficiencymodeenabled) policy is disabled.
 
-Learn more about efficiency mode: [https://go.microsoft.com/fwlink/?linkid=2173921](https://go.microsoft.com/fwlink/?linkid=2173921)
+To learn more about efficiency mode, see [Learn about performance features in Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=2173921).
+
+To learn more about energy saver, see [Energy saver](/windows-hardware/design/component-guidelines/energy-saver).
 
 Policy options mapping:
 
@@ -13457,6 +13764,74 @@ Omitting a field means all values match; for example, if you don't specify conne
   - Example value:
 ``` xml
 <string>{ "idPattern": ".*public", "namePattern": ".*Color" }</string>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### OopPrintDriversAllowed
+
+  #### Out-of-process print drivers allowed
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 120 or later
+
+  #### Description
+
+  This policy determines whether Microsoft Edge handles interactions with printer drivers through a separate service process.
+
+Using a service process for tasks like querying available printers, retrieving print driver settings, and submitting documents to local printers improves browser stability and prevents UI freezing during Print Preview.
+
+Enabled or Not Set: Microsoft Edge will use a separate service process for these printing tasks.
+
+Disabled: Microsoft Edge will perform these printing tasks within the browser process.
+
+Note: This policy will be deprecated in the future once the transition to out-of-process print drivers is fully implemented.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: No
+  - Applies to a profile that is signed in with a Microsoft account: Yes
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: OopPrintDriversAllowed
+  - GP name: Out-of-process print drivers allowed
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Printing
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: OopPrintDriversAllowed
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: OopPrintDriversAllowed
+  - Example value:
+``` xml
+<true/>
 ```
   
 
@@ -42562,10 +42937,10 @@ If you enable or don't configure this policy, the User-Agent Client Hints featur
 
   ### UserAgentClientHintsGREASEUpdateEnabled
 
-  #### Control the User-Agent Client Hints GREASE Update feature
+  #### Control the User-Agent Client Hints GREASE Update feature (obsolete)
 
   
-  
+  >OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 133.
   #### Supported versions:
 
   - On Windows and macOS since 102, until 133
@@ -42597,7 +42972,7 @@ This policy will be obsolete after version 133 because the updated GREASE algori
   ##### Group Policy (ADMX) info
 
   - GP unique name: UserAgentClientHintsGREASEUpdateEnabled
-  - GP name: Control the User-Agent Client Hints GREASE Update feature
+  - GP name: Control the User-Agent Client Hints GREASE Update feature (obsolete)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -43607,6 +43982,72 @@ SOFTWARE\Policies\Microsoft\Edge\WebAppSettings = [
     <string>https://foo.example/index.html</string>
   </dict>
 </array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### WebAudioOutputBufferingEnabled
+
+  #### Enable adaptive buffering for Web Audio
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 134 or later
+
+  #### Description
+
+  This policy determines whether the browser enables adaptive buffering
+for Web Audio. Adaptive buffering can reduce audio glitches but may
+increase latency to varying degrees.
+
+Enabled: The browser will always use adaptive buffering.
+Disabled or Not Set: The browser will automatically decide during the
+  feature launch process whether to use adaptive buffering.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: WebAudioOutputBufferingEnabled
+  - GP name: Enable adaptive buffering for Web Audio
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: WebAudioOutputBufferingEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: WebAudioOutputBufferingEnabled
+  - Example value:
+``` xml
+<true/>
 ```
   
 
