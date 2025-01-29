@@ -199,6 +199,21 @@ public class EdgePolicyParser
                         };
                         policyGroupDocument.PolicyGroups.Add(policyGroup.Name, policyGroup);
                     }
+                    else
+                    {
+	                    if (string.IsNullOrEmpty(availablePoliciesLine) == true)
+	                    {
+		                    // NOOP
+	                    }
+	                    else if (availablePoliciesLine.StartsWith("These tables list all of") == true)
+	                    {
+		                    // NOOP
+	                    }
+	                    else
+	                    {
+		                    Debugger.Break();
+	                    }
+					}
                 }
 
                 foreach (var policyGroupChild in rootPolicyChildren.Children)
@@ -207,6 +222,7 @@ public class EdgePolicyParser
                     if (policyGroupMatch.Success)
                     {
                         var policyGroupKey = policyGroupMatch.Groups["name"].Value;
+                        policyGroupKey = policyGroupKey.Replace("&comma;", ",");
                         if (policyGroupDocument.PolicyGroups.ContainsKey(policyGroupKey) == false)
                         {
                             continue;
@@ -235,6 +251,18 @@ public class EdgePolicyParser
 
                                 policyGroup.Policies.Add(policy.Id, policy);
                             }
+                            else if (string.IsNullOrEmpty(policyGroupChildLine) == true)
+                            {
+	                            // NOOP
+                            }
+                            else if (policyGroupChildLine == "|Policy Name|Caption|" || policyGroupChildLine == "|-|-|")
+							{
+	                            // NOOP
+							}
+							else
+							{
+	                            Debugger.Break();
+							}
                         }
                     }
                 }
