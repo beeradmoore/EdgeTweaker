@@ -1,0 +1,77 @@
+<h3>RestoreOnStartupURLs</h3>
+
+<h4>Sites to open when the browser starts</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Specify a list of websites to open automatically when the browser starts. If you don't configure this policy, no site is opened on startup.</p>
+
+<p>This policy only works if you also set the <a href="#restoreonstartup">RestoreOnStartup</a> policy to 'Open a list of URLs' (4).</p>
+
+<p>This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain, joined to Microsoft Azure Active Directory` or instances that enrolled for device management.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: RestoreOnStartupURLs</li>
+<li>GP name: Sites to open when the browser starts</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Startup, home page and new tab page</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Startup, home page and new tab page</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended\RestoreOnStartupURLs</li>
+<li>Value Name: 1, 2, 3, ...</li>
+<li>Value Type: list of REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p>```
+SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\1 = "https://contoso.com"
+SOFTWARE\Policies\Microsoft\Edge\RestoreOnStartupURLs\2 = "https://www.fabrikam.com"</p>
+
+<p>```</p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: RestoreOnStartupURLs</li>
+<li><p>Example value:
+<code>xml
+&lt;array&gt;
+&lt;string&gt;https://contoso.com&lt;/string&gt;
+&lt;string&gt;https://www.fabrikam.com&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+</li>
+</ul>

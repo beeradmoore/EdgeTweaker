@@ -1,0 +1,82 @@
+<h3>NewTabPageLocation</h3>
+
+<h4>Configure the new tab page URL</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Configures the default URL for the new tab page.</p>
+
+<p>The recommended version of this policy does not currently work and functions exactly like the mandatory version.</p>
+
+<p>This policy determines the page that's opened when new tabs are created (including when new windows are opened). It also affects the startup page if that's set to open to the new tab page.</p>
+
+<p>This policy doesn't determine which page opens on startup; that's controlled by the <a href="#restoreonstartup">RestoreOnStartup</a> policy. It also doesn't affect the home page if that's set to open to the new tab page.</p>
+
+<p>If you don't configure this policy, the default new tab page is used.</p>
+
+<p>If you configure this policy <em>and</em> the <a href="#newtabpagesetfeedtype">NewTabPageSetFeedType</a> policy, this policy has precedence.</p>
+
+<p>If a blank tab is preferred, "about:blank" is the correct URL to use, not "about://blank".</p>
+
+<p>This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain, joined to Microsoft Azure Active Directory, or instances that enrolled for device management. On macOS, this policy is available only on instances that are managed via MDM or joined to a domain via MCX.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>String</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: NewTabPageLocation</li>
+<li>GP name: Configure the new tab page URL</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Startup, home page and new tab page</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Startup, home page and new tab page</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value Name: NewTabPageLocation</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+"https://www.fabrikam.com"
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: NewTabPageLocation</li>
+<li><p>Example value:
+<code>xml
+&lt;string&gt;https://www.fabrikam.com&lt;/string&gt;
+</code></p>
+
+</li>
+</ul>

@@ -282,6 +282,26 @@ public static class SupportedPolicies
 		{ "SmartScreenForTrustedDownloadsEnabled", true },
 		{ "SmartScreenPuaEnabled", true },
 
+		// Startup, home page and new tab page
+		{ "HomepageIsNewTabPage", true },
+		{ "HomepageLocation", true },
+		{ "NewTabPageAllowedBackgroundTypes", true },
+		{ "NewTabPageAppLauncherEnabled", true },
+		{ "NewTabPageBingChatEnabled", true },
+		{ "NewTabPageCompanyLogo", true },
+		{ "NewTabPageCompanyLogoEnabled", true },
+		{ "NewTabPageContentEnabled", true },
+		{ "NewTabPageHideDefaultTopSites", true },
+		{ "NewTabPageLocation", true },
+		{ "NewTabPageManagedQuickLinks", true },
+		{ "NewTabPagePrerenderEnabled", true },
+		{ "NewTabPageQuickLinksEnabled", true },
+		{ "NewTabPageSetFeedType", true },
+		{ "RestoreOnStartup", true },
+		{ "RestoreOnStartupURLs", true },
+		{ "RestoreOnStartupUserURLsEnabled", true },
+		{ "ShowHomeButton", true },
+
         // Additional
         { "AADWebSiteSSOUsingThisProfileEnabled", true },
 		{ "AIGenThemesEnabled", true },

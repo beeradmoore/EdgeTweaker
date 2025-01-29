@@ -1,0 +1,91 @@
+<h3>RestoreOnStartup</h3>
+
+<h4>Action to take on Microsoft Edge startup</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Specify how Microsoft Edge behaves when it starts.</p>
+
+<p>If you want a new tab to always open on startup, choose 'RestoreOnStartupIsNewTabPage'.</p>
+
+<p>If you want to reopen URLs that were open the last time Microsoft Edge closed, choose 'RestoreOnStartupIsLastSession'. The browsing session will be restored as it was. Note that this option disables some settings that rely on sessions or that perform actions on exit (such as Clear browsing data on exit or session-only cookies).</p>
+
+<p>If you want to open a specific set of URLs, choose 'RestoreOnStartupIsURLs'.</p>
+
+<p>Starting in Microsoft Edge version 125, if you want to reopen URLs that were open the last time Microsoft Edge closed and open a specific set of URLs, choose 'RestoreOnStartupIsLastSessionAndURLs'.</p>
+
+<p>Disabling this setting is the same as leaving it not configured. Users will be able to change it in Microsoft Edge.</p>
+
+<p>This policy is only available on Windows instances that are joined to a Microsoft Active Directory domain, joined to Microsoft Azure Active Directory, or instances that enrolled for device management. On macOS, this policy is only available on instances that are managed via MDM or joined to a domain via MCX.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>RestoreOnStartupIsNewTabPage (5) = Open a new tab</p></li>
+<li><p>RestoreOnStartupIsLastSession (1) = Restore the last session</p></li>
+<li><p>RestoreOnStartupIsURLs (4) = Open a list of URLs</p></li>
+<li><p>RestoreOnStartupIsLastSessionAndURLs (6) = Open a list of URLs and restore the last session</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: RestoreOnStartup</li>
+<li>GP name: Action to take on Microsoft Edge startup</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Startup, home page and new tab page</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Startup, home page and new tab page</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value Name: RestoreOnStartup</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000004
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: RestoreOnStartup</li>
+<li><p>Example value:
+<code>xml
+&lt;integer&gt;4&lt;/integer&gt;
+</code></p>
+
+</li>
+</ul>
