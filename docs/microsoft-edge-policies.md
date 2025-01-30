@@ -1,9 +1,9 @@
 ---
 title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
-author: vmliramichael
+author: dan-wesley
 manager: venkatk
-ms.date: 01/22/2025
+ms.date: 01/28/2025
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -21,7 +21,7 @@ For information about an additional set of policies used to control how and when
 
 You can download the [Microsoft Security Compliance Toolkit](https://www.microsoft.com/download/details.aspx?id=55319) for the recommended security configuration baseline settings for Microsoft Edge. For more information see the [Microsoft Security Baselines Blog](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines).
 
-Starting in Microsoft Edge version 116, certain policies will not be applied to a profile that is signed in with a Microsoft account. For more information, please check an individual policy for details on whether it applies to a profile that is signed in with a Microsoft account.
+Starting in Microsoft Edge version 116, certain policies won't be applied to a profile that is signed in with a Microsoft account. For more information, please check an individual policy for details on whether it applies to a profile that is signed in with a Microsoft account.
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
@@ -30,18 +30,14 @@ Starting in Microsoft Edge version 116, certain policies will not be applied to 
 
 The following table lists the new, and deprecated policies that are in this article update.
 
-The following table lists the new, and deprecated policies that are in this article update.
-
 | Policy Name | Caption |
 |:-----|:-----|
-|[SeamlessWebToBrowserSignInEnabled](#seamlesswebtobrowsersigninenabled)|Seamless Web To Browser Sign-in Enabled|
-|[WebToBrowserSignInEnabled](#webtobrowsersigninenabled)|Web To Browser Sign-in Enabled|
-|[IdleTimeout](#idletimeout)|Delay before running idle actions|
-|[IdleTimeoutActions](#idletimeoutactions)|Actions to run when the computer is idle|
-|[OopPrintDriversAllowed](#oopprintdriversallowed)|Out-of-process print drivers allowed|
+|[ScarewareBlockerProtectionEnabled](#scarewareblockerprotectionenabled)|Configure Edge Scareware Blocker Protection|
+|[AddressBarWorkSearchResultsEnabled](#addressbarworksearchresultsenabled)|Enable Work Search suggestions in the address bar|
+|[CSSCustomStateDeprecatedSyntaxEnabled](#csscustomstatedeprecatedsyntaxenabled)|Controls whether the deprecated :--foo syntax for CSS custom state is enabled (Deprecated)|
 |[SelectParserRelaxationEnabled](#selectparserrelaxationenabled)|Controls whether the new HTML parser behavior for the \<select\> element is enabled|
-|[UserAgentClientHintsGREASEUpdateEnabled](#useragentclienthintsgreaseupdateenabled)|Control the User-Agent Client Hints GREASE Update feature (deprecated)|
-|[WebAudioOutputBufferingEnabled](#webaudiooutputbufferingenabled)|Enable adaptive buffering for Web Audio|
+|[SharedWorkerBlobURLFixEnabled](#sharedworkerbloburlfixenabled)|Make SharedWorker blob URL behavior aligned with the specification|
+
 
 ## Available policies
 
@@ -53,7 +49,7 @@ These tables list all of the browser-related group policies available in this re
 - [Content settings](#content-settings)
 - [Default search provider](#default-search-provider)
 - [Downloads](#downloads)
-- [Edge Website Typo Protection settings](#edge-website-typo-protection-settings)
+- [Edge Website Typo Protection settings](#edge-website-typo-protection-settings-policies)
 - [Edge Workspaces settings](#edge-workspaces-settings)
 - [Experimentation](#experimentation)
 - [Extensions](#extensions)
@@ -75,6 +71,7 @@ These tables list all of the browser-related group policies available in this re
 - [Private Network Request Settings](#private-network-request-settings)
 - [Proxy server](#proxy-server)
 - [Related Website Sets Settings](#related-website-sets-settings)
+- [Scareware Blocker settings](#scareware-blocker-settings)
 - [Sleeping tabs settings](#sleeping-tabs-settings)
 - [SmartScreen settings](#smartscreen-settings)
 - [Startup, home page and new tab page](#startup-home-page-and-new-tab-page)
@@ -87,7 +84,7 @@ These tables list all of the browser-related group policies available in this re
 |-|-|
 |[ApplicationGuardContainerProxy](#applicationguardcontainerproxy)|Application Guard Container Proxy|
 |[ApplicationGuardFavoritesSyncEnabled](#applicationguardfavoritessyncenabled)|Application Guard Favorites Sync Enabled|
-|[ApplicationGuardPassiveModeEnabled](#applicationguardpassivemodeenabled)|Ignore Application Guard site list configuration and browse Edge normally|
+|[ApplicationGuardPassiveModeEnabled](#applicationguardpassivemodeenabled)|Ignore Application Guard site list configuration and browse Microsoft Edge normally|
 |[ApplicationGuardTrafficIdentificationEnabled](#applicationguardtrafficidentificationenabled)|Application Guard Traffic Identification|
 |[ApplicationGuardUploadBlockingEnabled](#applicationguarduploadblockingenabled)|Prevents files from being uploaded while in Application Guard|
 ### [*Cast*](#cast-policies)
@@ -105,7 +102,7 @@ These tables list all of the browser-related group policies available in this re
 |[CACertificates](#cacertificates)|TLS server certificates that should be trusted by Microsoft Edge|
 |[CACertificatesWithConstraints](#cacertificateswithconstraints)|TLS certificates that should be trusted by Microsoft Edge for server authentication with constraints|
 |[CADistrustedCertificates](#cadistrustedcertificates)|TLS certificates that should be distrusted by Microsoft Edge for server authentication|
-|[CAHintCertificates](#cahintcertificates)|TLS certificates that are not trusted or distrusted but can be used in path-building for server authentication|
+|[CAHintCertificates](#cahintcertificates)|TLS certificates that aren't trusted or distrusted but can be used in path-building for server authentication|
 |[CAPlatformIntegrationEnabled](#caplatformintegrationenabled)|Use user-added TLS certificates from platform trust stores for server authentication|
 ### [*Content settings*](#content-settings-policies)
 
@@ -192,13 +189,13 @@ These tables list all of the browser-related group policies available in this re
 |Policy Name|Caption|
 |-|-|
 |[ShowDownloadsInsecureWarningsEnabled](#showdownloadsinsecurewarningsenabled)|Enable insecure download warnings|
-### [*Edge Website Typo Protection settings*](#edge-website-typo-protection-settings-policies)
+### [*Microsoft Edge Website Typo Protection settings*](#edge-website-typo-protection-settings-policies)
 
 |Policy Name|Caption|
 |-|-|
-|[PreventTyposquattingPromptOverride](#preventtyposquattingpromptoverride)|Prevent bypassing Edge Website Typo Protection prompts for sites|
-|[TyposquattingAllowListDomains](#typosquattingallowlistdomains)|Configure the list of domains for which Edge Website Typo Protection won't trigger warnings|
-|[TyposquattingCheckerEnabled](#typosquattingcheckerenabled)|Configure Edge Website Typo Protection|
+|[PreventTyposquattingPromptOverride](#preventtyposquattingpromptoverride)|Prevent bypassing Microsoft Edge Website Typo Protection prompts for sites|
+|[TyposquattingAllowListDomains](#typosquattingallowlistdomains)|Configure the list of domains for which Microsoft Edge Website Typo Protection won't trigger warnings|
+|[TyposquattingCheckerEnabled](#typosquattingcheckerenabled)|Configure Microsoft Edge Website Typo Protection|
 ### [*Edge Workspaces settings*](#edge-workspaces-settings-policies)
 
 |Policy Name|Caption|
@@ -220,7 +217,7 @@ These tables list all of the browser-related group policies available in this re
 |[ExtensionDeveloperModeSettings](#extensiondevelopermodesettings)|Control the availability of developer mode on extensions page|
 |[ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls](#extensionextendedbackgroundlifetimeforportconnectionstourls)|Configure a list of origins that grant an extended background lifetime to connecting extensions.|
 |[ExtensionInstallAllowlist](#extensioninstallallowlist)|Allow specific extensions to be installed|
-|[ExtensionInstallBlocklist](#extensioninstallblocklist)|Control which extensions cannot be installed|
+|[ExtensionInstallBlocklist](#extensioninstallblocklist)|Control which extensions can't be installed|
 |[ExtensionInstallForcelist](#extensioninstallforcelist)|Control which extensions are installed silently|
 |[ExtensionInstallSources](#extensioninstallsources)|Configure extension and user script install sources|
 |[ExtensionInstallTypeBlocklist](#extensioninstalltypeblocklist)|Blocklist for extension install types|
@@ -399,6 +396,11 @@ These tables list all of the browser-related group policies available in this re
 |-|-|
 |[RelatedWebsiteSetsEnabled](#relatedwebsitesetsenabled)|Enable Related Website Sets|
 |[RelatedWebsiteSetsOverrides](#relatedwebsitesetsoverrides)|Override Related Website Sets.|
+### [*Scareware Blocker settings*](#scareware-blocker-settings-policies)
+
+|Policy Name|Caption|
+|-|-|
+|[ScarewareBlockerProtectionEnabled](#scarewareblockerprotectionenabled)|Configure Edge Scareware Blocker Protection|
 ### [*Sleeping tabs settings*](#sleeping-tabs-settings-policies)
 
 |Policy Name|Caption|
@@ -453,6 +455,7 @@ These tables list all of the browser-related group policies available in this re
 |[AdditionalSearchBoxEnabled](#additionalsearchboxenabled)|Enable additional search box in browser|
 |[AddressBarEditingEnabled](#addressbareditingenabled)|Configure address bar editing|
 |[AddressBarMicrosoftSearchInBingProviderEnabled](#addressbarmicrosoftsearchinbingproviderenabled)|Enable Microsoft Search in Bing suggestions in the address bar|
+|[AddressBarWorkSearchResultsEnabled](#addressbarworksearchresultsenabled)|Enable Work Search suggestions in the address bar|
 |[AdsSettingForIntrusiveAdsSites](#adssettingforintrusiveadssites)|Ads setting for sites with intrusive ads|
 |[AdsTransparencyEnabled](#adstransparencyenabled)|Configure if the ads transparency feature is enabled|
 |[AllowBackForwardCacheForCacheControlNoStorePageEnabled](#allowbackforwardcacheforcachecontrolnostorepageenabled)|Allow pages with Cache-Control: no-store header to enter back/forward cache|
@@ -505,7 +508,7 @@ These tables list all of the browser-related group policies available in this re
 |[BuiltinCertificateVerifierEnabled](#builtincertificateverifierenabled)|Determines whether the built-in certificate verifier will be used to verify server certificates (obsolete)|
 |[CECPQ2Enabled](#cecpq2enabled)|CECPQ2 post-quantum key-agreement enabled for TLS (obsolete)|
 |[CORSNonWildcardRequestHeadersSupport](#corsnonwildcardrequestheaderssupport)|CORS non-wildcard request header support enabled|
-|[CSSCustomStateDeprecatedSyntaxEnabled](#csscustomstatedeprecatedsyntaxenabled)|Controls whether the deprecated :--foo syntax for CSS custom state is enabled (deprecated)|
+|[CSSCustomStateDeprecatedSyntaxEnabled](#csscustomstatedeprecatedsyntaxenabled)|Controls whether the deprecated :--foo syntax for CSS custom state is enabled (obsolete)|
 |[CertificateTransparencyEnforcementDisabledForCas](#certificatetransparencyenforcementdisabledforcas)|Disable Certificate Transparency enforcement for a list of subjectPublicKeyInfo hashes|
 |[CertificateTransparencyEnforcementDisabledForLegacyCas](#certificatetransparencyenforcementdisabledforlegacycas)|Disable Certificate Transparency enforcement for a list of legacy certificate authorities (obsolete)|
 |[CertificateTransparencyEnforcementDisabledForUrls](#certificatetransparencyenforcementdisabledforurls)|Disable Certificate Transparency enforcement for specific URLs|
@@ -767,6 +770,7 @@ These tables list all of the browser-related group policies available in this re
 |[ShadowStackCrashRollbackBehavior](#shadowstackcrashrollbackbehavior)|Configure ShadowStack crash rollback behavior (obsolete)|
 |[SharedArrayBufferUnrestrictedAccessAllowed](#sharedarraybufferunrestrictedaccessallowed)|Specifies whether SharedArrayBuffers can be used in a non cross-origin-isolated context|
 |[SharedLinksEnabled](#sharedlinksenabled)|Show links shared from Microsoft 365 apps in History|
+|[SharedWorkerBlobURLFixEnabled](#sharedworkerbloburlfixenabled)|Make SharedWorker blob URL behavior aligned with the specification|
 |[ShowAcrobatSubscriptionButton](#showacrobatsubscriptionbutton)|Shows button on native PDF viewer in Microsoft Edge that allows users to sign up for Adobe Acrobat subscription|
 |[ShowDownloadsToolbarButton](#showdownloadstoolbarbutton)|Show Downloads button on the toolbar|
 |[ShowHistoryThumbnails](#showhistorythumbnails)|Show thumbnail images for browsing history|
@@ -8238,7 +8242,7 @@ On macOS instances, apps and extensions from outside the Microsoft Edge Add-ons 
 
 The source code of any extension can be altered by users with developer tools, potentially rendering the extension unfunctional. If this is a concern, configure the [DeveloperToolsAvailability](#developertoolsavailability) policy.
 
-Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy, see [A detailed guide to configuring extensions using the ExtensionSettings policy](/deployedge/microsoft-edge-manage-extensions-ref-guide).
+Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the [ExtensionSettings policy](/deployedge/microsoft-edge-manage-extensions-ref-guide).
 
 Note: This policy doesn't apply to InPrivate mode. Read about hosting extensions at [Publish and update extensions in the Microsoft Edge Add-ons website](/microsoft-edge/extensions-chromium/enterprise/hosting-and-updating).
 
@@ -10086,7 +10090,7 @@ If you disable this policy, Microsoft Edge does not send authentications request
   
   #### Supported versions:
 
-  - On Windows and macOS since 107 or later
+  - On Windows and macOS since 133 or later
 
   #### Description
 
@@ -12936,9 +12940,9 @@ If the device does not have a battery, efficiency mode will never become active 
 
 This policy has no effect if the [EfficiencyModeEnabled](#efficiencymodeenabled) policy is disabled.
 
-To learn more about efficiency mode, see [Learn about performance features in Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=2173921).
+Learn more about efficiency mode: [https://go.microsoft.com/fwlink/?linkid=2173921](https://go.microsoft.com/fwlink/?linkid=2173921)
 
-To learn more about energy saver, see [Energy saver](/windows-hardware/design/component-guidelines/energy-saver).
+Learn more about energy saver, see [Energy Saver] (/windows-hardware/design/component-guidelines/energy-saver)
 
 Policy options mapping:
 
@@ -15866,6 +15870,71 @@ SOFTWARE\Policies\Microsoft\Edge\RelatedWebsiteSetsOverrides = {
 
   [Back to top](#microsoft-edge---policies)
 
+  ## Scareware Blocker settings policies
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### ScarewareBlockerProtectionEnabled
+
+  #### Configure Edge Scareware Blocker Protection
+
+  
+  
+  #### Supported versions:
+
+  - On Windows since 134 or later
+
+  #### Description
+
+  This policy setting allows administrators to control whether Microsoft Edge enables the Scareware Blocker, an AI-powered feature that provides warning messages to help protect users from potential tech scams.
+
+If this policy is enabled, Edge Scareware Blocker will warn users of potential tech scams.
+
+If this policy is disabled, Edge Scareware Blocker will not warn users of potential tech scams.
+
+If this policy is not configured, Edge Scareware Blocker will not warn users of potential tech scams, but users can choose warnings in settings.
+
+By configuring this policy, administrators determine whether users receive proactive scam warnings or must manually enable them.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: Yes
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: No
+  - Applies to a profile that is signed in with a Microsoft account: Yes
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: ScarewareBlockerProtectionEnabled
+  - GP name: Configure Edge Scareware Blocker Protection
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Scareware Blocker settings
+  - GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Scareware Blocker settings
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended
+  - Value Name: ScarewareBlockerProtectionEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ## Sleeping tabs settings policies
 
   [Back to top](#microsoft-edge---policies)
@@ -18544,6 +18613,70 @@ Starting with Microsoft Edge version 89, Microsoft Search in Bing suggestions wi
   #### Mac information and settings
 
   - Preference Key Name: AddressBarMicrosoftSearchInBingProviderEnabled
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### AddressBarWorkSearchResultsEnabled
+
+  #### Enable Work Search suggestions in the address bar
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 134 or later
+
+  #### Description
+
+  Enables the display of relevant workplace suggestions in the address bar’s suggestion dropdown when users type a query in the address bar.
+
+If this policy is enabled or not configured, users can view internal work-related suggestions, such as bookmarks, files, and people results powered by Microsoft 365, in the Microsoft Edge address bar suggestion dropdown. To access these results, users must be signed into Microsoft Edge with their Entra ID account associated with that organization.
+
+If this policy is disabled, users will not see internal workplace results in the Microsoft Edge address bar suggestion dropdown.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: AddressBarWorkSearchResultsEnabled
+  - GP name: Enable Work Search suggestions in the address bar
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: AddressBarWorkSearchResultsEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: AddressBarWorkSearchResultsEnabled
   - Example value:
 ``` xml
 <true/>
@@ -22137,17 +22270,17 @@ This policy is a temporary workaround for the new CORS non-wildcard request head
 
   ### CSSCustomStateDeprecatedSyntaxEnabled
 
-  #### Controls whether the deprecated :--foo syntax for CSS custom state is enabled (deprecated)
+  #### Controls whether the deprecated :--foo syntax for CSS custom state is enabled (obsolete)
 
-  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.
   
+  >OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 132.
   #### Supported versions:
 
   - On Windows and macOS since 127, until 132
 
   #### Description
 
-  The :--foo syntax for the CSS custom state feature is being changed to :state(foo) in Microsoft Edge in order to comply with changes that have been made in Firefox and Safari. This policy lets the deprecated syntax to be used until Stable 133.
+  The :--foo syntax for the CSS custom state feature is being changed to :state(foo) in Microsoft Edge in order to comply with changes that have been made in Firefox and Safari. This policy lets the deprecated syntax to be used until Stable 132.
 
 This deprecation might break some Microsoft Edge-only websites that use the deprecated :--foo syntax.
 
@@ -22172,7 +22305,7 @@ If you disable this policy or don't set it, the deprecated syntax will be disabl
   ##### Group Policy (ADMX) info
 
   - GP unique name: CSSCustomStateDeprecatedSyntaxEnabled
-  - GP name: Controls whether the deprecated :--foo syntax for CSS custom state is enabled (deprecated)
+  - GP name: Controls whether the deprecated :--foo syntax for CSS custom state is enabled (obsolete)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -40139,6 +40272,76 @@ This policy only applies for Microsoft Edge local user profiles and profiles sig
   #### Mac information and settings
 
   - Preference Key Name: SharedLinksEnabled
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### SharedWorkerBlobURLFixEnabled
+
+  #### Make SharedWorker blob URL behavior aligned with the specification
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 134 or later
+
+  #### Description
+
+  According to Service Worker specification
+https://w3c.github.io/ServiceWorker/#control-and-use-worker-client, workers
+should inherit controllers for blob URLs. Currently, only DedicatedWorkers
+inherit the controller, while SharedWorkers do not.
+
+Enabled/Unset: Microsoft Edge inherits
+the controller for SharedWorker blob URLs, aligning with the specification.
+
+Disabled: Behavior remains unchanged, not aligning with the specification.
+
+This policy is temporary and will be removed in a future update.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: SharedWorkerBlobURLFixEnabled
+  - GP name: Make SharedWorker blob URL behavior aligned with the specification
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: SharedWorkerBlobURLFixEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: SharedWorkerBlobURLFixEnabled
   - Example value:
 ``` xml
 <true/>

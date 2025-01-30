@@ -1,5 +1,5 @@
 {
-  "policy_date": "01/22/2025",
+  "policy_date": "01/28/2025",
   "policy_groups": {
     "Application Guard settings": {
       "name": "Application Guard settings",
@@ -57,7 +57,7 @@
         },
         "ApplicationGuardPassiveModeEnabled": {
           "id": "ApplicationGuardPassiveModeEnabled",
-          "name": "Ignore Application Guard site list configuration and browse Edge normally",
+          "name": "Ignore Application Guard site list configuration and browse Microsoft Edge normally",
           "link": "applicationguardpassivemodeenabled",
           "data_type": "boolean",
           "markdown": "",
@@ -323,7 +323,7 @@
         },
         "CAHintCertificates": {
           "id": "CAHintCertificates",
-          "name": "TLS certificates that are not trusted or distrusted but can be used in path-building for server authentication",
+          "name": "TLS certificates that aren\u0027t trusted or distrusted but can be used in path-building for server authentication",
           "link": "cahintcertificates",
           "data_type": "list_of_strings",
           "markdown": "",
@@ -2278,11 +2278,11 @@
     },
     "Edge Website Typo Protection settings": {
       "name": "Edge Website Typo Protection settings",
-      "link": "edge-website-typo-protection-settings",
+      "link": "edge-website-typo-protection-settings-policies",
       "policies": {
         "PreventTyposquattingPromptOverride": {
           "id": "PreventTyposquattingPromptOverride",
-          "name": "Prevent bypassing Edge Website Typo Protection prompts for sites",
+          "name": "Prevent bypassing Microsoft Edge Website Typo Protection prompts for sites",
           "link": "preventtyposquattingpromptoverride",
           "data_type": "boolean",
           "markdown": "",
@@ -2307,7 +2307,7 @@
         },
         "TyposquattingAllowListDomains": {
           "id": "TyposquattingAllowListDomains",
-          "name": "Configure the list of domains for which Edge Website Typo Protection won\u0027t trigger warnings",
+          "name": "Configure the list of domains for which Microsoft Edge Website Typo Protection won\u0027t trigger warnings",
           "link": "typosquattingallowlistdomains",
           "data_type": "list_of_strings",
           "markdown": "",
@@ -2332,7 +2332,7 @@
         },
         "TyposquattingCheckerEnabled": {
           "id": "TyposquattingCheckerEnabled",
-          "name": "Configure Edge Website Typo Protection",
+          "name": "Configure Microsoft Edge Website Typo Protection",
           "link": "typosquattingcheckerenabled",
           "data_type": "boolean",
           "markdown": "",
@@ -2614,7 +2614,7 @@
         },
         "ExtensionInstallBlocklist": {
           "id": "ExtensionInstallBlocklist",
-          "name": "Control which extensions cannot be installed",
+          "name": "Control which extensions can\u0027t be installed",
           "link": "extensioninstallblocklist",
           "data_type": "list_of_strings",
           "markdown": "",
@@ -5465,6 +5465,37 @@
         }
       }
     },
+    "Scareware Blocker settings": {
+      "name": "Scareware Blocker settings",
+      "link": "scareware-blocker-settings",
+      "policies": {
+        "ScarewareBlockerProtectionEnabled": {
+          "id": "ScarewareBlockerProtectionEnabled",
+          "name": "Configure Edge Scareware Blocker Protection",
+          "link": "scarewareblockerprotectionenabled",
+          "data_type": "boolean",
+          "markdown": "",
+          "summary": "This policy setting allows administrators to control whether Microsoft Edge enables the Scareware Blocker, an AI-powered feature that provides warning messages to help protect users from potential tech scams.",
+          "platform_windows": true,
+          "platform_macos": false,
+          "can_be_mandatory": true,
+          "can_be_recommended": true,
+          "per_profile": false,
+          "dynamic_policy_refresh": true,
+          "applies_to_signed_in_profile": true,
+          "windows_registry_mandatory_path": "SOFTWARE\\Policies\\Microsoft\\Edge",
+          "windows_registry_recommended_path": "SOFTWARE\\Policies\\Microsoft\\Edge\\Recommended",
+          "windows_registry_value_name": "ScarewareBlockerProtectionEnabled",
+          "windows_registry_value_type": "REG_DWORD",
+          "windows_registry_example_value": "0x00000001",
+          "macos_preference_key_name": "",
+          "macos_preference_example_value": "",
+          "supported": true,
+          "policy_mapping": {},
+          "warnings": []
+        }
+      }
+    },
     "Sleeping tabs settings": {
       "name": "Sleeping tabs settings",
       "link": "sleeping-tabs-settings",
@@ -6454,6 +6485,31 @@
           "windows_registry_value_type": "REG_DWORD",
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "AddressBarMicrosoftSearchInBingProviderEnabled",
+          "macos_preference_example_value": "\u003Ctrue/\u003E",
+          "supported": true,
+          "policy_mapping": {},
+          "warnings": []
+        },
+        "AddressBarWorkSearchResultsEnabled": {
+          "id": "AddressBarWorkSearchResultsEnabled",
+          "name": "Enable Work Search suggestions in the address bar",
+          "link": "addressbarworksearchresultsenabled",
+          "data_type": "boolean",
+          "markdown": "",
+          "summary": "Enables the display of relevant workplace suggestions in the address bar\u2019s suggestion dropdown when users type a query in the address bar.",
+          "platform_windows": true,
+          "platform_macos": true,
+          "can_be_mandatory": true,
+          "can_be_recommended": false,
+          "per_profile": true,
+          "dynamic_policy_refresh": false,
+          "applies_to_signed_in_profile": false,
+          "windows_registry_mandatory_path": "SOFTWARE\\Policies\\Microsoft\\Edge",
+          "windows_registry_recommended_path": "",
+          "windows_registry_value_name": "AddressBarWorkSearchResultsEnabled",
+          "windows_registry_value_type": "REG_DWORD",
+          "windows_registry_example_value": "0x00000001",
+          "macos_preference_key_name": "AddressBarWorkSearchResultsEnabled",
           "macos_preference_example_value": "\u003Ctrue/\u003E",
           "supported": true,
           "policy_mapping": {},
@@ -7788,11 +7844,11 @@
         },
         "CSSCustomStateDeprecatedSyntaxEnabled": {
           "id": "CSSCustomStateDeprecatedSyntaxEnabled",
-          "name": "Controls whether the deprecated :--foo syntax for CSS custom state is enabled (deprecated)",
+          "name": "Controls whether the deprecated :--foo syntax for CSS custom state is enabled (obsolete)",
           "link": "csscustomstatedeprecatedsyntaxenabled",
           "data_type": "boolean",
           "markdown": "",
-          "summary": "The :--foo syntax for the CSS custom state feature is being changed to :state(foo) in Microsoft Edge in order to comply with changes that have been made in Firefox and Safari. This policy lets the deprecated syntax to be used until Stable 133.",
+          "summary": "The :--foo syntax for the CSS custom state feature is being changed to :state(foo) in Microsoft Edge in order to comply with changes that have been made in Firefox and Safari. This policy lets the deprecated syntax to be used until Stable 132.",
           "platform_windows": true,
           "platform_macos": true,
           "can_be_mandatory": true,
@@ -14464,6 +14520,31 @@
           "windows_registry_value_type": "REG_DWORD",
           "windows_registry_example_value": "0x00000001",
           "macos_preference_key_name": "SharedLinksEnabled",
+          "macos_preference_example_value": "\u003Ctrue/\u003E",
+          "supported": true,
+          "policy_mapping": {},
+          "warnings": []
+        },
+        "SharedWorkerBlobURLFixEnabled": {
+          "id": "SharedWorkerBlobURLFixEnabled",
+          "name": "Make SharedWorker blob URL behavior aligned with the specification",
+          "link": "sharedworkerbloburlfixenabled",
+          "data_type": "boolean",
+          "markdown": "",
+          "summary": "According to Service Worker specification",
+          "platform_windows": true,
+          "platform_macos": true,
+          "can_be_mandatory": true,
+          "can_be_recommended": false,
+          "per_profile": true,
+          "dynamic_policy_refresh": false,
+          "applies_to_signed_in_profile": false,
+          "windows_registry_mandatory_path": "SOFTWARE\\Policies\\Microsoft\\Edge",
+          "windows_registry_recommended_path": "",
+          "windows_registry_value_name": "SharedWorkerBlobURLFixEnabled",
+          "windows_registry_value_type": "REG_DWORD",
+          "windows_registry_example_value": "0x00000001",
+          "macos_preference_key_name": "SharedWorkerBlobURLFixEnabled",
           "macos_preference_example_value": "\u003Ctrue/\u003E",
           "supported": true,
           "policy_mapping": {},

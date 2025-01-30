@@ -265,6 +265,9 @@ public static class SupportedPolicies
         { "RelatedWebsiteSetsEnabled", true },
 		{ "RelatedWebsiteSetsOverrides", true },
 
+		// Scareware Blocker settings
+		{ "ScarewareBlockerProtectionEnabled", true },
+
         // Sleeping tabs settings
         { "AutoDiscardSleepingTabsEnabled", true },
 		{ "SleepingTabsBlockedForUrls", true },
@@ -310,6 +313,7 @@ public static class SupportedPolicies
 		{ "AdditionalSearchBoxEnabled", true },
 		{ "AddressBarEditingEnabled", true },
 		{ "AddressBarMicrosoftSearchInBingProviderEnabled", true },
+		{ "AddressBarWorkSearchResultsEnabled", true },
 		{ "AdsSettingForIntrusiveAdsSites", true },
 		{ "AdsTransparencyEnabled", true },
 		{ "AllowBackForwardCacheForCacheControlNoStorePageEnabled", true },
@@ -625,6 +629,7 @@ public static class SupportedPolicies
 		{ "ShadowStackCrashRollbackBehavior", true },
 		{ "SharedArrayBufferUnrestrictedAccessAllowed", true },
 		{ "SharedLinksEnabled", true },
+		{ "SharedWorkerBlobURLFixEnabled", true },
 		{ "ShowAcrobatSubscriptionButton", true },
 		{ "ShowDownloadsToolbarButton", true },
 		{ "ShowHistoryThumbnails", true },

@@ -256,6 +256,7 @@ Windows Registry Editor Version 5.00
 "ProxySettings"=-
 "RelatedWebsiteSetsEnabled"=-
 "RelatedWebsiteSetsOverrides"=-
+"ScarewareBlockerProtectionEnabled"=-
 "AutoDiscardSleepingTabsEnabled"=-
 "SleepingTabsEnabled"=-
 "SleepingTabsTimeout"=-
@@ -290,6 +291,7 @@ Windows Registry Editor Version 5.00
 "AdditionalSearchBoxEnabled"=-
 "AddressBarEditingEnabled"=-
 "AddressBarMicrosoftSearchInBingProviderEnabled"=-
+"AddressBarWorkSearchResultsEnabled"=-
 "AdsSettingForIntrusiveAdsSites"=-
 "AdsTransparencyEnabled"=-
 "AllowBackForwardCacheForCacheControlNoStorePageEnabled"=-
@@ -566,6 +568,7 @@ Windows Registry Editor Version 5.00
 "ShadowStackCrashRollbackBehavior"=-
 "SharedArrayBufferUnrestrictedAccessAllowed"=-
 "SharedLinksEnabled"=-
+"SharedWorkerBlobURLFixEnabled"=-
 "ShowAcrobatSubscriptionButton"=-
 "ShowDownloadsToolbarButton"=-
 "ShowHistoryThumbnails"=-

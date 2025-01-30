@@ -223,8 +223,15 @@ public class EdgePolicyParser
                     {
                         var policyGroupKey = policyGroupMatch.Groups["name"].Value;
                         policyGroupKey = policyGroupKey.Replace("&comma;", ",");
+
+                        if (policyGroupKey == "Microsoft Edge Website Typo Protection settings")
+                        {
+	                        policyGroupKey = "Edge Website Typo Protection settings";
+                        }
+
                         if (policyGroupDocument.PolicyGroups.ContainsKey(policyGroupKey) == false)
                         {
+	                        Debugger.Break();
                             continue;
                         }
 
@@ -264,6 +271,10 @@ public class EdgePolicyParser
 	                            Debugger.Break();
 							}
                         }
+                    }
+                    else
+                    {
+	                    Debugger.Break();
                     }
                 }
             }
