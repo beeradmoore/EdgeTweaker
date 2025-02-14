@@ -1,9 +1,9 @@
 ---
 title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
-author: dan-wesley
+author: vmliramichael
 manager: venkatk
-ms.date: 01/28/2025
+ms.date: 02/11/2025
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -21,7 +21,7 @@ For information about an additional set of policies used to control how and when
 
 You can download the [Microsoft Security Compliance Toolkit](https://www.microsoft.com/download/details.aspx?id=55319) for the recommended security configuration baseline settings for Microsoft Edge. For more information see the [Microsoft Security Baselines Blog](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines).
 
-Starting in Microsoft Edge version 116, certain policies won't be applied to a profile that is signed in with a Microsoft account. For more information, please check an individual policy for details on whether it applies to a profile that is signed in with a Microsoft account.
+Starting in Microsoft Edge version 116, certain policies will not be applied to a profile that is signed in with a Microsoft account. For more information, please check an individual policy for details on whether it applies to a profile that is signed in with a Microsoft account.
 
 > [!NOTE]
 > This article applies to Microsoft Edge version 77 or later.
@@ -32,12 +32,10 @@ The following table lists the new, and deprecated policies that are in this arti
 
 | Policy Name | Caption |
 |:-----|:-----|
-|[ScarewareBlockerProtectionEnabled](#scarewareblockerprotectionenabled)|Configure Edge Scareware Blocker Protection|
-|[AddressBarWorkSearchResultsEnabled](#addressbarworksearchresultsenabled)|Enable Work Search suggestions in the address bar|
-|[CSSCustomStateDeprecatedSyntaxEnabled](#csscustomstatedeprecatedsyntaxenabled)|Controls whether the deprecated :--foo syntax for CSS custom state is enabled (Deprecated)|
-|[SelectParserRelaxationEnabled](#selectparserrelaxationenabled)|Controls whether the new HTML parser behavior for the \<select\> element is enabled|
-|[SharedWorkerBlobURLFixEnabled](#sharedworkerbloburlfixenabled)|Make SharedWorker blob URL behavior aligned with the specification|
-
+|[DefaultJavaScriptOptimizerSetting](#defaultjavascriptoptimizersetting)|Control use of JavaScript optimizers|
+|[JavaScriptOptimizerAllowedForSites](#javascriptoptimizerallowedforsites)|Allow JavaScript optimization on these sites|
+|[JavaScriptOptimizerBlockedForSites](#javascriptoptimizerblockedforsites)|Block JavaScript optimizations on these sites|
+|[ServiceWorkerToControlSrcdocIframeEnabled](#serviceworkertocontrolsrcdociframeenabled)|Allow ServiceWorker to control srcdoc iframes|
 
 ## Available policies
 
@@ -49,7 +47,7 @@ These tables list all of the browser-related group policies available in this re
 - [Content settings](#content-settings)
 - [Default search provider](#default-search-provider)
 - [Downloads](#downloads)
-- [Edge Website Typo Protection settings](#edge-website-typo-protection-settings-policies)
+- [Edge Website Typo Protection settings](#edge-website-typo-protection-settings)
 - [Edge Workspaces settings](#edge-workspaces-settings)
 - [Experimentation](#experimentation)
 - [Extensions](#extensions)
@@ -84,7 +82,7 @@ These tables list all of the browser-related group policies available in this re
 |-|-|
 |[ApplicationGuardContainerProxy](#applicationguardcontainerproxy)|Application Guard Container Proxy|
 |[ApplicationGuardFavoritesSyncEnabled](#applicationguardfavoritessyncenabled)|Application Guard Favorites Sync Enabled|
-|[ApplicationGuardPassiveModeEnabled](#applicationguardpassivemodeenabled)|Ignore Application Guard site list configuration and browse Microsoft Edge normally|
+|[ApplicationGuardPassiveModeEnabled](#applicationguardpassivemodeenabled)|Ignore Application Guard site list configuration and browse Edge normally|
 |[ApplicationGuardTrafficIdentificationEnabled](#applicationguardtrafficidentificationenabled)|Application Guard Traffic Identification|
 |[ApplicationGuardUploadBlockingEnabled](#applicationguarduploadblockingenabled)|Prevents files from being uploaded while in Application Guard|
 ### [*Cast*](#cast-policies)
@@ -102,7 +100,7 @@ These tables list all of the browser-related group policies available in this re
 |[CACertificates](#cacertificates)|TLS server certificates that should be trusted by Microsoft Edge|
 |[CACertificatesWithConstraints](#cacertificateswithconstraints)|TLS certificates that should be trusted by Microsoft Edge for server authentication with constraints|
 |[CADistrustedCertificates](#cadistrustedcertificates)|TLS certificates that should be distrusted by Microsoft Edge for server authentication|
-|[CAHintCertificates](#cahintcertificates)|TLS certificates that aren't trusted or distrusted but can be used in path-building for server authentication|
+|[CAHintCertificates](#cahintcertificates)|TLS certificates that are not trusted or distrusted but can be used in path-building for server authentication|
 |[CAPlatformIntegrationEnabled](#caplatformintegrationenabled)|Use user-added TLS certificates from platform trust stores for server authentication|
 ### [*Content settings*](#content-settings-policies)
 
@@ -125,6 +123,7 @@ These tables list all of the browser-related group policies available in this re
 |[DefaultImagesSetting](#defaultimagessetting)|Default images setting|
 |[DefaultInsecureContentSetting](#defaultinsecurecontentsetting)|Control use of insecure content exceptions|
 |[DefaultJavaScriptJitSetting](#defaultjavascriptjitsetting)|Control use of JavaScript JIT|
+|[DefaultJavaScriptOptimizerSetting](#defaultjavascriptoptimizersetting)|Control use of JavaScript optimizers|
 |[DefaultJavaScriptSetting](#defaultjavascriptsetting)|Default JavaScript setting|
 |[DefaultNotificationsSetting](#defaultnotificationssetting)|Default notification setting|
 |[DefaultPluginsSetting](#defaultpluginssetting)|Default Adobe Flash setting (obsolete)|
@@ -147,6 +146,8 @@ These tables list all of the browser-related group policies available in this re
 |[JavaScriptBlockedForUrls](#javascriptblockedforurls)|Block JavaScript on specific sites|
 |[JavaScriptJitAllowedForSites](#javascriptjitallowedforsites)|Allow JavaScript to use JIT on these sites|
 |[JavaScriptJitBlockedForSites](#javascriptjitblockedforsites)|Block JavaScript from using JIT on these sites|
+|[JavaScriptOptimizerAllowedForSites](#javascriptoptimizerallowedforsites)|Allow JavaScript optimization on these sites|
+|[JavaScriptOptimizerBlockedForSites](#javascriptoptimizerblockedforsites)|Block JavaScript optimizations on these sites|
 |[LegacySameSiteCookieBehaviorEnabled](#legacysamesitecookiebehaviorenabled)|Enable default legacy SameSite cookie behavior setting (obsolete)|
 |[LegacySameSiteCookieBehaviorEnabledForDomainList](#legacysamesitecookiebehaviorenabledfordomainlist)|Revert to legacy SameSite behavior for cookies on specified sites (obsolete)|
 |[NotificationsAllowedForUrls](#notificationsallowedforurls)|Allow notifications on specific sites|
@@ -189,13 +190,13 @@ These tables list all of the browser-related group policies available in this re
 |Policy Name|Caption|
 |-|-|
 |[ShowDownloadsInsecureWarningsEnabled](#showdownloadsinsecurewarningsenabled)|Enable insecure download warnings|
-### [*Microsoft Edge Website Typo Protection settings*](#edge-website-typo-protection-settings-policies)
+### [*Edge Website Typo Protection settings*](#edge-website-typo-protection-settings-policies)
 
 |Policy Name|Caption|
 |-|-|
-|[PreventTyposquattingPromptOverride](#preventtyposquattingpromptoverride)|Prevent bypassing Microsoft Edge Website Typo Protection prompts for sites|
-|[TyposquattingAllowListDomains](#typosquattingallowlistdomains)|Configure the list of domains for which Microsoft Edge Website Typo Protection won't trigger warnings|
-|[TyposquattingCheckerEnabled](#typosquattingcheckerenabled)|Configure Microsoft Edge Website Typo Protection|
+|[PreventTyposquattingPromptOverride](#preventtyposquattingpromptoverride)|Prevent bypassing Edge Website Typo Protection prompts for sites|
+|[TyposquattingAllowListDomains](#typosquattingallowlistdomains)|Configure the list of domains for which Edge Website Typo Protection won't trigger warnings|
+|[TyposquattingCheckerEnabled](#typosquattingcheckerenabled)|Configure Edge Website Typo Protection|
 ### [*Edge Workspaces settings*](#edge-workspaces-settings-policies)
 
 |Policy Name|Caption|
@@ -217,7 +218,7 @@ These tables list all of the browser-related group policies available in this re
 |[ExtensionDeveloperModeSettings](#extensiondevelopermodesettings)|Control the availability of developer mode on extensions page|
 |[ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls](#extensionextendedbackgroundlifetimeforportconnectionstourls)|Configure a list of origins that grant an extended background lifetime to connecting extensions.|
 |[ExtensionInstallAllowlist](#extensioninstallallowlist)|Allow specific extensions to be installed|
-|[ExtensionInstallBlocklist](#extensioninstallblocklist)|Control which extensions can't be installed|
+|[ExtensionInstallBlocklist](#extensioninstallblocklist)|Control which extensions cannot be installed|
 |[ExtensionInstallForcelist](#extensioninstallforcelist)|Control which extensions are installed silently|
 |[ExtensionInstallSources](#extensioninstallsources)|Configure extension and user script install sources|
 |[ExtensionInstallTypeBlocklist](#extensioninstalltypeblocklist)|Blocklist for extension install types|
@@ -766,6 +767,7 @@ These tables list all of the browser-related group policies available in this re
 |[SensorsBlockedForUrls](#sensorsblockedforurls)|Block access to sensors on specific sites|
 |[SerialAskForUrls](#serialaskforurls)|Allow the Serial API on specific sites|
 |[SerialBlockedForUrls](#serialblockedforurls)|Block the Serial API on specific sites|
+|[ServiceWorkerToControlSrcdocIframeEnabled](#serviceworkertocontrolsrcdociframeenabled)|Allow ServiceWorker to control srcdoc iframes|
 |[SetTimeoutWithout1MsClampEnabled](#settimeoutwithout1msclampenabled)|Control Javascript setTimeout() function minimum timeout (obsolete)|
 |[ShadowStackCrashRollbackBehavior](#shadowstackcrashrollbackbehavior)|Configure ShadowStack crash rollback behavior (obsolete)|
 |[SharedArrayBufferUnrestrictedAccessAllowed](#sharedarraybufferunrestrictedaccessallowed)|Specifies whether SharedArrayBuffers can be used in a non cross-origin-isolated context|
@@ -3047,6 +3049,80 @@ Use the preceding information when configuring this policy.
 
   [Back to top](#microsoft-edge---policies)
 
+  ### DefaultJavaScriptOptimizerSetting
+
+  #### Control use of JavaScript optimizers
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 134 or later
+
+  #### Description
+
+  Allows you to set whether Microsoft Edge will run the v8 JavaScript engine with more advanced JavaScript optimizations enabled.
+
+Disabling JavaScript optimizations (by setting this policy's value to 2) will mean that Microsoft Edge may render web content more slowly.
+
+This policy can be overridden for specific URL patterns using the [JavaScriptOptimizerAllowedForSites](#javascriptoptimizerallowedforsites) and [JavaScriptOptimizerBlockedForSites](#javascriptoptimizerblockedforsites) policies.
+
+If you don't configure this policy, JavaScript optimizations are enabled.
+
+Policy options mapping:
+
+* AllowJavaScriptOptimizer (1) = Enable advanced JavaScript optimizations on all sites
+
+* BlockJavaScriptOptimizer (2) = Disable advanced JavaScript optimizations on all sites
+
+Use the preceding information when configuring this policy.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Integer
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: DefaultJavaScriptOptimizerSetting
+  - GP name: Control use of JavaScript optimizers
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: DefaultJavaScriptOptimizerSetting
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```plaintext
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: DefaultJavaScriptOptimizerSetting
+  - Example value:
+``` xml
+<integer>1</integer>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### DefaultJavaScriptSetting
 
   #### Default JavaScript setting
@@ -4588,6 +4664,150 @@ SOFTWARE\Policies\Microsoft\Edge\JavaScriptJitBlockedForSites\1 = "[*.]example.e
   #### Mac information and settings
 
   - Preference Key Name: JavaScriptJitBlockedForSites
+  - Example value:
+``` xml
+<array>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### JavaScriptOptimizerAllowedForSites
+
+  #### Allow JavaScript optimization on these sites
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 134 or later
+
+  #### Description
+
+  Allows you to set a list of site url patterns that specify sites for which advanced JavaScript optimizations are enabled.
+
+For detailed information on valid site url patterns, please see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322). Wildcards, *, are allowed.
+
+JavaScript optimization policy exceptions will only be enforced at a site granularity (eTLD+1). A policy set for only subdomain.contoso.com will not correctly apply to contoso.com or subdomain.contoso.com since they both resolve to the same eTLD+1 (contoso.com) for which there is no policy. In this case, policy must be set on contoso.com to apply correctly for both contoso.com and subdomain.contoso.com.
+
+This policy applies on a frame-by-frame basis and not based on top level origin url alone, so e.g. if contoso.com is listed in the [JavaScriptOptimizerAllowedForSites](#javascriptoptimizerallowedforsites) policy but contoso.com loads a frame containing fabrikam.com then contoso.com will have JavaScript optimizations enabled, but fabrikam.com will use the policy from [DefaultJavaScriptOptimizerSetting](#defaultjavascriptoptimizersetting), if set, or default to JavaScript optimizations enabled. Blocklist entries have higher priority than allowlist entries, which in turn have higher priority than the configured default value.
+
+If you don't configure this policy for a site then the policy from [DefaultJavaScriptOptimizerSetting](#defaultjavascriptoptimizersetting) applies to the site, if set, otherwise Javascript optimization is enabled for the site.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - List of strings
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: JavaScriptOptimizerAllowedForSites
+  - GP name: Allow JavaScript optimization on these sites
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\JavaScriptOptimizerAllowedForSites
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+
+  ##### Example value:
+
+```plaintext 
+SOFTWARE\Policies\Microsoft\Edge\JavaScriptOptimizerAllowedForSites\1 = "[*.]example.edu"
+
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: JavaScriptOptimizerAllowedForSites
+  - Example value:
+``` xml
+<array>
+  <string>[*.]example.edu</string>
+</array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### JavaScriptOptimizerBlockedForSites
+
+  #### Block JavaScript optimizations on these sites
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 134 or later
+
+  #### Description
+
+  Allows you to set a list of site url patterns that specify sites for which advanced JavaScript optimizations are disabled.
+
+Disabling JavaScript optimizations will mean that Microsoft Edge may render web content more slowly.
+
+For detailed information on valid url patterns, please see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322). Wildcards, *, are allowed.
+
+JavaScript optimization policy exceptions will only be enforced at a site granularity (eTLD+1). A policy set for only subdomain.contoso.com will not correctly apply to contoso.com or subdomain.contoso.com since they both resolve to the same eTLD+1 (contoso.com) for which there is no policy. In this case, policy must be set on contoso.com to apply correctly for both contoso.com and subdomain.contoso.com.
+
+This policy applies on a frame-by-frame basis and not based on top level origin url alone, so e.g. if contoso.com is listed in the [JavaScriptOptimizerBlockedForSites](#javascriptoptimizerblockedforsites) policy but contoso.com loads a frame containing fabrikam.com then contoso.com will have JavaScript optimizations disabled, but fabrikam.com will use the policy from [DefaultJavaScriptOptimizerSetting](#defaultjavascriptoptimizersetting), if set, or default to JavaScript optimizations enabled. Blocklist entries have higher priority than allowlist entries, which in turn have higher priority than the configured default value.
+
+If you don't configure this policy for a site then the policy from [DefaultJavaScriptOptimizerSetting](#defaultjavascriptoptimizersetting) applies to the site, if set, otherwise JavaScript optimization is enabled for the site.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - List of strings
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: JavaScriptOptimizerBlockedForSites
+  - GP name: Block JavaScript optimizations on these sites
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\JavaScriptOptimizerBlockedForSites
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+
+  ##### Example value:
+
+```plaintext
+SOFTWARE\Policies\Microsoft\Edge\JavaScriptOptimizerBlockedForSites\1 = "[*.]example.edu"
+
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: JavaScriptOptimizerBlockedForSites
   - Example value:
 ``` xml
 <array>
@@ -8242,7 +8462,7 @@ On macOS instances, apps and extensions from outside the Microsoft Edge Add-ons 
 
 The source code of any extension can be altered by users with developer tools, potentially rendering the extension unfunctional. If this is a concern, configure the [DeveloperToolsAvailability](#developertoolsavailability) policy.
 
-Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the [ExtensionSettings policy](/deployedge/microsoft-edge-manage-extensions-ref-guide).
+Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy, [see reference guide.](/deployedge/microsoft-edge-manage-extensions-ref-guide)
 
 Note: This policy doesn't apply to InPrivate mode. Read about hosting extensions at [Publish and update extensions in the Microsoft Edge Add-ons website](/microsoft-edge/extensions-chromium/enterprise/hosting-and-updating).
 
@@ -12942,7 +13162,7 @@ This policy has no effect if the [EfficiencyModeEnabled](#efficiencymodeenabled)
 
 Learn more about efficiency mode: [https://go.microsoft.com/fwlink/?linkid=2173921](https://go.microsoft.com/fwlink/?linkid=2173921)
 
-Learn more about energy saver, see [Energy Saver] (/windows-hardware/design/component-guidelines/energy-saver)
+Learn more about energy saver: [Energy Saver](/windows-hardware/design/component-guidelines/energy-saver)
 
 Policy options mapping:
 
@@ -13781,7 +14001,7 @@ Omitting a field means all values match; for example, if you don't specify conne
   
   #### Supported versions:
 
-  - On Windows and macOS since 120 or later
+  - On Windows and macOS since 134 or later
 
   #### Description
 
@@ -25514,7 +25734,8 @@ Note that other restrictions may still apply.
 
   #### Description
 
-  Control the mode of the DNS-over-HTTPS resolver. Note that this policy will only set the default mode for each query. The mode can be overridden for special types of queries such as requests to resolve a DNS-over-HTTPS server hostname.
+  Control the mode of the DNS-over-HTTPS resolver. Note that this policy will only set the default mode for each query.
+The mode can be overridden for special types of queries such as requests to resolve a DNS-over-HTTPS server hostname.
 
 The "off" mode will disable DNS-over-HTTPS.
 
@@ -25522,7 +25743,9 @@ The "automatic" mode will send DNS-over-HTTPS queries first if a DNS-over-HTTPS 
 
 The "secure" mode will only send DNS-over-HTTPS queries and will fail to resolve on error.
 
-If you don't configure this policy, the browser might send DNS-over-HTTPS requests to a resolver associated with the user's configured system resolver.
+If this policy is not configured for managed devices, DNS-over-HTTPS queries will not be sent. Instead, the browser
+may send DNS requests to a resolver associated with the user's system resolver.
+This could lead to a less secure or private DNS resolution process, depending on the resolver in use.
 
 Policy options mapping:
 
@@ -40000,6 +40223,69 @@ SOFTWARE\Policies\Microsoft\Edge\SerialBlockedForUrls\2 = "[*.]contoso.edu"
   <string>https://www.contoso.com</string>
   <string>[*.]contoso.edu</string>
 </array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### ServiceWorkerToControlSrcdocIframeEnabled
+
+  #### Allow ServiceWorker to control srcdoc iframes
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 134 or later
+
+  #### Description
+
+  https://github.com/w3c/ServiceWorker/issues/765 asks srcdoc iframe with the "allow-same-origin" sandbox attribute to be under ServiceWorker control.
+
+By default (if left unset) or when set to Enabled, Microsoft Edge makes srcdoc iframes with "allow-same-origin" sandbox attributes to be under ServiceWorker control.
+
+Setting the policy to Disabled prevents ServiceWorker control over srcdoc iframes.
+
+This policy is temporary and planned for deprecation in 2026.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: ServiceWorkerToControlSrcdocIframeEnabled
+  - GP name: Allow ServiceWorker to control srcdoc iframes
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: ServiceWorkerToControlSrcdocIframeEnabled
+  - Value Type: REG_DWORD
+
+  ```plaintext
+SOFTWARE\Policies\Microsoft\Edge\JavaScriptOptimizerBlockedForSites\1 = "[*.]example.edu"
+
+```
+
+  - Preference Key Name: ServiceWorkerToControlSrcdocIframeEnabled
+  - Example value:
+``` xml
+<true/>
 ```
   
 

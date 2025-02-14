@@ -1,0 +1,71 @@
+<h3>ServiceWorkerToControlSrcdocIframeEnabled</h3>
+
+<h4>Allow ServiceWorker to control srcdoc iframes</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 134 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>https://github.com/w3c/ServiceWorker/issues/765 asks srcdoc iframe with the "allow-same-origin" sandbox attribute to be under ServiceWorker control.</p>
+
+<p>By default (if left unset) or when set to Enabled, Microsoft Edge makes srcdoc iframes with "allow-same-origin" sandbox attributes to be under ServiceWorker control.</p>
+
+<p>Setting the policy to Disabled prevents ServiceWorker control over srcdoc iframes.</p>
+
+<p>This policy is temporary and planned for deprecation in 2026.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: ServiceWorkerToControlSrcdocIframeEnabled</li>
+<li>GP name: Allow ServiceWorker to control srcdoc iframes</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: ServiceWorkerToControlSrcdocIframeEnabled</li>
+<li><p>Value Type: REG_DWORD</p>
+
+<p>```plaintext
+SOFTWARE\Policies\Microsoft\Edge\JavaScriptOptimizerBlockedForSites\1 = "[*.]example.edu"</p></li>
+</ul>
+
+<p>```</p>
+
+<ul>
+<li>Preference Key Name: ServiceWorkerToControlSrcdocIframeEnabled</li>
+<li><p>Example value:
+<code>xml
+&lt;true/&gt;
+</code></p>
+
+</li>
+</ul>

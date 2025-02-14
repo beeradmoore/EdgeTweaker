@@ -26,6 +26,8 @@ Windows Registry Editor Version 5.00
 [-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\JavaScriptBlockedForUrls]
 [-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\JavaScriptJitAllowedForSites]
 [-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\JavaScriptJitBlockedForSites]
+[-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\JavaScriptOptimizerAllowedForSites]
+[-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\JavaScriptOptimizerBlockedForSites]
 [-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\LegacySameSiteCookieBehaviorEnabledForDomainList]
 [-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\NotificationsAllowedForUrls]
 [-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\NotificationsBlockedForUrls]
@@ -137,6 +139,7 @@ Windows Registry Editor Version 5.00
 "DefaultImagesSetting"=-
 "DefaultInsecureContentSetting"=-
 "DefaultJavaScriptJitSetting"=-
+"DefaultJavaScriptOptimizerSetting"=-
 "DefaultJavaScriptSetting"=-
 "DefaultNotificationsSetting"=-
 "DefaultPluginsSetting"=-
@@ -564,6 +567,7 @@ Windows Registry Editor Version 5.00
 "SendIntranetToInternetExplorer"=-
 "SendMouseEventsDisabledFormControlsEnabled"=-
 "SendSiteInfoToImproveServices"=-
+"ServiceWorkerToControlSrcdocIframeEnabled"=-
 "SetTimeoutWithout1MsClampEnabled"=-
 "ShadowStackCrashRollbackBehavior"=-
 "SharedArrayBufferUnrestrictedAccessAllowed"=-

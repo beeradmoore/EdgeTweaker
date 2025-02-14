@@ -550,6 +550,10 @@ public class EdgePolicyParser
                                                     }
 
                                                 }
+                                                else if (policyChildrenChildData.StartsWith("  - Preference Key Name:", StringComparison.OrdinalIgnoreCase))
+												{
+													// Someone forgot to seperate macOS and Windows settings
+												}
                                                 else
                                                 {
                                                     throw new Exception("Unknown option in Windows registry settings.");

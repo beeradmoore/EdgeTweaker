@@ -10,7 +10,8 @@
 
 <h4>Description</h4>
 
-<p>Control the mode of the DNS-over-HTTPS resolver. Note that this policy will only set the default mode for each query. The mode can be overridden for special types of queries such as requests to resolve a DNS-over-HTTPS server hostname.</p>
+<p>Control the mode of the DNS-over-HTTPS resolver. Note that this policy will only set the default mode for each query.
+The mode can be overridden for special types of queries such as requests to resolve a DNS-over-HTTPS server hostname.</p>
 
 <p>The "off" mode will disable DNS-over-HTTPS.</p>
 
@@ -18,7 +19,9 @@
 
 <p>The "secure" mode will only send DNS-over-HTTPS queries and will fail to resolve on error.</p>
 
-<p>If you don't configure this policy, the browser might send DNS-over-HTTPS requests to a resolver associated with the user's configured system resolver.</p>
+<p>If this policy is not configured for managed devices, DNS-over-HTTPS queries will not be sent. Instead, the browser
+may send DNS requests to a resolver associated with the user's system resolver.
+This could lead to a less secure or private DNS resolution process, depending on the resolver in use.</p>
 
 <p>Policy options mapping:</p>
 
