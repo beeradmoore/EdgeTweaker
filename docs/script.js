@@ -1531,6 +1531,9 @@ document.addEventListener(
 				if (httpRequest.status === 200) {
 					jsonData = JSON.parse(httpRequest.responseText);
 
+					var lastUpdatedLabel = document.getElementById("last_updated_label");
+					lastUpdatedLabel.innerText = jsonData.last_updated;
+
 					Object.keys(jsonData.policy_groups).forEach(function (
 						policyGroupsKey
 					) {

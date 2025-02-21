@@ -725,7 +725,8 @@ public class EdgePolicyParser
         {
             if (data.StartsWith("ms.date: "))
             {
-                policyGroupDocument.PolicyDate = data.Replace("ms.date: ", string.Empty);
+	            policyGroupDocument.PolicyDate = data.Replace("ms.date: ", string.Empty);
+	            policyGroupDocument.LastUpdated = DateTime.Now.ToString("yyyy-MM-dd");
                 break;
             }
         }

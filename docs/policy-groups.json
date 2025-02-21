@@ -1,5 +1,6 @@
 {
   "policy_date": "02/15/2025",
+  "last_updated": "2025-02-21",
   "policy_groups": {
     "Application Guard settings": {
       "name": "Application Guard settings",
