@@ -308,6 +308,10 @@ public static class SupportedPolicies
 		{ "RestoreOnStartupUserURLsEnabled", true },
 		{ "ShowHomeButton", true },
 
+		// WebRtc settings
+		{ "WebRtcIPHandlingUrl", true },
+		{ "WebRtcLocalhostIpHandling", true },
+
         // Additional
         { "AADWebSiteSSOUsingThisProfileEnabled", true },
 		{ "AIGenThemesEnabled", true },
@@ -316,6 +320,7 @@ public static class SupportedPolicies
 		{ "AdditionalSearchBoxEnabled", true },
 		{ "AddressBarEditingEnabled", true },
 		{ "AddressBarMicrosoftSearchInBingProviderEnabled", true },
+		{ "AddressBarTrendingSuggestEnabled", true },
 		{ "AddressBarWorkSearchResultsEnabled", true },
 		{ "AdsSettingForIntrusiveAdsSites", true },
 		{ "AdsTransparencyEnabled", true },
@@ -695,7 +700,6 @@ public static class SupportedPolicies
 		{ "WebDriverOverridesIncompatiblePolicies", true },
 		{ "WebRtcAllowLegacyTLSProtocols", true },
 		{ "WebRtcLocalIpsAllowedUrls", true },
-		{ "WebRtcLocalhostIpHandling", true },
 		{ "WebRtcRespectOsRoutingTableEnabled", true },
 		{ "WebRtcUdpPortRange", true },
 		{ "WebSQLAccess", true },

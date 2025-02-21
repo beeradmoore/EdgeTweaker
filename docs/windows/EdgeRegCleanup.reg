@@ -288,12 +288,15 @@ Windows Registry Editor Version 5.00
 "RestoreOnStartup"=-
 "RestoreOnStartupUserURLsEnabled"=-
 "ShowHomeButton"=-
+"WebRtcIPHandlingUrl"=-
+"WebRtcLocalhostIpHandling"=-
 "AADWebSiteSSOUsingThisProfileEnabled"=-
 "AIGenThemesEnabled"=-
 "AccessibilityImageLabelsEnabled"=-
 "AdditionalSearchBoxEnabled"=-
 "AddressBarEditingEnabled"=-
 "AddressBarMicrosoftSearchInBingProviderEnabled"=-
+"AddressBarTrendingSuggestEnabled"=-
 "AddressBarWorkSearchResultsEnabled"=-
 "AdsSettingForIntrusiveAdsSites"=-
 "AdsTransparencyEnabled"=-

@@ -1,0 +1,87 @@
+<h3>WebRtcLocalhostIpHandling</h3>
+
+<h4>Restrict exposure of local IP address by WebRTC</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 77 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>Allows you to set whether or not WebRTC exposes the user's local IP address.</p>
+
+<p>If you set this policy to "AllowAllInterfaces" or "AllowPublicAndPrivateInterfaces", WebRTC exposes the local IP address.</p>
+
+<p>If you set this policy to "AllowPublicInterfaceOnly" or "DisableNonProxiedUdp", WebRTC doesn't expose the local IP address.</p>
+
+<p>If you don't set this policy, or if you disable it, WebRTC exposes the local IP address.</p>
+
+<p>Note: This policy does not provide an option to exclude specific domains.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li><p>AllowAllInterfaces (default) = Allow all interfaces. This exposes the local IP address</p></li>
+<li><p>AllowPublicAndPrivateInterfaces (default<em>public</em>and<em>private</em>interfaces) = Allow public and private interfaces over http default route. This exposes the local IP address</p></li>
+<li><p>AllowPublicInterfaceOnly (default<em>public</em>interface_only) = Allow public interface over http default route. This doesn't expose the local IP address</p></li>
+<li><p>DisableNonProxiedUdp (disable<em>non</em>proxied_udp) = Use TCP unless proxy server supports UDP. This doesn't expose the local IP address</p></li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>String</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: WebRtcLocalhostIpHandling</li>
+<li>GP name: Restrict exposure of local IP address by WebRTC</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/WebRtc settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: WebRtcLocalhostIpHandling</li>
+<li>Value Type: REG_SZ</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+"default"
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: WebRtcLocalhostIpHandling</li>
+<li><p>Example value:
+<code>xml
+&lt;string&gt;default&lt;/string&gt;
+</code></p>
+
+</li>
+</ul>

@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: vmliramichael
 manager: venkatk
-ms.date: 02/11/2025
+ms.date: 02/15/2025
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -32,10 +32,9 @@ The following table lists the new, and deprecated policies that are in this arti
 
 | Policy Name | Caption |
 |:-----|:-----|
-|[DefaultJavaScriptOptimizerSetting](#defaultjavascriptoptimizersetting)|Control use of JavaScript optimizers|
-|[JavaScriptOptimizerAllowedForSites](#javascriptoptimizerallowedforsites)|Allow JavaScript optimization on these sites|
-|[JavaScriptOptimizerBlockedForSites](#javascriptoptimizerblockedforsites)|Block JavaScript optimizations on these sites|
-|[ServiceWorkerToControlSrcdocIframeEnabled](#serviceworkertocontrolsrcdociframeenabled)|Allow ServiceWorker to control srcdoc iframes|
+|[WebRtcIPHandlingUrl](#webrtciphandlingurl)|WebRTC IP Handling Policy for URL Patterns|
+|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of local IP address by WebRTC|
+|[AddressBarTrendingSuggestEnabled](#addressbartrendingsuggestenabled)|Enable Microsoft Bing trending suggestions in the address bar|
 
 ## Available policies
 
@@ -73,6 +72,7 @@ These tables list all of the browser-related group policies available in this re
 - [Sleeping tabs settings](#sleeping-tabs-settings)
 - [SmartScreen settings](#smartscreen-settings)
 - [Startup, home page and new tab page](#startup-home-page-and-new-tab-page)
+- [WebRtc settings](#webrtc-settings)
 - [Additional](#additional)
 
 
@@ -445,6 +445,12 @@ These tables list all of the browser-related group policies available in this re
 |[RestoreOnStartupURLs](#restoreonstartupurls)|Sites to open when the browser starts|
 |[RestoreOnStartupUserURLsEnabled](#restoreonstartupuserurlsenabled)|Allow users to add and remove their own sites during startup when the RestoreOnStartupURLs policy is configured|
 |[ShowHomeButton](#showhomebutton)|Show Home button on toolbar|
+### [*WebRtc settings*](#webrtc-settings-policies)
+
+|Policy Name|Caption|
+|-|-|
+|[WebRtcIPHandlingUrl](#webrtciphandlingurl)|WebRTC IP Handling Policy for URL Patterns|
+|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of local IP address by WebRTC|
 ### [*Additional*](#additional-policies)
 
 |Policy Name|Caption|
@@ -456,6 +462,7 @@ These tables list all of the browser-related group policies available in this re
 |[AdditionalSearchBoxEnabled](#additionalsearchboxenabled)|Enable additional search box in browser|
 |[AddressBarEditingEnabled](#addressbareditingenabled)|Configure address bar editing|
 |[AddressBarMicrosoftSearchInBingProviderEnabled](#addressbarmicrosoftsearchinbingproviderenabled)|Enable Microsoft Search in Bing suggestions in the address bar|
+|[AddressBarTrendingSuggestEnabled](#addressbartrendingsuggestenabled)|Enable Microsoft Bing trending suggestions in the address bar|
 |[AddressBarWorkSearchResultsEnabled](#addressbarworksearchresultsenabled)|Enable Work Search suggestions in the address bar|
 |[AdsSettingForIntrusiveAdsSites](#adssettingforintrusiveadssites)|Ads setting for sites with intrusive ads|
 |[AdsTransparencyEnabled](#adstransparencyenabled)|Configure if the ads transparency feature is enabled|
@@ -729,7 +736,7 @@ These tables list all of the browser-related group policies available in this re
 |[ReadAloudEnabled](#readaloudenabled)|Enable Read Aloud feature in Microsoft Edge|
 |[RedirectSitesFromInternetExplorerPreventBHOInstall](#redirectsitesfrominternetexplorerpreventbhoinstall)|Prevent install of the BHO to redirect incompatible sites from Internet Explorer to Microsoft Edge|
 |[RedirectSitesFromInternetExplorerRedirectMode](#redirectsitesfrominternetexplorerredirectmode)|Redirect incompatible sites from Internet Explorer to Microsoft Edge|
-|[RelatedMatchesCloudServiceEnabled](#relatedmatchescloudserviceenabled)|Configure Related Matches in Find on Page|
+|[RelatedMatchesCloudServiceEnabled](#relatedmatchescloudserviceenabled)|Configure Related Matches in Find on Page (obsolete)|
 |[RelaunchNotification](#relaunchnotification)|Notify a user that a browser restart is recommended or required for pending updates|
 |[RelaunchNotificationPeriod](#relaunchnotificationperiod)|Set the time period for update notifications|
 |[RelaunchWindow](#relaunchwindow)|Set the time interval for relaunch|
@@ -834,7 +841,6 @@ These tables list all of the browser-related group policies available in this re
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Allow WebDriver to Override Incompatible Policies (obsolete)|
 |[WebRtcAllowLegacyTLSProtocols](#webrtcallowlegacytlsprotocols)|Allow legacy TLS/DTLS downgrade in WebRTC (obsolete)|
 |[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Manage exposure of local IP addressess by WebRTC|
-|[WebRtcLocalhostIpHandling](#webrtclocalhostiphandling)|Restrict exposure of local IP address by WebRTC|
 |[WebRtcRespectOsRoutingTableEnabled](#webrtcrespectosroutingtableenabled)|Enable support for Windows OS routing table rules when making peer to peer connections via WebRTC|
 |[WebRtcUdpPortRange](#webrtcudpportrange)|Restrict the range of local UDP ports used by WebRTC|
 |[WebSQLAccess](#websqlaccess)|Force WebSQL to be enabled (obsolete)|
@@ -4727,7 +4733,7 @@ If you don't configure this policy for a site then the policy from [DefaultJavaS
 
   ##### Example value:
 
-```plaintext 
+```plaintext
 SOFTWARE\Policies\Microsoft\Edge\JavaScriptOptimizerAllowedForSites\1 = "[*.]example.edu"
 
 ```
@@ -8462,7 +8468,7 @@ On macOS instances, apps and extensions from outside the Microsoft Edge Add-ons 
 
 The source code of any extension can be altered by users with developer tools, potentially rendering the extension unfunctional. If this is a concern, configure the [DeveloperToolsAvailability](#developertoolsavailability) policy.
 
-Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy, [see reference guide.](/deployedge/microsoft-edge-manage-extensions-ref-guide)
+Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document ( [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy, see [https://learn.microsoft.com/deployedge/microsoft-edge-manage-extensions-ref-guide](/deployedge/microsoft-edge-manage-extensions-ref-guide).
 
 Note: This policy doesn't apply to InPrivate mode. Read about hosting extensions at [Publish and update extensions in the Microsoft Edge Add-ons website](/microsoft-edge/extensions-chromium/enterprise/hosting-and-updating).
 
@@ -13162,7 +13168,7 @@ This policy has no effect if the [EfficiencyModeEnabled](#efficiencymodeenabled)
 
 Learn more about efficiency mode: [https://go.microsoft.com/fwlink/?linkid=2173921](https://go.microsoft.com/fwlink/?linkid=2173921)
 
-Learn more about energy saver: [Energy Saver](/windows-hardware/design/component-guidelines/energy-saver)
+Learn more about energy saver: [https://learn.microsoft.com/windows-hardware/design/component-guidelines/energy-saver](/windows-hardware/design/component-guidelines/energy-saver)
 
 Policy options mapping:
 
@@ -18399,6 +18405,208 @@ If you don't configure the policy, users can choose whether to show the home but
 
   [Back to top](#microsoft-edge---policies)
 
+  ## WebRtc settings policies
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### WebRtcIPHandlingUrl
+
+  #### WebRTC IP Handling Policy for URL Patterns
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 134 or later
+
+  #### Description
+
+  Controls which IP addresses and network interfaces WebRTC can use
+when establishing connections for specific URL patterns.
+
+How It Works:
+Accepts a list of URL patterns, each paired with a handling type.
+WebRTC evaluates patterns sequentially; the first match determines the handling type.
+If no match is found, WebRTC defaults to the WebRtcLocalhostIpHandling WebRtcLocalhostIpHandling. policy.
+This policy applies only to origins—URL path components are ignored.
+Wildcards (*) are supported in URL patterns.
+
+Supported Handling Values:
+default – Uses all available network interfaces.
+default_public_and_private_interfaces – WebRTC uses all public and private interfaces.
+default_public_interface_only – WebRTC uses only public interfaces.
+disable_non_proxied_udp – WebRTC uses UDP SOCKS proxying or falls back to TCP proxying.
+
+More Information:
+Valid input patterns: [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322)
+Handling types: https://tools.ietf.org/html/rfc8828.html#section-5.2
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Dictionary
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: WebRtcIPHandlingUrl
+  - GP name: WebRTC IP Handling Policy for URL Patterns
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/WebRtc settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: WebRtcIPHandlingUrl
+  - Value Type: REG_SZ
+
+  ##### Example value:
+
+```
+SOFTWARE\Policies\Microsoft\Edge\WebRtcIPHandlingUrl = [
+  {
+    "handling": "default_public_and_private_interfaces",
+    "url": "https://www.example.com"
+  },
+  {
+    "handling": "default_public_interface_only",
+    "url": "https://[*.]example.edu"
+  },
+  {
+    "handling": "disable_non_proxied_udp",
+    "url": "*"
+  }
+]
+```
+
+  ##### Compact example value:
+
+  ```
+  SOFTWARE\Policies\Microsoft\Edge\WebRtcIPHandlingUrl = [{"handling": "default_public_and_private_interfaces", "url": "https://www.example.com"}, {"handling": "default_public_interface_only", "url": "https://[*.]example.edu"}, {"handling": "disable_non_proxied_udp", "url": "*"}]
+  ```
+  
+
+  #### Mac information and settings
+
+  - Preference Key Name: WebRtcIPHandlingUrl
+  - Example value:
+``` xml
+<key>WebRtcIPHandlingUrl</key>
+<array>
+  <dict>
+    <key>handling</key>
+    <string>default_public_and_private_interfaces</string>
+    <key>url</key>
+    <string>https://www.example.com</string>
+  </dict>
+  <dict>
+    <key>handling</key>
+    <string>default_public_interface_only</string>
+    <key>url</key>
+    <string>https://[*.]example.edu</string>
+  </dict>
+  <dict>
+    <key>handling</key>
+    <string>disable_non_proxied_udp</string>
+    <key>url</key>
+    <string>*</string>
+  </dict>
+</array>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### WebRtcLocalhostIpHandling
+
+  #### Restrict exposure of local IP address by WebRTC
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 77 or later
+
+  #### Description
+
+  Allows you to set whether or not WebRTC exposes the user's local IP address.
+
+If you set this policy to "AllowAllInterfaces" or "AllowPublicAndPrivateInterfaces", WebRTC exposes the local IP address.
+
+If you set this policy to "AllowPublicInterfaceOnly" or "DisableNonProxiedUdp", WebRTC doesn't expose the local IP address.
+
+If you don't set this policy, or if you disable it, WebRTC exposes the local IP address.
+
+Note: This policy does not provide an option to exclude specific domains.
+
+Policy options mapping:
+
+* AllowAllInterfaces (default) = Allow all interfaces. This exposes the local IP address
+
+* AllowPublicAndPrivateInterfaces (default_public_and_private_interfaces) = Allow public and private interfaces over http default route. This exposes the local IP address
+
+* AllowPublicInterfaceOnly (default_public_interface_only) = Allow public interface over http default route. This doesn't expose the local IP address
+
+* DisableNonProxiedUdp (disable_non_proxied_udp) = Use TCP unless proxy server supports UDP. This doesn't expose the local IP address
+
+Use the preceding information when configuring this policy.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - String
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: WebRtcLocalhostIpHandling
+  - GP name: Restrict exposure of local IP address by WebRTC
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/WebRtc settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: WebRtcLocalhostIpHandling
+  - Value Type: REG_SZ
+
+  ##### Example value:
+
+```
+"default"
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: WebRtcLocalhostIpHandling
+  - Example value:
+``` xml
+<string>default</string>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ## Additional policies
 
   [Back to top](#microsoft-edge---policies)
@@ -18833,6 +19041,70 @@ Starting with Microsoft Edge version 89, Microsoft Search in Bing suggestions wi
   #### Mac information and settings
 
   - Preference Key Name: AddressBarMicrosoftSearchInBingProviderEnabled
+  - Example value:
+``` xml
+<true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### AddressBarTrendingSuggestEnabled
+
+  #### Enable Microsoft Bing trending suggestions in the address bar
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 135 or later
+
+  #### Description
+
+  This policy controls whether Microsoft Bing trending suggestions appear in the address bar’s suggestion dropdown when users click the address bar while on a New Tab Page.
+
+If this policy is enabled or not configured, Microsoft Bing trending suggestions will appear in the address bar suggestion dropdown.
+
+If this policy is disabled, Microsoft Edge will not display Microsoft Bing trending suggestions when users click the address bar.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: AddressBarTrendingSuggestEnabled
+  - GP name: Enable Microsoft Bing trending suggestions in the address bar
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: AddressBarTrendingSuggestEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000001
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: AddressBarTrendingSuggestEnabled
   - Example value:
 ``` xml
 <true/>
@@ -37655,21 +37927,23 @@ Use the preceding information when configuring this policy.
 
   ### RelatedMatchesCloudServiceEnabled
 
-  #### Configure Related Matches in Find on Page
+  #### Configure Related Matches in Find on Page (obsolete)
 
   
-  
+  >OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 134.
   #### Supported versions:
 
-  - On Windows and macOS since 99 or later
+  - On Windows and macOS since 99, until 134
 
   #### Description
 
   Specifies how the user receives related matches in Find on Page, which provides spellcheck, synonyms, and Q&amp;A results in Microsoft Edge.
 
-If you enable or don't configure this policy, users can receive related matches in Find on Page on all sites. The results are processed in a cloud service.
+If you enable or do not configure this policy, users can receive related matches in Find on Page on all sites. The results are processed through a cloud service.
 
-If you disable this policy, users can receive related matches in Find on Page on limited sites. The results are processed on the user's device.
+If you disable this policy, users can receive related matches in Find on Page on a limited set of sites. In this case, results are processed locally on the user's device.
+
+Note: This policy is obsoleted because this feature has never been enabled in Microsoft Edge. As a result, this policy is not supported in any version of Microsoft Edge.
 
   #### Supported features:
 
@@ -37688,7 +37962,7 @@ If you disable this policy, users can receive related matches in Find on Page on
   ##### Group Policy (ADMX) info
 
   - GP unique name: RelatedMatchesCloudServiceEnabled
-  - GP name: Configure Related Matches in Find on Page
+  - GP name: Configure Related Matches in Find on Page (obsolete)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -40277,10 +40551,13 @@ This policy is temporary and planned for deprecation in 2026.
   - Value Name: ServiceWorkerToControlSrcdocIframeEnabled
   - Value Type: REG_DWORD
 
-  ```plaintext
-SOFTWARE\Policies\Microsoft\Edge\JavaScriptOptimizerBlockedForSites\1 = "[*.]example.edu"
+  ##### Example value:
 
 ```
+0x00000001
+```
+
+  #### Mac information and settings
 
   - Preference Key Name: ServiceWorkerToControlSrcdocIframeEnabled
   - Example value:
@@ -44875,86 +45152,6 @@ SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\2 = "*contoso.com*"
   <string>https://www.contoso.com</string>
   <string>*contoso.com*</string>
 </array>
-```
-  
-
-  [Back to top](#microsoft-edge---policies)
-
-  ### WebRtcLocalhostIpHandling
-
-  #### Restrict exposure of local IP address by WebRTC
-
-  
-  
-  #### Supported versions:
-
-  - On Windows and macOS since 77 or later
-
-  #### Description
-
-  Allows you to set whether or not WebRTC exposes the user's local IP address.
-
-If you set this policy to "AllowAllInterfaces" or "AllowPublicAndPrivateInterfaces", WebRTC exposes the local IP address.
-
-If you set this policy to "AllowPublicInterfaceOnly" or "DisableNonProxiedUdp", WebRTC doesn't expose the local IP address.
-
-If you don't set this policy, or if you disable it, WebRTC exposes the local IP address.
-
-Note: This policy does not provide an option to exclude specific domains.
-
-Policy options mapping:
-
-* AllowAllInterfaces (default) = Allow all interfaces. This exposes the local IP address
-
-* AllowPublicAndPrivateInterfaces (default_public_and_private_interfaces) = Allow public and private interfaces over http default route. This exposes the local IP address
-
-* AllowPublicInterfaceOnly (default_public_interface_only) = Allow public interface over http default route. This doesn't expose the local IP address
-
-* DisableNonProxiedUdp (disable_non_proxied_udp) = Use TCP unless proxy server supports UDP. This doesn't expose the local IP address
-
-Use the preceding information when configuring this policy.
-
-  #### Supported features:
-
-  - Can be mandatory: Yes
-  - Can be recommended: No
-  - Dynamic Policy Refresh: No - Requires browser restart
-  - Per Profile: Yes
-  - Applies to a profile that is signed in with a Microsoft account: No
-
-  #### Data Type:
-
-  - String
-
-  #### Windows information and settings
-
-  ##### Group Policy (ADMX) info
-
-  - GP unique name: WebRtcLocalhostIpHandling
-  - GP name: Restrict exposure of local IP address by WebRTC
-  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
-  - GP path (Recommended): N/A
-  - GP ADMX file name: MSEdge.admx
-
-  ##### Windows Registry Settings
-
-  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
-  - Path (Recommended): N/A
-  - Value Name: WebRtcLocalhostIpHandling
-  - Value Type: REG_SZ
-
-  ##### Example value:
-
-```
-"default"
-```
-
-  #### Mac information and settings
-
-  - Preference Key Name: WebRtcLocalhostIpHandling
-  - Example value:
-``` xml
-<string>default</string>
 ```
   
 
