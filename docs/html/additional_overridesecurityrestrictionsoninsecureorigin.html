@@ -12,7 +12,7 @@
 
 <p>Specifies a list of origins (URLs) or hostname patterns (like "*.contoso.com") for which security restrictions on insecure origins don't apply.</p>
 
-<p>This policy lets you specify allowed origins for legacy applications that can't deploy TLS or set up a staging server for internal web development so that developers can test out features requiring secure contexts without having to deploy TLS on the staging server. This policy also prevents the origin from being labeled "Not Secure" in the omnibox.</p>
+<p>This policy allows you to specify permitted origins for legacy applications that cannot deploy TLS or for internal web development staging servers. It enables developers to test features requiring secure contexts without the need to configure TLS on the staging server. Patterns are only accepted for hostnames; URLs or origins with schemes must be exact matches. This policy also prevents the origin from being labeled "Not Secure" in the omnibox.</p>
 
 <p>Setting a list of URLs in this policy has the same effect as setting the command-line flag '--unsafely-treat-insecure-origin-as-secure' to a comma-separated list of the same URLs. If you enable this policy, it overrides the command-line flag.</p>
 

@@ -1,0 +1,82 @@
+<h3>PartitionedBlobUrlUsage</h3>
+
+<h4>Manage Blob URL Partitioning During Fetching and Navigation</h4>
+
+<h4>Supported versions:</h4>
+
+<ul>
+<li>On Windows and macOS since 135 or later</li>
+</ul>
+
+<h4>Description</h4>
+
+<p>This policy controls whether Blob URLs are partitioned during fetching and navigation.
+If this policy is set to Enabled or not set, Blob URLs will be partitioned.
+If this policy is set to Disabled, Blob URLs won't be partitioned.  This is the Blob URL behavior prior to
+Microsoft Edge version 135.</p>
+
+<p>If storage partitioning is disabled for a given top-level origin by either
+ThirdPartyStoragePartitioningBlockedForOrigins
+or DefaultThirdPartyStoragePartitioningSetting,
+then Blob URLs will also not be partitioned.</p>
+
+<p>The policy is scheduled to be available through Microsoft Edge version 140. After this
+version, the policy will be removed, and Microsoft Edge will no longer support unpartitioned
+blob storage.</p>
+
+<p>For detailed information on third-party storage partitioning, please see https://github.com/privacycg/storage-partitioning.</p>
+
+<h4>Supported features:</h4>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h4>Data Type:</h4>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h4>Windows information and settings</h4>
+
+<h5>Group Policy (ADMX) info</h5>
+
+<ul>
+<li>GP unique name: PartitionedBlobUrlUsage</li>
+<li>GP name: Manage Blob URL Partitioning During Fetching and Navigation</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h5>Windows Registry Settings</h5>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value Name: PartitionedBlobUrlUsage</li>
+<li>Value Type: REG_DWORD</li>
+</ul>
+
+<h5>Example value:</h5>
+
+<p><code>
+0x00000000
+</code></p>
+
+<h4>Mac information and settings</h4>
+
+<ul>
+<li>Preference Key Name: PartitionedBlobUrlUsage</li>
+<li><p>Example value:
+<code>xml
+&lt;false/&gt;
+</code></p>
+
+</li>
+</ul>

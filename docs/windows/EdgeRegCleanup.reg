@@ -151,6 +151,7 @@ Windows Registry Editor Version 5.00
 "DefaultWindowManagementSetting"=-
 "IntranetFileLinksEnabled"=-
 "LegacySameSiteCookieBehaviorEnabled"=-
+"PartitionedBlobUrlUsage"=-
 "SerialAllowUsbDevicesForUrls"=-
 "ShowPDFDefaultRecommendationsEnabled"=-
 "SpotlightExperiencesAndRecommendationsEnabled"=-
@@ -277,6 +278,7 @@ Windows Registry Editor Version 5.00
 "NewTabPageAppLauncherEnabled"=-
 "NewTabPageBingChatEnabled"=-
 "NewTabPageCompanyLogo"=-
+"NewTabPageCompanyLogoBackplateColor"=-
 "NewTabPageCompanyLogoEnabled"=-
 "NewTabPageContentEnabled"=-
 "NewTabPageHideDefaultTopSites"=-
