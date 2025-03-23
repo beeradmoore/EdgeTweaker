@@ -1,6 +1,6 @@
 {
-  "policy_date": "03/05/2025",
-  "last_updated": "2025-03-06",
+  "policy_date": "03/13/2025",
+  "last_updated": "2025-03-23",
   "policy_groups": {
     "Application Guard settings": {
       "name": "Application Guard settings",
@@ -3452,7 +3452,7 @@
         },
         "SwitchIntranetSitesToWorkProfile": {
           "id": "SwitchIntranetSitesToWorkProfile",
-          "name": "Switch intranet sites to a work profile",
+          "name": "Switch intranet sites to a work or school profile",
           "link": "switchintranetsitestoworkprofile",
           "data_type": "boolean",
           "markdown": "",
@@ -3477,11 +3477,11 @@
         },
         "SwitchSitesOnIEModeSiteListToWorkProfile": {
           "id": "SwitchSitesOnIEModeSiteListToWorkProfile",
-          "name": "Switch sites on the IE mode site list to a work profile",
+          "name": "Switch sites on the IE mode site list to a work or school profile",
           "link": "switchsitesoniemodesitelisttoworkprofile",
           "data_type": "boolean",
           "markdown": "",
-          "summary": "Allows Microsoft Edge to switch to the appropriate profile when navigating to a site that matches an entry on the IE mode site list. Only sites that specify IE mode or Edge mode will be switched to the work profile.",
+          "summary": "Allows Microsoft Edge to switch to the appropriate profile when navigating to a site that matches an entry on the IE mode site list. Only sites that specify IE mode or Edge mode will be switched to the work or school profile.",
           "platform_windows": true,
           "platform_macos": false,
           "can_be_mandatory": true,
@@ -3587,7 +3587,7 @@
           "link": "idletimeoutactions",
           "data_type": "list_of_strings",
           "markdown": "",
-          "summary": "List of actions to run when the timeout from the IdleTimeout policy is reached.",
+          "summary": "When the timeout from the IdleTimeout policy is reached, the browser runs the actions configured in this policy.",
           "platform_windows": true,
           "platform_macos": true,
           "can_be_mandatory": true,
@@ -13024,7 +13024,7 @@
         },
         "OrganizationLogoOverlayOnAppIconEnabled": {
           "id": "OrganizationLogoOverlayOnAppIconEnabled",
-          "name": "Allow your organization\u0027s logo from Microsoft Entra to be overlaid on the Microsoft Edge app icon of a work profile",
+          "name": "Allow your organization\u0027s logo from Microsoft Entra to be overlaid on the Microsoft Edge app icon of a work or school profile",
           "link": "organizationlogooverlayonappiconenabled",
           "data_type": "boolean",
           "markdown": "",
@@ -13049,7 +13049,7 @@
         },
         "OrganizationalBrandingOnWorkProfileUIEnabled": {
           "id": "OrganizationalBrandingOnWorkProfileUIEnabled",
-          "name": "Allow the use of your organization\u0027s branding assets from Microsoft Entra on the profile-related UI of a work profile",
+          "name": "Allow the use of your organization\u0027s branding assets from Microsoft Entra on the profile-related UI of a work or school profile",
           "link": "organizationalbrandingonworkprofileuienabled",
           "data_type": "boolean",
           "markdown": "",

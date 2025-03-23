@@ -10,13 +10,11 @@
 
 <h4>Description</h4>
 
-<p>List of actions to run when the timeout from the IdleTimeout policy is reached.</p>
-
-<p>If the IdleTimeout policy is unset, this policy has no effect.</p>
-
 <p>When the timeout from the IdleTimeout policy is reached, the browser runs the actions configured in this policy.</p>
 
-<p>If you do not set this policy or no actions are selected, the IdleTimeout policy has no effect.</p>
+<p>If you do not configure the IdleTimeout policy, this policy has no effect.</p>
+
+<p>If you do not configure this policy or no actions are selected, the IdleTimeout policy has no effect.</p>
 
 <p>Supported actions are:</p>
 
@@ -26,7 +24,7 @@
 
 <p>'clear<em>browsing</em>history', 'clear<em>download</em>history', 'clear<em>cookies</em>and<em>other</em>site<em>data', 'clear</em>cached<em>images</em>and<em>files', 'clear</em>password<em>signing', 'clear</em>autofill', 'clear<em>site</em>settings': clear the corresponding browsing data.</p>
 
-<p>Setting 'clear<em>browsing</em>history', 'clear<em>password</em>signing', 'clear<em>autofill', and 'clear</em>site_settings' will disable sync for the respective data types if neither <code>Chrome Sync</code> is disabled by setting the SyncDisabled policy nor BrowserSignin is disabled.</p>
+<p>Setting 'clear<em>browsing</em>history', 'clear<em>password</em>signing', 'clear<em>autofill', and 'clear</em>site_settings' will disable sync for the respective data types if sync is not already disabled by setting either the SyncDisabled policy or BrowserSignin to disabled.</p>
 
 <p>Policy options mapping:</p>
 
