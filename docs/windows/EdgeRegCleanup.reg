@@ -116,6 +116,7 @@ Windows Registry Editor Version 5.00
 [-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\URLAllowlist]
 [-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist]
 [-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\VideoCaptureAllowedUrls]
+[-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\WebContentFilteringBlockedCategories]
 [-HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls]
 
 [HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Edge]
@@ -220,6 +221,7 @@ Windows Registry Editor Version 5.00
 "ZstdContentEncodingEnabled"=-
 "DeletingUndecryptablePasswordsEnabled"=-
 "PasswordDeleteOnBrowserCloseEnabled"=-
+"PasswordExportEnabled"=-
 "PasswordGeneratorEnabled"=-
 "PasswordManagerEnabled"=-
 "PasswordManagerRestrictLengthEnabled"=-

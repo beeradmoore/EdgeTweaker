@@ -1,6 +1,10 @@
 <h3>AddressBarMicrosoftSearchInBingProviderEnabled</h3>
 
-<h4>Enable Microsoft Search in Bing suggestions in the address bar</h4>
+<h4>Enable Microsoft Search in Bing suggestions in the address bar (deprecated)</h4>
+
+<blockquote>
+  <p>DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.</p>
+</blockquote>
 
 <h4>Supported versions:</h4>
 
@@ -10,9 +14,13 @@
 
 <h4>Description</h4>
 
-<p>Enables the display of relevant Microsoft Search in Bing suggestions in the address bar's suggestion list when the user types a search string in the address bar. If you enable or don't configure this policy, users can see internal results powered by Microsoft Search in Bing in the Microsoft Edge address bar suggestion list. To see the Microsoft Search in Bing results, the user must be signed into Microsoft Edge with their Azure AD account for that organization.
-If you disable this policy, users can't see internal results in the Microsoft Edge address bar suggestion list.
-Starting with Microsoft Edge version 89, Microsoft Search in Bing suggestions will be available even if Bing isn't the user's default search provider.</p>
+<p>Enables the display of relevant Microsoft Search in Bing suggestions in the address bar's suggestion list when the user enters a search query in the address bar. If you enable or don't configure this policy, users can see internal results powered by Microsoft Search in Bing in the Microsoft Edge address bar suggestion list. To access Microsoft Search in Bing results, the user must be signed into Microsoft Edge with their organization's Azure AD account.</p>
+
+<p>If you disable this policy, users won't see internal results in the Microsoft Edge address bar suggestion list.</p>
+
+<p>Starting with Microsoft Edge version 89, Microsoft Search in Bing suggestions will be available even if Bing is not the user's default search provider.</p>
+
+<p>This policy is deprecated due to changes in access to work search through Bing-related endpoints and will be obsolete in Microsoft Edge version 137. Use the AddressBarWorkSearchResultsEnabled policy instead.</p>
 
 <h4>Supported features:</h4>
 
@@ -36,7 +44,7 @@ Starting with Microsoft Edge version 89, Microsoft Search in Bing suggestions wi
 
 <ul>
 <li>GP unique name: AddressBarMicrosoftSearchInBingProviderEnabled</li>
-<li>GP name: Enable Microsoft Search in Bing suggestions in the address bar</li>
+<li>GP name: Enable Microsoft Search in Bing suggestions in the address bar (deprecated)</li>
 <li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>

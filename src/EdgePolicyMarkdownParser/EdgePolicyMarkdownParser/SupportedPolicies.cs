@@ -207,6 +207,7 @@ public static class SupportedPolicies
         // Password manager and protection
         { "DeletingUndecryptablePasswordsEnabled", true },
 		{ "PasswordDeleteOnBrowserCloseEnabled", true },
+		{ "PasswordExportEnabled", true },
 		{ "PasswordGeneratorEnabled", true },
 		{ "PasswordManagerBlocklist", true },
 		{ "PasswordManagerEnabled", true },
@@ -699,6 +700,7 @@ public static class SupportedPolicies
 		{ "WebAudioOutputBufferingEnabled", true },
 		{ "WebCaptureEnabled", true },
 		{ "WebComponentsV0Enabled", true },
+		{ "WebContentFilteringBlockedCategories", true },
 		{ "WebDriverOverridesIncompatiblePolicies", true },
 		{ "WebRtcAllowLegacyTLSProtocols", true },
 		{ "WebRtcLocalIpsAllowedUrls", true },

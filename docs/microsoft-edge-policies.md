@@ -1,9 +1,9 @@
 ---
 title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
-author: dan-wesley
+author: vmliramichael
 manager: venkatk
-ms.date: 03/13/2025
+ms.date: 03/27/2025
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -32,11 +32,10 @@ The following table lists the new, and deprecated policies that are in this arti
 
 | Policy Name | Caption |
 |:-----|:-----|
-|[SwitchIntranetSitesToWorkProfile](#switchintranetsitestoworkprofile)|Switch intranet sites to a work or school profile|
-|[SwitchSitesOnIEModeSiteListToWorkProfile](#switchsitesoniemodesitelisttoworkprofile)|Switch sites on the IE mode site list to a work or school profile|
-|[OrganizationLogoOverlayOnAppIconEnabled](#organizationlogooverlayonappiconenabled)|Allow your organization's logo from Microsoft Entra to be overlaid on the Microsoft Edge app icon of a work or school profile|
-|[OrganizationalBrandingOnWorkProfileUIEnabled](#organizationalbrandingonworkprofileuienabled)|Allow the use of your organization's branding assets from Microsoft Entra on the profile-related UI of a work or school profile|
-|[SelectParserRelaxationEnabled](#selectparserrelaxationenabled)|Controls whether the new HTML parser behavior for the \<select\> element is enabled|
+|[PasswordExportEnabled](#passwordexportenabled)|Enable exporting saved passwords from Password Manager|
+|[AddressBarMicrosoftSearchInBingProviderEnabled](#addressbarmicrosoftsearchinbingproviderenabled)|Enable Microsoft Search in Bing suggestions in the address bar (deprecated)|
+|[EnhanceSecurityModeOptOutUXEnabled](#enhancesecuritymodeoptoutuxenabled)|Manage opt-out user experience for Enhanced Security Mode (ESM) in Microsoft Edge (obsolete)|
+|[WebContentFilteringBlockedCategories](#webcontentfilteringblockedcategories)|Configure Web Content Filtering|
 
 ## Available policies
 
@@ -327,6 +326,7 @@ These tables list all of the browser-related group policies available in this re
 |-|-|
 |[DeletingUndecryptablePasswordsEnabled](#deletingundecryptablepasswordsenabled)|Enable deleting undecryptable passwords|
 |[PasswordDeleteOnBrowserCloseEnabled](#passworddeleteonbrowsercloseenabled)|Prevent passwords from being deleted if any Edge settings is enabled to delete browsing data when Microsoft Edge closes|
+|[PasswordExportEnabled](#passwordexportenabled)|Enable exporting saved passwords from Password Manager|
 |[PasswordGeneratorEnabled](#passwordgeneratorenabled)|Allow users to get a strong password suggestion whenever they are creating an account online|
 |[PasswordManagerBlocklist](#passwordmanagerblocklist)|Configure the list of domains for which the password manager UI (Save and Fill) will be disabled|
 |[PasswordManagerEnabled](#passwordmanagerenabled)|Enable saving passwords to the password manager|
@@ -465,7 +465,7 @@ These tables list all of the browser-related group policies available in this re
 |[AdHocCodeSigningForPWAsEnabled](#adhoccodesigningforpwasenabled)|Native application signing during Progressive Web Application installation|
 |[AdditionalSearchBoxEnabled](#additionalsearchboxenabled)|Enable additional search box in browser|
 |[AddressBarEditingEnabled](#addressbareditingenabled)|Configure address bar editing|
-|[AddressBarMicrosoftSearchInBingProviderEnabled](#addressbarmicrosoftsearchinbingproviderenabled)|Enable Microsoft Search in Bing suggestions in the address bar|
+|[AddressBarMicrosoftSearchInBingProviderEnabled](#addressbarmicrosoftsearchinbingproviderenabled)|Enable Microsoft Search in Bing suggestions in the address bar (deprecated)|
 |[AddressBarTrendingSuggestEnabled](#addressbartrendingsuggestenabled)|Enable Microsoft Bing trending suggestions in the address bar|
 |[AddressBarWorkSearchResultsEnabled](#addressbarworksearchresultsenabled)|Enable Work Search suggestions in the address bar|
 |[AdsSettingForIntrusiveAdsSites](#adssettingforintrusiveadssites)|Ads setting for sites with intrusive ads|
@@ -603,7 +603,7 @@ These tables list all of the browser-related group policies available in this re
 |[EnhanceSecurityModeBypassListDomains](#enhancesecuritymodebypasslistdomains)|Configure the list of domains for which enhance security mode will not be enforced|
 |[EnhanceSecurityModeEnforceListDomains](#enhancesecuritymodeenforcelistdomains)|Configure the list of domains for which enhance security mode will always be enforced|
 |[EnhanceSecurityModeIndicatorUIEnabled](#enhancesecuritymodeindicatoruienabled)|Manage the indicator UI of the Enhanced Security Mode (ESM) feature in Microsoft Edge|
-|[EnhanceSecurityModeOptOutUXEnabled](#enhancesecuritymodeoptoutuxenabled)|Manage opt-out user experience for Enhanced Security Mode (ESM) in Microsoft Edge (deprecated)|
+|[EnhanceSecurityModeOptOutUXEnabled](#enhancesecuritymodeoptoutuxenabled)|Manage opt-out user experience for Enhanced Security Mode (ESM) in Microsoft Edge (obsolete)|
 |[EnterpriseHardwarePlatformAPIEnabled](#enterprisehardwareplatformapienabled)|Allow managed extensions to use the Enterprise Hardware Platform API|
 |[EnterpriseModeSiteListManagerAllowed](#enterprisemodesitelistmanagerallowed)|Allow access to the Enterprise Mode Site List Manager tool|
 |[EventPathEnabled](#eventpathenabled)|Re-enable the Event.path API until Microsoft Edge version 115 (obsolete)|
@@ -842,6 +842,7 @@ These tables list all of the browser-related group policies available in this re
 |[WebAudioOutputBufferingEnabled](#webaudiooutputbufferingenabled)|Enable adaptive buffering for Web Audio|
 |[WebCaptureEnabled](#webcaptureenabled)|Enable the Screenshot (previously named Web Capture) feature in Microsoft Edge|
 |[WebComponentsV0Enabled](#webcomponentsv0enabled)|Re-enable Web Components v0 API until M84 (obsolete)|
+|[WebContentFilteringBlockedCategories](#webcontentfilteringblockedcategories)|Configure Web Content Filtering|
 |[WebDriverOverridesIncompatiblePolicies](#webdriveroverridesincompatiblepolicies)|Allow WebDriver to Override Incompatible Policies (obsolete)|
 |[WebRtcAllowLegacyTLSProtocols](#webrtcallowlegacytlsprotocols)|Allow legacy TLS/DTLS downgrade in WebRTC (obsolete)|
 |[WebRtcLocalIpsAllowedUrls](#webrtclocalipsallowedurls)|Manage exposure of local IP addressess by WebRTC|
@@ -12499,6 +12500,69 @@ If you disable or don't configure this policy, the user's personal configuration
 
   [Back to top](#microsoft-edge---policies)
 
+  ### PasswordExportEnabled
+
+  #### Enable exporting saved passwords from Password Manager
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 136 or later
+
+  #### Description
+
+  This policy controls whether the Export Password button in edge://wallet/passwords is enabled.
+
+If enabled or not configured, users can export saved passwords.
+If disabled, the Export Password button is unavailable, preventing password exports.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: Yes
+  - Applies to a profile that is signed in with a Microsoft account: No
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: PasswordExportEnabled
+  - GP name: Enable exporting saved passwords from Password Manager
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Password manager and protection
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: PasswordExportEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000000
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: PasswordExportEnabled
+  - Example value:
+``` xml
+<false/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
   ### PasswordGeneratorEnabled
 
   #### Allow users to get a strong password suggestion whenever they are creating an account online
@@ -19131,9 +19195,9 @@ Note: This policy doesn't prevent the browser from navigating to any URL. Users 
 
   ### AddressBarMicrosoftSearchInBingProviderEnabled
 
-  #### Enable Microsoft Search in Bing suggestions in the address bar
+  #### Enable Microsoft Search in Bing suggestions in the address bar (deprecated)
 
-  
+  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.
   
   #### Supported versions:
 
@@ -19141,9 +19205,13 @@ Note: This policy doesn't prevent the browser from navigating to any URL. Users 
 
   #### Description
 
-  Enables the display of relevant Microsoft Search in Bing suggestions in the address bar's suggestion list when the user types a search string in the address bar. If you enable or don't configure this policy, users can see internal results powered by Microsoft Search in Bing in the Microsoft Edge address bar suggestion list. To see the Microsoft Search in Bing results, the user must be signed into Microsoft Edge with their Azure AD account for that organization.
-If you disable this policy, users can't see internal results in the Microsoft Edge address bar suggestion list.
-Starting with Microsoft Edge version 89, Microsoft Search in Bing suggestions will be available even if Bing isn't the user's default search provider.
+  Enables the display of relevant Microsoft Search in Bing suggestions in the address bar's suggestion list when the user enters a search query in the address bar. If you enable or don't configure this policy, users can see internal results powered by Microsoft Search in Bing in the Microsoft Edge address bar suggestion list. To access Microsoft Search in Bing results, the user must be signed into Microsoft Edge with their organization's Azure AD account.
+
+If you disable this policy, users won't see internal results in the Microsoft Edge address bar suggestion list.
+
+Starting with Microsoft Edge version 89, Microsoft Search in Bing suggestions will be available even if Bing is not the user's default search provider.
+
+This policy is deprecated due to changes in access to work search through Bing-related endpoints and will be obsolete in Microsoft Edge version 137. Use the AddressBarWorkSearchResultsEnabled policy instead.
 
   #### Supported features:
 
@@ -19162,7 +19230,7 @@ Starting with Microsoft Edge version 89, Microsoft Search in Bing suggestions wi
   ##### Group Policy (ADMX) info
 
   - GP unique name: AddressBarMicrosoftSearchInBingProviderEnabled
-  - GP name: Enable Microsoft Search in Bing suggestions in the address bar
+  - GP name: Enable Microsoft Search in Bing suggestions in the address bar (deprecated)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -28727,17 +28795,19 @@ For detailed information about Enhanced Security Mode, see [https://go.microsoft
 
   ### EnhanceSecurityModeOptOutUXEnabled
 
-  #### Manage opt-out user experience for Enhanced Security Mode (ESM) in Microsoft Edge (deprecated)
+  #### Manage opt-out user experience for Enhanced Security Mode (ESM) in Microsoft Edge (obsolete)
 
-  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.
   
+  >OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 135.
   #### Supported versions:
 
-  - On Windows and macOS since 115 or later
+  - On Windows and macOS since 115, until 135
 
   #### Description
 
-  This policy lets you manage whether the opt-out user experience for enhanced security mode is presented when ESM is turned on for Microsoft Edge.
+  This policy is obsolete because we have determined that this experimental opt-out UX is not required.
+
+This policy lets you manage whether the opt-out user experience for enhanced security mode is presented when ESM is turned on for Microsoft Edge.
 
 If you enable or don't configure this policy, the UI for the opt-out user experience is on.
 
@@ -28746,8 +28816,6 @@ If you disable this policy, the UI for the opt-out user experience is off.
 Note: If this policy is used, only the User Interface for the opt-out experience is supressed - ESM is still turned on. For more information, see the [EnhanceSecurityMode](#enhancesecuritymode) policy.
 
 For detailed information about Enhanced Security Mode, see [https://go.microsoft.com/fwlink/?linkid=2185895](https://go.microsoft.com/fwlink/?linkid=2185895).
-
-After careful evaluation, we have determined that this experimental opt-out UX is not required. As a result, this policy will be deprecated and stop working after Edge version 130.
 
   #### Supported features:
 
@@ -28766,7 +28834,7 @@ After careful evaluation, we have determined that this experimental opt-out UX i
   ##### Group Policy (ADMX) info
 
   - GP unique name: EnhanceSecurityModeOptOutUXEnabled
-  - GP name: Manage opt-out user experience for Enhanced Security Mode (ESM) in Microsoft Edge (deprecated)
+  - GP name: Manage opt-out user experience for Enhanced Security Mode (ESM) in Microsoft Edge (obsolete)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -45091,6 +45159,126 @@ If you set this policy to False or don't set this policy, the Web Components v0 
 ``` xml
 <true/>
 ```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### WebContentFilteringBlockedCategories
+
+  #### Configure Web Content Filtering
+
+  
+  
+  #### Supported versions:
+
+  - On Windows since 118 or later
+
+  #### Description
+
+  You can configure this policy to block certain categories of URLs. Blocking a category prevents users in specified device groups from accessing URLs associated with the category.
+
+The list of possible categories, their Category String, and their description are detailed at [https://go.microsoft.com/fwlink/?linkid=2249965](https://go.microsoft.com/fwlink/?linkid=2249965)
+
+To block a category, add the Category String of the category to the following List of blocked categories If you leave this policy unset or disable the policy, no URLs will be blocked.
+
+If you want to block a specific URL without blocking an entire category, add the URL to the list of blocked URLs using the [URLBlocklist](#urlblocklist) policy.
+
+If you want a specific URL in a blocked category to be accessible, add the URL to the list of allowed URLs using the [URLAllowlist](#urlallowlist) policy.
+
+This Web Content Filtering policy only works on Microsoft Edge on Windows 10 devices or above.
+
+Policy options mapping:
+
+* chat (chat) = Chat
+
+* child_abuse_images (child_abuse_images) = Child Abuse Images
+
+* criminal_activity (criminal_activity) = Criminal Activity
+
+* download_sites (download_sites) = Download Sites
+
+* gambling (gambling) = Gambling
+
+* games (games) = Games
+
+* hacking (hacking) = Hacking
+
+* hate_and_intolerance (hate_and_intolerance) = Hate and Intolerance
+
+* illegal_drug (illegal_drug) = Illegal Drug
+
+* illegal_software (illegal_software) = Illegal Software
+
+* image_sharing (image_sharing) = Image Sharing
+
+* instant_messaging (instant_messaging) = Instant Messaging
+
+* nudity (nudity) = Nudity
+
+* peer_to_peer (peer_to_peer) = Peer to Peer
+
+* pornography_or_sexually_explicit (pornography_or_sexually_explicit) = Pornography or Sexually Explicit
+
+* professional_networking (professional_networking) = Professional Networking
+
+* self_harm (self_harm) = Self Harm
+
+* sex_education (sex_education) = Sex Education
+
+* social_networking (social_networking) = Social Networking
+
+* streaming_and_downloads (streaming_and_downloads) = Streaming Media and Downloads
+
+* tasteless (tasteless) = Tasteless
+
+* violence (violence) = Violence
+
+* weapons (weapons) = Weapons
+
+* web_based_email (web_based_email) = Web Based Email
+
+* none (none) = None
+
+Use the preceding information when configuring this policy.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: Yes
+  - Per Profile: No
+  - Applies to a profile that is signed in with a Microsoft account: Yes
+
+  #### Data Type:
+
+  - List of strings
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: WebContentFilteringBlockedCategories
+  - GP name: Configure Web Content Filtering
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\WebContentFilteringBlockedCategories
+  - Path (Recommended): N/A
+  - Value Name: 1, 2, 3, ...
+  - Value Type: list of REG_SZ
+
+  ##### Example value:
+
+```
+SOFTWARE\Policies\Microsoft\Edge\WebContentFilteringBlockedCategories\1 = "gambling"
+SOFTWARE\Policies\Microsoft\Edge\WebContentFilteringBlockedCategories\2 = "streaming_and_downloads"
+SOFTWARE\Policies\Microsoft\Edge\WebContentFilteringBlockedCategories\3 = "games"
+
+```
+
   
 
   [Back to top](#microsoft-edge---policies)
