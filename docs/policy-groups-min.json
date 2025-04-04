@@ -1,6 +1,6 @@
 {
-  "policy_date": "03/27/2025",
-  "last_updated": "2025-03-29",
+  "policy_date": "04/03/2025",
+  "last_updated": "2025-04-05",
   "policy_groups": {
     "Application Guard settings": {
       "name": "Application Guard settings",
@@ -7597,7 +7597,7 @@
         },
         "AutomaticHttpsDefault": {
           "id": "AutomaticHttpsDefault",
-          "name": "Configure Automatic HTTPS",
+          "name": "Configure Automatic HTTPS (deprecated)",
           "link": "automatichttpsdefault",
           "data_type": "integer",
           "markdown": "",
@@ -11099,7 +11099,7 @@
           "link": "httpallowlist",
           "data_type": "list_of_strings",
           "markdown": "",
-          "summary": "Setting the policy specifies a list of hostnames or hostname patterns (such as \u0027\\*.]example.com\u0027) that will not be upgraded to HTTPS and will not show an error interstitial if HTTPS-First Mode is enabled. Organizations can use this policy to maintain access to servers that do not support HTTPS, without needing to disable [AutomaticHttpsDefault.",
+          "summary": "Setting the policy specifies a list of hostnames or hostname patterns (such as \u0027\\*.]example.com\u0027) that will not be upgraded to HTTPS. Organizations can use this policy to maintain access to servers that do not support HTTPS, without needing to disable [AutomaticHttpsDefault or HttpsUpgradesEnabled.",
           "platform_windows": true,
           "platform_macos": true,
           "can_be_mandatory": true,
@@ -11114,6 +11114,31 @@
           "windows_registry_example_value": "testserver.example.com\n[*.]example.org",
           "macos_preference_key_name": "HttpAllowlist",
           "macos_preference_example_value": "\u003Carray\u003E\n\u003Cstring\u003Etestserver.example.com\u003C/string\u003E\n\u003Cstring\u003E[*.]example.org\u003C/string\u003E\n\u003C/array\u003E",
+          "supported": true,
+          "policy_mapping": {},
+          "warnings": []
+        },
+        "HttpsUpgradesEnabled": {
+          "id": "HttpsUpgradesEnabled",
+          "name": "Enable automatic HTTPS upgrades",
+          "link": "httpsupgradesenabled",
+          "data_type": "boolean",
+          "markdown": "",
+          "summary": "As of Microsoft Edge version 120, Microsoft Edge tries to upgrade HTTP navigations to HTTPS whenever possible to improve security.  Navigations to captive portals, IP addresses, and non-unique hostnames are excluded from automatic upgrades.",
+          "platform_windows": true,
+          "platform_macos": true,
+          "can_be_mandatory": true,
+          "can_be_recommended": false,
+          "per_profile": true,
+          "dynamic_policy_refresh": true,
+          "applies_to_signed_in_profile": true,
+          "windows_registry_mandatory_path": "SOFTWARE\\Policies\\Microsoft\\Edge",
+          "windows_registry_recommended_path": "",
+          "windows_registry_value_name": "HttpsUpgradesEnabled",
+          "windows_registry_value_type": "REG_DWORD",
+          "windows_registry_example_value": "0x00000001",
+          "macos_preference_key_name": "HttpsUpgradesEnabled",
+          "macos_preference_example_value": "\u003Ctrue/\u003E",
           "supported": true,
           "policy_mapping": {},
           "warnings": []

@@ -495,6 +495,7 @@ public static class SupportedPolicies
 		{ "HideInternetExplorerRedirectUXForIncompatibleSitesEnabled", true },
 		{ "HideRestoreDialogEnabled", true },
 		{ "HttpAllowlist", true },
+		{ "HttpsUpgradesEnabled", true },
 		{ "HubsSidebarEnabled", true },
 		{ "ImportAutofillFormData", true },
 		{ "ImportBrowserSettings", true },

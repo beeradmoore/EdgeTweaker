@@ -1,6 +1,10 @@
 <h3>AutomaticHttpsDefault</h3>
 
-<h4>Configure Automatic HTTPS</h4>
+<h4>Configure Automatic HTTPS (deprecated)</h4>
+
+<blockquote>
+  <p>DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.</p>
+</blockquote>
 
 <h4>Supported versions:</h4>
 
@@ -19,6 +23,8 @@
 <p>The separate HttpAllowlist policy can be used to exempt specific hostnames or hostname patterns from being upgraded to HTTPS by this feature.</p>
 
 <p>Starting in Microsoft Edge 111, "UpgradePossibleDomains" is deprecated and is treated the same as "DisableAutomaticHttps". It won't work in Microsoft Edge version 114.</p>
+
+<p>Starting in Microsoft Edge 139, this policy will be replaced with the policy <a href="#httpsupgradesenabled">HttpsUpgradesEnabled</a>.</p>
 
 <p>Policy options mapping:</p>
 
@@ -52,7 +58,7 @@
 
 <ul>
 <li>GP unique name: AutomaticHttpsDefault</li>
-<li>GP name: Configure Automatic HTTPS</li>
+<li>GP name: Configure Automatic HTTPS (deprecated)</li>
 <li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
 <li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/</li>
 <li>GP ADMX file name: MSEdge.admx</li>
