@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: vmliramichael
 manager: venkatk
-ms.date: 04/03/2025
+ms.date: 04/09/2025
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -32,8 +32,8 @@ The following table lists the new, and deprecated policies that are in this arti
 
 | Policy Name | Caption |
 |:-----|:-----|
-|[AutomaticHttpsDefault](#automatichttpsdefault)|Configure Automatic HTTPS (deprecated)|
-|[HttpsUpgradesEnabled](#httpsupgradesenabled)|Enable automatic HTTPS upgrades|
+|[NewBaseUrlInheritanceBehaviorAllowed](#newbaseurlinheritancebehaviorallowed)|Allows enabling the feature NewBaseUrlInheritanceBehavior (obsolete)|
+|[RSAKeyUsageForLocalAnchorsEnabled](#rsakeyusageforlocalanchorsenabled)|Check RSA key usage for server certificates issued by local trust anchors (obsolete)|
 |[SelectParserRelaxationEnabled](#selectparserrelaxationenabled)|Controls whether the new HTML parser behavior for the \<select\> element is enabled|
 
 ## Available policies
@@ -66,6 +66,7 @@ These tables list all of the browser-related group policies available in this re
 - [Permit or deny screen capture](#permit-or-deny-screen-capture)
 - [Printing](#printing)
 - [Private Network Request Settings](#private-network-request-settings)
+- [Profile settings](#profile-settings)
 - [Proxy server](#proxy-server)
 - [Related Website Sets Settings](#related-website-sets-settings)
 - [Scareware Blocker settings](#scareware-blocker-settings)
@@ -384,6 +385,11 @@ These tables list all of the browser-related group policies available in this re
 |[InsecurePrivateNetworkRequestsAllowed](#insecureprivatenetworkrequestsallowed)|Specifies whether to allow websites to make requests to any network endpoint in an insecure manner.|
 |[InsecurePrivateNetworkRequestsAllowedForUrls](#insecureprivatenetworkrequestsallowedforurls)|Allow the listed sites to make requests to more-private network endpoints from in an insecure manner|
 |[PrivateNetworkAccessRestrictionsEnabled](#privatenetworkaccessrestrictionsenabled)|Specifies whether to apply restrictions to requests to more private network endpoints|
+### [*Profile settings*](#profile-settings-policies)
+
+|Policy Name|Caption|
+|-|-|
+|[ProfileTypeInProfileButtonEnabled](#profiletypeinprofilebuttonenabled)|Controls the display of the profile button label for the work or school profile|
 ### [*Proxy server*](#proxy-server-policies)
 
 |Policy Name|Caption|
@@ -711,7 +717,7 @@ These tables list all of the browser-related group policies available in this re
 |[NavigationDelayForInitialSiteListDownloadTimeout](#navigationdelayforinitialsitelistdownloadtimeout)|Set a timeout for delay of tab navigation for the Enterprise Mode Site List|
 |[NetworkPredictionOptions](#networkpredictionoptions)|Enable network prediction|
 |[NetworkServiceSandboxEnabled](#networkservicesandboxenabled)|Enable the network service sandbox|
-|[NewBaseUrlInheritanceBehaviorAllowed](#newbaseurlinheritancebehaviorallowed)|Allows enabling the feature NewBaseUrlInheritanceBehavior (deprecated)|
+|[NewBaseUrlInheritanceBehaviorAllowed](#newbaseurlinheritancebehaviorallowed)|Allows enabling the feature NewBaseUrlInheritanceBehavior (obsolete)|
 |[NewPDFReaderEnabled](#newpdfreaderenabled)|Microsoft Edge built-in PDF reader powered by Adobe Acrobat enabled|
 |[NonRemovableProfileEnabled](#nonremovableprofileenabled)|Configure whether a user always has a default profile automatically signed in with their work or school account|
 |[OrganizationLogoOverlayOnAppIconEnabled](#organizationlogooverlayonappiconenabled)|Allow your organization's logo from Microsoft Entra to be overlaid on the Microsoft Edge app icon of a work or school profile|
@@ -736,7 +742,7 @@ These tables list all of the browser-related group policies available in this re
 |[QuicAllowed](#quicallowed)|Allow QUIC protocol|
 |[QuickSearchShowMiniMenu](#quicksearchshowminimenu)|Enables Microsoft Edge mini menu|
 |[QuickViewOfficeFilesEnabled](#quickviewofficefilesenabled)|Manage QuickView Office files capability in Microsoft Edge|
-|[RSAKeyUsageForLocalAnchorsEnabled](#rsakeyusageforlocalanchorsenabled)|Check RSA key usage for server certificates issued by local trust anchors (deprecated)|
+|[RSAKeyUsageForLocalAnchorsEnabled](#rsakeyusageforlocalanchorsenabled)|Check RSA key usage for server certificates issued by local trust anchors (obsolete)|
 |[ReadAloudEnabled](#readaloudenabled)|Enable Read Aloud feature in Microsoft Edge|
 |[RedirectSitesFromInternetExplorerPreventBHOInstall](#redirectsitesfrominternetexplorerpreventbhoinstall)|Prevent install of the BHO to redirect incompatible sites from Internet Explorer to Microsoft Edge|
 |[RedirectSitesFromInternetExplorerRedirectMode](#redirectsitesfrominternetexplorerredirectmode)|Redirect incompatible sites from Internet Explorer to Microsoft Edge|
@@ -1389,7 +1395,13 @@ If you've also set the [EnableMediaRouter](#enablemediarouter) policy to false, 
 
   #### Description
 
-  Setting the policy to All (0) or leaving it unset lets users edit trust settings for all CA certificates, remove user-imported certificates, and import certificates using Certificate Manager. Setting the policy to UserOnly (1) lets users manage only user-imported certificates, but not change trust settings of built-in certificates. Setting it to None (2) lets users view (not manage) CA certificates.
+  This policy determines the level of access users have when managing CA certificates in Microsoft Edge.
+
+Setting the policy to UserOnly (1) allows users to manage only user-imported certificates. Trust settings for built-in certificates cannot be changed.
+
+Setting the policy to None (2) lets users view certificates but not manage them.
+
+Note: The certificate management experience is available starting in Microsoft Edge version 136.
 
 Policy options mapping:
 
@@ -1525,6 +1537,10 @@ SOFTWARE\Policies\Microsoft\Edge\CACertificates\1 = "MIICCTCCAY6gAwIBAgINAgPluIL
 
   This policy enables a list of TLS certificates that should be trusted by Microsoft Edge for server authentication, with constraints added outside the certificate. If no constraint of a certain type is present, then any name of that type is allowed.
 Certificates should be base64-encoded. At least one constraint must be specified for each certificate.
+
+The permitted_dns_names field is a list of DNS names that are allowed for the certificate. If the DNS name in the certificate request does not match one of the specified DNS names, the certificate will not be trusted.
+
+The permitted_cidrs field is a list of CIDR (Classless Inter-Domain Routing) ranges that will be allowed for the certificate. If the IP address in the certificate request does not fall within one of the permitted CIDR ranges, the certificate will not be trusted.
 
   #### Supported features:
 
@@ -1687,8 +1703,11 @@ SOFTWARE\Policies\Microsoft\Edge\CADistrustedCertificates\1 = "MIIB/TCCAaOgAwIBA
 
   #### Description
 
-  This policy enables defining a list of certificates that are not trusted or distrusted in Microsoft Edge
-but can be used as hints for path-building. Certificates should be base64-encoded.
+  This policy defines certificates that are not explicitly trusted or distrusted by Microsoft Edge but may be used as hints during certificate path-building.
+
+The specified certificates will be considered as intermediates during path validation; the server's certificate must still chain to a trusted root to be considered valid.
+
+Certificates must be base64-encoded.
 
   #### Supported features:
 
@@ -8547,7 +8566,7 @@ On macOS instances, apps and extensions from outside the Microsoft Edge Add-ons 
 
 The source code of any extension can be altered by users with developer tools, potentially rendering the extension unfunctional. If this is a concern, configure the [DeveloperToolsAvailability](#developertoolsavailability) policy.
 
-Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy, see [https://learn.microsoft.com/deployedge/microsoft-edge-manage-extensions-ref-guide](/deployedge/microsoft-edge-manage-extensions-ref-guide).
+Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy, see [https://learn.microsoft.com/deployedge/microsoft-edge-manage-extensions-ref-guide].
 
 Note: This policy doesn't apply to InPrivate mode. Read about hosting extensions at [Publish and update extensions in the Microsoft Edge Add-ons website](/microsoft-edge/extensions-chromium/enterprise/hosting-and-updating).
 
@@ -15572,6 +15591,76 @@ Note: A network endpoint is more private than another if:
   - Example value:
 ``` xml
 <true/>
+```
+  
+
+  [Back to top](#microsoft-edge---policies)
+
+  ## Profile settings policies
+
+  [Back to top](#microsoft-edge---policies)
+
+  ### ProfileTypeInProfileButtonEnabled
+
+  #### Controls the display of the profile button label for the work or school profile
+
+  
+  
+  #### Supported versions:
+
+  - On Windows and macOS since 136 or later
+
+  #### Description
+
+  Controls whether the label for the work or school profile type is shown in the profile button.
+
+This policy does not apply when the OrganizationalBrandingOnWorkProfileUIEnabled policy is enabled.
+
+If you enable this policy, the label for the work or school profile type appears in the profile button.
+
+If you disable this policy or leave it not configured, the label is not shown.
+
+  #### Supported features:
+
+  - Can be mandatory: Yes
+  - Can be recommended: No
+  - Dynamic Policy Refresh: No - Requires browser restart
+  - Per Profile: No
+  - Applies to a profile that is signed in with a Microsoft account: Yes
+
+  #### Data Type:
+
+  - Boolean
+
+  #### Windows information and settings
+
+  ##### Group Policy (ADMX) info
+
+  - GP unique name: ProfileTypeInProfileButtonEnabled
+  - GP name: Controls the display of the profile button label for the work or school profile
+  - GP path (Mandatory): Administrative Templates/Microsoft Edge/Profile settings
+  - GP path (Recommended): N/A
+  - GP ADMX file name: MSEdge.admx
+
+  ##### Windows Registry Settings
+
+  - Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge
+  - Path (Recommended): N/A
+  - Value Name: ProfileTypeInProfileButtonEnabled
+  - Value Type: REG_DWORD
+
+  ##### Example value:
+
+```
+0x00000000
+```
+
+  #### Mac information and settings
+
+  - Preference Key Name: ProfileTypeInProfileButtonEnabled
+  - Example value:
+``` xml
+<false/>
 ```
   
 
@@ -31347,10 +31436,15 @@ To exempt specific hostnames or hostname patterns from being upgraded, use the H
 
   #### Description
 
-  Sidebar is a launcher bar on the right side of Microsoft Edge's screen.
+  The Sidebar is a launcher bar located on the right side of Microsoft Edge.
 
-If you enable or don't configure this policy, the Sidebar will be shown.
-If you disable this policy, the Sidebar will never be shown.
+If you enable this policy, the Sidebar is always visible.
+
+If you disable this policy, the Sidebar is never shown.
+
+If you don’t configure this policy, the Sidebar’s visibility follows the user’s Microsoft Edge settings.
+
+Note: The recommended version of this policy—also known as the “Default Settings (users can override)” policy—is obsolete. This policy has never supported the recommended capability.
 
   #### Supported features:
 
@@ -36273,13 +36367,13 @@ This policy is intended to give enterprises flexibility to disable the network s
 
   ### NewBaseUrlInheritanceBehaviorAllowed
 
-  #### Allows enabling the feature NewBaseUrlInheritanceBehavior (deprecated)
+  #### Allows enabling the feature NewBaseUrlInheritanceBehavior (obsolete)
 
-  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.
   
+  >OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 135.
   #### Supported versions:
 
-  - On Windows and macOS since 123 or later
+  - On Windows and macOS since 123, until 135
 
   #### Description
 
@@ -36289,9 +36383,7 @@ If you disable this policy, it prevents users or Microsoft Edge variations from 
 
 If you enable or don't configure this policy, it allows enabling NewBaseUrlInheritanceBehavior.
 
-This policy is being deprecated because the feature NewBaseUrlInheritanceBehaviorAllowed has been removed.
-
-This policy will be obsolete in release 133.
+The policy has been obsoleted starting from Microsoft Edge version 136, but the NewBaseUrlInheritanceBehaviorAllowed feature was removed in Microsoft Edge version 123.
 
   #### Supported features:
 
@@ -36310,7 +36402,7 @@ This policy will be obsolete in release 133.
   ##### Group Policy (ADMX) info
 
   - GP unique name: NewBaseUrlInheritanceBehaviorAllowed
-  - GP name: Allows enabling the feature NewBaseUrlInheritanceBehavior (deprecated)
+  - GP name: Allows enabling the feature NewBaseUrlInheritanceBehavior (obsolete)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -37908,21 +38000,17 @@ If you disable this policy, these files will be downloaded to be viewed.
 
   ### RSAKeyUsageForLocalAnchorsEnabled
 
-  #### Check RSA key usage for server certificates issued by local trust anchors (deprecated)
+  #### Check RSA key usage for server certificates issued by local trust anchors (obsolete)
 
-  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.
   
+  >OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 135.
   #### Supported versions:
 
-  - On Windows and macOS since 123 or later
+  - On Windows and macOS since 123, until 135
 
   #### Description
 
-  This policy is deprecated because RSAKeyUsageForLocalAnchorsEnabled feature has been removed.
-
-This policy will be removed in version 133.
-
-The X.509 key usage extension declares how the key in a certificate can be
+  The X.509 key usage extension declares how the key in a certificate can be
 used. These instructions ensure certificates aren't used in an unintended
 context, which protects against a class of cross-protocol attacks on HTTPS and
 other protocols. HTTPS clients must verify that server certificates match the
@@ -37962,6 +38050,9 @@ misconfigured certificate. Modern ECDHE_RSA cipher suites use the
 use the "keyEncipherment" key usage option. If uncertain, administrators should
 include both in RSA certificates meant for HTTPS.
 
+The policy has been obsoleted starting from Microsoft Edge version 136,
+but the key check has been always enabled since Microsoft Edge version 124.
+
   #### Supported features:
 
   - Can be mandatory: Yes
@@ -37979,7 +38070,7 @@ include both in RSA certificates meant for HTTPS.
   ##### Group Policy (ADMX) info
 
   - GP unique name: RSAKeyUsageForLocalAnchorsEnabled
-  - GP name: Check RSA key usage for server certificates issued by local trust anchors (deprecated)
+  - GP name: Check RSA key usage for server certificates issued by local trust anchors (obsolete)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
@@ -40650,13 +40741,19 @@ SOFTWARE\Policies\Microsoft\Edge\SensorsBlockedForUrls\2 = "[*.]contoso.edu"
 
   #### Description
 
-  Define a list of sites, based on URL patterns, that can ask the user for access to a serial port.
+  Specifies URL patterns for sites that are allowed to request access to a serial port.
 
-If you don't configure this policy, the global default value from the [DefaultSerialGuardSetting](#defaultserialguardsetting) policy (if set) or the user's personal configuration is used for all sites.
+If not configured, Microsoft Edge uses the value from the DefaultSerialGuardSetting policy (if set), or the user's settings.
 
-For URL patterns that don't match this policy, the following order of precedence is used: The [SerialBlockedForUrls](#serialblockedforurls) policy (if there is a match), the [DefaultSerialGuardSetting](#defaultserialguardsetting) policy (if set), or the user's personal settings.
+For unmatched sites, the following order applies:
 
-The URL patterns defined in this policy can't conflict with those configured in the [SerialBlockedForUrls](#serialblockedforurls) policy. You can't allow and block a URL.
+1. [SerialBlockedForUrls](#serialblockedforurls) (if matched).
+
+2. DefaultSerialGuardSetting (if set).
+
+3. User's settings.
+
+If URL patterns in this policy conflict with those in [SerialBlockedForUrls](#serialblockedforurls), they will be ignored.
 
 For detailed information about valid url patterns, please see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
 
@@ -40723,13 +40820,19 @@ SOFTWARE\Policies\Microsoft\Edge\SerialAskForUrls\2 = "[*.]contoso.edu"
 
   #### Description
 
-  Define a list of sites, based on URL patterns, that can't ask the user to grant them access to a serial port.
+  Specifies URL patterns for sites that aren't allowed to request access to a serial port.
 
-If you don't configure this policy, the global default value from the [DefaultSerialGuardSetting](#defaultserialguardsetting) policy (if set) or the user's personal configuration is used for all sites.
+If not configured, Microsoft Edge uses the value from the DefaultSerialGuardSetting policy (if set), or the user's settings.
 
-For URL patterns that don't match this policy, the following order of precedence is used: The [SerialAskForUrls](#serialaskforurls) policy (if there is a match), the [DefaultSerialGuardSetting](#defaultserialguardsetting) policy (if set), or the user's personal settings.
+For unmatched sites, the following order applies:
 
-The URL patterns in this policy can't conflict with those configured in the [SerialAskForUrls](#serialaskforurls) policy. You can't allow and block a URL.
+1. SerialAskForUrls (if matched).
+
+2. DefaultSerialGuardSetting (if set).
+
+3. User's settings.
+
+URL patterns in this policy must not conflict with those in SerialAskForUrls. This policy takes precedence.
 
 For detailed information about valid URL patterns, see [https://go.microsoft.com/fwlink/?linkid=2095322](https://go.microsoft.com/fwlink/?linkid=2095322).
 

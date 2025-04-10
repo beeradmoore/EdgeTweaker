@@ -259,6 +259,9 @@ public static class SupportedPolicies
 		{ "InsecurePrivateNetworkRequestsAllowedForUrls", true },
 		{ "PrivateNetworkAccessRestrictionsEnabled", true },
 
+		// Profile settings
+		{ "ProfileTypeInProfileButtonEnabled", true },
+
         // Proxy server
         { "ProxyBypassList", true },
 		{ "ProxyMode", true },

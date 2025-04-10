@@ -10,8 +10,11 @@
 
 <h4>Description</h4>
 
-<p>This policy enables defining a list of certificates that are not trusted or distrusted in Microsoft Edge
-but can be used as hints for path-building. Certificates should be base64-encoded.</p>
+<p>This policy defines certificates that are not explicitly trusted or distrusted by Microsoft Edge but may be used as hints during certificate path-building.</p>
+
+<p>The specified certificates will be considered as intermediates during path validation; the server's certificate must still chain to a trusted root to be considered valid.</p>
+
+<p>Certificates must be base64-encoded.</p>
 
 <h4>Supported features:</h4>
 

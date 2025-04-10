@@ -10,13 +10,19 @@
 
 <h4>Description</h4>
 
-<p>Define a list of sites, based on URL patterns, that can ask the user for access to a serial port.</p>
+<p>Specifies URL patterns for sites that are allowed to request access to a serial port.</p>
 
-<p>If you don't configure this policy, the global default value from the <a href="#defaultserialguardsetting">DefaultSerialGuardSetting</a> policy (if set) or the user's personal configuration is used for all sites.</p>
+<p>If not configured, Microsoft Edge uses the value from the DefaultSerialGuardSetting policy (if set), or the user's settings.</p>
 
-<p>For URL patterns that don't match this policy, the following order of precedence is used: The <a href="#serialblockedforurls">SerialBlockedForUrls</a> policy (if there is a match), the <a href="#defaultserialguardsetting">DefaultSerialGuardSetting</a> policy (if set), or the user's personal settings.</p>
+<p>For unmatched sites, the following order applies:</p>
 
-<p>The URL patterns defined in this policy can't conflict with those configured in the <a href="#serialblockedforurls">SerialBlockedForUrls</a> policy. You can't allow and block a URL.</p>
+<ol>
+<li><p><a href="#serialblockedforurls">SerialBlockedForUrls</a> (if matched).</p></li>
+<li><p>DefaultSerialGuardSetting (if set).</p></li>
+<li><p>User's settings.</p></li>
+</ol>
+
+<p>If URL patterns in this policy conflict with those in <a href="#serialblockedforurls">SerialBlockedForUrls</a>, they will be ignored.</p>
 
 <p>For detailed information about valid url patterns, please see <a href="https://go.microsoft.com/fwlink/?linkid=2095322">https://go.microsoft.com/fwlink/?linkid=2095322</a>.</p>
 
