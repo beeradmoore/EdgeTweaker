@@ -156,8 +156,8 @@
         "mandatory_or_recommended": "mandatory"
     },
     "NewTabPagePrerenderEnabled": {
-        "value": true,
-        "mandatory_or_recommended": "recommended"
+        "value": false,
+        "mandatory_or_recommended": "mandatory"
     },
     "NewTabPageQuickLinksEnabled": {
         "value": false,
