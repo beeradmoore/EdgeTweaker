@@ -1,6 +1,6 @@
 {
-  "policy_date": "04/09/2025",
-  "last_updated": "2025-04-10",
+  "policy_date": "04/22/2025",
+  "last_updated": "2025-04-30",
   "policy_groups": {
     "Application Guard settings": {
       "name": "Application Guard settings",
@@ -12876,7 +12876,7 @@
         },
         "MutationEventsEnabled": {
           "id": "MutationEventsEnabled",
-          "name": "Enable deprecated/removed Mutation Events (deprecated)",
+          "name": "Enable deprecated/removed Mutation Events (obsolete)",
           "link": "mutationeventsenabled",
           "data_type": "boolean",
           "markdown": "",

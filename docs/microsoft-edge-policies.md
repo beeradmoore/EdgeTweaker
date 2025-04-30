@@ -3,7 +3,7 @@ title: "Microsoft Edge Browser Policy Documentation"
 ms.author: stmoody
 author: vmliramichael
 manager: venkatk
-ms.date: 04/09/2025
+ms.date: 04/22/2025
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -32,9 +32,7 @@ The following table lists the new, and deprecated policies that are in this arti
 
 | Policy Name | Caption |
 |:-----|:-----|
-|[NewBaseUrlInheritanceBehaviorAllowed](#newbaseurlinheritancebehaviorallowed)|Allows enabling the feature NewBaseUrlInheritanceBehavior (obsolete)|
-|[RSAKeyUsageForLocalAnchorsEnabled](#rsakeyusageforlocalanchorsenabled)|Check RSA key usage for server certificates issued by local trust anchors (obsolete)|
-|[SelectParserRelaxationEnabled](#selectparserrelaxationenabled)|Controls whether the new HTML parser behavior for the \<select\> element is enabled|
+|[MutationEventsEnabled](#mutationeventsenabled)|Enable deprecated/removed Mutation Events (obsolete)|
 
 ## Available policies
 
@@ -711,7 +709,7 @@ These tables list all of the browser-related group policies available in this re
 |[MicrosoftOfficeMenuEnabled](#microsoftofficemenuenabled)|Allow users to access the Microsoft Office menu (deprecated)|
 |[MicrosoftRootStoreEnabled](#microsoftrootstoreenabled)|Determines whether the Microsoft Root Store and built-in certificate verifier will be used to verify server certificates (obsolete)|
 |[MouseGestureEnabled](#mousegestureenabled)|Mouse Gesture Enabled|
-|[MutationEventsEnabled](#mutationeventsenabled)|Enable deprecated/removed Mutation Events (deprecated)|
+|[MutationEventsEnabled](#mutationeventsenabled)|Enable deprecated/removed Mutation Events (obsolete)|
 |[NativeHostsExecutablesLaunchDirectly](#nativehostsexecutableslaunchdirectly)|Force Windows executable Native Messaging hosts to launch directly|
 |[NativeWindowOcclusionEnabled](#nativewindowocclusionenabled)|Enable Native Window Occlusion (deprecated)|
 |[NavigationDelayForInitialSiteListDownloadTimeout](#navigationdelayforinitialsitelistdownloadtimeout)|Set a timeout for delay of tab navigation for the Enterprise Mode Site List|
@@ -8566,7 +8564,7 @@ On macOS instances, apps and extensions from outside the Microsoft Edge Add-ons 
 
 The source code of any extension can be altered by users with developer tools, potentially rendering the extension unfunctional. If this is a concern, configure the [DeveloperToolsAvailability](#developertoolsavailability) policy.
 
-Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy, see [https://learn.microsoft.com/deployedge/microsoft-edge-manage-extensions-ref-guide].
+Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document [https://go.microsoft.com/fwlink/?linkid=2095043](https://go.microsoft.com/fwlink/?linkid=2095043). The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy, see https://learn.microsoft.com/deployedge/microsoft-edge-manage-extensions-ref-guide.
 
 Note: This policy doesn't apply to InPrivate mode. Read about hosting extensions at [Publish and update extensions in the Microsoft Edge Add-ons website](/microsoft-edge/extensions-chromium/enterprise/hosting-and-updating).
 
@@ -26816,7 +26814,7 @@ Use the preceding information when configuring this policy.
 
   This policy controls the dynamic code settings for Microsoft Edge.
 
-Disabling dynamic code improves the security of Microsoft Edge by preventing potentially hostile dynamic code and third-party code from making changes to Microsoft Edge's behavior. However this might cause compatibility issues with third-party software that must run in the browser process.
+Disabling dynamic code improves the security of Microsoft Edge by preventing potentially hostile dynamic code and third-party code from making changes to Microsoft Edge's behavior. However this might cause compatibility issues with third-party software (e.g. certain printer drivers) that must run in the browser process.
 
 If you set this policy to 0 (the default) or leave unset, then Microsoft Edge will use the default settings.
 
@@ -35989,13 +35987,13 @@ If you disable this policy, you can't use the Mouse Gesture feature in Microsoft
 
   ### MutationEventsEnabled
 
-  #### Enable deprecated/removed Mutation Events (deprecated)
+  #### Enable deprecated/removed Mutation Events (obsolete)
 
-  >DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.
   
+  >OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 136.
   #### Supported versions:
 
-  - On Windows and macOS since 124 or later
+  - On Windows and macOS since 124, until 136
 
   #### Description
 
@@ -36005,7 +36003,8 @@ If you enable this policy, mutation events will continue to be fired, even if th
 
 If you disable or don't configure this policy, these events will not be fired.
 
-This policy is a temporary workaround, and enterprises should still work to remove their dependencies on these mutation events.
+Note:
+This policy is a temporary workaround and will be obsolete starting with Microsoft Edge version 137.
 
   #### Supported features:
 
@@ -36024,7 +36023,7 @@ This policy is a temporary workaround, and enterprises should still work to remo
   ##### Group Policy (ADMX) info
 
   - GP unique name: MutationEventsEnabled
-  - GP name: Enable deprecated/removed Mutation Events (deprecated)
+  - GP name: Enable deprecated/removed Mutation Events (obsolete)
   - GP path (Mandatory): Administrative Templates/Microsoft Edge/
   - GP path (Recommended): N/A
   - GP ADMX file name: MSEdge.admx
