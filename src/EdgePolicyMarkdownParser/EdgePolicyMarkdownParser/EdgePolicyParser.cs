@@ -97,16 +97,10 @@ public class EdgePolicyParser
             var policyGroups = ParseTocYml(tocContent);
 
             // Download each policy markdown file
-            int count = 0;
-            int maxPolicies = 5; // Limit to 5 policies per group for testing
-            
             foreach (var policyGroup in policyGroups)
             {
-                count = 0;
                 foreach (var policy in policyGroup.Value)
                 {
-                    if (count >= maxPolicies) break;
-                    
                     if (string.IsNullOrEmpty(policy.Href)) continue;
                     
                     // Skip the first entry which points to the old file
@@ -120,7 +114,6 @@ public class EdgePolicyParser
                         var policyResponse = await httpClient.GetAsync(policyUrl);
                         var policyContent = await policyResponse.Content.ReadAsStringAsync();
                         await File.WriteAllTextAsync(policyFilePath, policyContent);
-                        count++;
                     }
                     catch (Exception ex)
                     {
