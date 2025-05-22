@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace EdgePolicyMarkdownParser;
 
@@ -85,18 +86,41 @@ public class EdgePolicyParser
             return;
         }
 
+        Console.WriteLine("Downloading policy files...");
+        
         // Download the TOC.yml file first
         using (var httpClient = new HttpClient())
         {
             // Download the TOC.yml file
+            Console.WriteLine("Downloading TOC.yml file...");
             var tocResponse = await httpClient.GetAsync("https://raw.githubusercontent.com/MicrosoftDocs/Edge-Enterprise/public/edgeenterprise/microsoft-edge-browser-policies/toc.yml");
             var tocContent = await tocResponse.Content.ReadAsStringAsync();
             await File.WriteAllTextAsync(TocYmlFilePath, tocContent);
+            Console.WriteLine("TOC.yml downloaded successfully.");
 
             // Parse the TOC.yml to extract policy groups and policies
             var policyGroups = ParseTocYml(tocContent);
 
-            // Download each policy markdown file
+            // Create a list to hold all download tasks
+            var downloadTasks = new List<Task>();
+            var semaphore = new SemaphoreSlim(10); // Limit concurrent downloads to 10
+            var totalFiles = 0;
+            var downloadedFiles = 0;
+            
+            // Count total files to download
+            foreach (var policyGroup in policyGroups)
+            {
+                foreach (var policy in policyGroup.Value)
+                {
+                    if (string.IsNullOrEmpty(policy.Href)) continue;
+                    if (policy.Href.Contains("../microsoft-edge-policies.md")) continue;
+                    totalFiles++;
+                }
+            }
+            
+            Console.WriteLine($"Found {totalFiles} policy files to download.");
+            
+            // Download each policy markdown file in parallel
             foreach (var policyGroup in policyGroups)
             {
                 foreach (var policy in policyGroup.Value)
@@ -106,21 +130,52 @@ public class EdgePolicyParser
                     // Skip the first entry which points to the old file
                     if (policy.Href.Contains("../microsoft-edge-policies.md")) continue;
                     
-                    var policyFilePath = Path.Combine(PolicyMarkdownDirectory, policy.Href);
-                    var policyUrl = $"https://raw.githubusercontent.com/MicrosoftDocs/Edge-Enterprise/public/edgeenterprise/microsoft-edge-browser-policies/{policy.Href}";
+                    // Create a local copy of these variables to use in the lambda
+                    var policyName = policy.Name;
+                    var policyHref = policy.Href;
                     
-                    try
-                    {
-                        var policyResponse = await httpClient.GetAsync(policyUrl);
-                        var policyContent = await policyResponse.Content.ReadAsStringAsync();
-                        await File.WriteAllTextAsync(policyFilePath, policyContent);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Error downloading {policy.Name}: {ex.Message}");
-                    }
+                    downloadTasks.Add(DownloadPolicyFileAsync(httpClient, policyName, policyHref, semaphore, () => {
+                        var progress = Interlocked.Increment(ref downloadedFiles);
+                        Console.WriteLine($"Downloaded {progress}/{totalFiles}: {policyName}");
+                    }));
                 }
             }
+            
+            // Wait for all downloads to complete
+            await Task.WhenAll(downloadTasks);
+            Console.WriteLine("All policy files downloaded successfully.");
+        }
+    }
+    
+    private async Task DownloadPolicyFileAsync(HttpClient httpClient, string policyName, string policyHref, SemaphoreSlim semaphore, Action onComplete)
+    {
+        try
+        {
+            await semaphore.WaitAsync();
+            
+            var policyFilePath = Path.Combine(PolicyMarkdownDirectory, policyHref);
+            var policyUrl = $"https://raw.githubusercontent.com/MicrosoftDocs/Edge-Enterprise/public/edgeenterprise/microsoft-edge-browser-policies/{policyHref}";
+            
+            // Create directory if needed (for nested paths)
+            var directory = Path.GetDirectoryName(policyFilePath);
+            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+            
+            var policyResponse = await httpClient.GetAsync(policyUrl);
+            var policyContent = await policyResponse.Content.ReadAsStringAsync();
+            await File.WriteAllTextAsync(policyFilePath, policyContent);
+            
+            onComplete?.Invoke();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error downloading {policyName}: {ex.Message}");
+        }
+        finally
+        {
+            semaphore.Release();
         }
     }
     
