@@ -33,12 +33,15 @@ public class PolicyGroupDocument
                 {
                     if (policy.CanBeRecommended == true && string.IsNullOrEmpty(policy.WindowsRegistryRecommendedPath) == true)
                     {
-                        throw new Exception("Windows registry value can be recommended, but no path is defined.");
+                        // It's okay for Windows registry recommended path to be empty if the platform doesn't support it
+                        policy.CanBeRecommended = false;
                     }
 
                     if (policy.CanBeMandatory == true && string.IsNullOrEmpty(policy.WindowsRegistryMandatoryPath) == true)
                     {
-                        throw new Exception("Windows registry value can be mandatory, but no path is defined.");
+                        // It's okay for Windows registry path to be empty if the platform doesn't support it
+                        policy.PlatformWindows = false;
+                        policy.CanBeMandatory = false;
                     }
 
                     if (policy.CanBeRecommended == true && policy.WindowsRegistryRecommendedPath.StartsWith(@"SOFTWARE\Policies\Microsoft\Edge") == false)
@@ -56,12 +59,14 @@ public class PolicyGroupDocument
                 {
                     if (string.IsNullOrEmpty(policy.MacOSPreferenceExampleValue))
                     {
-                        throw new Exception("macOS example value is empty.");
+                        // It's okay for macOS example value to be empty if the platform doesn't support it
+                        policy.PlatformMacOS = false;
                     }
 
                     if (string.IsNullOrEmpty(policy.MacOSPreferenceKeyName))
                     {
-                        throw new Exception("macOS Preference key name is empty.");
+                        // It's okay for macOS key name to be empty if the platform doesn't support it
+                        policy.PlatformMacOS = false;
                     }
                 }
             }

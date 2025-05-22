@@ -1,0 +1,1372 @@
+- name: Microsoft Edge - Policies
+  href: ../microsoft-edge-policies.md
+- name: Application Guard settings
+  items:
+  - name: ApplicationGuardContainerProxy
+    href: ApplicationGuardContainerProxy.md
+  - name: ApplicationGuardFavoritesSyncEnabled
+    href: ApplicationGuardFavoritesSyncEnabled.md
+  - name: ApplicationGuardPassiveModeEnabled
+    href: ApplicationGuardPassiveModeEnabled.md
+  - name: ApplicationGuardTrafficIdentificationEnabled
+    href: ApplicationGuardTrafficIdentificationEnabled.md
+  - name: ApplicationGuardUploadBlockingEnabled
+    href: ApplicationGuardUploadBlockingEnabled.md
+- name: Cast
+  items:
+  - name: EdgeDisableDialProtocolForCastDiscovery
+    href: EdgeDisableDialProtocolForCastDiscovery.md
+  - name: EnableMediaRouter
+    href: EnableMediaRouter.md
+  - name: ShowCastIconInToolbar
+    href: ShowCastIconInToolbar.md
+- name: Certificate management settings
+  items:
+  - name: CACertificateManagementAllowed
+    href: CACertificateManagementAllowed.md
+  - name: CACertificates
+    href: CACertificates.md
+  - name: CACertificatesWithConstraints
+    href: CACertificatesWithConstraints.md
+  - name: CADistrustedCertificates
+    href: CADistrustedCertificates.md
+  - name: CAHintCertificates
+    href: CAHintCertificates.md
+  - name: CAPlatformIntegrationEnabled
+    href: CAPlatformIntegrationEnabled.md
+- name: Content settings
+  items:
+  - name: AutoSelectCertificateForUrls
+    href: AutoSelectCertificateForUrls.md
+  - name: AutomaticDownloadsAllowedForUrls
+    href: AutomaticDownloadsAllowedForUrls.md
+  - name: AutomaticDownloadsBlockedForUrls
+    href: AutomaticDownloadsBlockedForUrls.md
+  - name: AutomaticFullscreenAllowedForUrls
+    href: AutomaticFullscreenAllowedForUrls.md
+  - name: AutomaticFullscreenBlockedForUrls
+    href: AutomaticFullscreenBlockedForUrls.md
+  - name: CookiesAllowedForUrls
+    href: CookiesAllowedForUrls.md
+  - name: CookiesBlockedForUrls
+    href: CookiesBlockedForUrls.md
+  - name: CookiesSessionOnlyForUrls
+    href: CookiesSessionOnlyForUrls.md
+  - name: DataUrlInSvgUseEnabled
+    href: DataUrlInSvgUseEnabled.md
+  - name: DefaultAutomaticDownloadsSetting
+    href: DefaultAutomaticDownloadsSetting.md
+  - name: DefaultCookiesSetting
+    href: DefaultCookiesSetting.md
+  - name: DefaultFileSystemReadGuardSetting
+    href: DefaultFileSystemReadGuardSetting.md
+  - name: DefaultFileSystemWriteGuardSetting
+    href: DefaultFileSystemWriteGuardSetting.md
+  - name: DefaultGeolocationSetting
+    href: DefaultGeolocationSetting.md
+  - name: DefaultImagesSetting
+    href: DefaultImagesSetting.md
+  - name: DefaultInsecureContentSetting
+    href: DefaultInsecureContentSetting.md
+  - name: DefaultJavaScriptJitSetting
+    href: DefaultJavaScriptJitSetting.md
+  - name: DefaultJavaScriptOptimizerSetting
+    href: DefaultJavaScriptOptimizerSetting.md
+  - name: DefaultJavaScriptSetting
+    href: DefaultJavaScriptSetting.md
+  - name: DefaultNotificationsSetting
+    href: DefaultNotificationsSetting.md
+  - name: DefaultPluginsSetting
+    href: DefaultPluginsSetting.md
+  - name: DefaultPopupsSetting
+    href: DefaultPopupsSetting.md
+  - name: DefaultThirdPartyStoragePartitioningSetting
+    href: DefaultThirdPartyStoragePartitioningSetting.md
+  - name: DefaultWebBluetoothGuardSetting
+    href: DefaultWebBluetoothGuardSetting.md
+  - name: DefaultWebHidGuardSetting
+    href: DefaultWebHidGuardSetting.md
+  - name: DefaultWebUsbGuardSetting
+    href: DefaultWebUsbGuardSetting.md
+  - name: DefaultWindowManagementSetting
+    href: DefaultWindowManagementSetting.md
+  - name: FileSystemReadAskForUrls
+    href: FileSystemReadAskForUrls.md
+  - name: FileSystemReadBlockedForUrls
+    href: FileSystemReadBlockedForUrls.md
+  - name: FileSystemWriteAskForUrls
+    href: FileSystemWriteAskForUrls.md
+  - name: FileSystemWriteBlockedForUrls
+    href: FileSystemWriteBlockedForUrls.md
+  - name: ImagesAllowedForUrls
+    href: ImagesAllowedForUrls.md
+  - name: ImagesBlockedForUrls
+    href: ImagesBlockedForUrls.md
+  - name: InsecureContentAllowedForUrls
+    href: InsecureContentAllowedForUrls.md
+  - name: InsecureContentBlockedForUrls
+    href: InsecureContentBlockedForUrls.md
+  - name: IntranetFileLinksEnabled
+    href: IntranetFileLinksEnabled.md
+  - name: JavaScriptAllowedForUrls
+    href: JavaScriptAllowedForUrls.md
+  - name: JavaScriptBlockedForUrls
+    href: JavaScriptBlockedForUrls.md
+  - name: JavaScriptJitAllowedForSites
+    href: JavaScriptJitAllowedForSites.md
+  - name: JavaScriptJitBlockedForSites
+    href: JavaScriptJitBlockedForSites.md
+  - name: JavaScriptOptimizerAllowedForSites
+    href: JavaScriptOptimizerAllowedForSites.md
+  - name: JavaScriptOptimizerBlockedForSites
+    href: JavaScriptOptimizerBlockedForSites.md
+  - name: LegacySameSiteCookieBehaviorEnabled
+    href: LegacySameSiteCookieBehaviorEnabled.md
+  - name: LegacySameSiteCookieBehaviorEnabledForDomainList
+    href: LegacySameSiteCookieBehaviorEnabledForDomainList.md
+  - name: NotificationsAllowedForUrls
+    href: NotificationsAllowedForUrls.md
+  - name: NotificationsBlockedForUrls
+    href: NotificationsBlockedForUrls.md
+  - name: PartitionedBlobUrlUsage
+    href: PartitionedBlobUrlUsage.md
+  - name: PluginsAllowedForUrls
+    href: PluginsAllowedForUrls.md
+  - name: PluginsBlockedForUrls
+    href: PluginsBlockedForUrls.md
+  - name: PopupsAllowedForUrls
+    href: PopupsAllowedForUrls.md
+  - name: PopupsBlockedForUrls
+    href: PopupsBlockedForUrls.md
+  - name: RegisteredProtocolHandlers
+    href: RegisteredProtocolHandlers.md
+  - name: SerialAllowAllPortsForUrls
+    href: SerialAllowAllPortsForUrls.md
+  - name: SerialAllowUsbDevicesForUrls
+    href: SerialAllowUsbDevicesForUrls.md
+  - name: ShowPDFDefaultRecommendationsEnabled
+    href: ShowPDFDefaultRecommendationsEnabled.md
+  - name: SpotlightExperiencesAndRecommendationsEnabled
+    href: SpotlightExperiencesAndRecommendationsEnabled.md
+  - name: ThirdPartyStoragePartitioningBlockedForOrigins
+    href: ThirdPartyStoragePartitioningBlockedForOrigins.md
+  - name: WebHidAllowAllDevicesForUrls
+    href: WebHidAllowAllDevicesForUrls.md
+  - name: WebHidAllowDevicesForUrls
+    href: WebHidAllowDevicesForUrls.md
+  - name: WebHidAllowDevicesWithHidUsagesForUrls
+    href: WebHidAllowDevicesWithHidUsagesForUrls.md
+  - name: WebHidAskForUrls
+    href: WebHidAskForUrls.md
+  - name: WebHidBlockedForUrls
+    href: WebHidBlockedForUrls.md
+  - name: WebUsbAllowDevicesForUrls
+    href: WebUsbAllowDevicesForUrls.md
+  - name: WebUsbAskForUrls
+    href: WebUsbAskForUrls.md
+  - name: WebUsbBlockedForUrls
+    href: WebUsbBlockedForUrls.md
+  - name: WindowManagementAllowedForUrls
+    href: WindowManagementAllowedForUrls.md
+  - name: WindowManagementBlockedForUrls
+    href: WindowManagementBlockedForUrls.md
+- name: Default search provider
+  items:
+  - name: DefaultSearchProviderEnabled
+    href: DefaultSearchProviderEnabled.md
+  - name: DefaultSearchProviderEncodings
+    href: DefaultSearchProviderEncodings.md
+  - name: DefaultSearchProviderImageURL
+    href: DefaultSearchProviderImageURL.md
+  - name: DefaultSearchProviderImageURLPostParams
+    href: DefaultSearchProviderImageURLPostParams.md
+  - name: DefaultSearchProviderKeyword
+    href: DefaultSearchProviderKeyword.md
+  - name: DefaultSearchProviderName
+    href: DefaultSearchProviderName.md
+  - name: DefaultSearchProviderSearchURL
+    href: DefaultSearchProviderSearchURL.md
+  - name: DefaultSearchProviderSuggestURL
+    href: DefaultSearchProviderSuggestURL.md
+  - name: NewTabPageSearchBox
+    href: NewTabPageSearchBox.md
+- name: Downloads
+  items:
+  - name: ShowDownloadsInsecureWarningsEnabled
+    href: ShowDownloadsInsecureWarningsEnabled.md
+- name: Edge Website Typo Protection settings
+  items:
+  - name: PreventTyposquattingPromptOverride
+    href: PreventTyposquattingPromptOverride.md
+  - name: TyposquattingAllowListDomains
+    href: TyposquattingAllowListDomains.md
+  - name: TyposquattingCheckerEnabled
+    href: TyposquattingCheckerEnabled.md
+- name: Edge Workspaces settings
+  items:
+  - name: EdgeWorkspacesEnabled
+    href: EdgeWorkspacesEnabled.md
+  - name: WorkspacesNavigationSettings
+    href: WorkspacesNavigationSettings.md
+- name: Experimentation
+  items:
+  - name: FeatureFlagOverridesControl
+    href: FeatureFlagOverridesControl.md
+- name: Extensions
+  items:
+  - name: BlockExternalExtensions
+    href: BlockExternalExtensions.md
+  - name: ControlDefaultStateOfAllowExtensionFromOtherStoresSettingEnabled
+    href: ControlDefaultStateOfAllowExtensionFromOtherStoresSettingEnabled.md
+  - name: ExtensionAllowedTypes
+    href: ExtensionAllowedTypes.md
+  - name: ExtensionDeveloperModeSettings
+    href: ExtensionDeveloperModeSettings.md
+  - name: ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls
+    href: ExtensionExtendedBackgroundLifetimeForPortConnectionsToUrls.md
+  - name: ExtensionInstallAllowlist
+    href: ExtensionInstallAllowlist.md
+  - name: ExtensionInstallBlocklist
+    href: ExtensionInstallBlocklist.md
+  - name: ExtensionInstallForcelist
+    href: ExtensionInstallForcelist.md
+  - name: ExtensionInstallSources
+    href: ExtensionInstallSources.md
+  - name: ExtensionInstallTypeBlocklist
+    href: ExtensionInstallTypeBlocklist.md
+  - name: ExtensionManifestV2Availability
+    href: ExtensionManifestV2Availability.md
+  - name: ExtensionSettings
+    href: ExtensionSettings.md
+- name: Games settings
+  items:
+  - name: GamerModeEnabled
+    href: GamerModeEnabled.md
+- name: Generative AI
+  items:
+  - name: GenAILocalFoundationalModelSettings
+    href: GenAILocalFoundationalModelSettings.md
+- name: HTTP authentication
+  items:
+  - name: AllHttpAuthSchemesAllowedForOrigins
+    href: AllHttpAuthSchemesAllowedForOrigins.md
+  - name: AllowCrossOriginAuthPrompt
+    href: AllowCrossOriginAuthPrompt.md
+  - name: AuthNegotiateDelegateAllowlist
+    href: AuthNegotiateDelegateAllowlist.md
+  - name: AuthSchemes
+    href: AuthSchemes.md
+  - name: AuthServerAllowlist
+    href: AuthServerAllowlist.md
+  - name: BasicAuthOverHttpEnabled
+    href: BasicAuthOverHttpEnabled.md
+  - name: DisableAuthNegotiateCnameLookup
+    href: DisableAuthNegotiateCnameLookup.md
+  - name: EnableAuthNegotiatePort
+    href: EnableAuthNegotiatePort.md
+  - name: NtlmV2Enabled
+    href: NtlmV2Enabled.md
+  - name: WindowsHelloForHTTPAuthEnabled
+    href: WindowsHelloForHTTPAuthEnabled.md
+- name: Identity and sign-in
+  items:
+  - name: AutomaticProfileSwitchingSiteList
+    href: AutomaticProfileSwitchingSiteList.md
+  - name: EdgeDefaultProfileEnabled
+    href: EdgeDefaultProfileEnabled.md
+  - name: GuidedSwitchEnabled
+    href: GuidedSwitchEnabled.md
+  - name: ImplicitSignInEnabled
+    href: ImplicitSignInEnabled.md
+  - name: LinkedAccountEnabled
+    href: LinkedAccountEnabled.md
+  - name: OneAuthAuthenticationEnforced
+    href: OneAuthAuthenticationEnforced.md
+  - name: OnlyOnPremisesImplicitSigninEnabled
+    href: OnlyOnPremisesImplicitSigninEnabled.md
+  - name: ProactiveAuthWorkflowEnabled
+    href: ProactiveAuthWorkflowEnabled.md
+  - name: SeamlessWebToBrowserSignInEnabled
+    href: SeamlessWebToBrowserSignInEnabled.md
+  - name: SignInCtaOnNtpEnabled
+    href: SignInCtaOnNtpEnabled.md
+  - name: SwitchIntranetSitesToWorkProfile
+    href: SwitchIntranetSitesToWorkProfile.md
+  - name: SwitchSitesOnIEModeSiteListToWorkProfile
+    href: SwitchSitesOnIEModeSiteListToWorkProfile.md
+  - name: WAMAuthBelowWin10RS3Enabled
+    href: WAMAuthBelowWin10RS3Enabled.md
+  - name: WebToBrowserSignInEnabled
+    href: WebToBrowserSignInEnabled.md
+- name: Idle Browser Actions
+  items:
+  - name: IdleTimeout
+    href: IdleTimeout.md
+  - name: IdleTimeoutActions
+    href: IdleTimeoutActions.md
+- name: Immersive Reader settings
+  items:
+  - name: ImmersiveReaderGrammarToolsEnabled
+    href: ImmersiveReaderGrammarToolsEnabled.md
+  - name: ImmersiveReaderPictureDictionaryEnabled
+    href: ImmersiveReaderPictureDictionaryEnabled.md
+- name: Kiosk Mode settings
+  items:
+  - name: KioskAddressBarEditingEnabled
+    href: KioskAddressBarEditingEnabled.md
+  - name: KioskDeleteDownloadsOnExit
+    href: KioskDeleteDownloadsOnExit.md
+  - name: KioskSwipeGesturesEnabled
+    href: KioskSwipeGesturesEnabled.md
+- name: Manageability
+  items:
+  - name: EdgeManagementEnabled
+    href: EdgeManagementEnabled.md
+  - name: EdgeManagementEnrollmentToken
+    href: EdgeManagementEnrollmentToken.md
+  - name: EdgeManagementExtensionsFeedbackEnabled
+    href: EdgeManagementExtensionsFeedbackEnabled.md
+  - name: EdgeManagementPolicyOverridesPlatformPolicy
+    href: EdgeManagementPolicyOverridesPlatformPolicy.md
+  - name: EdgeManagementUserPolicyOverridesCloudMachinePolicy
+    href: EdgeManagementUserPolicyOverridesCloudMachinePolicy.md
+  - name: MAMEnabled
+    href: MAMEnabled.md
+- name: Native Messaging
+  items:
+  - name: NativeMessagingAllowlist
+    href: NativeMessagingAllowlist.md
+  - name: NativeMessagingBlocklist
+    href: NativeMessagingBlocklist.md
+  - name: NativeMessagingUserLevelHosts
+    href: NativeMessagingUserLevelHosts.md
+- name: Network settings
+  items:
+  - name: AccessControlAllowMethodsInCORSPreflightSpecConformant
+    href: AccessControlAllowMethodsInCORSPreflightSpecConformant.md
+  - name: BlockTruncatedCookies
+    href: BlockTruncatedCookies.md
+  - name: CompressionDictionaryTransportEnabled
+    href: CompressionDictionaryTransportEnabled.md
+  - name: DataURLWhitespacePreservationEnabled
+    href: DataURLWhitespacePreservationEnabled.md
+  - name: HappyEyeballsV3Enabled
+    href: HappyEyeballsV3Enabled.md
+  - name: IPv6ReachabilityOverrideEnabled
+    href: IPv6ReachabilityOverrideEnabled.md
+  - name: ZstdContentEncodingEnabled
+    href: ZstdContentEncodingEnabled.md
+- name: PDF Reader
+  items:
+  - name: ViewXFAPDFInIEModeAllowedFileHash
+    href: ViewXFAPDFInIEModeAllowedFileHash.md
+  - name: ViewXFAPDFInIEModeAllowedOrigins
+    href: ViewXFAPDFInIEModeAllowedOrigins.md
+- name: Password manager and protection
+  items:
+  - name: DeletingUndecryptablePasswordsEnabled
+    href: DeletingUndecryptablePasswordsEnabled.md
+  - name: PasswordDeleteOnBrowserCloseEnabled
+    href: PasswordDeleteOnBrowserCloseEnabled.md
+  - name: PasswordExportEnabled
+    href: PasswordExportEnabled.md
+  - name: PasswordGeneratorEnabled
+    href: PasswordGeneratorEnabled.md
+  - name: PasswordManagerBlocklist
+    href: PasswordManagerBlocklist.md
+  - name: PasswordManagerEnabled
+    href: PasswordManagerEnabled.md
+  - name: PasswordManagerRestrictLengthEnabled
+    href: PasswordManagerRestrictLengthEnabled.md
+  - name: PasswordMonitorAllowed
+    href: PasswordMonitorAllowed.md
+  - name: PasswordProtectionChangePasswordURL
+    href: PasswordProtectionChangePasswordURL.md
+  - name: PasswordProtectionLoginURLs
+    href: PasswordProtectionLoginURLs.md
+  - name: PasswordProtectionWarningTrigger
+    href: PasswordProtectionWarningTrigger.md
+  - name: PasswordRevealEnabled
+    href: PasswordRevealEnabled.md
+  - name: PrimaryPasswordSetting
+    href: PrimaryPasswordSetting.md
+- name: Performance
+  items:
+  - name: EfficiencyMode
+    href: EfficiencyMode.md
+  - name: EfficiencyModeEnabled
+    href: EfficiencyModeEnabled.md
+  - name: EfficiencyModeOnPowerEnabled
+    href: EfficiencyModeOnPowerEnabled.md
+  - name: ExtensionsPerformanceDetectorEnabled
+    href: ExtensionsPerformanceDetectorEnabled.md
+  - name: PerformanceDetectorEnabled
+    href: PerformanceDetectorEnabled.md
+  - name: PinBrowserEssentialsToolbarButton
+    href: PinBrowserEssentialsToolbarButton.md
+  - name: StartupBoostEnabled
+    href: StartupBoostEnabled.md
+- name: Permit or deny screen capture
+  items:
+  - name: SameOriginTabCaptureAllowedByOrigins
+    href: SameOriginTabCaptureAllowedByOrigins.md
+  - name: ScreenCaptureAllowedByOrigins
+    href: ScreenCaptureAllowedByOrigins.md
+  - name: TabCaptureAllowedByOrigins
+    href: TabCaptureAllowedByOrigins.md
+  - name: WindowCaptureAllowedByOrigins
+    href: WindowCaptureAllowedByOrigins.md
+- name: Printing
+  items:
+  - name: DefaultPrinterSelection
+    href: DefaultPrinterSelection.md
+  - name: OopPrintDriversAllowed
+    href: OopPrintDriversAllowed.md
+  - name: PrintHeaderFooter
+    href: PrintHeaderFooter.md
+  - name: PrintPdfAsImageDefault
+    href: PrintPdfAsImageDefault.md
+  - name: PrintPostScriptMode
+    href: PrintPostScriptMode.md
+  - name: PrintPreviewStickySettings
+    href: PrintPreviewStickySettings.md
+  - name: PrintPreviewUseSystemDefaultPrinter
+    href: PrintPreviewUseSystemDefaultPrinter.md
+  - name: PrintRasterizationMode
+    href: PrintRasterizationMode.md
+  - name: PrintRasterizePdfDpi
+    href: PrintRasterizePdfDpi.md
+  - name: PrintStickySettings
+    href: PrintStickySettings.md
+  - name: PrinterTypeDenyList
+    href: PrinterTypeDenyList.md
+  - name: PrintingAllowedBackgroundGraphicsModes
+    href: PrintingAllowedBackgroundGraphicsModes.md
+  - name: PrintingBackgroundGraphicsDefault
+    href: PrintingBackgroundGraphicsDefault.md
+  - name: PrintingEnabled
+    href: PrintingEnabled.md
+  - name: PrintingLPACSandboxEnabled
+    href: PrintingLPACSandboxEnabled.md
+  - name: PrintingPaperSizeDefault
+    href: PrintingPaperSizeDefault.md
+  - name: PrintingWebpageLayout
+    href: PrintingWebpageLayout.md
+  - name: UseSystemPrintDialog
+    href: UseSystemPrintDialog.md
+- name: Private Network Request Settings
+  items:
+  - name: InsecurePrivateNetworkRequestsAllowed
+    href: InsecurePrivateNetworkRequestsAllowed.md
+  - name: InsecurePrivateNetworkRequestsAllowedForUrls
+    href: InsecurePrivateNetworkRequestsAllowedForUrls.md
+  - name: PrivateNetworkAccessRestrictionsEnabled
+    href: PrivateNetworkAccessRestrictionsEnabled.md
+- name: Profile settings
+  items:
+  - name: ProfileTypeInProfileButtonEnabled
+    href: ProfileTypeInProfileButtonEnabled.md
+- name: Proxy server
+  items:
+  - name: ProxyBypassList
+    href: ProxyBypassList.md
+  - name: ProxyMode
+    href: ProxyMode.md
+  - name: ProxyPacUrl
+    href: ProxyPacUrl.md
+  - name: ProxyServer
+    href: ProxyServer.md
+  - name: ProxySettings
+    href: ProxySettings.md
+- name: Related Website Sets Settings
+  items:
+  - name: RelatedWebsiteSetsEnabled
+    href: RelatedWebsiteSetsEnabled.md
+  - name: RelatedWebsiteSetsOverrides
+    href: RelatedWebsiteSetsOverrides.md
+- name: Scareware Blocker settings
+  items:
+  - name: ScarewareBlockerProtectionEnabled
+    href: ScarewareBlockerProtectionEnabled.md
+- name: Sleeping tabs settings
+  items:
+  - name: AutoDiscardSleepingTabsEnabled
+    href: AutoDiscardSleepingTabsEnabled.md
+  - name: SleepingTabsBlockedForUrls
+    href: SleepingTabsBlockedForUrls.md
+  - name: SleepingTabsEnabled
+    href: SleepingTabsEnabled.md
+  - name: SleepingTabsTimeout
+    href: SleepingTabsTimeout.md
+- name: SmartScreen settings
+  items:
+  - name: ExemptSmartScreenDownloadWarnings
+    href: ExemptSmartScreenDownloadWarnings.md
+  - name: NewSmartScreenLibraryEnabled
+    href: NewSmartScreenLibraryEnabled.md
+  - name: PreventSmartScreenPromptOverride
+    href: PreventSmartScreenPromptOverride.md
+  - name: PreventSmartScreenPromptOverrideForFiles
+    href: PreventSmartScreenPromptOverrideForFiles.md
+  - name: SmartScreenAllowListDomains
+    href: SmartScreenAllowListDomains.md
+  - name: SmartScreenDnsRequestsEnabled
+    href: SmartScreenDnsRequestsEnabled.md
+  - name: SmartScreenEnabled
+    href: SmartScreenEnabled.md
+  - name: SmartScreenForTrustedDownloadsEnabled
+    href: SmartScreenForTrustedDownloadsEnabled.md
+  - name: SmartScreenPuaEnabled
+    href: SmartScreenPuaEnabled.md
+- name: Startup, home page and new tab page
+  items:
+  - name: HomepageIsNewTabPage
+    href: HomepageIsNewTabPage.md
+  - name: HomepageLocation
+    href: HomepageLocation.md
+  - name: NewTabPageAllowedBackgroundTypes
+    href: NewTabPageAllowedBackgroundTypes.md
+  - name: NewTabPageAppLauncherEnabled
+    href: NewTabPageAppLauncherEnabled.md
+  - name: NewTabPageBingChatEnabled
+    href: NewTabPageBingChatEnabled.md
+  - name: NewTabPageCompanyLogo
+    href: NewTabPageCompanyLogo.md
+  - name: NewTabPageCompanyLogoBackplateColor
+    href: NewTabPageCompanyLogoBackplateColor.md
+  - name: NewTabPageCompanyLogoEnabled
+    href: NewTabPageCompanyLogoEnabled.md
+  - name: NewTabPageContentEnabled
+    href: NewTabPageContentEnabled.md
+  - name: NewTabPageHideDefaultTopSites
+    href: NewTabPageHideDefaultTopSites.md
+  - name: NewTabPageLocation
+    href: NewTabPageLocation.md
+  - name: NewTabPageManagedQuickLinks
+    href: NewTabPageManagedQuickLinks.md
+  - name: NewTabPagePrerenderEnabled
+    href: NewTabPagePrerenderEnabled.md
+  - name: NewTabPageQuickLinksEnabled
+    href: NewTabPageQuickLinksEnabled.md
+  - name: NewTabPageSetFeedType
+    href: NewTabPageSetFeedType.md
+  - name: RestoreOnStartup
+    href: RestoreOnStartup.md
+  - name: RestoreOnStartupURLs
+    href: RestoreOnStartupURLs.md
+  - name: RestoreOnStartupUserURLsEnabled
+    href: RestoreOnStartupUserURLsEnabled.md
+  - name: ShowHomeButton
+    href: ShowHomeButton.md
+- name: WebRtc settings
+  items:
+  - name: WebRtcIPHandlingUrl
+    href: WebRtcIPHandlingUrl.md
+  - name: WebRtcLocalhostIpHandling
+    href: WebRtcLocalhostIpHandling.md
+- name: Additional
+  items:
+  - name: AADWebSiteSSOUsingThisProfileEnabled
+    href: AADWebSiteSSOUsingThisProfileEnabled.md
+  - name: AIGenThemesEnabled
+    href: AIGenThemesEnabled.md
+  - name: AccessibilityImageLabelsEnabled
+    href: AccessibilityImageLabelsEnabled.md
+  - name: AdHocCodeSigningForPWAsEnabled
+    href: AdHocCodeSigningForPWAsEnabled.md
+  - name: AdditionalSearchBoxEnabled
+    href: AdditionalSearchBoxEnabled.md
+  - name: AddressBarEditingEnabled
+    href: AddressBarEditingEnabled.md
+  - name: AddressBarMicrosoftSearchInBingProviderEnabled
+    href: AddressBarMicrosoftSearchInBingProviderEnabled.md
+  - name: AddressBarTrendingSuggestEnabled
+    href: AddressBarTrendingSuggestEnabled.md
+  - name: AddressBarWorkSearchResultsEnabled
+    href: AddressBarWorkSearchResultsEnabled.md
+  - name: AdsSettingForIntrusiveAdsSites
+    href: AdsSettingForIntrusiveAdsSites.md
+  - name: AdsTransparencyEnabled
+    href: AdsTransparencyEnabled.md
+  - name: AllowBackForwardCacheForCacheControlNoStorePageEnabled
+    href: AllowBackForwardCacheForCacheControlNoStorePageEnabled.md
+  - name: AllowDeletingBrowserHistory
+    href: AllowDeletingBrowserHistory.md
+  - name: AllowFileSelectionDialogs
+    href: AllowFileSelectionDialogs.md
+  - name: AllowGamesMenu
+    href: AllowGamesMenu.md
+  - name: AllowPopupsDuringPageUnload
+    href: AllowPopupsDuringPageUnload.md
+  - name: AllowSurfGame
+    href: AllowSurfGame.md
+  - name: AllowSyncXHRInPageDismissal
+    href: AllowSyncXHRInPageDismissal.md
+  - name: AllowSystemNotifications
+    href: AllowSystemNotifications.md
+  - name: AllowTokenBindingForUrls
+    href: AllowTokenBindingForUrls.md
+  - name: AllowTrackingForUrls
+    href: AllowTrackingForUrls.md
+  - name: AllowWebAuthnWithBrokenTlsCerts
+    href: AllowWebAuthnWithBrokenTlsCerts.md
+  - name: AllowedDomainsForApps
+    href: AllowedDomainsForApps.md
+  - name: AlternateErrorPagesEnabled
+    href: AlternateErrorPagesEnabled.md
+  - name: AlwaysOpenPdfExternally
+    href: AlwaysOpenPdfExternally.md
+  - name: AmbientAuthenticationInPrivateModesEnabled
+    href: AmbientAuthenticationInPrivateModesEnabled.md
+  - name: AppCacheForceEnabled
+    href: AppCacheForceEnabled.md
+  - name: ApplicationBoundEncryptionEnabled
+    href: ApplicationBoundEncryptionEnabled.md
+  - name: ApplicationLocaleValue
+    href: ApplicationLocaleValue.md
+  - name: AskBeforeCloseEnabled
+    href: AskBeforeCloseEnabled.md
+  - name: AudioCaptureAllowed
+    href: AudioCaptureAllowed.md
+  - name: AudioCaptureAllowedUrls
+    href: AudioCaptureAllowedUrls.md
+  - name: AudioProcessHighPriorityEnabled
+    href: AudioProcessHighPriorityEnabled.md
+  - name: AudioSandboxEnabled
+    href: AudioSandboxEnabled.md
+  - name: AutoImportAtFirstRun
+    href: AutoImportAtFirstRun.md
+  - name: AutoLaunchProtocolsComponentEnabled
+    href: AutoLaunchProtocolsComponentEnabled.md
+  - name: AutoLaunchProtocolsFromOrigins
+    href: AutoLaunchProtocolsFromOrigins.md
+  - name: AutoOpenAllowedForURLs
+    href: AutoOpenAllowedForURLs.md
+  - name: AutoOpenFileTypes
+    href: AutoOpenFileTypes.md
+  - name: AutofillAddressEnabled
+    href: AutofillAddressEnabled.md
+  - name: AutofillCreditCardEnabled
+    href: AutofillCreditCardEnabled.md
+  - name: AutofillMembershipsEnabled
+    href: AutofillMembershipsEnabled.md
+  - name: AutomaticHttpsDefault
+    href: AutomaticHttpsDefault.md
+  - name: AutoplayAllowed
+    href: AutoplayAllowed.md
+  - name: AutoplayAllowlist
+    href: AutoplayAllowlist.md
+  - name: BackgroundModeEnabled
+    href: BackgroundModeEnabled.md
+  - name: BackgroundTemplateListUpdatesEnabled
+    href: BackgroundTemplateListUpdatesEnabled.md
+  - name: BeforeunloadEventCancelByPreventDefaultEnabled
+    href: BeforeunloadEventCancelByPreventDefaultEnabled.md
+  - name: BingAdsSuppression
+    href: BingAdsSuppression.md
+  - name: BlockThirdPartyCookies
+    href: BlockThirdPartyCookies.md
+  - name: BrowserAddProfileEnabled
+    href: BrowserAddProfileEnabled.md
+  - name: BrowserCodeIntegritySetting
+    href: BrowserCodeIntegritySetting.md
+  - name: BrowserGuestModeEnabled
+    href: BrowserGuestModeEnabled.md
+  - name: BrowserLegacyExtensionPointsBlockingEnabled
+    href: BrowserLegacyExtensionPointsBlockingEnabled.md
+  - name: BrowserNetworkTimeQueriesEnabled
+    href: BrowserNetworkTimeQueriesEnabled.md
+  - name: BrowserSignin
+    href: BrowserSignin.md
+  - name: BrowsingDataLifetime
+    href: BrowsingDataLifetime.md
+  - name: BuiltInDnsClientEnabled
+    href: BuiltInDnsClientEnabled.md
+  - name: BuiltinCertificateVerifierEnabled
+    href: BuiltinCertificateVerifierEnabled.md
+  - name: CECPQ2Enabled
+    href: CECPQ2Enabled.md
+  - name: CORSNonWildcardRequestHeadersSupport
+    href: CORSNonWildcardRequestHeadersSupport.md
+  - name: CSSCustomStateDeprecatedSyntaxEnabled
+    href: CSSCustomStateDeprecatedSyntaxEnabled.md
+  - name: CertificateTransparencyEnforcementDisabledForCas
+    href: CertificateTransparencyEnforcementDisabledForCas.md
+  - name: CertificateTransparencyEnforcementDisabledForLegacyCas
+    href: CertificateTransparencyEnforcementDisabledForLegacyCas.md
+  - name: CertificateTransparencyEnforcementDisabledForUrls
+    href: CertificateTransparencyEnforcementDisabledForUrls.md
+  - name: ClearBrowsingDataOnExit
+    href: ClearBrowsingDataOnExit.md
+  - name: ClearCachedImagesAndFilesOnExit
+    href: ClearCachedImagesAndFilesOnExit.md
+  - name: ClickOnceEnabled
+    href: ClickOnceEnabled.md
+  - name: ClipboardAllowedForUrls
+    href: ClipboardAllowedForUrls.md
+  - name: ClipboardBlockedForUrls
+    href: ClipboardBlockedForUrls.md
+  - name: CollectionsServicesAndExportsBlockList
+    href: CollectionsServicesAndExportsBlockList.md
+  - name: CommandLineFlagSecurityWarningsEnabled
+    href: CommandLineFlagSecurityWarningsEnabled.md
+  - name: ComponentUpdatesEnabled
+    href: ComponentUpdatesEnabled.md
+  - name: ComposeInlineEnabled
+    href: ComposeInlineEnabled.md
+  - name: ConfigureDoNotTrack
+    href: ConfigureDoNotTrack.md
+  - name: ConfigureFriendlyURLFormat
+    href: ConfigureFriendlyURLFormat.md
+  - name: ConfigureKeyboardShortcuts
+    href: ConfigureKeyboardShortcuts.md
+  - name: ConfigureOnPremisesAccountAutoSignIn
+    href: ConfigureOnPremisesAccountAutoSignIn.md
+  - name: ConfigureOnlineTextToSpeech
+    href: ConfigureOnlineTextToSpeech.md
+  - name: ConfigureShare
+    href: ConfigureShare.md
+  - name: ConfigureViewInFileExplorer
+    href: ConfigureViewInFileExplorer.md
+  - name: CopilotCDPPageContext
+    href: CopilotCDPPageContext.md
+  - name: CopilotPageContext
+    href: CopilotPageContext.md
+  - name: CreatePasskeysInICloudKeychain
+    href: CreatePasskeysInICloudKeychain.md
+  - name: CrossOriginWebAssemblyModuleSharingEnabled
+    href: CrossOriginWebAssemblyModuleSharingEnabled.md
+  - name: CryptoWalletEnabled
+    href: CryptoWalletEnabled.md
+  - name: CustomHelpLink
+    href: CustomHelpLink.md
+  - name: DNSInterceptionChecksEnabled
+    href: DNSInterceptionChecksEnabled.md
+  - name: DefaultBrowserSettingEnabled
+    href: DefaultBrowserSettingEnabled.md
+  - name: DefaultBrowserSettingsCampaignEnabled
+    href: DefaultBrowserSettingsCampaignEnabled.md
+  - name: DefaultClipboardSetting
+    href: DefaultClipboardSetting.md
+  - name: DefaultSearchProviderContextMenuAccessAllowed
+    href: DefaultSearchProviderContextMenuAccessAllowed.md
+  - name: DefaultSensorsSetting
+    href: DefaultSensorsSetting.md
+  - name: DefaultSerialGuardSetting
+    href: DefaultSerialGuardSetting.md
+  - name: DefaultShareAdditionalOSRegionSetting
+    href: DefaultShareAdditionalOSRegionSetting.md
+  - name: DefinePreferredLanguages
+    href: DefinePreferredLanguages.md
+  - name: DelayNavigationsForInitialSiteListDownload
+    href: DelayNavigationsForInitialSiteListDownload.md
+  - name: DeleteDataOnMigration
+    href: DeleteDataOnMigration.md
+  - name: DeveloperToolsAvailability
+    href: DeveloperToolsAvailability.md
+  - name: DiagnosticData
+    href: DiagnosticData.md
+  - name: DirectInvokeEnabled
+    href: DirectInvokeEnabled.md
+  - name: Disable3DAPIs
+    href: Disable3DAPIs.md
+  - name: DisableScreenshots
+    href: DisableScreenshots.md
+  - name: DiscoverPageContextEnabled
+    href: DiscoverPageContextEnabled.md
+  - name: DiskCacheDir
+    href: DiskCacheDir.md
+  - name: DiskCacheSize
+    href: DiskCacheSize.md
+  - name: DisplayCapturePermissionsPolicyEnabled
+    href: DisplayCapturePermissionsPolicyEnabled.md
+  - name: DnsOverHttpsMode
+    href: DnsOverHttpsMode.md
+  - name: DnsOverHttpsTemplates
+    href: DnsOverHttpsTemplates.md
+  - name: DoNotSilentlyBlockProtocolsFromOrigins
+    href: DoNotSilentlyBlockProtocolsFromOrigins.md
+  - name: DoubleClickCloseTabEnabled
+    href: DoubleClickCloseTabEnabled.md
+  - name: DownloadDirectory
+    href: DownloadDirectory.md
+  - name: DownloadRestrictions
+    href: DownloadRestrictions.md
+  - name: DynamicCodeSettings
+    href: DynamicCodeSettings.md
+  - name: Edge3PSerpTelemetryEnabled
+    href: Edge3PSerpTelemetryEnabled.md
+  - name: EdgeAssetDeliveryServiceEnabled
+    href: EdgeAssetDeliveryServiceEnabled.md
+  - name: EdgeAutofillMlEnabled
+    href: EdgeAutofillMlEnabled.md
+  - name: EdgeCollectionsEnabled
+    href: EdgeCollectionsEnabled.md
+  - name: EdgeDiscoverEnabled
+    href: EdgeDiscoverEnabled.md
+  - name: EdgeEDropEnabled
+    href: EdgeEDropEnabled.md
+  - name: EdgeEnhanceImagesEnabled
+    href: EdgeEnhanceImagesEnabled.md
+  - name: EdgeEntraCopilotPageContext
+    href: EdgeEntraCopilotPageContext.md
+  - name: EdgeFollowEnabled
+    href: EdgeFollowEnabled.md
+  - name: EdgeOpenInSidebarEnabled
+    href: EdgeOpenInSidebarEnabled.md
+  - name: EdgeShoppingAssistantEnabled
+    href: EdgeShoppingAssistantEnabled.md
+  - name: EdgeSidebarAppUrlHostAllowList
+    href: EdgeSidebarAppUrlHostAllowList.md
+  - name: EdgeSidebarAppUrlHostBlockList
+    href: EdgeSidebarAppUrlHostBlockList.md
+  - name: EdgeSidebarAppUrlHostForceList
+    href: EdgeSidebarAppUrlHostForceList.md
+  - name: EdgeSidebarCustomizeEnabled
+    href: EdgeSidebarCustomizeEnabled.md
+  - name: EdgeWalletCheckoutEnabled
+    href: EdgeWalletCheckoutEnabled.md
+  - name: EdgeWalletEtreeEnabled
+    href: EdgeWalletEtreeEnabled.md
+  - name: EditFavoritesEnabled
+    href: EditFavoritesEnabled.md
+  - name: EnableDeprecatedWebPlatformFeatures
+    href: EnableDeprecatedWebPlatformFeatures.md
+  - name: EnableDomainActionsDownload
+    href: EnableDomainActionsDownload.md
+  - name: EnableOnlineRevocationChecks
+    href: EnableOnlineRevocationChecks.md
+  - name: EnableSha1ForLocalAnchors
+    href: EnableSha1ForLocalAnchors.md
+  - name: EncryptedClientHelloEnabled
+    href: EncryptedClientHelloEnabled.md
+  - name: EnforceLocalAnchorConstraintsEnabled
+    href: EnforceLocalAnchorConstraintsEnabled.md
+  - name: EnhanceSecurityMode
+    href: EnhanceSecurityMode.md
+  - name: EnhanceSecurityModeAllowUserBypass
+    href: EnhanceSecurityModeAllowUserBypass.md
+  - name: EnhanceSecurityModeBypassIntranet
+    href: EnhanceSecurityModeBypassIntranet.md
+  - name: EnhanceSecurityModeBypassListDomains
+    href: EnhanceSecurityModeBypassListDomains.md
+  - name: EnhanceSecurityModeEnforceListDomains
+    href: EnhanceSecurityModeEnforceListDomains.md
+  - name: EnhanceSecurityModeIndicatorUIEnabled
+    href: EnhanceSecurityModeIndicatorUIEnabled.md
+  - name: EnhanceSecurityModeOptOutUXEnabled
+    href: EnhanceSecurityModeOptOutUXEnabled.md
+  - name: EnterpriseHardwarePlatformAPIEnabled
+    href: EnterpriseHardwarePlatformAPIEnabled.md
+  - name: EnterpriseModeSiteListManagerAllowed
+    href: EnterpriseModeSiteListManagerAllowed.md
+  - name: EventPathEnabled
+    href: EventPathEnabled.md
+  - name: ExemptDomainFileTypePairsFromFileTypeDownloadWarnings
+    href: ExemptDomainFileTypePairsFromFileTypeDownloadWarnings.md
+  - name: ExemptFileTypeDownloadWarnings
+    href: ExemptFileTypeDownloadWarnings.md
+  - name: ExperimentationAndConfigurationServiceControl
+    href: ExperimentationAndConfigurationServiceControl.md
+  - name: ExplicitlyAllowedNetworkPorts
+    href: ExplicitlyAllowedNetworkPorts.md
+  - name: ExternalProtocolDialogShowAlwaysOpenCheckbox
+    href: ExternalProtocolDialogShowAlwaysOpenCheckbox.md
+  - name: FamilySafetySettingsEnabled
+    href: FamilySafetySettingsEnabled.md
+  - name: FavoritesBarEnabled
+    href: FavoritesBarEnabled.md
+  - name: FetchKeepaliveDurationSecondsOnShutdown
+    href: FetchKeepaliveDurationSecondsOnShutdown.md
+  - name: FileOrDirectoryPickerWithoutGestureAllowedForOrigins
+    href: FileOrDirectoryPickerWithoutGestureAllowedForOrigins.md
+  - name: ForceBingSafeSearch
+    href: ForceBingSafeSearch.md
+  - name: ForceBuiltInPushMessagingClient
+    href: ForceBuiltInPushMessagingClient.md
+  - name: ForceCertificatePromptsOnMultipleMatches
+    href: ForceCertificatePromptsOnMultipleMatches.md
+  - name: ForceEphemeralProfiles
+    href: ForceEphemeralProfiles.md
+  - name: ForceGoogleSafeSearch
+    href: ForceGoogleSafeSearch.md
+  - name: ForceLegacyDefaultReferrerPolicy
+    href: ForceLegacyDefaultReferrerPolicy.md
+  - name: ForceMajorVersionToMinorPositionInUserAgent
+    href: ForceMajorVersionToMinorPositionInUserAgent.md
+  - name: ForceNetworkInProcess
+    href: ForceNetworkInProcess.md
+  - name: ForcePermissionPolicyUnloadDefaultEnabled
+    href: ForcePermissionPolicyUnloadDefaultEnabled.md
+  - name: ForceSync
+    href: ForceSync.md
+  - name: ForceSyncTypes
+    href: ForceSyncTypes.md
+  - name: ForceYouTubeRestrict
+    href: ForceYouTubeRestrict.md
+  - name: FullscreenAllowed
+    href: FullscreenAllowed.md
+  - name: GloballyScopeHTTPAuthCacheEnabled
+    href: GloballyScopeHTTPAuthCacheEnabled.md
+  - name: GoToIntranetSiteForSingleWordEntryInAddressBar
+    href: GoToIntranetSiteForSingleWordEntryInAddressBar.md
+  - name: HSTSPolicyBypassList
+    href: HSTSPolicyBypassList.md
+  - name: HardwareAccelerationModeEnabled
+    href: HardwareAccelerationModeEnabled.md
+  - name: HeadlessModeEnabled
+    href: HeadlessModeEnabled.md
+  - name: HideFirstRunExperience
+    href: HideFirstRunExperience.md
+  - name: HideInternetExplorerRedirectUXForIncompatibleSitesEnabled
+    href: HideInternetExplorerRedirectUXForIncompatibleSitesEnabled.md
+  - name: HideRestoreDialogEnabled
+    href: HideRestoreDialogEnabled.md
+  - name: HttpAllowlist
+    href: HttpAllowlist.md
+  - name: HttpsUpgradesEnabled
+    href: HttpsUpgradesEnabled.md
+  - name: HubsSidebarEnabled
+    href: HubsSidebarEnabled.md
+  - name: ImportAutofillFormData
+    href: ImportAutofillFormData.md
+  - name: ImportBrowserSettings
+    href: ImportBrowserSettings.md
+  - name: ImportCookies
+    href: ImportCookies.md
+  - name: ImportExtensions
+    href: ImportExtensions.md
+  - name: ImportFavorites
+    href: ImportFavorites.md
+  - name: ImportHistory
+    href: ImportHistory.md
+  - name: ImportHomepage
+    href: ImportHomepage.md
+  - name: ImportOnEachLaunch
+    href: ImportOnEachLaunch.md
+  - name: ImportOpenTabs
+    href: ImportOpenTabs.md
+  - name: ImportPaymentInfo
+    href: ImportPaymentInfo.md
+  - name: ImportSavedPasswords
+    href: ImportSavedPasswords.md
+  - name: ImportSearchEngine
+    href: ImportSearchEngine.md
+  - name: ImportShortcuts
+    href: ImportShortcuts.md
+  - name: ImportStartupPageSettings
+    href: ImportStartupPageSettings.md
+  - name: InAppSupportEnabled
+    href: InAppSupportEnabled.md
+  - name: InPrivateModeAvailability
+    href: InPrivateModeAvailability.md
+  - name: InsecureFormsWarningsEnabled
+    href: InsecureFormsWarningsEnabled.md
+  - name: IntensiveWakeUpThrottlingEnabled
+    href: IntensiveWakeUpThrottlingEnabled.md
+  - name: InternetExplorerIntegrationAlwaysUseOSCapture
+    href: InternetExplorerIntegrationAlwaysUseOSCapture.md
+  - name: InternetExplorerIntegrationAlwaysWaitForUnload
+    href: InternetExplorerIntegrationAlwaysWaitForUnload.md
+  - name: InternetExplorerIntegrationCloudNeutralSitesReporting
+    href: InternetExplorerIntegrationCloudNeutralSitesReporting.md
+  - name: InternetExplorerIntegrationCloudSiteList
+    href: InternetExplorerIntegrationCloudSiteList.md
+  - name: InternetExplorerIntegrationCloudUserSitesReporting
+    href: InternetExplorerIntegrationCloudUserSitesReporting.md
+  - name: InternetExplorerIntegrationComplexNavDataTypes
+    href: InternetExplorerIntegrationComplexNavDataTypes.md
+  - name: InternetExplorerIntegrationEnhancedHangDetection
+    href: InternetExplorerIntegrationEnhancedHangDetection.md
+  - name: InternetExplorerIntegrationLevel
+    href: InternetExplorerIntegrationLevel.md
+  - name: InternetExplorerIntegrationLocalFileAllowed
+    href: InternetExplorerIntegrationLocalFileAllowed.md
+  - name: InternetExplorerIntegrationLocalFileExtensionAllowList
+    href: InternetExplorerIntegrationLocalFileExtensionAllowList.md
+  - name: InternetExplorerIntegrationLocalFileShowContextMenu
+    href: InternetExplorerIntegrationLocalFileShowContextMenu.md
+  - name: InternetExplorerIntegrationLocalMhtFileAllowed
+    href: InternetExplorerIntegrationLocalMhtFileAllowed.md
+  - name: InternetExplorerIntegrationLocalSiteListExpirationDays
+    href: InternetExplorerIntegrationLocalSiteListExpirationDays.md
+  - name: InternetExplorerIntegrationReloadInIEModeAllowed
+    href: InternetExplorerIntegrationReloadInIEModeAllowed.md
+  - name: InternetExplorerIntegrationSiteList
+    href: InternetExplorerIntegrationSiteList.md
+  - name: InternetExplorerIntegrationSiteListRefreshInterval
+    href: InternetExplorerIntegrationSiteListRefreshInterval.md
+  - name: InternetExplorerIntegrationSiteRedirect
+    href: InternetExplorerIntegrationSiteRedirect.md
+  - name: InternetExplorerIntegrationTestingAllowed
+    href: InternetExplorerIntegrationTestingAllowed.md
+  - name: InternetExplorerIntegrationWindowOpenHeightAdjustment
+    href: InternetExplorerIntegrationWindowOpenHeightAdjustment.md
+  - name: InternetExplorerIntegrationWindowOpenWidthAdjustment
+    href: InternetExplorerIntegrationWindowOpenWidthAdjustment.md
+  - name: InternetExplorerIntegrationZoneIdentifierMhtFileAllowed
+    href: InternetExplorerIntegrationZoneIdentifierMhtFileAllowed.md
+  - name: InternetExplorerModeClearDataOnExitEnabled
+    href: InternetExplorerModeClearDataOnExitEnabled.md
+  - name: InternetExplorerModeEnableSavePageAs
+    href: InternetExplorerModeEnableSavePageAs.md
+  - name: InternetExplorerModeTabInEdgeModeAllowed
+    href: InternetExplorerModeTabInEdgeModeAllowed.md
+  - name: InternetExplorerModeToolbarButtonEnabled
+    href: InternetExplorerModeToolbarButtonEnabled.md
+  - name: InternetExplorerSetForegroundWhenActive
+    href: InternetExplorerSetForegroundWhenActive.md
+  - name: InternetExplorerZoomDisplay
+    href: InternetExplorerZoomDisplay.md
+  - name: IntranetRedirectBehavior
+    href: IntranetRedirectBehavior.md
+  - name: IsolateOrigins
+    href: IsolateOrigins.md
+  - name: KeyboardFocusableScrollersEnabled
+    href: KeyboardFocusableScrollersEnabled.md
+  - name: LiveCaptionsAllowed
+    href: LiveCaptionsAllowed.md
+  - name: LocalBrowserDataShareEnabled
+    href: LocalBrowserDataShareEnabled.md
+  - name: LocalProvidersEnabled
+    href: LocalProvidersEnabled.md
+  - name: MAUEnabled
+    href: MAUEnabled.md
+  - name: MSAWebSiteSSOUsingThisProfileAllowed
+    href: MSAWebSiteSSOUsingThisProfileAllowed.md
+  - name: ManagedConfigurationPerOrigin
+    href: ManagedConfigurationPerOrigin.md
+  - name: ManagedFavorites
+    href: ManagedFavorites.md
+  - name: ManagedSearchEngines
+    href: ManagedSearchEngines.md
+  - name: MathSolverEnabled
+    href: MathSolverEnabled.md
+  - name: MaxConnectionsPerProxy
+    href: MaxConnectionsPerProxy.md
+  - name: MediaRouterCastAllowAllIPs
+    href: MediaRouterCastAllowAllIPs.md
+  - name: MetricsReportingEnabled
+    href: MetricsReportingEnabled.md
+  - name: MicrosoftEdgeInsiderPromotionEnabled
+    href: MicrosoftEdgeInsiderPromotionEnabled.md
+  - name: MicrosoftEditorProofingEnabled
+    href: MicrosoftEditorProofingEnabled.md
+  - name: MicrosoftEditorSynonymsEnabled
+    href: MicrosoftEditorSynonymsEnabled.md
+  - name: MicrosoftOfficeMenuEnabled
+    href: MicrosoftOfficeMenuEnabled.md
+  - name: MicrosoftRootStoreEnabled
+    href: MicrosoftRootStoreEnabled.md
+  - name: MouseGestureEnabled
+    href: MouseGestureEnabled.md
+  - name: MutationEventsEnabled
+    href: MutationEventsEnabled.md
+  - name: NativeHostsExecutablesLaunchDirectly
+    href: NativeHostsExecutablesLaunchDirectly.md
+  - name: NativeWindowOcclusionEnabled
+    href: NativeWindowOcclusionEnabled.md
+  - name: NavigationDelayForInitialSiteListDownloadTimeout
+    href: NavigationDelayForInitialSiteListDownloadTimeout.md
+  - name: NetworkPredictionOptions
+    href: NetworkPredictionOptions.md
+  - name: NetworkServiceSandboxEnabled
+    href: NetworkServiceSandboxEnabled.md
+  - name: NewBaseUrlInheritanceBehaviorAllowed
+    href: NewBaseUrlInheritanceBehaviorAllowed.md
+  - name: NewPDFReaderEnabled
+    href: NewPDFReaderEnabled.md
+  - name: NonRemovableProfileEnabled
+    href: NonRemovableProfileEnabled.md
+  - name: OnBulkDataEntryEnterpriseConnector
+    href: OnBulkDataEntryEnterpriseConnector.md
+  - name: OnFileAttachedEnterpriseConnector
+    href: OnFileAttachedEnterpriseConnector.md
+  - name: OnPrintEnterpriseConnector
+    href: OnPrintEnterpriseConnector.md
+  - name: OrganizationLogoOverlayOnAppIconEnabled
+    href: OrganizationLogoOverlayOnAppIconEnabled.md
+  - name: OrganizationalBrandingOnWorkProfileUIEnabled
+    href: OrganizationalBrandingOnWorkProfileUIEnabled.md
+  - name: OriginAgentClusterDefaultEnabled
+    href: OriginAgentClusterDefaultEnabled.md
+  - name: OutlookHubMenuEnabled
+    href: OutlookHubMenuEnabled.md
+  - name: OverrideSecurityRestrictionsOnInsecureOrigin
+    href: OverrideSecurityRestrictionsOnInsecureOrigin.md
+  - name: PDFSecureMode
+    href: PDFSecureMode.md
+  - name: PDFXFAEnabled
+    href: PDFXFAEnabled.md
+  - name: PaymentMethodQueryEnabled
+    href: PaymentMethodQueryEnabled.md
+  - name: PdfViewerOutOfProcessIframeEnabled
+    href: PdfViewerOutOfProcessIframeEnabled.md
+  - name: PersonalizationReportingEnabled
+    href: PersonalizationReportingEnabled.md
+  - name: PersonalizeTopSitesInCustomizeSidebarEnabled
+    href: PersonalizeTopSitesInCustomizeSidebarEnabled.md
+  - name: PictureInPictureOverlayEnabled
+    href: PictureInPictureOverlayEnabled.md
+  - name: PinningWizardAllowed
+    href: PinningWizardAllowed.md
+  - name: PostQuantumKeyAgreementEnabled
+    href: PostQuantumKeyAgreementEnabled.md
+  - name: ProactiveAuthEnabled
+    href: ProactiveAuthEnabled.md
+  - name: PromotionalTabsEnabled
+    href: PromotionalTabsEnabled.md
+  - name: PromptForDownloadLocation
+    href: PromptForDownloadLocation.md
+  - name: PromptOnMultipleMatchingCertificates
+    href: PromptOnMultipleMatchingCertificates.md
+  - name: QRCodeGeneratorEnabled
+    href: QRCodeGeneratorEnabled.md
+  - name: QuicAllowed
+    href: QuicAllowed.md
+  - name: QuickSearchShowMiniMenu
+    href: QuickSearchShowMiniMenu.md
+  - name: QuickViewOfficeFilesEnabled
+    href: QuickViewOfficeFilesEnabled.md
+  - name: RSAKeyUsageForLocalAnchorsEnabled
+    href: RSAKeyUsageForLocalAnchorsEnabled.md
+  - name: ReadAloudEnabled
+    href: ReadAloudEnabled.md
+  - name: RedirectSitesFromInternetExplorerPreventBHOInstall
+    href: RedirectSitesFromInternetExplorerPreventBHOInstall.md
+  - name: RedirectSitesFromInternetExplorerRedirectMode
+    href: RedirectSitesFromInternetExplorerRedirectMode.md
+  - name: RelatedMatchesCloudServiceEnabled
+    href: RelatedMatchesCloudServiceEnabled.md
+  - name: RelaunchNotification
+    href: RelaunchNotification.md
+  - name: RelaunchNotificationPeriod
+    href: RelaunchNotificationPeriod.md
+  - name: RelaunchWindow
+    href: RelaunchWindow.md
+  - name: RemoteDebuggingAllowed
+    href: RemoteDebuggingAllowed.md
+  - name: RendererAppContainerEnabled
+    href: RendererAppContainerEnabled.md
+  - name: RendererCodeIntegrityEnabled
+    href: RendererCodeIntegrityEnabled.md
+  - name: RequireOnlineRevocationChecksForLocalAnchors
+    href: RequireOnlineRevocationChecksForLocalAnchors.md
+  - name: ResolveNavigationErrorsUseWebService
+    href: ResolveNavigationErrorsUseWebService.md
+  - name: RestorePdfView
+    href: RestorePdfView.md
+  - name: RestrictSigninToPattern
+    href: RestrictSigninToPattern.md
+  - name: RoamingProfileLocation
+    href: RoamingProfileLocation.md
+  - name: RoamingProfileSupportEnabled
+    href: RoamingProfileSupportEnabled.md
+  - name: RunAllFlashInAllowMode
+    href: RunAllFlashInAllowMode.md
+  - name: SSLErrorOverrideAllowed
+    href: SSLErrorOverrideAllowed.md
+  - name: SSLErrorOverrideAllowedForOrigins
+    href: SSLErrorOverrideAllowedForOrigins.md
+  - name: SSLVersionMin
+    href: SSLVersionMin.md
+  - name: SandboxExternalProtocolBlocked
+    href: SandboxExternalProtocolBlocked.md
+  - name: SaveCookiesOnExit
+    href: SaveCookiesOnExit.md
+  - name: SavingBrowserHistoryDisabled
+    href: SavingBrowserHistoryDisabled.md
+  - name: ScreenCaptureAllowed
+    href: ScreenCaptureAllowed.md
+  - name: ScreenCaptureWithoutGestureAllowedForOrigins
+    href: ScreenCaptureWithoutGestureAllowedForOrigins.md
+  - name: ScrollToTextFragmentEnabled
+    href: ScrollToTextFragmentEnabled.md
+  - name: SearchFiltersEnabled
+    href: SearchFiltersEnabled.md
+  - name: SearchForImageEnabled
+    href: SearchForImageEnabled.md
+  - name: SearchInSidebarEnabled
+    href: SearchInSidebarEnabled.md
+  - name: SearchSuggestEnabled
+    href: SearchSuggestEnabled.md
+  - name: SearchbarAllowed
+    href: SearchbarAllowed.md
+  - name: SearchbarIsEnabledOnStartup
+    href: SearchbarIsEnabledOnStartup.md
+  - name: SecurityKeyPermitAttestation
+    href: SecurityKeyPermitAttestation.md
+  - name: SelectParserRelaxationEnabled
+    href: SelectParserRelaxationEnabled.md
+  - name: SendIntranetToInternetExplorer
+    href: SendIntranetToInternetExplorer.md
+  - name: SendMouseEventsDisabledFormControlsEnabled
+    href: SendMouseEventsDisabledFormControlsEnabled.md
+  - name: SendSiteInfoToImproveServices
+    href: SendSiteInfoToImproveServices.md
+  - name: SensorsAllowedForUrls
+    href: SensorsAllowedForUrls.md
+  - name: SensorsBlockedForUrls
+    href: SensorsBlockedForUrls.md
+  - name: SerialAskForUrls
+    href: SerialAskForUrls.md
+  - name: SerialBlockedForUrls
+    href: SerialBlockedForUrls.md
+  - name: ServiceWorkerToControlSrcdocIframeEnabled
+    href: ServiceWorkerToControlSrcdocIframeEnabled.md
+  - name: SetTimeoutWithout1MsClampEnabled
+    href: SetTimeoutWithout1MsClampEnabled.md
+  - name: ShadowStackCrashRollbackBehavior
+    href: ShadowStackCrashRollbackBehavior.md
+  - name: SharedArrayBufferUnrestrictedAccessAllowed
+    href: SharedArrayBufferUnrestrictedAccessAllowed.md
+  - name: SharedLinksEnabled
+    href: SharedLinksEnabled.md
+  - name: SharedWorkerBlobURLFixEnabled
+    href: SharedWorkerBlobURLFixEnabled.md
+  - name: ShowAcrobatSubscriptionButton
+    href: ShowAcrobatSubscriptionButton.md
+  - name: ShowDownloadsToolbarButton
+    href: ShowDownloadsToolbarButton.md
+  - name: ShowHistoryThumbnails
+    href: ShowHistoryThumbnails.md
+  - name: ShowMicrosoftRewards
+    href: ShowMicrosoftRewards.md
+  - name: ShowOfficeShortcutInFavoritesBar
+    href: ShowOfficeShortcutInFavoritesBar.md
+  - name: ShowRecommendationsEnabled
+    href: ShowRecommendationsEnabled.md
+  - name: SignedHTTPExchangeEnabled
+    href: SignedHTTPExchangeEnabled.md
+  - name: SitePerProcess
+    href: SitePerProcess.md
+  - name: SiteSafetyServicesEnabled
+    href: SiteSafetyServicesEnabled.md
+  - name: SmartActionsBlockList
+    href: SmartActionsBlockList.md
+  - name: SpeechRecognitionEnabled
+    href: SpeechRecognitionEnabled.md
+  - name: SpellcheckEnabled
+    href: SpellcheckEnabled.md
+  - name: SpellcheckLanguage
+    href: SpellcheckLanguage.md
+  - name: SpellcheckLanguageBlocklist
+    href: SpellcheckLanguageBlocklist.md
+  - name: SplitScreenEnabled
+    href: SplitScreenEnabled.md
+  - name: StandaloneHubsSidebarEnabled
+    href: StandaloneHubsSidebarEnabled.md
+  - name: StricterMixedContentTreatmentEnabled
+    href: StricterMixedContentTreatmentEnabled.md
+  - name: SuperDragDropEnabled
+    href: SuperDragDropEnabled.md
+  - name: SuppressUnsupportedOSWarning
+    href: SuppressUnsupportedOSWarning.md
+  - name: SyncDisabled
+    href: SyncDisabled.md
+  - name: SyncTypesListDisabled
+    href: SyncTypesListDisabled.md
+  - name: TLS13HardeningForLocalAnchorsEnabled
+    href: TLS13HardeningForLocalAnchorsEnabled.md
+  - name: TLSCipherSuiteDenyList
+    href: TLSCipherSuiteDenyList.md
+  - name: TabFreezingEnabled
+    href: TabFreezingEnabled.md
+  - name: TabServicesEnabled
+    href: TabServicesEnabled.md
+  - name: TargetBlankImpliesNoOpener
+    href: TargetBlankImpliesNoOpener.md
+  - name: TaskManagerEndProcessEnabled
+    href: TaskManagerEndProcessEnabled.md
+  - name: TextPredictionEnabled
+    href: TextPredictionEnabled.md
+  - name: ThrottleNonVisibleCrossOriginIframesAllowed
+    href: ThrottleNonVisibleCrossOriginIframesAllowed.md
+  - name: TotalMemoryLimitMb
+    href: TotalMemoryLimitMb.md
+  - name: TrackingPrevention
+    href: TrackingPrevention.md
+  - name: TranslateEnabled
+    href: TranslateEnabled.md
+  - name: TravelAssistanceEnabled
+    href: TravelAssistanceEnabled.md
+  - name: TripleDESEnabled
+    href: TripleDESEnabled.md
+  - name: U2fSecurityKeyApiEnabled
+    href: U2fSecurityKeyApiEnabled.md
+  - name: URLAllowlist
+    href: URLAllowlist.md
+  - name: URLBlocklist
+    href: URLBlocklist.md
+  - name: UnthrottledNestedTimeoutEnabled
+    href: UnthrottledNestedTimeoutEnabled.md
+  - name: UpdatePolicyOverride
+    href: UpdatePolicyOverride.md
+  - name: UploadFromPhoneEnabled
+    href: UploadFromPhoneEnabled.md
+  - name: UrlDiagnosticDataEnabled
+    href: UrlDiagnosticDataEnabled.md
+  - name: UserAgentClientHintsEnabled
+    href: UserAgentClientHintsEnabled.md
+  - name: UserAgentClientHintsGREASEUpdateEnabled
+    href: UserAgentClientHintsGREASEUpdateEnabled.md
+  - name: UserAgentReduction
+    href: UserAgentReduction.md
+  - name: UserDataDir
+    href: UserDataDir.md
+  - name: UserDataSnapshotRetentionLimit
+    href: UserDataSnapshotRetentionLimit.md
+  - name: UserFeedbackAllowed
+    href: UserFeedbackAllowed.md
+  - name: VerticalTabsAllowed
+    href: VerticalTabsAllowed.md
+  - name: VideoCaptureAllowed
+    href: VideoCaptureAllowed.md
+  - name: VideoCaptureAllowedUrls
+    href: VideoCaptureAllowedUrls.md
+  - name: VisualSearchEnabled
+    href: VisualSearchEnabled.md
+  - name: WPADQuickCheckEnabled
+    href: WPADQuickCheckEnabled.md
+  - name: WalletDonationEnabled
+    href: WalletDonationEnabled.md
+  - name: WebAppInstallForceList
+    href: WebAppInstallForceList.md
+  - name: WebAppSettings
+    href: WebAppSettings.md
+  - name: WebAudioOutputBufferingEnabled
+    href: WebAudioOutputBufferingEnabled.md
+  - name: WebAuthenticationRemoteDesktopAllowedOrigins
+    href: WebAuthenticationRemoteDesktopAllowedOrigins.md
+  - name: WebCaptureEnabled
+    href: WebCaptureEnabled.md
+  - name: WebComponentsV0Enabled
+    href: WebComponentsV0Enabled.md
+  - name: WebContentFilteringBlockedCategories
+    href: WebContentFilteringBlockedCategories.md
+  - name: WebDriverOverridesIncompatiblePolicies
+    href: WebDriverOverridesIncompatiblePolicies.md
+  - name: WebRtcAllowLegacyTLSProtocols
+    href: WebRtcAllowLegacyTLSProtocols.md
+  - name: WebRtcLocalIpsAllowedUrls
+    href: WebRtcLocalIpsAllowedUrls.md
+  - name: WebRtcRespectOsRoutingTableEnabled
+    href: WebRtcRespectOsRoutingTableEnabled.md
+  - name: WebRtcUdpPortRange
+    href: WebRtcUdpPortRange.md
+  - name: WebSQLAccess
+    href: WebSQLAccess.md
+  - name: WebSQLInThirdPartyContextEnabled
+    href: WebSQLInThirdPartyContextEnabled.md
+  - name: WebSQLNonSecureContextEnabled
+    href: WebSQLNonSecureContextEnabled.md
+  - name: WebSelectEnabled
+    href: WebSelectEnabled.md
+  - name: WebWidgetAllowed
+    href: WebWidgetAllowed.md
+  - name: WebWidgetIsEnabledOnStartup
+    href: WebWidgetIsEnabledOnStartup.md
+  - name: WinHttpProxyResolverEnabled
+    href: WinHttpProxyResolverEnabled.md
+  - name: WindowOcclusionEnabled
+    href: WindowOcclusionEnabled.md

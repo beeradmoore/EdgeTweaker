@@ -18,7 +18,6 @@ try
     var jsonSerializerOptions = new JsonSerializerOptions()
     {
         WriteIndented = true,
-        NewLine = "\n",
     };
 
     var policyGroupsJson = JsonSerializer.Serialize(policyGroupDocument, jsonSerializerOptions);
