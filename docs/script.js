@@ -823,10 +823,10 @@ function showModal(policy, cardDiv) {
 		*/
 		modalBody.appendChild(settingDiv);
 
-		// Check that policy_mapping is defined
-		if (policy.policy_mapping != undefined) {
+		// Check that policy_option_mapping is defined
+		if (policy.policy_option_mapping != undefined) {
 			// Also check it has items
-			var policyMappingEntries = Object.entries(policy.policy_mapping);
+			var policyMappingEntries = Object.entries(policy.policy_option_mapping);
 			if (policyMappingEntries.length > 0) {
 				// Create a row for the buttons
 				const policyMappingDiv = document.createElement("div");
@@ -836,11 +836,12 @@ function showModal(policy, cardDiv) {
 				policyMappingDiv.classList.add("mb-2");
 
 				// For every policy mapping item add it here.
-				for (const [key, value] of policyMappingEntries) {
+				//for (const [key, value] of policyMappingEntries) {
+				for (const [index, policyMapping] of policyMappingEntries) {
 					const mappingButton = document.createElement("button");
 					mappingButton.classList.add("btn");
 					mappingButton.classList.add("btn-primary");
-					mappingButton.appendChild(document.createTextNode(value));
+					mappingButton.appendChild(document.createTextNode(policyMapping.name));
 					policyMappingDiv.appendChild(mappingButton);
 
 					// And when this button is clicked, set the text input to the key.
@@ -850,24 +851,24 @@ function showModal(policy, cardDiv) {
 							if (policy.data_type == "list_of_strings") {
 								var existingPolicyText = policyTextInput.value.trim();
 								if (existingPolicyText == "") {
-									policyTextInput.value = key;
+									policyTextInput.value = policyMapping.value;
 								}
 								else {
 									let foundMappingValue = false;
 									existingPolicyText.split("\n").forEach(function (line) {
-										if (line.trim() == key) {
+										if (line.trim() == policyMapping.value) {
 											foundMappingValue = true;
 											return;
 										}
 									});
 
 									if (foundMappingValue == false) {
-										policyTextInput.value += '\n' + key;
+										policyTextInput.value += '\n' + policyMapping.value;
 									}
 								}
 							}
 							else {
-								policyTextInput.value = key;
+								policyTextInput.value = policyMapping.value;
 							}
 						}
 					});
@@ -952,7 +953,7 @@ function showModal(policy, cardDiv) {
 	docsSpan.appendChild(document.createTextNode("Source: "));
 
 	const docsLink = document.createElement("a");
-	docsLink.href = "https://learn.microsoft.com/en-us/deployedge/microsoft-edge-policies#" + policy.link;
+	docsLink.href = "https://learn.microsoft.com/en-us/deployedge/" + policy.link;
 	docsLink.target = "_blank";
 	docsLink.appendChild(document.createTextNode("Microsoft Edge Browser Policy Documentation | Microsoft Learn"));
 	docsSpan.appendChild(docsLink);

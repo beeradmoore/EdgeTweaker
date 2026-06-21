@@ -718,6 +718,9 @@ public static class SupportedPolicies
 		{ "WebWidgetIsEnabledOnStartup", true },
 		{ "WinHttpProxyResolverEnabled", true },
 		{ "WindowOcclusionEnabled", true },
+
+
+		{"AccessibilityPerformanceFilteringAllowed", true}
 	};
 
 	/// <summary>

@@ -32,33 +32,4 @@ public class MarkdownSection
 
         return stringBuilder.ToString();
     }
-
-    public string GetSummary()
-    {
-        if (Children.Any() == false)
-        {
-            return string.Empty;
-        }
-
-        var descriptionChild = Children.FirstOrDefault(c => c.Header.Contains("Description", StringComparison.Ordinal));
-        if (descriptionChild is null)
-        {
-            return string.Empty;
-        }
-        
-        foreach (var data in descriptionChild.Data)
-        {
-            if (string.IsNullOrWhiteSpace(data))
-            {
-                continue;
-            }
-
-            var summary = data.Trim();
-            summary = Regex.Replace(summary, @"\[(?<name>.*?)\]\((.*?)\)", "${name}");
-            return summary;
-        }
-
-        return string.Empty;
-    }
-
 }
