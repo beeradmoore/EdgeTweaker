@@ -1,26 +1,29 @@
-<h3>SpellcheckLanguageBlocklist</h3>
+<h1>Microsoft Edge Browser Policy Documentation SpellcheckLanguageBlocklist | Microsoft Learn</h1>
 
-<h4>Force disable spellcheck languages</h4>
+<h2>Force disable spellcheck languages</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows since 78 or later</li>
+<li>Windows: ≥ 78</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>Force-disables spellcheck languages. Unrecognized languages in that list will be ignored.</p>
 
 <p>If you enable this policy, spellcheck will be disabled for the languages specified. The user can still enable or disable spellcheck for languages not in the list.</p>
 
-<p>If you do not set this policy, or disable it, there will be no change to the user's spellcheck preferences.</p>
+<p>If you don't set this policy, or disable it, there is no change to the user's spellcheck preferences.</p>
 
-<p>If the <a href="#spellcheckenabled">SpellcheckEnabled</a> policy is set to disabled, this policy will have no effect.</p>
+<p>If the <a href="spellcheckenabled">SpellcheckEnabled</a> policy is set to disabled, this policy has no effect.</p>
 
-<p>If a language is included in both the <a href="#spellchecklanguage">SpellcheckLanguage</a> and the 'SpellcheckLanguageBlocklist' policy, the spellcheck language is enabled.</p>
+<p>If a language is included in both the <a href="spellchecklanguage">SpellcheckLanguage</a> and the 'SpellcheckLanguageBlocklist' policy, the spellcheck language is enabled.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -30,39 +33,53 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>List of strings</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: SpellcheckLanguageBlocklist</li>
 <li>GP name: Force disable spellcheck languages</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+fr
+</code></p>
+
+<p><code>
+es
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: 1, 2, 3, ...</li>
-<li>Value Type: list of REG_SZ</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
-<p>```
-SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 = "fr"
-SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\2 = "es"</p>
+<p>SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\1 =</p>
 
-<p>```</p>
+<p><code>
+fr
+</code></p>
 
+<p>SOFTWARE\Policies\Microsoft\Edge\SpellcheckLanguageBlocklist\2 =</p>
 
+<p><code>
+es
+</code></p>

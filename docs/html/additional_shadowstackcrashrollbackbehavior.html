@@ -1,24 +1,27 @@
-<h3>ShadowStackCrashRollbackBehavior</h3>
+<h1>Microsoft Edge Browser Policy Documentation ShadowStackCrashRollbackBehavior | Microsoft Learn</h1>
 
-<h4>Configure ShadowStack crash rollback behavior (obsolete)</h4>
+<h2>Configure ShadowStack crash rollback behavior (obsolete)</h2>
 
 <blockquote>
-  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 109.</p>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge version 109.</p>
 </blockquote>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows since 95, until 109</li>
+<li>Windows: 95-109</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
-<p>This policy is deprecated because it's intended to serve only as a short-term mechanism to give enterprises more time to update their environments and report issues if they are found to be incompatible with Hardware-enforced Stack Protection. It won't work in Microsoft Edge as soon as version 109.</p>
+<p>This policy is deprecated as it served only as a short-term mechanism to give enterprises more time to update their environments and report issues if they're found to be incompatible with Hardware-enforced Stack Protection. It doesn't work in Microsoft Edge starting with version 109.</p>
 
-<p>Microsoft Edge includes a Hardware-enforced Stack Protection security feature. This feature may result in the browser crashing unexpectedly in cases that do not represent an attempt to compromise the browser's security.</p>
+<p>Microsoft Edge includes a Hardware-enforced Stack Protection security feature. This feature can result in the browser crashing unexpectedly in cases that don't represent an attempt to compromise the browser's security.</p>
 
-<p>Using this policy, you may control the behavior of the Hardware-enforced Stack Protection feature after a crash triggered by this feature is encountered.</p>
+<p>Using this policy, you can control the behavior of the Hardware-enforced Stack Protection feature after a crash triggered by this feature is encountered.</p>
 
 <p>Set this policy to 'Disable' to disable the feature.</p>
 
@@ -29,14 +32,26 @@
 <p>Policy options mapping:</p>
 
 <ul>
-<li><p>Disable (0) = Disable Hardware-enforced Stack Protection</p></li>
-<li><p>DisableUntilUpdate (1) = Disable Hardware-enforced Stack Protection until the next Microsoft Edge update</p></li>
-<li><p>Enable (2) = Enable Hardware-enforced Stack Protection</p></li>
+<li>Disable (0) = Disable Hardware-enforced Stack Protection</li>
+<li>DisableUntilUpdate (1) = Disable Hardware-enforced Stack Protection until the next Microsoft Edge update</li>
+<li>Enable (2) = Enable Hardware-enforced Stack Protection</li>
 </ul>
 
 <p>Use the preceding information when configuring this policy.</p>
 
-<h4>Supported features:</h4>
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>Disable (0) = Disable Hardware-enforced Stack Protection</li>
+<li>DisableUntilUpdate (1) = Disable Hardware-enforced Stack Protection until the next Microsoft Edge update</li>
+<li>Enable (2) = Enable Hardware-enforced Stack Protection</li>
+</ul>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -46,37 +61,41 @@
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Integer</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: ShadowStackCrashRollbackBehavior</li>
 <li>GP name: Configure ShadowStack crash rollback behavior (obsolete)</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Disable Hardware-enforced Stack Protection
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: ShadowStackCrashRollbackBehavior</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: ShadowStackCrashRollbackBehavior</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000000
 </code></p>
-
-

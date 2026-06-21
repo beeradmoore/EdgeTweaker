@@ -1,22 +1,31 @@
-<h3>ThirdPartyStoragePartitioningBlockedForOrigins</h3>
+<h1>Microsoft Edge Browser Policy Documentation ThirdPartyStoragePartitioningBlockedForOrigins | Microsoft Learn</h1>
 
-<h4>Disable third-party storage partitioning for specific top-level origins</h4>
+<h2>Disable third-party storage partitioning for specific top-level origins (obsolete)</h2>
 
-<h4>Supported versions:</h4>
+<blockquote>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge version 145.</p>
+</blockquote>
+
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 115 or later</li>
+<li>Windows: 115-145</li>
+<li>macOS: 115-145</li>
+<li>Android: 138-145</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>This policy lets you set a list of URL patterns that specify top-level origins for which third-party storage partitioning (partitioning of cross-origin iframe storage) should be disabled.</p>
 
-<p>If this policy isn't set or a top-level origin doesn't match one of the URL patterns, then the value from <a href="#defaultthirdpartystoragepartitioningsetting">DefaultThirdPartyStoragePartitioningSetting</a> will be used.</p>
+<p>If this policy isn't set or a top-level origin doesn't match one of the URL patterns, then the value from <a href="defaultthirdpartystoragepartitioningsetting">DefaultThirdPartyStoragePartitioningSetting</a> will be used.</p>
 
-<p>Note that the patterns you list are treated as origins, not URLs, so you shouldn't specify a path. For detailed information about valid origin patterns, see <a href="https://go.microsoft.com/fwlink/?linkid=2095322">https://go.microsoft.com/fwlink/?linkid=2095322</a>.</p>
+<p>Note that the patterns you list are treated as origins, not URLs, so you shouldn't specify a path. For detailed information about valid origin patterns, see https://go.microsoft.com/fwlink/?linkid=2095322.</p>
 
-<h4>Supported features:</h4>
+<p>This feature has been removed starting in Microsoft Edge version 146. To ensure compatibility, use the requestStorageAccess method instead. For more information, see https://developer.mozilla.org/en-US/docs/Web/API/Document/requestStorageAccess.</p>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -26,52 +35,78 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>List of strings</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: ThirdPartyStoragePartitioningBlockedForOrigins</li>
-<li>GP name: Disable third-party storage partitioning for specific top-level origins</li>
+<li>GP name: Disable third-party storage partitioning for specific top-level origins (obsolete)</li>
 <li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+www.example.com
+</code></p>
+
+<p><code>
+[*.]example.edu
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\ThirdPartyStoragePartitioningBlockedForOrigins</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: 1, 2, 3, ...</li>
-<li>Value Type: list of REG_SZ</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
-<p>```
-SOFTWARE\Policies\Microsoft\Edge\ThirdPartyStoragePartitioningBlockedForOrigins\1 = "www.example.com"
-SOFTWARE\Policies\Microsoft\Edge\ThirdPartyStoragePartitioningBlockedForOrigins\2 = "[*.]example.edu"</p>
+<p>SOFTWARE\Policies\Microsoft\Edge\ThirdPartyStoragePartitioningBlockedForOrigins\1 =</p>
 
-<p>```</p>
+<p><code>
+www.example.com
+</code></p>
 
-<h4>Mac information and settings</h4>
+<p>SOFTWARE\Policies\Microsoft\Edge\ThirdPartyStoragePartitioningBlockedForOrigins\2 =</p>
+
+<p><code>
+[*.]example.edu
+</code></p>
+
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: ThirdPartyStoragePartitioningBlockedForOrigins</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: ThirdPartyStoragePartitioningBlockedForOrigins</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;array&gt;
-&lt;string&gt;www.example.com&lt;/string&gt;
-&lt;string&gt;[*.]example.edu&lt;/string&gt;
+  &lt;string&gt;www.example.com&lt;/string&gt;
+  &lt;string&gt;[*.]example.edu&lt;/string&gt;
 &lt;/array&gt;
 </code></p>
 
-</li>
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: ThirdPartyStoragePartitioningBlockedForOrigins</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>
+["www.example.com", "[*.]example.edu"]
+</code></p>

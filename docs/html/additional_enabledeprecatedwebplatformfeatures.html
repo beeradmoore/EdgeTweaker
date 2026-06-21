@@ -1,18 +1,21 @@
-<h3>EnableDeprecatedWebPlatformFeatures</h3>
+<h1>Microsoft Edge Browser Policy Documentation EnableDeprecatedWebPlatformFeatures | Microsoft Learn</h1>
 
-<h4>Re-enable deprecated web platform features for a limited time (obsolete)</h4>
+<h2>Re-enable deprecated web platform features for a limited time (obsolete)</h2>
 
 <blockquote>
-  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 86.</p>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge version 86.</p>
 </blockquote>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 77, until 86</li>
+<li>Windows: 77-86</li>
+<li>macOS: 77-86</li>
+<li>Android: 37-86</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>This policy is obsolete because dedicated web platform policies are now used to manage individual web platform feature deprecations.</p>
 
@@ -22,7 +25,7 @@
 
 <p>If you don't configure this policy, if the list is empty, or if a feature doesn't match one of the supported string tags, all deprecated web platform features remain disabled.</p>
 
-<p>While the policy itself is supported on the above platforms, the feature it's enabling might not be available on all of those platforms. Not all deprecated Web Platform features can be re-enabled. Only those explicitly listed below can be re-enabled, and only for a limited period of time, which differs per feature. You can review the intent behind the Web Platform feature changes at https://bit.ly/blinkintents.</p>
+<p>While the policy itself is supported on the above platforms, the feature it's enabling might not be available on all of those platforms. Not all deprecated Web Platform features can be re-enabled. Only the following explicitly listed features can be re-enabled, and only for a limited period of time, which differs per feature. You can review the intent behind the Web Platform feature changes at https://bit.ly/blinkintents.</p>
 
 <p>The general format of the string tag is [DeprecatedFeatureName]_EffectiveUntil[yyyymmdd].</p>
 
@@ -34,7 +37,17 @@
 
 <p>Use the preceding information when configuring this policy.</p>
 
-<h4>Supported features:</h4>
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>ExampleDeprecatedFeature (ExampleDeprecatedFeature_EffectiveUntil20080902) = Enable ExampleDeprecatedFeature API through 2008/09/02</li>
+</ul>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -44,50 +57,67 @@
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>List of strings</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: EnableDeprecatedWebPlatformFeatures</li>
 <li>GP name: Re-enable deprecated web platform features for a limited time (obsolete)</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Enable ExampleDeprecatedFeature API through 2008/09/02
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: 1, 2, 3, ...</li>
-<li>Value Type: list of REG_SZ</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
-<p>```
-SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\1 = "ExampleDeprecatedFeature_EffectiveUntil20080902"</p>
+<p>SOFTWARE\Policies\Microsoft\Edge\EnableDeprecatedWebPlatformFeatures\1 =</p>
 
-<p>```</p>
+<p><code>
+ExampleDeprecatedFeature_EffectiveUntil20080902
+</code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: EnableDeprecatedWebPlatformFeatures</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: EnableDeprecatedWebPlatformFeatures</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;array&gt;
-&lt;string&gt;ExampleDeprecatedFeature_EffectiveUntil20080902&lt;/string&gt;
+  &lt;string&gt;ExampleDeprecatedFeature_EffectiveUntil20080902&lt;/string&gt;
 &lt;/array&gt;
 </code></p>
 
-</li>
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: EnableDeprecatedWebPlatformFeatures</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>
+["ExampleDeprecatedFeature_EffectiveUntil20080902"]
+</code></p>

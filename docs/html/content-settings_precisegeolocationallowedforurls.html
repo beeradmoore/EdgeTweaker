@@ -1,0 +1,106 @@
+<h1>Microsoft Edge Browser Policy Documentation PreciseGeolocationAllowedForUrls | Microsoft Learn</h1>
+
+<h2>Allow precise geolocation on these sites</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 144</li>
+<li>macOS: ≥ 144</li>
+<li>Android: ≥ 144</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy lets you specify a list of URL patterns for sites that are allowed to access the user's high-accuracy geolocation without prompting for permission.</p>
+
+<p>If you leave this policy unset, DefaultGeolocationSetting applies to all sites (if configured). Otherwise, the user's personal setting is used.</p>
+
+<p>For information about valid url patterns, see <a href="/en-us/deployedge/edge-learnmmore-url-list-filter%20format">Filter formats for URL list-based policies</a>. Wildcards (*) are supported.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: PreciseGeolocationAllowedForUrls</li>
+<li>GP name: Allow precise geolocation on these sites</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+https://www.example.com
+</code></p>
+
+<p><code>
+[*.]example.edu
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\PreciseGeolocationAllowedForUrls</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\PreciseGeolocationAllowedForUrls\1 =</p>
+
+<p><code>
+https://www.example.com
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\PreciseGeolocationAllowedForUrls\2 =</p>
+
+<p><code>
+[*.]example.edu
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: PreciseGeolocationAllowedForUrls</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;https://www.example.com&lt;/string&gt;
+  &lt;string&gt;[*.]example.edu&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: PreciseGeolocationAllowedForUrls</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+["https://www.example.com", "[*.]example.edu"]
+</code></p>

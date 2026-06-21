@@ -1,0 +1,67 @@
+<h1>Microsoft Edge Browser Policy Documentation EdgeNetworkStackPref | Microsoft Learn</h1>
+
+<h2>Switch network stack between Chromium and iOS</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: Not supported</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: ≥ 142</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>The network architecture in Microsoft Edge for iOS can use either the Chromium network stack or the iOS network stack. The network stack handles Microsoft Edge service communication, including sync services and auto search suggestions.</p>
+
+<p>If you configure this policy, you can choose which network stack to use by setting one of the following values: 0 (Default): Use the Chromium network stack 1: Use the iOS network stack</p>
+
+<p>If you disable or don’t configure this policy, Microsoft Edge uses the default Chromium network stack.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li>ChromiumNetworkStack (0) = Use the Chromium network stack</li>
+<li>iOSNetworkStack (1) = Use the iOS network stack</li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>ChromiumNetworkStack (0) = Use the Chromium network stack</li>
+<li>iOSNetworkStack (1) = Use the iOS network stack</li>
+</ul>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h2>iOS information and settings</h2>
+
+<ul>
+<li>Preference Key name: EdgeNetworkStackPref</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;integer&gt;0&lt;/integer&gt;
+</code></p>

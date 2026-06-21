@@ -1,41 +1,40 @@
-<h3>ExemptSmartScreenDownloadWarnings</h3>
+<h1>Microsoft Edge Browser Policy Documentation ExemptSmartScreenDownloadWarnings | Microsoft Learn</h1>
 
-<h4>Disable SmartScreen AppRep based warnings for specified file types on specified domains</h4>
+<h2>Disable SmartScreen AppRep based warnings for specified file types on specified domains</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows since 118 or later</li>
+<li>Windows: ≥ 118</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
-<p>You can enable this policy to create a dictionary of file type extensions with a corresponding list of domains that will be exempted from SmartScreen AppRep warnings. For example, if  the "vbe" extension is associated with "website1.com", users would not see a SmartScreen AppRep warning when downloading "vbe" files from "website1.com", but may see a download warning when downloading "vbe" files from "website2.com".</p>
+<p>You can enable this policy to create a dictionary of file type extensions with a corresponding list of domains that are exempted from SmartScreen AppRep warnings. For example, if the <code>vbe</code> extension is associated with "contoso.com," users can't see a SmartScreen AppRep warning when downloading <code>vbe</code> files from "contoso.com." They can, however, see a download warning when downloading <code>vbe</code> files from "fabrikam.com."</p>
 
-<p>Files with file type extensions specified for domains identified by this policy will still be subject to file type extension-based security warnings and mixed-content download warnings.</p>
+<p>Files with file type extensions specified for domains identified by this policy are still subject to file type extension-based security warnings and mixed-content download warnings.</p>
 
-<p>If you disable this policy or don't configure it, files that trigger SmartScreen AppRep download warnings will show warnings to the user.</p>
+<p>If you disable this policy or don't configure it, files that trigger SmartScreen AppRep download warnings show warnings to the user.</p>
 
 <p>If you enable this policy:</p>
 
 <ul>
-<li>The URL pattern should be formatted according to <a href="https://go.microsoft.com/fwlink/?linkid=2095322">https://go.microsoft.com/fwlink/?linkid=2095322</a>.</li>
-<li>The file type extension entered must be in lower-cased ASCII. The leading separator should not be included when listing the file type extension, so "vbe" should be used instead of ".vbe".</li>
+<li>The URL pattern should be formatted according to https://go.microsoft.com/fwlink/?linkid=2095322.</li>
+<li>The file type extension entered must be in lower-cased ASCII. The leading separator shouldn't be included when listing the file type extension; so, <code>vbe</code> should be used instead of <code>.vbe</code>.</li>
 </ul>
 
 <p>Example:</p>
 
-<p>The following example value would prevent SmartScreen AppRep warnings on msi, exe, and vbe extensions for *.contoso.com domains. It may show the user a SmartScreen AppRep warning on any other domain for exe and msi files, but not for vbe files.</p>
+<p>The following example prevents SmartScreen AppRep warnings on msi, exe, and vbe extensions for *.contoso.com domains. It might show the user a SmartScreen AppRep warning on any other domain for exe and msi files but not for vbe files.</p>
 
-<p>[
-  { "file<em>extension": "msi", "domains": ["contoso.com"] },
-  { "file</em>extension": "exe", "domains": ["contoso.com"] },
-  { "file_extension": "vbe", "domains": ["*"] }
-]</p>
+<p>[ { "file_extension": "msi", "domains": ["contoso.com"] }, { "file_extension": "exe", "domains": ["contoso.com"] }, { "file_extension": "vbe", "domains": ["*"] } ]</p>
 
-<p>Note that while the preceding example shows the suppression of SmartScreen AppRep download warnings for "vbe" files for all domains, applying suppression of such warnings for all domains is not recommended due to security concerns. It is shown in the example merely to demonstrate the ability to do so.</p>
+<p>Note: While the preceding example shows the suppression of SmartScreen AppRep download warnings for <code>vbe</code> files for all domains, applying suppression of such warnings for all domains isn't recommended due to security concerns. The ability to suppress warnings for all domains is shown in the example merely to demonstrate the ability to do so.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -45,15 +44,15 @@
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Dictionary</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: ExemptSmartScreenDownloadWarnings</li>
@@ -63,19 +62,31 @@
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+[{"domains": ["https://contoso.com", "contoso2.com"], "file_extension": "msi"}, {"domains": ["*"], "file_extension": "vbe"}]
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: ExemptSmartScreenDownloadWarnings</li>
-<li>Value Type: REG_SZ</li>
+<li>Value name: ExemptSmartScreenDownloadWarnings</li>
+<li>Value type: REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
-SOFTWARE\Policies\Microsoft\Edge\ExemptSmartScreenDownloadWarnings = [
+[{"domains": ["https://contoso.com", "contoso2.com"], "file_extension": "msi"}, {"domains": ["*"], "file_extension": "vbe"}]
+</code></p>
+
+<h4>Expanded example registry value</h4>
+
+<p><code>
+[
   {
     "domains": [
       "https://contoso.com",
@@ -91,11 +102,3 @@ SOFTWARE\Policies\Microsoft\Edge\ExemptSmartScreenDownloadWarnings = [
   }
 ]
 </code></p>
-
-<h5>Compact example value:</h5>
-
-<p><code>
-  SOFTWARE\Policies\Microsoft\Edge\ExemptSmartScreenDownloadWarnings = [{"domains": ["https://contoso.com", "contoso2.com"], "file_extension": "msi"}, {"domains": ["*"], "file_extension": "vbe"}]
-</code></p>
-
-

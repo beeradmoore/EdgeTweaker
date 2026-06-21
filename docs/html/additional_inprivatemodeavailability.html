@@ -1,14 +1,17 @@
-<h3>InPrivateModeAvailability</h3>
+<h1>Microsoft Edge Browser Policy Documentation InPrivateModeAvailability | Microsoft Learn</h1>
 
-<h4>Configure InPrivate mode availability</h4>
+<h2>Configure InPrivate mode availability</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 77 or later</li>
+<li>Windows: ≥ 77</li>
+<li>macOS: ≥ 77</li>
+<li>Android: ≥ 30</li>
+<li>iOS: ≥ 90</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>Specifies whether the user can open pages in InPrivate mode in Microsoft Edge.</p>
 
@@ -18,17 +21,40 @@
 
 <p>Set this policy to 'Forced' to always use InPrivate mode.</p>
 
+<p>The <a href="inprivatemodeurlallowlist">InPrivateModeUrlAllowlist</a> policy takes precedence over this policy and can allow specific URLs to open in InPrivate mode.</p>
+
+<p>If this policy disables InPrivate mode and an allowlist is configured, InPrivate mode is permitted only for URLs that match entries in the allowlist. All other URLs are blocked from opening in InPrivate mode.</p>
+
 <p>Policy options mapping:</p>
 
 <ul>
-<li><p>Enabled (0) = InPrivate mode available</p></li>
-<li><p>Disabled (1) = InPrivate mode disabled</p></li>
-<li><p>Forced (2) = InPrivate mode forced</p></li>
+<li>Enabled (0) = InPrivate mode available</li>
+<li>Disabled (1) = InPrivate mode disabled</li>
+<li>Forced (2) = InPrivate mode forced</li>
 </ul>
 
 <p>Use the preceding information when configuring this policy.</p>
 
-<h4>Supported features:</h4>
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>Enabled (0) = InPrivate mode available</li>
+<li>Disabled (1) = InPrivate mode disabled</li>
+<li>Forced (2) = InPrivate mode forced
+
+<ul>
+<li>Windows: Not supported</li>
+<li>macOS: Not supported</li>
+<li>Android: ≥ 116</li>
+<li>iOS: ≥ 116</li>
+</ul></li>
+</ul>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -38,47 +64,74 @@
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Integer</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: InPrivateModeAvailability</li>
 <li>GP name: Configure InPrivate mode availability</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+InPrivate mode disabled
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: InPrivateModeAvailability</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: InPrivateModeAvailability</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000001
 </code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: InPrivateModeAvailability</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: InPrivateModeAvailability</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;integer&gt;1&lt;/integer&gt;
 </code></p>
 
-</li>
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: InPrivateModeAvailability</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>
+1
+</code></p>
+
+<h2>iOS information and settings</h2>
+
+<ul>
+<li>Preference Key name: InPrivateModeAvailability</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;integer&gt;1&lt;/integer&gt;
+</code></p>

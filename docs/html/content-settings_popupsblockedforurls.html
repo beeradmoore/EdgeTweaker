@@ -1,20 +1,23 @@
-<h3>PopupsBlockedForUrls</h3>
+<h1>Microsoft Edge Browser Policy Documentation PopupsBlockedForUrls | Microsoft Learn</h1>
 
-<h4>Block pop-up windows on specific sites</h4>
+<h2>Block pop-up windows on specific sites</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 77 or later</li>
+<li>Windows: ≥ 77</li>
+<li>macOS: ≥ 77</li>
+<li>Android: ≥ 34</li>
+<li>iOS: ≥ 84</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>Define a list of sites, based on URL patterns, that are blocked from opening pop-up windows. Wildcards (*) are allowed.</p>
 
-<p>If you don't configure this policy, the global default value from the <a href="#defaultpopupssetting">DefaultPopupsSetting</a> policy (if set) or the user's personal configuration is used for all sites.</p>
+<p>If you don't configure this policy, the global default value from the <a href="defaultpopupssetting">DefaultPopupsSetting</a> policy (if set) or the user's personal configuration is used for all sites.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -24,15 +27,15 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>List of strings</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: PopupsBlockedForUrls</li>
@@ -42,34 +45,74 @@
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+https://www.contoso.com
+</code></p>
+
+<p><code>
+[*.]contoso.edu
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\PopupsBlockedForUrls</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: 1, 2, 3, ...</li>
-<li>Value Type: list of REG_SZ</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
-<p>```
-SOFTWARE\Policies\Microsoft\Edge\PopupsBlockedForUrls\1 = "https://www.contoso.com"
-SOFTWARE\Policies\Microsoft\Edge\PopupsBlockedForUrls\2 = "[*.]contoso.edu"</p>
+<p>SOFTWARE\Policies\Microsoft\Edge\PopupsBlockedForUrls\1 =</p>
 
-<p>```</p>
+<p><code>
+https://www.contoso.com
+</code></p>
 
-<h4>Mac information and settings</h4>
+<p>SOFTWARE\Policies\Microsoft\Edge\PopupsBlockedForUrls\2 =</p>
+
+<p><code>
+[*.]contoso.edu
+</code></p>
+
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: PopupsBlockedForUrls</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: PopupsBlockedForUrls</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;array&gt;
-&lt;string&gt;https://www.contoso.com&lt;/string&gt;
-&lt;string&gt;[*.]contoso.edu&lt;/string&gt;
+  &lt;string&gt;https://www.contoso.com&lt;/string&gt;
+  &lt;string&gt;[*.]contoso.edu&lt;/string&gt;
 &lt;/array&gt;
 </code></p>
 
-</li>
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: PopupsBlockedForUrls</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>
+["https://www.contoso.com", "[*.]contoso.edu"]
+</code></p>
+
+<h2>iOS information and settings</h2>
+
+<ul>
+<li>Preference Key name: PopupsBlockedForUrls</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;https://www.contoso.com&lt;/string&gt;
+  &lt;string&gt;[*.]contoso.edu&lt;/string&gt;
+&lt;/array&gt;
+</code></p>

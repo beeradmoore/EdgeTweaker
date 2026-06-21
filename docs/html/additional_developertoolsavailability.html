@@ -1,40 +1,64 @@
-<h3>DeveloperToolsAvailability</h3>
+<h1>Microsoft Edge Browser Policy Documentation DeveloperToolsAvailability | Microsoft Learn</h1>
 
-<h4>Control where developer tools can be used</h4>
+<h2>Control where developer tools can be used</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 77 or later</li>
+<li>Windows: ≥ 77</li>
+<li>macOS: ≥ 77</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
-<p>Control where developer tools can be used.</p>
+<p>Controls whether users can access developer tools in Microsoft Edge.</p>
 
-<p>If you set this policy to 'DeveloperToolsDisallowedForForceInstalledExtensions' (the default), users can access the developer tools and the JavaScript console in general, but not in the context of extensions installed by enterprise policy.</p>
+<p>If you set this policy to 'DeveloperToolsDisallowedForForceInstalledExtensions' (default), users can access developer tools and the JavaScript console, except in the context of extensions installed by enterprise policy.</p>
 
-<p>If you set this policy to 'DeveloperToolsAllowed', users can access the developer tools and the JavaScript console in all contexts, including extensions installed by enterprise policy.</p>
+<p>If you set this policy to 'DeveloperToolsAllowed', users can access developer tools and the JavaScript console in all contexts, including extensions installed by enterprise policy.</p>
 
-<p>If you set this policy to 'DeveloperToolsDisallowed', users can't access the developer tools or inspect website elements. Keyboard shortcuts and menu or context menu entries that open the developer tools or the JavaScript Console are disabled.</p>
+<p>If you set this policy to 'DeveloperToolsDisallowed', users cannot access developer tools or inspect website elements. Keyboard shortcuts, menu options, and context menu entries that open developer tools or the JavaScript console are disabled.</p>
 
-<p>As of Microsoft Edge version 99, this setting also controls entry points for the 'View page source' feature. If you set this policy to 'DeveloperToolsDisallowed', users cannot access source viewing via keyboard shortcut or the context menu. To fully block source viewing, you must also add 'view-source:*' to the <a href="#urlblocklist">URLBlocklist</a> policy.</p>
+<p>As of version 99, this policy also controls access to the 'View page source' feature. If you set this policy to 'DeveloperToolsDisallowed', users cannot view page source through keyboard shortcuts or the context menu. To fully block source viewing, add 'view-source:*' to the <a href="urlblocklist">URLBlocklist</a> policy.</p>
 
-<p>As of Microsoft Edge version 119, this setting also controls whether developer mode for Isolated Web Apps can be activated and used.</p>
+<p>As of version 119, this policy also controls whether developer mode for Isolated Web Apps can be enabled.</p>
 
-<p>As of Microsoft Edge version 128, this setting will not control developer mode on extensions page if <a href="#extensiondevelopermodesettings">ExtensionDeveloperModeSettings</a> policy is set.</p>
+<p>As of version 128, this policy does not control developer mode on the extensions page if the <a href="extensiondevelopermodesettings">ExtensionDeveloperModeSettings</a> policy is configured.</p>
+
+<p>Developer tools availability is determined in the following order of precedence:</p>
+
+<ol>
+<li>If a URL matches a pattern in <a href="developertoolsavailabilityallowlist">DeveloperToolsAvailabilityAllowlist</a>, developer tools are allowed.</li>
+<li>If the allowlist is configured and the blocklist is not, URLs not on the allowlist are blocked.</li>
+<li>If a URL matches a pattern in <a href="developertoolsavailabilityblocklist">DeveloperToolsAvailabilityBlocklist</a>, developer tools are blocked.</li>
+<li>If a URL is not covered by either list, this policy (<a href="developertoolsavailability">DeveloperToolsAvailability</a>) applies.</li>
+</ol>
 
 <p>Policy options mapping:</p>
 
 <ul>
-<li><p>DeveloperToolsDisallowedForForceInstalledExtensions (0) = Block the developer tools on extensions installed by enterprise policy, allow in other contexts</p></li>
-<li><p>DeveloperToolsAllowed (1) = Allow using the developer tools</p></li>
-<li><p>DeveloperToolsDisallowed (2) = Don't allow using the developer tools</p></li>
+<li>DeveloperToolsDisallowedForForceInstalledExtensions (0) = Block the developer tools on extensions installed by enterprise policy, allow in other contexts</li>
+<li>DeveloperToolsAllowed (1) = Allow using the developer tools</li>
+<li>DeveloperToolsDisallowed (2) = Don't allow using the developer tools</li>
 </ul>
 
 <p>Use the preceding information when configuring this policy.</p>
 
-<h4>Supported features:</h4>
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>DeveloperToolsDisallowedForForceInstalledExtensions (0) = Block the developer tools on extensions installed by enterprise policy, allow in other contexts</li>
+<li>DeveloperToolsAllowed (1) = Allow using the developer tools</li>
+<li>DeveloperToolsDisallowed (2) = Don't allow using the developer tools</li>
+</ul>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -44,47 +68,52 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Integer</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: DeveloperToolsAvailability</li>
 <li>GP name: Control where developer tools can be used</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Don't allow using the developer tools
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: DeveloperToolsAvailability</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: DeveloperToolsAvailability</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000002
 </code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: DeveloperToolsAvailability</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: DeveloperToolsAvailability</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;integer&gt;2&lt;/integer&gt;
 </code></p>
-
-</li>
-</ul>

@@ -1,0 +1,47 @@
+<h1>Microsoft Edge Browser Policy Documentation ReadExtendedCertificateLocationsEnabled | Microsoft Learn</h1>
+
+<h2>Enable Extended Keychain Certificate Authentication</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: Not supported</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: ≥ 142</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy controls whether Microsoft Edge can use certificates from extended keychain locations for client certificate authentication.</p>
+
+<p>If you enable this policy, Microsoft Edge is allowed to read certificates from the com.apple.token keychain group (requires user permission) and Intune-derived credentials keychain groups when requested by servers for client certificate authentication.</p>
+
+<p>If you disable or don’t configure this policy, Microsoft Edge doesn't access these extended keychain locations for client certificate authentication.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>iOS information and settings</h2>
+
+<ul>
+<li>Preference Key name: ReadExtendedCertificateLocationsEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;true/&gt;
+</code></p>

@@ -1,26 +1,29 @@
-<h3>IdleTimeout</h3>
+<h1>Microsoft Edge Browser Policy Documentation IdleTimeout | Microsoft Learn</h1>
 
-<h4>Delay before running idle actions</h4>
+<h2>Delay before running idle actions</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 134 or later</li>
+<li>Windows: ≥ 134</li>
+<li>macOS: ≥ 134</li>
+<li>Android: ≥ 122</li>
+<li>iOS: ≥ 122</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>Triggers an action when the computer is idle.</p>
 
 <p>If you set this policy, it specifies the length of time without user input (in minutes) before the browser runs actions configured via the IdleTimeoutActions policy.</p>
 
-<p>If you do not set this policy, no action will run.</p>
+<p>If you don't set this policy, the browser doesn't run any action.</p>
 
 <p>The minimum threshold is 1 minute.</p>
 
 <p>"User input" is defined by Operating System APIs, and includes things like moving the mouse or typing on the keyboard.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -30,15 +33,15 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Integer</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: IdleTimeout</li>
@@ -48,29 +51,56 @@
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+30
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: IdleTimeout</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: IdleTimeout</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x0000001e
 </code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: IdleTimeout</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: IdleTimeout</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;integer&gt;30&lt;/integer&gt;
 </code></p>
 
-</li>
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: IdleTimeout</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>
+30
+</code></p>
+
+<h2>iOS information and settings</h2>
+
+<ul>
+<li>Preference Key name: IdleTimeout</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;integer&gt;30&lt;/integer&gt;
+</code></p>

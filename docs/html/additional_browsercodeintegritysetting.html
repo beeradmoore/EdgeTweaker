@@ -1,38 +1,60 @@
-<h3>BrowserCodeIntegritySetting</h3>
+<h1>Microsoft Edge Browser Policy Documentation BrowserCodeIntegritySetting | Microsoft Learn</h1>
 
-<h4>Configure browser process code integrity guard setting</h4>
+<h2>Configure browser process code integrity guard setting</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows since 104 or later</li>
+<li>Windows: ≥ 104</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>This policy controls the use of code integrity guard in the browser process, which only allows Microsoft signed binaries to load.</p>
 
-<p>Setting this policy to Enabled will enable code integrity guard in the browser process.</p>
+<p>If you enable this policy, it enables code integrity guard in the browser process.</p>
 
-<p>Setting this policy to Disabled, or if the policy is not set, will prevent the browser from enabling code integrity guard in the browser process.</p>
+<p>If you disable or don't configure this policy, it prevents the browser from enabling code integrity guard in the browser process.</p>
 
-<p>The policy value Audit (1) is obsolete as of version 110. Setting this value is equivalent to the Disabled value.</p>
+<p>The policy value Audit (1) is obsolete as of Microsoft Edge version 110. Setting this value is equivalent to the Disabled value.</p>
 
 <p>This policy is available only on Windows instances that are joined to a Microsoft Active Directory domain, or Windows 10 Pro or Enterprise instances that enrolled for device management.</p>
 
-<p>This policy will only take effect on Windows 10 RS2 and above.</p>
+<p>This policy only takes effect on Windows 10 RS2 and above.</p>
 
 <p>Policy options mapping:</p>
 
 <ul>
-<li><p>Disabled (0) = Do not enable code integrity guard in the browser process.</p></li>
-<li><p>Audit (1) = Enable code integrity guard audit mode in the browser process.</p></li>
-<li><p>Enabled (2) = Enable code integrity guard enforcement in the browser process.</p></li>
+<li>Disabled (0) = Do not enable code integrity guard in the browser process.</li>
+<li>Audit (1) = Enable code integrity guard audit mode in the browser process.</li>
+<li>Enabled (2) = Enable code integrity guard enforcement in the browser process.</li>
 </ul>
 
 <p>Use the preceding information when configuring this policy.</p>
 
-<h4>Supported features:</h4>
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>Disabled (0) = Do not enable code integrity guard in the browser process.</li>
+<li>Audit (1) = Enable code integrity guard audit mode in the browser process.
+
+<ul>
+<li>Windows: 104-109</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul></li>
+<li>Enabled (2) = Enable code integrity guard enforcement in the browser process.</li>
+</ul>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -42,37 +64,41 @@
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Integer</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: BrowserCodeIntegritySetting</li>
 <li>GP name: Configure browser process code integrity guard setting</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Do not enable code integrity guard in the browser process.
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: BrowserCodeIntegritySetting</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: BrowserCodeIntegritySetting</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000000
 </code></p>
-
-

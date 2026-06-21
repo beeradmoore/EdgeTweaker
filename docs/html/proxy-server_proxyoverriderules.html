@@ -1,0 +1,196 @@
+<h1>Microsoft Edge Browser Policy Documentation ProxyOverrideRules | Microsoft Learn</h1>
+
+<h2>Proxy override rules</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 145</li>
+<li>macOS: ≥ 145</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy enables rule-based proxy selection that determines which proxy Microsoft Edge uses based on the destination URL and any other conditions you define.</p>
+
+<p>When this policy is configured, it takes precedence over proxy settings configured by the ProxySettings policy, the Edge.proxy extension API, and any manual user settings.</p>
+
+<p>If this policy is disabled or not configured, existing proxy policies and user-defined settings continue to apply.</p>
+
+<p>When Edge selects a proxy, it evaluates entries in the ProxyOverrideRules policy in order. A rule is considered a match when all the following conditions are met:</p>
+
+<ul>
+<li>At least one URL pattern in DestinationMatchers is matched.</li>
+<li>No URL pattern in ExcludeDestinationMatchers is matched.</li>
+<li>If Conditions is specified and non-empty, all conditions are satisfied.</li>
+</ul>
+
+<p>For a matching rule, the value specified in ProxyList is used as the proxy. If no rule matches, proxy selection falls back to the settings defined by the ProxySettings policy.</p>
+
+<p>The URL patterns supported by DestinationMatchers and ExcludeDestinationMatchers are documented at <a href="/en-us/DeployEdge/configure-microsoft-edge-proxy-support?branch=pr-en-us-6681#proxy-config-url-patterns">Proxy Support in Microsoft Edge</a> . Entries in ProxyList correspond to PAC-style proxy strings, such as:</p>
+
+<ul>
+<li>DIRECT</li>
+<li>PROXY host:port</li>
+<li>HTTPS host:port</li>
+<li>SOCKS4 host:port</li>
+<li>SOCKS5 host:port</li>
+</ul>
+
+<p>Alternatively, URL-form proxy specifiers can be used, for example:</p>
+
+<ul>
+<li>http://host :port</li>
+<li>https://host :port</li>
+<li>socks4://host:port</li>
+<li>socks5://host:port</li>
+</ul>
+
+<p>The first reachable proxy in the list is used. Invalid entries are ignored.</p>
+
+<p>The Conditions field specifies conditions that must all be met for an override rule to be applied when selecting a proxy. If this field is not set, the rule is applied when at least one host in DestinationMatchers matches.</p>
+
+<p>The DnsProbe condition checks whether the specified DNS Host can be resolved to an IP address. The host must include a hostname (for example, example.com) and can optionally include a scheme or port (for example, <code>https://example.com</code>, example.com:123, or <code>https://example.com:123</code>). When a secure scheme (for example, https) is specified, the DNS lookup may also request the HTTPS record (see RFC 9460).</p>
+
+<p>If Result is set to resolved, the condition is met when resolution succeeds. If set to not_found, the condition is met only when resolution fails.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+<li>Can only be configured through cloud policy in the Edge management service: Yes</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Dictionary</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: ProxyOverrideRules</li>
+<li>GP name: Proxy override rules</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Proxy server</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+[{"Conditions": [{"DnsProbe": {"Host": "corp.ads", "Result": "resolved"}}], "DestinationMatchers": ["https://some.app.com", "https://other.app.org"], "ProxyList": ["HTTPS proxy.app:443", "DIRECT"]}, {"DestinationMatchers": ["https://Contoso.com"], "ExcludeDestinationMatchers": ["https://mail.Contoso.com"], "ProxyList": ["HTTPS proxy.app:443", "DIRECT"]}]
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: ProxyOverrideRules</li>
+<li>Value type: REG_SZ</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+[{"Conditions": [{"DnsProbe": {"Host": "corp.ads", "Result": "resolved"}}], "DestinationMatchers": ["https://some.app.com", "https://other.app.org"], "ProxyList": ["HTTPS proxy.app:443", "DIRECT"]}, {"DestinationMatchers": ["https://Contoso.com"], "ExcludeDestinationMatchers": ["https://mail.Contoso.com"], "ProxyList": ["HTTPS proxy.app:443", "DIRECT"]}]
+</code></p>
+
+<h4>Expanded example registry value</h4>
+
+<p><code>
+[
+  {
+    "Conditions": [
+      {
+        "DnsProbe": {
+          "Host": "corp.ads",
+          "Result": "resolved"
+        }
+      }
+    ],
+    "DestinationMatchers": [
+      "https://some.app.com",
+      "https://other.app.org"
+    ],
+    "ProxyList": [
+      "HTTPS proxy.app:443",
+      "DIRECT"
+    ]
+  },
+  {
+    "DestinationMatchers": [
+      "https://Contoso.com"
+    ],
+    "ExcludeDestinationMatchers": [
+      "https://mail.Contoso.com"
+    ],
+    "ProxyList": [
+      "HTTPS proxy.app:443",
+      "DIRECT"
+    ]
+  }
+]
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: ProxyOverrideRules</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;key&gt;ProxyOverrideRules&lt;/key&gt;
+&lt;array&gt;
+  &lt;dict&gt;
+    &lt;key&gt;Conditions&lt;/key&gt;
+    &lt;array&gt;
+      &lt;dict&gt;
+        &lt;key&gt;DnsProbe&lt;/key&gt;
+        &lt;dict&gt;
+          &lt;key&gt;Host&lt;/key&gt;
+          &lt;string&gt;corp.ads&lt;/string&gt;
+          &lt;key&gt;Result&lt;/key&gt;
+          &lt;string&gt;resolved&lt;/string&gt;
+        &lt;/dict&gt;
+      &lt;/dict&gt;
+    &lt;/array&gt;
+    &lt;key&gt;DestinationMatchers&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;https://some.app.com&lt;/string&gt;
+      &lt;string&gt;https://other.app.org&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;ProxyList&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;HTTPS proxy.app:443&lt;/string&gt;
+      &lt;string&gt;DIRECT&lt;/string&gt;
+    &lt;/array&gt;
+  &lt;/dict&gt;
+  &lt;dict&gt;
+    &lt;key&gt;DestinationMatchers&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;https://Contoso.com&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;ExcludeDestinationMatchers&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;https://mail.Contoso.com&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;ProxyList&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;HTTPS proxy.app:443&lt;/string&gt;
+      &lt;string&gt;DIRECT&lt;/string&gt;
+    &lt;/array&gt;
+  &lt;/dict&gt;
+&lt;/array&gt;
+</code></p>

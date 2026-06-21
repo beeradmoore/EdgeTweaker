@@ -1,0 +1,73 @@
+<h1>Microsoft Edge Browser Policy Documentation LiveVideoTranslationEnabled | Microsoft Learn</h1>
+
+<h2>Allows users to translate videos to different languages.</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 141</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy configures the on-device real-time video translation feature in Microsoft Edge. With this feature, users can watch videos translated into their selected language in real time.</p>
+
+<p>When a user selects the Translate icon and chooses a source (video language) and target language (translated language), translation components are downloaded on first use (approximately 200 MB per language pair).</p>
+
+<p>These components can be updated periodically to improve performance and translation quality. Translation is performed locally on the user’s device and no data is sent outside of the device. The feature is available only for non-DRM videos, on supported high-end devices, with select language pairs, and in select regions. For more information, see https://www.microsoft.com/en-us/edge/features/real-time-video-translation.</p>
+
+<p>If you enable or don’t configure this policy, the on-device real-time video translation feature is enabled and users will see the Translate button when hovering over videos.</p>
+
+<p>If you disable this policy, the on-device real-time video translation feature is disabled and the Translate button is not shown.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: LiveVideoTranslationEnabled</li>
+<li>GP name: Allows users to translate videos to different languages.</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+Enabled
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: LiveVideoTranslationEnabled</li>
+<li>Value type: REG_DWORD</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+0x00000001
+</code></p>

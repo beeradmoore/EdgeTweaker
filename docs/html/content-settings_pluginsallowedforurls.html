@@ -1,28 +1,31 @@
-<h3>PluginsAllowedForUrls</h3>
+<h1>Microsoft Edge Browser Policy Documentation PluginsAllowedForUrls | Microsoft Learn</h1>
 
-<h4>Allow the Adobe Flash plug-in on specific sites (obsolete)</h4>
+<h2>Allow the Adobe Flash plug-in on specific sites (obsolete)</h2>
 
 <blockquote>
-  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 87.</p>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge version 87.</p>
 </blockquote>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 77, until 87</li>
+<li>Windows: 77-87</li>
+<li>macOS: 77-87</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>This policy doesn't work because Flash is no longer supported by Microsoft Edge.</p>
 
 <p>Define a list of sites, based on URL patterns, that can run the Adobe Flash plug-in.</p>
 
-<p>If you don't configure this policy, the global default value from the <a href="#defaultpluginssetting">DefaultPluginsSetting</a> policy (if set) or the user's personal configuration is used for all sites.</p>
+<p>If you don't configure this policy, the global default value from the <a href="defaultpluginssetting">DefaultPluginsSetting</a> policy (if set) or the user's personal configuration is used for all sites.</p>
 
-<p>For detailed information on valid url patterns, see <a href="https://go.microsoft.com/fwlink/?linkid=2095322">https://go.microsoft.com/fwlink/?linkid=2095322</a>. However, starting in M85, patterns with '*' and '[*.]' wildcards in the host are no longer supported for this policy.</p>
+<p>For detailed information on valid url patterns, see https://go.microsoft.com/fwlink/?linkid=2095322. However, starting in M85, patterns with '*' and '[*.]' wildcards in the host are no longer supported for this policy.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -32,15 +35,15 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>List of strings</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: PluginsAllowedForUrls</li>
@@ -50,34 +53,49 @@
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+https://www.contoso.com
+</code></p>
+
+<p><code>
+http://contoso.edu:8080
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: 1, 2, 3, ...</li>
-<li>Value Type: list of REG_SZ</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
-<p>```
-SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\1 = "https://www.contoso.com"
-SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\2 = "http://contoso.edu:8080"</p>
+<p>SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\1 =</p>
 
-<p>```</p>
-
-<h4>Mac information and settings</h4>
-
-<ul>
-<li>Preference Key Name: PluginsAllowedForUrls</li>
-<li><p>Example value:
-<code>xml
-&lt;array&gt;
-&lt;string&gt;https://www.contoso.com&lt;/string&gt;
-&lt;string&gt;http://contoso.edu:8080&lt;/string&gt;
-&lt;/array&gt;
+<p><code>
+https://www.contoso.com
 </code></p>
 
-</li>
+<p>SOFTWARE\Policies\Microsoft\Edge\PluginsAllowedForUrls\2 =</p>
+
+<p><code>
+http://contoso.edu:8080
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: PluginsAllowedForUrls</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;https://www.contoso.com&lt;/string&gt;
+  &lt;string&gt;http://contoso.edu:8080&lt;/string&gt;
+&lt;/array&gt;
+</code></p>

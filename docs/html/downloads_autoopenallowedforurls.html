@@ -1,0 +1,132 @@
+<h1>Microsoft Edge Browser Policy Documentation AutoOpenAllowedForURLs | Microsoft Learn</h1>
+
+<h2>URLs where AutoOpenFileTypes can apply</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 85</li>
+<li>macOS: ≥ 85</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>A list of URLs to which <a href="autoopenfiletypes">AutoOpenFileTypes</a> applies to. This policy has no impact on automatically open values set by users via the download shelf ... &gt; "Always open files of this type" menu entry.</p>
+
+<p>If you set URLs in this policy, files will only automatically open by policy if the URL is part of this set and the file type is listed in <a href="autoopenfiletypes">AutoOpenFileTypes</a>. If either condition is false, the download won't automatically open by policy.</p>
+
+<p>If you don't set this policy, all downloads where the file type is in <a href="autoopenfiletypes">AutoOpenFileTypes</a> automatically opens.</p>
+
+<p>A URL pattern has to be formatted according to https://go.microsoft.com/fwlink/?linkid=2095322.</p>
+
+<p>This policy doesn't work as expected with file://* wildcards.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: AutoOpenAllowedForURLs</li>
+<li>GP name: URLs where AutoOpenFileTypes can apply</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+example.com
+</code></p>
+
+<p><code>
+https://ssl.server.com
+</code></p>
+
+<p><code>
+hosting.com/good_path
+</code></p>
+
+<p><code>
+https://server:8080/path
+</code></p>
+
+<p><code>
+.exact.hostname.com
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\AutoOpenAllowedForURLs</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\AutoOpenAllowedForURLs\1 =</p>
+
+<p><code>
+example.com
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\AutoOpenAllowedForURLs\2 =</p>
+
+<p><code>
+https://ssl.server.com
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\AutoOpenAllowedForURLs\3 =</p>
+
+<p><code>
+hosting.com/good_path
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\AutoOpenAllowedForURLs\4 =</p>
+
+<p><code>
+https://server:8080/path
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\AutoOpenAllowedForURLs\5 =</p>
+
+<p><code>
+.exact.hostname.com
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: AutoOpenAllowedForURLs</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;example.com&lt;/string&gt;
+  &lt;string&gt;https://ssl.server.com&lt;/string&gt;
+  &lt;string&gt;hosting.com/good_path&lt;/string&gt;
+  &lt;string&gt;https://server:8080/path&lt;/string&gt;
+  &lt;string&gt;.exact.hostname.com&lt;/string&gt;
+&lt;/array&gt;
+</code></p>

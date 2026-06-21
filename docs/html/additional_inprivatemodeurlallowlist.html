@@ -1,0 +1,200 @@
+<h1>Microsoft Edge Browser Policy Documentation InPrivateModeUrlAllowlist | Microsoft Learn</h1>
+
+<h2>Allow access to a list of URLs in InPrivate mode.</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 147</li>
+<li>macOS: ≥ 147</li>
+<li>Android: ≥ 147</li>
+<li>iOS: ≥ 147</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy allows administrators to specify a list of URL patterns that are permitted to open in InPrivate mode. It can be used to create exceptions for URL patterns defined in <a href="inprivatemodeurlblocklist">InPrivateModeUrlBlocklist</a>. See how to format a URL pattern (https://go.microsoft.com/fwlink/?linkid=2095322).</p>
+
+<p>If both this policy and <a href="inprivatemodeurlblocklist">InPrivateModeUrlBlocklist</a> are configured, the allowlist takes precedence. URLs that match a pattern on this allowlist are allowed. URLs that match the blocklist but not this allowlist are blocked. URLs that match neither list fall back to <a href="urlblocklist">URLBlocklist</a> and <a href="urlallowlist">URLAllowlist</a>.</p>
+
+<p>If this policy is configured and <a href="inprivatemodeurlblocklist">InPrivateModeUrlBlocklist</a> is not configured, only the URLs specified in this allowlist can be opened in InPrivate mode. All other URLs are blocked.</p>
+
+<p>If <a href="inprivatemodeavailability">InPrivateModeAvailability</a> is set to disallow (value 1) but this policy is configured, InPrivate mode is available only for URLs that match the allowlist.</p>
+
+<p>If this policy is not configured, no exceptions are applied to <a href="inprivatemodeurlblocklist">InPrivateModeUrlBlocklist</a> or <a href="inprivatemodeavailability">InPrivateModeAvailability</a>.</p>
+
+<p>This policy applies only to InPrivate mode. To allow URLs across all browsing modes and profiles, use the <a href="urlallowlist">URLAllowlist</a> policy.</p>
+
+<p>This policy supports up to 1000 entries.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: InPrivateModeUrlAllowlist</li>
+<li>GP name: Allow access to a list of URLs in InPrivate mode.</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+example.com
+</code></p>
+
+<p><code>
+https://ssl.server.com
+</code></p>
+
+<p><code>
+hosting.com/bad_path
+</code></p>
+
+<p><code>
+https://server:8080/path
+</code></p>
+
+<p><code>
+.exact.hostname.com
+</code></p>
+
+<p><code>
+file://*
+</code></p>
+
+<p><code>
+custom_scheme:*
+</code></p>
+
+<p><code>
+*
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\InPrivateModeUrlAllowlist</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\InPrivateModeUrlAllowlist\1 =</p>
+
+<p><code>
+example.com
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\InPrivateModeUrlAllowlist\2 =</p>
+
+<p><code>
+https://ssl.server.com
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\InPrivateModeUrlAllowlist\3 =</p>
+
+<p><code>
+hosting.com/bad_path
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\InPrivateModeUrlAllowlist\4 =</p>
+
+<p><code>
+https://server:8080/path
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\InPrivateModeUrlAllowlist\5 =</p>
+
+<p><code>
+.exact.hostname.com
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\InPrivateModeUrlAllowlist\6 =</p>
+
+<p><code>
+file://*
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\InPrivateModeUrlAllowlist\7 =</p>
+
+<p><code>
+custom_scheme:*
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\InPrivateModeUrlAllowlist\8 =</p>
+
+<p><code>
+*
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: InPrivateModeUrlAllowlist</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;example.com&lt;/string&gt;
+  &lt;string&gt;https://ssl.server.com&lt;/string&gt;
+  &lt;string&gt;hosting.com/bad_path&lt;/string&gt;
+  &lt;string&gt;https://server:8080/path&lt;/string&gt;
+  &lt;string&gt;.exact.hostname.com&lt;/string&gt;
+  &lt;string&gt;file://*&lt;/string&gt;
+  &lt;string&gt;custom_scheme:*&lt;/string&gt;
+  &lt;string&gt;*&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: InPrivateModeUrlAllowlist</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+["example.com", "https://ssl.server.com", "hosting.com/bad_path", "https://server:8080/path", ".exact.hostname.com", "file://*", "custom_scheme:*", "*"]
+</code></p>
+
+<h2>iOS information and settings</h2>
+
+<ul>
+<li>Preference Key name: InPrivateModeUrlAllowlist</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;example.com&lt;/string&gt;
+  &lt;string&gt;https://ssl.server.com&lt;/string&gt;
+  &lt;string&gt;hosting.com/bad_path&lt;/string&gt;
+  &lt;string&gt;https://server:8080/path&lt;/string&gt;
+  &lt;string&gt;.exact.hostname.com&lt;/string&gt;
+  &lt;string&gt;file://*&lt;/string&gt;
+  &lt;string&gt;custom_scheme:*&lt;/string&gt;
+  &lt;string&gt;*&lt;/string&gt;
+&lt;/array&gt;
+</code></p>

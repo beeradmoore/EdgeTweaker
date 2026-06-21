@@ -1,0 +1,108 @@
+<h1>Microsoft Edge Browser Policy Documentation CopilotNewTabPageEnabled | Microsoft Learn</h1>
+
+<h2>Enable the Copilot new tab page</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 148</li>
+<li>macOS: ≥ 148</li>
+<li>Android: ≥ 148</li>
+<li>iOS: ≥ 148</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy configures the availability of the Copilot new tab page in Microsoft Edge for Business.</p>
+
+<p>The Copilot new tab page combines search and chat into a single input box and includes personalized cards that provide quick access to relevant files, calendar events, and suggested Copilot prompts. Users who do not have a Microsoft 365 Copilot license might experience limited relevance in Copilot prompt card content.</p>
+
+<p>Most policies that customize the New Tab Page are supported on the Copilot new tab page. For a complete list of supported and unsupported policies, see https://go.microsoft.com/fwlink/?linkid=2330462.</p>
+
+<p>This policy applies only to Microsoft Entra ID profiles and controls the Copilot new tab page experience in Microsoft Edge for Business. This policy does not apply to the Copilot new tab page on MSA profiles.</p>
+
+<p>If you enable this policy, the Copilot new tab page is turned on.</p>
+
+<p>If you disable or don't configure this policy, the Copilot new tab page is turned off. When the policy is not configured, users can turn it on via user settings.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: CopilotNewTabPageEnabled</li>
+<li>GP name: Enable the Copilot new tab page</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+Enabled
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value name: CopilotNewTabPageEnabled</li>
+<li>Value type: REG_DWORD</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: CopilotNewTabPageEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;true/&gt;
+</code></p>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: CopilotNewTabPageEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+true
+</code></p>
+
+<h2>iOS information and settings</h2>
+
+<ul>
+<li>Preference Key name: CopilotNewTabPageEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;true/&gt;
+</code></p>

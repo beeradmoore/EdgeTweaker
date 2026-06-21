@@ -1,32 +1,31 @@
-<h3>SetTimeoutWithout1MsClampEnabled</h3>
+<h1>Microsoft Edge Browser Policy Documentation SetTimeoutWithout1MsClampEnabled | Microsoft Learn</h1>
 
-<h4>Control Javascript setTimeout() function minimum timeout (obsolete)</h4>
+<h2>Control Javascript setTimeout() function minimum timeout (obsolete)</h2>
 
 <blockquote>
-  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 109.</p>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge version 109.</p>
 </blockquote>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 101, until 109</li>
+<li>Windows: 101-109</li>
+<li>macOS: 101-109</li>
+<li>Android: 101-109</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
-<p>This policy is obsolete and doesn't work in Microsoft Edge after version 109.
-This policy was only provided temporarily to allow Enterprises to adapt to the new clamping behavior.</p>
+<p>This policy is obsolete and doesn't work in Microsoft Edge after version 109. This policy was only provided temporarily to allow Enterprises to adapt to the new clamping behavior.</p>
 
-<p>When the policy is set to Enabled, the Javascript setTimeout() with a timeout of 0ms will no longer be fixed to 1ms to schedule timer-based callbacks.
-   When the policy is set to Disabled, the Javascript setTimeout() with a timeout of 0ms will be fixed to 1ms to schedule timer-based callbacks.
-   When the policy is unset, use the browser's default behavior for setTimeout() function.</p>
+<p>If you enable this policy, the JavaScript setTimeout() with a timeout of 0 ms is no longer fixed to 1 ms to schedule timer-based callbacks. If you disable this policy, the JavaScript setTimeout() with a timeout of 0 ms is fixed to 1 ms to schedule timer-based callbacks. If you don't configure this policy, use the browser's default behavior for setTimeout() function.</p>
 
-<p>This is a web standards compliancy feature, but it may change task ordering on a web page, leading to unexpected behavior on sites that are dependent on a certain ordering.
-   It also may affect sites with a lot of setTimeout()s with a timeout of 0ms usage. For example, increasing CPU load.</p>
+<p>This is a web standards compliancy feature; however, it may change task ordering on a webpage, leading to unexpected behavior on sites that are dependent on a certain ordering. It also affects sites with many setTimeout()s with a timeout of 0-ms usage, for example, increasing CPU load.</p>
 
-<p>For users where this policy is unset, Microsoft Edge Stable will roll out the change gradually on the stable channel.</p>
+<p>For users where this policy is unset, Microsoft Edge Stable rolls out the change gradually on the stable channel.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -36,47 +35,63 @@ This policy was only provided temporarily to allow Enterprises to adapt to the n
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Boolean</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: SetTimeoutWithout1MsClampEnabled</li>
 <li>GP name: Control Javascript setTimeout() function minimum timeout (obsolete)</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Enabled
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: SetTimeoutWithout1MsClampEnabled</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: SetTimeoutWithout1MsClampEnabled</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000001
 </code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: SetTimeoutWithout1MsClampEnabled</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: SetTimeoutWithout1MsClampEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;true/&gt;
 </code></p>
 
-</li>
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: SetTimeoutWithout1MsClampEnabled</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>
+true
+</code></p>

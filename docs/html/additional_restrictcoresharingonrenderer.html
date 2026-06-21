@@ -1,0 +1,65 @@
+<h1>Microsoft Edge Browser Policy Documentation RestrictCoreSharingOnRenderer | Microsoft Learn</h1>
+
+<h2>Restrict CPU core sharing for renderer process</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 140</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy helps mitigate side-channel cross-process memory attacks by isolating the renderer process to a dedicated CPU core, preventing other processes from being scheduled on the same core. This mitigation is supported on Microsoft® Windows® 11 24H2 and later. If the operating system doesn't support the necessary scheduling features, this policy has no effect. Enabling this policy may reduce performance in demanding workloads, similar to the impact of disabling hyperthreading. For more information, refer <a href="/en-us/windows/win32/api/winnt/ns-winnt-process_mitigation_side_channel_isolation_policy">PROCESS<em>MITIGATION</em>SIDE<em>CHANNEL</em>ISOLATION_POLICY structure (winnt.h)</a> If you enable this policy, other processes can't be scheduled on the same CPU core as a renderer process. If you disable this policy, other processes can be scheduled on the same CPU core as a renderer process. If you don't configure this policy, other processes can be scheduled on the same core as the renderer process. Behavior can vary depending on Microsoft Edge version and platform.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: RestrictCoreSharingOnRenderer</li>
+<li>GP name: Restrict CPU core sharing for renderer process</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+Enabled
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: RestrictCoreSharingOnRenderer</li>
+<li>Value type: REG_DWORD</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+0x00000001
+</code></p>

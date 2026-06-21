@@ -1,22 +1,25 @@
-<h3>Edge3PSerpTelemetryEnabled</h3>
+<h1>Microsoft Edge Browser Policy Documentation Edge3PSerpTelemetryEnabled | Microsoft Learn</h1>
 
-<h4>Edge 3P SERP Telemetry Enabled</h4>
+<h2>Edge 3P SERP Telemetry Enabled</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows since 120 or later</li>
+<li>Windows: ≥ 120</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
-<p>Edge3P Telemetry in Microsoft Edge captures the searches user does on third party search providers without identifying the person or the device and captures only if the user has consented to this collection of data. User can turn off the collection at any time in the browser settings.</p>
+<p>Edge3P Telemetry in Microsoft Edge captures the searches that a user does on third-party search providers without identifying the person or the device only if the user has consented to this collection of data. User can turn off the collection at any time in the browser settings.</p>
 
-<p>If you enable or don't configure this policy, Edge 3P SERP Telemetry feature will be enabled.</p>
+<p>If you enable or don't configure this policy, Edge 3P SERP Telemetry feature is enabled.</p>
 
-<p>If you disable this policy, Edge 3P SERP Telemetry feature will be disabled.</p>
+<p>If you disable this policy, Edge 3P SERP Telemetry feature is disabled.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -26,37 +29,41 @@
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Boolean</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: Edge3PSerpTelemetryEnabled</li>
 <li>GP name: Edge 3P SERP Telemetry Enabled</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
-<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Enabled
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
-<li>Value Name: Edge3PSerpTelemetryEnabled</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: Edge3PSerpTelemetryEnabled</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000001
 </code></p>
-
-

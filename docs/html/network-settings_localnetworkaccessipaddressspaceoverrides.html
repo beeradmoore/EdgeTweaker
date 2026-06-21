@@ -1,0 +1,132 @@
+<h1>Microsoft Edge Browser Policy Documentation LocalNetworkAccessIpAddressSpaceOverrides | Microsoft Learn</h1>
+
+<h2>Override IP address space mappings</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 146</li>
+<li>macOS: ≥ 146</li>
+<li>Android: ≥ 146</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>Specifies IP address space overrides for Local Network Access restrictions. This policy allows administrators to treat specific IP address ranges as public (exempt from Local Network Access restrictions) or as local (subject to Local Network Access restrictions).</p>
+
+<p>IP address space overrides can be specified using one of the following formats:</p>
+
+<p>• [cidr]=[public|local|loopback] where [cidr] is an IP address range in CIDR notation. CIDR overrides apply to all ports.</p>
+
+<p>• [ip-address]:[port]=[public|local|loopback]</p>
+
+<p>IPv6 addresses must be specified in URL-safe (bracketed) format.</p>
+
+<p>For more information about Local Network Access, see https://wicg.github.io/local-network-access/.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: LocalNetworkAccessIpAddressSpaceOverrides</li>
+<li>GP name: Override IP address space mappings</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Network settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+100.64.0.0/10=public
+</code></p>
+
+<p><code>
+[2001:db8::]/32=local
+</code></p>
+
+<p><code>
+192.168.0.1:8000=public
+</code></p>
+
+<p><code>
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\LocalNetworkAccessIpAddressSpaceOverrides</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\LocalNetworkAccessIpAddressSpaceOverrides\1 =</p>
+
+<p><code>
+100.64.0.0/10=public
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\LocalNetworkAccessIpAddressSpaceOverrides\2 =</p>
+
+<p><code>
+[2001:db8::]/32=local
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\LocalNetworkAccessIpAddressSpaceOverrides\3 =</p>
+
+<p><code>
+192.168.0.1:8000=public
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\LocalNetworkAccessIpAddressSpaceOverrides\4 =</p>
+
+<p><code>
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: LocalNetworkAccessIpAddressSpaceOverrides</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;100.64.0.0/10=public&lt;/string&gt;
+  &lt;string&gt;[2001:db8::]/32=local&lt;/string&gt;
+  &lt;string&gt;192.168.0.1:8000=public&lt;/string&gt;
+  &lt;string&gt;[2001:DB8::8:800:200C:417A]:8080=local&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: LocalNetworkAccessIpAddressSpaceOverrides</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+["100.64.0.0/10=public", "[2001:db8::]/32=local", "192.168.0.1:8000=public", "[2001:DB8::8:800:200C:417A]:8080=local"]
+</code></p>

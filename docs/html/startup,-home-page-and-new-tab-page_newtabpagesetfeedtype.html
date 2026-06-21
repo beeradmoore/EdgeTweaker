@@ -1,0 +1,110 @@
+<h1>Microsoft Edge Browser Policy Documentation NewTabPageSetFeedType | Microsoft Learn</h1>
+
+<h2>Configure the Microsoft Edge new tab page experience (obsolete)</h2>
+
+<blockquote>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge version 92.</p>
+</blockquote>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: 79-92</li>
+<li>macOS: 79-92</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy is obsolete because the new version of the enterprise new tab page no longer requires choosing between different content types. Instead, the content that's presented to the user can be controlled via the Microsoft 365 admin center. To get to the Microsoft 365 admin center, sign in at https://admin.microsoft.com with your admin account.</p>
+
+<p>Lets you choose either the Microsoft News or Office 365 feed experience for the new tab page.</p>
+
+<p>If you set this policy to 'News', users see the Microsoft News feed experience on the new tab page.</p>
+
+<p>If you set this policy to 'Office', users with an Azure Active Directory browser sign-in see the Office 365 feed experience on the new tab page.</p>
+
+<p>If you disable or don't configure this policy, users with an Azure Active Directory browser sign-in are offered the Office 365 new tab page feed experience, and the standard new tab page feed experience. Users without an Azure Active Directory browser sign-in to see the standard new tab page experience.</p>
+
+<p>If you enable this policy <em>and</em> the <a href="newtabpagelocation">NewTabPageLocation</a> policy, <a href="newtabpagelocation">NewTabPageLocation</a> has precedence.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li>News (0) = Microsoft News feed experience</li>
+<li>Office (1) = Office 365 feed experience</li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>News (0) = Microsoft News feed experience</li>
+<li>Office (1) = Office 365 feed experience</li>
+</ul>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: NewTabPageSetFeedType</li>
+<li>GP name: Configure the Microsoft Edge new tab page experience (obsolete)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Startup, home page and new tab page</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Startup, home page and new tab page</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+Microsoft News feed experience
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value name: NewTabPageSetFeedType</li>
+<li>Value type: REG_DWORD</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+0x00000000
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: NewTabPageSetFeedType</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;integer&gt;0&lt;/integer&gt;
+</code></p>

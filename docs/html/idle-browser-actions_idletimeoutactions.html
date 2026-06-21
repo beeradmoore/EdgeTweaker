@@ -1,48 +1,91 @@
-<h3>IdleTimeoutActions</h3>
+<h1>Microsoft Edge Browser Policy Documentation IdleTimeoutActions | Microsoft Learn</h1>
 
-<h4>Actions to run when the computer is idle</h4>
+<h2>Actions to run when the computer is idle</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 134 or later</li>
+<li>Windows: ≥ 134</li>
+<li>macOS: ≥ 134</li>
+<li>Android: ≥ 122</li>
+<li>iOS: ≥ 122</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>When the timeout from the IdleTimeout policy is reached, the browser runs the actions configured in this policy.</p>
 
-<p>If you do not configure the IdleTimeout policy, this policy has no effect.</p>
+<p>If you don't configure the IdleTimeout policy, this policy has no effect.</p>
 
-<p>If you do not configure this policy or no actions are selected, the IdleTimeout policy has no effect.</p>
+<p>If you don't configure this policy or no actions are selected, the IdleTimeout policy has no effect.</p>
 
 <p>Supported actions are:</p>
 
-<p>'close_browsers': close all browser windows and PWAs for this profile.</p>
+<p>'close_browsers': close all browser windows and Progressive Web Apps (PWAs) for this profile.</p>
 
-<p>'reload_pages': reload all webpages. For some pages, the user may be prompted for confirmation first.</p>
+<p>'reload_pages': reload all webpages. For some pages, the user might be prompted for confirmation first.</p>
 
-<p>'clear<em>browsing</em>history', 'clear<em>download</em>history', 'clear<em>cookies</em>and<em>other</em>site<em>data', 'clear</em>cached<em>images</em>and<em>files', 'clear</em>password<em>signing', 'clear</em>autofill', 'clear<em>site</em>settings': clear the corresponding browsing data.</p>
+<p>'sign_out': sign out of browser. (This action only applies to iOS.)</p>
 
-<p>Setting 'clear<em>browsing</em>history', 'clear<em>password</em>signing', 'clear<em>autofill', and 'clear</em>site_settings' will disable sync for the respective data types if sync is not already disabled by setting either the SyncDisabled policy or BrowserSignin to disabled.</p>
+<p>'close_tabs': close all open tabs and create an NTP (New Tab Page). Supported in Android and iOS.</p>
+
+<p>'clear_browsing_history', 'clear_download_history', 'clear_cookies_and_other_site_data', 'clear_cached_images_and_files', 'clear_password_signing', 'clear_autofill', 'clear_site_settings': clear the corresponding browsing data. Deleting cookies using this policy doesn't sign the user out of their profile, the user stays signed in.</p>
+
+<p>Setting 'clear_browsing_history', 'clear_password_signing', 'clear_autofill', and 'clear_site_settings' disables sync for the respective data types if sync isn't already disabled by setting either the SyncDisabled policy or BrowserSignin to disabled.</p>
 
 <p>Policy options mapping:</p>
 
 <ul>
-<li><p>close<em>browsers (close</em>browsers) = Close Browsers</p></li>
-<li><p>clear<em>browsing</em>history (clear<em>browsing</em>history) = Clear Browsing History</p></li>
-<li><p>clear<em>download</em>history (clear<em>download</em>history) = Clear Download History</p></li>
-<li><p>clear<em>cookies</em>and<em>other</em>site<em>data (clear</em>cookies<em>and</em>other<em>site</em>data) = Clear Cookies and Other Site Data</p></li>
-<li><p>clear<em>cached</em>images<em>and</em>files (clear<em>cached</em>images<em>and</em>files) = Clear Cached Images and Files</p></li>
-<li><p>clear<em>password</em>signin (clear<em>password</em>signin) = Clear Password Signin</p></li>
-<li><p>clear<em>autofill (clear</em>autofill) = Clear Autofill</p></li>
-<li><p>clear<em>site</em>settings (clear<em>site</em>settings) = Clear Site Settings</p></li>
-<li><p>reload<em>pages (reload</em>pages) = Reload Pages</p></li>
+<li>close_browsers (close_browsers) = Close Browsers</li>
+<li>clear_browsing_history (clear_browsing_history) = Clear Browsing History</li>
+<li>clear_download_history (clear_download_history) = Clear Download History</li>
+<li>clear_cookies_and_other_site_data (clear_cookies_and_other_site_data) = Clear Cookies and Other Site Data</li>
+<li>clear_cached_images_and_files (clear_cached_images_and_files) = Clear Cached Images and Files</li>
+<li>clear_password_signin (clear_password_signin) = Clear Password sign in</li>
+<li>clear_autofill (clear_autofill) = Clear Autofill</li>
+<li>clear_site_settings (clear_site_settings) = Clear Site Settings</li>
+<li>reload_pages (reload_pages) = Reload Pages</li>
+<li>sign_out (sign_out) = Sign Out</li>
+<li>close_tabs (close_tabs) = Close Tabs</li>
 </ul>
 
 <p>Use the preceding information when configuring this policy.</p>
 
-<h4>Supported features:</h4>
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>close_browsers = Close Browsers</li>
+<li>clear_browsing_history = Clear Browsing History</li>
+<li>clear_download_history = Clear Download History</li>
+<li>clear_cookies_and_other_site_data = Clear Cookies and Other Site Data</li>
+<li>clear_cached_images_and_files = Clear Cached Images and Files</li>
+<li>clear_password_signin = Clear Password sign in</li>
+<li>clear_autofill = Clear Autofill</li>
+<li>clear_site_settings = Clear Site Settings</li>
+<li>reload_pages = Reload Pages</li>
+<li>sign_out = Sign Out
+
+<ul>
+<li>Windows: Not supported</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: ≥ 122</li>
+</ul></li>
+<li>close_tabs = Close Tabs
+
+<ul>
+<li>Windows: Not supported</li>
+<li>macOS: Not supported</li>
+<li>Android: ≥ 122</li>
+<li>iOS: ≥ 122</li>
+</ul></li>
+</ul>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -52,15 +95,15 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>List of strings</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: IdleTimeoutActions</li>
@@ -70,32 +113,62 @@
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Close Browsers
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\IdleTimeoutActions</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: 1, 2, 3, ...</li>
-<li>Value Type: list of REG_SZ</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
-<p>```
-SOFTWARE\Policies\Microsoft\Edge\IdleTimeoutActions\1 = "close_browsers"</p>
+<p>SOFTWARE\Policies\Microsoft\Edge\IdleTimeoutActions\1 =</p>
 
-<p>```</p>
+<p><code>
+close_browsers
+</code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: IdleTimeoutActions</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: IdleTimeoutActions</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;array&gt;
-&lt;string&gt;close_browsers&lt;/string&gt;
+  &lt;string&gt;close_browsers&lt;/string&gt;
 &lt;/array&gt;
 </code></p>
 
-</li>
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: IdleTimeoutActions</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>
+["close_browsers"]
+</code></p>
+
+<h2>iOS information and settings</h2>
+
+<ul>
+<li>Preference Key name: IdleTimeoutActions</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;close_browsers&lt;/string&gt;
+&lt;/array&gt;
+</code></p>

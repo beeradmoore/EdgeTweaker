@@ -1,38 +1,80 @@
-<h3>SmartActionsBlockList</h3>
+<h1>Microsoft Edge Browser Policy Documentation SmartActionsBlockList | Microsoft Learn</h1>
 
-<h4>Block smart actions for a list of services</h4>
+<h2>Block smart actions for a list of services</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 89 or later</li>
+<li>Windows: ≥ 89</li>
+<li>macOS: ≥ 89</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>List specific services, such as PDFs, and websites that don't show smart actions. (Smart actions are actions like "define" which are available in full and mini context menus in Microsoft Edge.)</p>
 
-<p>If you enable the policy:
-   - The smart action in the mini and full context menu will be disabled for all profiles for services that match the given list.
-   - Users will not see the smart action in the mini and full context menu on text selection for services that match the given list.
-   - In Microsoft Edge settings, the smart action in the mini and full context menu will be disabled for services that match the given list.</p>
+<p>If you enable the policy:</p>
 
-<p>If you disable or don't configure this policy:
-   - The smart action in the mini and full context menu will be enabled for all profiles.
-   - Users will see the smart action in the mini and full context menu on text selection.
-   - In Microsoft Edge settings, the smart action in the mini and full context menu will be enabled.</p>
+<ul>
+<li>The smart action in the mini and full context menu is disabled for all profiles for services that match the given list.</li>
+<li>Users won't see the smart action in the mini and full context menu on text selection for services that match the given list.</li>
+<li>In Microsoft Edge settings, the smart action in the mini and full context menu is disabled for services that match the given list.</li>
+</ul>
+
+<p>If you disable or don't configure this policy:</p>
+
+<ul>
+<li>The smart action in the mini and full context menu is enabled for all profiles.</li>
+<li>Users will see the smart action in the mini and full context menu on text selection.</li>
+<li>In Microsoft Edge settings, the smart action in the mini and full context menu is enabled.</li>
+</ul>
 
 <p>Policy options mapping:</p>
 
 <ul>
-<li><p>smart<em>actions (smart</em>actions) = Smart actions in pdfs and on websites</p></li>
-<li><p>smart<em>actions</em>website (smart<em>actions</em>website) = Smart actions on websites</p></li>
-<li><p>smart<em>actions</em>pdf (smart<em>actions</em>pdf) = Smart actions in PDF</p></li>
+<li>smart_actions (smart_actions) = Smart actions in pdfs and on websites</li>
+<li>smart_actions_website (smart_actions_website) = Smart actions on websites</li>
+<li>smart_actions_pdf (smart_actions_pdf) = Smart actions in PDF</li>
 </ul>
 
 <p>Use the preceding information when configuring this policy.</p>
 
-<h4>Supported features:</h4>
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>smart_actions = Smart actions in pdfs and on websites
+
+<ul>
+<li>Windows: ≥ 120</li>
+<li>macOS: ≥ 120</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul></li>
+<li>smart_actions_website = Smart actions on websites
+
+<ul>
+<li>Windows: ≥ 120</li>
+<li>macOS: ≥ 120</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul></li>
+<li>smart_actions_pdf = Smart actions in PDF
+
+<ul>
+<li>Windows: ≥ 89</li>
+<li>macOS: ≥ 89</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul></li>
+</ul>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -42,54 +84,78 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>List of strings</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: SmartActionsBlockList</li>
 <li>GP name: Block smart actions for a list of services</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
-<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Smart actions in pdfs and on websites
+</code></p>
+
+<p><code>
+Smart actions on websites
+</code></p>
+
+<p><code>
+Smart actions in PDF
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\SmartActionsBlockList</li>
 <li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended\SmartActionsBlockList</li>
-<li>Value Name: 1, 2, 3, ...</li>
-<li>Value Type: list of REG_SZ</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
-<p>```
-SOFTWARE\Policies\Microsoft\Edge\SmartActionsBlockList\1 = "smart<em>actions"
-SOFTWARE\Policies\Microsoft\Edge\SmartActionsBlockList\2 = "smart</em>actions<em>website"
-SOFTWARE\Policies\Microsoft\Edge\SmartActionsBlockList\3 = "smart</em>actions_pdf"</p>
+<p>SOFTWARE\Policies\Microsoft\Edge\SmartActionsBlockList\1 =</p>
 
-<p>```</p>
-
-<h4>Mac information and settings</h4>
-
-<ul>
-<li>Preference Key Name: SmartActionsBlockList</li>
-<li><p>Example value:
-<code>xml
-&lt;array&gt;
-&lt;string&gt;smart_actions&lt;/string&gt;
-&lt;string&gt;smart_actions_website&lt;/string&gt;
-&lt;string&gt;smart_actions_pdf&lt;/string&gt;
-&lt;/array&gt;
+<p><code>
+smart_actions
 </code></p>
 
-</li>
+<p>SOFTWARE\Policies\Microsoft\Edge\SmartActionsBlockList\2 =</p>
+
+<p><code>
+smart_actions_website
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\SmartActionsBlockList\3 =</p>
+
+<p><code>
+smart_actions_pdf
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: SmartActionsBlockList</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;smart_actions&lt;/string&gt;
+  &lt;string&gt;smart_actions_website&lt;/string&gt;
+  &lt;string&gt;smart_actions_pdf&lt;/string&gt;
+&lt;/array&gt;
+</code></p>

@@ -1,31 +1,25 @@
-<h3>SearchbarAllowed</h3>
+<h1>Microsoft Edge Browser Policy Documentation SearchbarAllowed | Microsoft Learn</h1>
 
-<h4>Enable the Search bar</h4>
+<h2>Enable the Search bar</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows since 117 or later</li>
+<li>Windows: ≥ 117</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
-<p>Enables the search bar. When enabled, users can use the search bar to search the web from their desktop or from an application. The search bar provides a search box, powered by Edge default search engine, that shows web suggestions and opens all web searches in Microsoft Edge. The search bar can be launched from the "More tools" menu or jump list in Microsoft Edge.</p>
+<p>Enables the search bar. When enabled, users can use the search bar to search the web from their desktop or from an application. The search bar provides a search box, powered by Microsoft Edge default search engine, that shows web suggestions and opens all web searches in Microsoft Edge. The search bar can be launched from the "More tools" menu or jump list in Microsoft Edge.</p>
 
-<p>If you enable or don't configure this policy:
-The search bar will be automatically enabled for all profiles.
-The option to enable the search bar at startup will be toggled on if the <a href="#searchbarisenabledonstartup">SearchbarIsEnabledOnStartup</a> policy is enabled.
-If the <a href="#searchbarisenabledonstartup">SearchbarIsEnabledOnStartup</a> is disabled or not configured, the option to enable the search bar at startup will be toggled off.
-Users will see the menu item to launch the search bar from the Microsoft Edge "More tools" menu. Users can launch the search bar from "More tools".
-Users will see the menu item to launch the search bar from the Microsoft Edge jump list menu. Users can launch the search bar from the Microsoft Edge jump list menu.
-The search bar can be turned off by the "Quit" option in the System tray or by closing the search bar from the 3 dot menu. The search bar will be restarted on system reboot if auto-start is enabled.</p>
+<p>If you enable or don't configure this policy, the following results can be seen: The search bar is automatically enabled for all profiles. The option to enable the search bar at startup is toggled on if the <a href="searchbarisenabledonstartup">SearchbarIsEnabledOnStartup</a> policy is enabled. If the <a href="searchbarisenabledonstartup">SearchbarIsEnabledOnStartup</a> is disabled or not configured, the option to enable the search bar at startup is toggled off. Users will see the menu item to launch the search bar from the Microsoft Edge "More tools" menu. Users can launch the search bar from "More tools". Users will see the menu item to launch the search bar from the Microsoft Edge jump list menu. Users can launch the search bar from the Microsoft Edge jump list menu. The search bar can be turned off by the "Quit" option in the System tray or by closing the search bar from the 3-dot menu. The search bar is restarted on system reboot if auto-start is enabled.</p>
 
-<p>If you disable this policy:
-The search bar will be disabled for all profiles.
-The option to launch the search bar from Microsoft Edge "More tools" menu will be disabled.
-The option to launch the search bar from Microsoft Edge jump list menu will be disabled.</p>
+<p>If you disable this policy: The search bar will be disabled for all profiles. The option to launch the search bar from Microsoft Edge "More tools" menu will be disabled. The option to launch the search bar from Microsoft Edge jump list menu will be disabled.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -35,37 +29,41 @@ The option to launch the search bar from Microsoft Edge jump list menu will be d
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Boolean</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: SearchbarAllowed</li>
 <li>GP name: Enable the Search bar</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Enabled
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: SearchbarAllowed</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: SearchbarAllowed</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000001
 </code></p>
-
-

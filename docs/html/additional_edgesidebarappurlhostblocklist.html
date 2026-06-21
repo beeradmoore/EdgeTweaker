@@ -1,26 +1,31 @@
-<h3>EdgeSidebarAppUrlHostBlockList</h3>
+<h1>Microsoft Edge Browser Policy Documentation EdgeSidebarAppUrlHostBlockList | Microsoft Learn</h1>
 
-<h4>Control which apps cannot be opened in Microsoft Edge sidebar</h4>
+<h2>Control which apps cannot be opened in Microsoft Edge sidebar</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 127 or later</li>
+<li>Windows: ≥ 127</li>
+<li>macOS: ≥ 127</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>Define a list of sites, based on URL patterns, that cannot be opened in sidebar.</p>
 
 <p>If you don't configure this policy, a user can open any app in sidebar.</p>
 
-<p>If the <a href="#hubssidebarenabled">HubsSidebarEnabled</a> policy is disabled, this list isn't used and no sidebar can be opened.</p>
+<p>If the <a href="hubssidebarenabled">HubsSidebarEnabled</a> policy is disabled, this list isn't used and no sidebar can be opened.</p>
 
-<p>For detailed information about valid url patterns, see <a href="https://go.microsoft.com/fwlink/?linkid=2281313">https://go.microsoft.com/fwlink/?linkid=2281313</a>.</p>
+<p>For detailed information about valid url patterns, see https://go.microsoft.com/fwlink/?linkid=2281313.</p>
 
-<p>Note: A blocklist value of '*' means all apps are blocked unless they are explicitly listed in the <a href="#edgesidebarappurlhostallowlist">EdgeSidebarAppUrlHostAllowList</a> policy.</p>
+<p>Note: A blocklist value of '*' means all apps are blocked unless they are explicitly listed in the <a href="edgesidebarappurlhostallowlist">EdgeSidebarAppUrlHostAllowList</a> policy.</p>
 
-<h4>Supported features:</h4>
+<p>Starting in Microsoft Edge version 149, the <a href="microsoft365copilotchaticonenabled">Microsoft365CopilotChatIconEnabled</a> policy controls the display of Copilot in the sidebar.</p>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -30,52 +35,67 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>List of strings</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: EdgeSidebarAppUrlHostBlockList</li>
 <li>GP name: Control which apps cannot be opened in Microsoft Edge sidebar</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+https://www.contoso.com
+</code></p>
+
+<p><code>
+[*.]contoso.edu
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\EdgeSidebarAppUrlHostBlockList</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: 1, 2, 3, ...</li>
-<li>Value Type: list of REG_SZ</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
-<p>```
-SOFTWARE\Policies\Microsoft\Edge\EdgeSidebarAppUrlHostBlockList\1 = "https://www.contoso.com"
-SOFTWARE\Policies\Microsoft\Edge\EdgeSidebarAppUrlHostBlockList\2 = "[*.]contoso.edu"</p>
+<p>SOFTWARE\Policies\Microsoft\Edge\EdgeSidebarAppUrlHostBlockList\1 =</p>
 
-<p>```</p>
-
-<h4>Mac information and settings</h4>
-
-<ul>
-<li>Preference Key Name: EdgeSidebarAppUrlHostBlockList</li>
-<li><p>Example value:
-<code>xml
-&lt;array&gt;
-&lt;string&gt;https://www.contoso.com&lt;/string&gt;
-&lt;string&gt;[*.]contoso.edu&lt;/string&gt;
-&lt;/array&gt;
+<p><code>
+https://www.contoso.com
 </code></p>
 
-</li>
+<p>SOFTWARE\Policies\Microsoft\Edge\EdgeSidebarAppUrlHostBlockList\2 =</p>
+
+<p><code>
+[*.]contoso.edu
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: EdgeSidebarAppUrlHostBlockList</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;https://www.contoso.com&lt;/string&gt;
+  &lt;string&gt;[*.]contoso.edu&lt;/string&gt;
+&lt;/array&gt;
+</code></p>

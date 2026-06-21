@@ -1,0 +1,97 @@
+<h1>Microsoft Edge Browser Policy Documentation DataUrlInWebWorkerOpaqueOriginEnabled | Microsoft Learn</h1>
+
+<h2>Enable opaque origins for data URLs in Web Workers</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 149</li>
+<li>macOS: ≥ 149</li>
+<li>Android: ≥ 149</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy controls whether Web Workers created from data URLs are assigned a unique opaque origin.</p>
+
+<p>Web Workers can be created using a data URL that contains the worker script. Previously, these workers inherited the origin of the page that created them, which allowed them to access the same origin-bound data, such as local storage and cookies.</p>
+
+<p>Starting in Microsoft Edge version 149, Web Workers created from data URLs are assigned a unique opaque origin by default. This behavior improves security and aligns with the HTML specification by isolating these workers from the page that created them.</p>
+
+<p>If you enable this policy or don't configure it, Web Workers created from data URLs are assigned a unique opaque origin.</p>
+
+<p>If you disable this policy, Web Workers created from data URLs inherit the origin of the page that created them. Use this setting only as a temporary mitigation for compatibility issues with internal applications that depend on the legacy behavior.</p>
+
+<p>This policy is temporary and will be removed in Microsoft Edge version 157.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: DataUrlInWebWorkerOpaqueOriginEnabled</li>
+<li>GP name: Enable opaque origins for data URLs in Web Workers</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+Disabled
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: DataUrlInWebWorkerOpaqueOriginEnabled</li>
+<li>Value type: REG_DWORD</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+0x00000000
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: DataUrlInWebWorkerOpaqueOriginEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;false/&gt;
+</code></p>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: DataUrlInWebWorkerOpaqueOriginEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+false
+</code></p>

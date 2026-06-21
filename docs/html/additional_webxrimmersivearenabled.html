@@ -1,0 +1,49 @@
+<h1>Microsoft Edge Browser Policy Documentation WebXRImmersiveArEnabled | Microsoft Learn</h1>
+
+<h2>Allow creating WebXR's "immersive-ar" sessions</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: Not supported</li>
+<li>macOS: Not supported</li>
+<li>Android: ≥ 147</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>Configures whether the sites that the user navigates to are allowed to create immersive Augmented Reality sessions using WebXR Device API.</p>
+
+<p>When this policy is unset or enabled, the WebXR Device API will accept "immersive-ar" during session creation, thus allowing the users to enter Augmented Reality experiences.</p>
+
+<p>When this policy is disabled, the WebXR Device API will reject requests to create sessions with mode set to "immersive-ar". The existing "immersive-ar" sessions (if any) will not be terminated.</p>
+
+<p>For more details about "immersive-ar" sessions, please see WebXR Augmented Reality Module specification.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: WebXRImmersiveArEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+true
+</code></p>

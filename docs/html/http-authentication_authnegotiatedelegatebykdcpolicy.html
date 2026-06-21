@@ -1,0 +1,45 @@
+<h1>Microsoft Edge Browser Policy Documentation AuthNegotiateDelegateByKdcPolicy | Microsoft Learn</h1>
+
+<h2>Use KDC policy to delegate credentials.</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: Not supported</li>
+<li>macOS: ≥ 147</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>If you enable this policy, HTTP authentication honors approval from the Key Distribution Center (KDC). Microsoft Edge delegates user credentials to the requested service only when the KDC sets the OK-AS-DELEGATE flag on the service ticket, as defined in RFC 5896 (https://tools.ietf.org/html/rfc5896.html). The service must also be included in the AuthNegotiateDelegateAllowlist policy.</p>
+
+<p>If you disable or don't configure this policy, Microsoft Edge ignores approval from the Key Distribution Center (KDC) on supported platforms and delegates credentials only to services specified in AuthNegotiateDelegateAllowlist.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: AuthNegotiateDelegateByKdcPolicy</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;true/&gt;
+</code></p>

@@ -1,24 +1,27 @@
-<h3>PrintRasterizePdfDpi</h3>
+<h1>Microsoft Edge Browser Policy Documentation PrintRasterizePdfDpi | Microsoft Learn</h1>
 
-<h4>Print Rasterize PDF DPI</h4>
+<h2>Print Rasterize PDF DPI</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 96 or later</li>
+<li>Windows: ≥ 96</li>
+<li>macOS: ≥ 96</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>Controls print image resolution when Microsoft Edge prints PDFs with rasterization.</p>
 
-<p>When printing a PDF using the Print to image option, it can be beneficial to specify a print resolution other than a device's printer setting or the PDF default.  A high resolution will significantly increase the processing and printing time while a low resolution can lead to poor imaging quality.</p>
+<p>When printing a PDF using the Print to image option, it can be beneficial to specify a print resolution other than a device's printer setting or the PDF default. A high resolution significantly increases the processing and printing time while a low resolution can lead to poor imaging quality.</p>
 
 <p>If you set this policy, it allows a particular resolution to be specified for use when rasterizing PDFs for printing.</p>
 
-<p>If you set this policy to zero or don't configure it, the system default resolution will be used during rasterization of page images.</p>
+<p>If you set this policy to zero or don't configure it, the system default resolution is used during rasterization of page images.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -28,15 +31,15 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Integer</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: PrintRasterizePdfDpi</li>
@@ -46,29 +49,34 @@
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+300
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: PrintRasterizePdfDpi</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: PrintRasterizePdfDpi</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x0000012c
 </code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: PrintRasterizePdfDpi</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: PrintRasterizePdfDpi</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;integer&gt;300&lt;/integer&gt;
 </code></p>
-
-</li>
-</ul>

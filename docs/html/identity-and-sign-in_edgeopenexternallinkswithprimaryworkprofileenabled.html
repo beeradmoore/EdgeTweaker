@@ -1,0 +1,96 @@
+<h1>Microsoft Edge Browser Policy Documentation EdgeOpenExternalLinksWithPrimaryWorkProfileEnabled | Microsoft Learn</h1>
+
+<h2>Use Primary Work Profile as default to open external links</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 138</li>
+<li>macOS: ≥ 138</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy controls whether Microsoft Edge uses the Primary Work Profile as the default profile when opening external links.</p>
+
+<ol>
+<li>On Windows, the Primary Work Profile refers to the profile signed in with the Entra ID account used to enroll the device.</li>
+<li>On macOS and Linux, the Primary Work Profile is the only profile signed in with an Entra ID account. If multiple profiles are signed in with Entra ID accounts, the Primary Work Profile setting doesn't apply.</li>
+</ol>
+
+<p>Policy behavior:</p>
+
+<ol>
+<li>If enabled or not configured, Microsoft Edge uses the Primary Work Profile as the default for opening external links.</li>
+<li>If disabled, the last used profile becomes the default for opening external links.</li>
+</ol>
+
+<p>Note: This policy doesn't override the following scenarios:</p>
+
+<ol>
+<li>If the EdgeDefaultProfileEnabled policy is set, it takes precedence over this policy.</li>
+<li>External links opened from Outlook or Microsoft Teams may be configured to launch in a specific profile, which can override the Primary Work Profile setting.</li>
+<li>If the user sets a preference for "Default profile for external links" in Profile preferences, that setting takes effect.</li>
+</ol>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: No</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: EdgeOpenExternalLinksWithPrimaryWorkProfileEnabled</li>
+<li>GP name: Use Primary Work Profile as default to open external links</li>
+<li>GP path (Mandatory): N/A</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Identity and sign-in</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+Disabled
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): N/A</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value name: EdgeOpenExternalLinksWithPrimaryWorkProfileEnabled</li>
+<li>Value type: REG_DWORD</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+0x00000000
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: EdgeOpenExternalLinksWithPrimaryWorkProfileEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;false/&gt;
+</code></p>

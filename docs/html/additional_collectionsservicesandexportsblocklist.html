@@ -1,14 +1,17 @@
-<h3>CollectionsServicesAndExportsBlockList</h3>
+<h1>Microsoft Edge Browser Policy Documentation CollectionsServicesAndExportsBlockList | Microsoft Learn</h1>
 
-<h4>Block access to a specified list of services and export targets in Collections</h4>
+<h2>Block access to a specified list of services and export targets in Collections</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 86 or later</li>
+<li>Windows: ≥ 86</li>
+<li>macOS: ≥ 86</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>List specific services and export targets that users can't access in the Collections feature in Microsoft Edge. This includes displaying additional data from Bing and exporting collections to Microsoft products or external partners.</p>
 
@@ -19,18 +22,48 @@
 <p>Policy options mapping:</p>
 
 <ul>
-<li><p>pinterest<em>suggestions (pinterest</em>suggestions) = Pinterest suggestions</p></li>
-<li><p>collections<em>share (collections</em>share) = Sharing of Collections</p></li>
-<li><p>local<em>pdf (local</em>pdf) = Save local PDFs in Collections to OneDrive</p></li>
-<li><p>send<em>word (send</em>word) = Send collection to Microsoft Word</p></li>
-<li><p>send<em>excel (send</em>excel) = Send collection to Microsoft Excel</p></li>
-<li><p>send<em>onenote (send</em>onenote) = Send collection to Microsoft OneNote</p></li>
-<li><p>send<em>pinterest (send</em>pinterest) = Send collection to Pinterest</p></li>
+<li>pinterest_suggestions (pinterest_suggestions) = Pinterest suggestions</li>
+<li>collections_share (collections_share) = Sharing of Collections</li>
+<li>local_pdf (local_pdf) = Save local PDFs in Collections to OneDrive</li>
+<li>send_word (send_word) = Send collection to Microsoft Word</li>
+<li>send_excel (send_excel) = Send collection to Microsoft Excel</li>
+<li>send_onenote (send_onenote) = Send collection to Microsoft OneNote</li>
+<li>send_pinterest (send_pinterest) = Send collection to Pinterest</li>
 </ul>
 
 <p>Use the preceding information when configuring this policy.</p>
 
-<h4>Supported features:</h4>
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>pinterest_suggestions = Pinterest suggestions
+
+<ul>
+<li>Windows: 86-105</li>
+<li>macOS: 86-105</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul></li>
+<li>collections_share = Sharing of Collections</li>
+<li>local_pdf = Save local PDFs in Collections to OneDrive</li>
+<li>send_word = Send collection to Microsoft Word</li>
+<li>send_excel = Send collection to Microsoft Excel</li>
+<li>send_onenote = Send collection to Microsoft OneNote</li>
+<li>send_pinterest = Send collection to Pinterest
+
+<ul>
+<li>Windows: 86-105</li>
+<li>macOS: 86-105</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul></li>
+</ul>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -40,58 +73,100 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>List of strings</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: CollectionsServicesAndExportsBlockList</li>
 <li>GP name: Block access to a specified list of services and export targets in Collections</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Sharing of Collections
+</code></p>
+
+<p><code>
+Save local PDFs in Collections to OneDrive
+</code></p>
+
+<p><code>
+Send collection to Microsoft Word
+</code></p>
+
+<p><code>
+Send collection to Microsoft Excel
+</code></p>
+
+<p><code>
+Send collection to Microsoft OneNote
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: 1, 2, 3, ...</li>
-<li>Value Type: list of REG_SZ</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
-<p>```
-SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList\1 = "collections<em>share"
-SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList\2 = "local</em>pdf"
-SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList\3 = "send<em>word"
-SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList\4 = "send</em>excel"
-SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList\5 = "send_onenote"</p>
+<p>SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList\1 =</p>
 
-<p>```</p>
-
-<h4>Mac information and settings</h4>
-
-<ul>
-<li>Preference Key Name: CollectionsServicesAndExportsBlockList</li>
-<li><p>Example value:
-<code>xml
-&lt;array&gt;
-&lt;string&gt;collections_share&lt;/string&gt;
-&lt;string&gt;local_pdf&lt;/string&gt;
-&lt;string&gt;send_word&lt;/string&gt;
-&lt;string&gt;send_excel&lt;/string&gt;
-&lt;string&gt;send_onenote&lt;/string&gt;
-&lt;/array&gt;
+<p><code>
+collections_share
 </code></p>
 
-</li>
+<p>SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList\2 =</p>
+
+<p><code>
+local_pdf
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList\3 =</p>
+
+<p><code>
+send_word
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList\4 =</p>
+
+<p><code>
+send_excel
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList\5 =</p>
+
+<p><code>
+send_onenote
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: CollectionsServicesAndExportsBlockList</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;collections_share&lt;/string&gt;
+  &lt;string&gt;local_pdf&lt;/string&gt;
+  &lt;string&gt;send_word&lt;/string&gt;
+  &lt;string&gt;send_excel&lt;/string&gt;
+  &lt;string&gt;send_onenote&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
