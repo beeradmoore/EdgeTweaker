@@ -14,6 +14,7 @@ ms.date: 2026-05-20T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
+ms.subservice: edge-admin
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 ms.custom: 
@@ -21,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 6c79ea0c-db9e-41e3-41a6-9a8d794b2bff
 document_version_independent_id: 6c79ea0c-db9e-41e3-41a6-9a8d794b2bff
-updated_at: 2026-05-22T04:11:00.0000000Z
+updated_at: 2026-06-15T22:43:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/ShadowStackCrashRollbackBehavior.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/7994bce7d6018fbcf8930c7152ea4c5b85aadcfd/edgeenterprise/microsoft-edge-policies/ShadowStackCrashRollbackBehavior.md
-git_commit_id: 7994bce7d6018fbcf8930c7152ea4c5b85aadcfd
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/8cd4d512de65e3d5eaef17bde3d3d32d6cc79a76/edgeenterprise/microsoft-edge-policies/ShadowStackCrashRollbackBehavior.md
+git_commit_id: 8cd4d512de65e3d5eaef17bde3d3d32d6cc79a76
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual

@@ -1,6 +1,6 @@
 {
-  "policy_date": "2026-05-22T04:11:00.0000000Z",
-  "last_updated": "2026-06-07",
+  "policy_date": "2026-06-15T22:43:00.0000000Z",
+  "last_updated": "2026-06-22",
   "policy_groups": {
     "Accessibility": {
       "name": "Accessibility",
@@ -68,7 +68,7 @@
           "android_preference_example_value": "false",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -939,7 +939,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -972,7 +972,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -1005,7 +1005,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -1015,7 +1015,7 @@
           "link": "microsoft-edge-policies/onsecurityevententerpriseconnector",
           "data_type": "dictionary",
           "markdown": "",
-          "summary": "Defines the Microsoft Edge for Business Reporting Connectors service settings that apply when a security event occurs in Microsoft Edge. These events include negative verdicts from Data Loss Prevention Connectors, password reuse, navigation to unsafe pages, and other security-sensitive actions.\r\n\r\nThe service\\_provider field specifies the reporting service provider. The enabled\\_event\\_names field lists the security events enabled for that provider.\r\n\r\nThis policy requires additional setup to take effect. For configuration guidance, see https://go.microsoft.com/fwlink/?linkid=2325446.",
+          "summary": "Defines the Microsoft Edge for Business Reporting Connectors service settings that apply when a security event occurs in Microsoft Edge. These events include negative verdicts from Data Loss Prevention Connectors, password reuse, navigation to unsafe pages, and other security-sensitive actions.\r\n\r\nThe service\\_provider field specifies the reporting service provider. The enabled\\_event\\_names field lists the security events enabled for that provider.\r\n\r\nThis policy can only be configured through the Microsoft 365 Admin Center. It requires additional setup to take effect. For configuration guidance, see https://go.microsoft.com/fwlink/?linkid=2325446",
           "platform_windows": true,
           "platform_macos": true,
           "platform_android": true,
@@ -1038,7 +1038,7 @@
           "android_preference_example_value": "[{\u0022enabled_event_names\u0022: [\u0022passwordChangedEvent\u0022, \u0022sensitiveDataEvent\u0022], \u0022enabled_opt_in_events\u0022: [{\u0022name\u0022: \u0022loginEvent\u0022, \u0022url_patterns\u0022: [\u0022*\u0022]}, {\u0022name\u0022: \u0022passwordBreachEvent\u0022, \u0022url_patterns\u0022: [\u0022example.com\u0022, \u0022other.example.com\u0022]}], \u0022service_provider\u0022: \u0022microsoft\u0022}]",
           "ios_preference_key_name": "OnSecurityEventEnterpriseConnector",
           "ios_preference_example_value": "\u003Ckey\u003EOnSecurityEventEnterpriseConnector\u003C/key\u003E\r\n\u003Carray\u003E\r\n  \u003Cdict\u003E\r\n    \u003Ckey\u003Eenabled_event_names\u003C/key\u003E\r\n    \u003Carray\u003E\r\n      \u003Cstring\u003EpasswordChangedEvent\u003C/string\u003E\r\n      \u003Cstring\u003EsensitiveDataEvent\u003C/string\u003E\r\n    \u003C/array\u003E\r\n    \u003Ckey\u003Eenabled_opt_in_events\u003C/key\u003E\r\n    \u003Carray\u003E\r\n      \u003Cdict\u003E\r\n        \u003Ckey\u003Ename\u003C/key\u003E\r\n        \u003Cstring\u003EloginEvent\u003C/string\u003E\r\n        \u003Ckey\u003Eurl_patterns\u003C/key\u003E\r\n        \u003Carray\u003E\r\n          \u003Cstring\u003E*\u003C/string\u003E\r\n        \u003C/array\u003E\r\n      \u003C/dict\u003E\r\n      \u003Cdict\u003E\r\n        \u003Ckey\u003Ename\u003C/key\u003E\r\n        \u003Cstring\u003EpasswordBreachEvent\u003C/string\u003E\r\n        \u003Ckey\u003Eurl_patterns\u003C/key\u003E\r\n        \u003Carray\u003E\r\n          \u003Cstring\u003Eexample.com\u003C/string\u003E\r\n          \u003Cstring\u003Eother.example.com\u003C/string\u003E\r\n        \u003C/array\u003E\r\n      \u003C/dict\u003E\r\n    \u003C/array\u003E\r\n    \u003Ckey\u003Eservice_provider\u003C/key\u003E\r\n    \u003Cstring\u003Emicrosoft\u003C/string\u003E\r\n  \u003C/dict\u003E\r\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         }
@@ -1467,7 +1467,7 @@
           "android_preference_example_value": "1",
           "ios_preference_key_name": "DefaultDesktopSiteSetting",
           "ios_preference_example_value": "\u003Cinteger\u003E1\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [
             {
               "value": "1",
@@ -1648,7 +1648,7 @@
           "android_preference_example_value": "1",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [
             {
               "value": "1",
@@ -1917,7 +1917,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [
             {
               "value": "2",
@@ -2318,7 +2318,7 @@
           "android_preference_example_value": "[\u0022[*.]example.edu\u0022]",
           "ios_preference_key_name": "DesktopSiteForceForUrls",
           "ios_preference_example_value": "\u003Carray\u003E\r\n  \u003Cstring\u003E[*.]example.edu\u003C/string\u003E\r\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -2351,7 +2351,7 @@
           "android_preference_example_value": "[\u0022[*.]example.edu\u0022]",
           "ios_preference_key_name": "EdgeFileUploadAllowedForUrls",
           "ios_preference_example_value": "\u003Carray\u003E\r\n  \u003Cstring\u003E[*.]example.edu\u003C/string\u003E\r\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -2384,7 +2384,7 @@
           "android_preference_example_value": "[\u0022[*.]example.edu\u0022]",
           "ios_preference_key_name": "EdgeFileUploadBlockedForUrls",
           "ios_preference_example_value": "\u003Carray\u003E\r\n  \u003Cstring\u003E[*.]example.edu\u003C/string\u003E\r\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -2549,7 +2549,7 @@
           "android_preference_example_value": "[\u0022https://www.example.com\u0022, \u0022[*.]example.edu\u0022]",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -2582,7 +2582,7 @@
           "android_preference_example_value": "[\u0022https://www.example.com\u0022, \u0022[*.]example.edu\u0022]",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -2615,7 +2615,7 @@
           "android_preference_example_value": "[\u0022https://www.example.com\u0022, \u0022[*.]example.edu\u0022]",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -3088,7 +3088,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -3121,7 +3121,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -3154,7 +3154,7 @@
           "android_preference_example_value": "[\u0022[*.]example.edu\u0022]",
           "ios_preference_key_name": "MobileSiteForceForUrls",
           "ios_preference_example_value": "\u003Carray\u003E\r\n  \u003Cstring\u003E[*.]example.edu\u003C/string\u003E\r\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -3286,7 +3286,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -3451,7 +3451,7 @@
           "android_preference_example_value": "[\u0022https://www.example.com\u0022, \u0022[*.]example.edu\u0022]",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -4084,7 +4084,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "EdgeCopilotEnabled",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -4094,7 +4094,7 @@
           "link": "microsoft-edge-policies/edgeentracopilotpagecontext",
           "data_type": "boolean",
           "markdown": "",
-          "summary": "This policy controls whether Copilot in the Microsoft Edge side pane can access page content. This includes page summarization and other contextual queries.\r\n\r\nThis policy applies only to users who are signed in to Microsoft Edge with a Microsoft Entra account and are using Copilot in the side pane. It applies to Copilot experiences in the side pane, including Microsoft 365 Copilot Business Chat and Microsoft Copilot with enterprise data protection (EDP).\r\n\r\nIf you enable this policy, Copilot can access page content when users submit contextual queries in the side pane.\r\n\r\nIf you disable this policy, Copilot can\u0027t access page content. This also disables the M365LinksAutoOpenCopilotEnabled feature, because Copilot requires page content access to provide contextual insights for Microsoft 365 links.\r\n\r\nIf you don\u0027t configure this policy:\r\n\r\n- Access is enabled by default in non-EU regions.\r\n- Access is disabled by default in EU regions.\r\n- Users can turn this setting on or off in Microsoft Edge settings.\r\n\r\nCopilot can\u0027t access page content on pages protected by data loss prevention (DLP) policies, even if this policy is enabled.\r\n\r\nFor more information about Copilot data usage and consent, see https://go.microsoft.com/fwlink/?linkid=2288056",
+          "summary": "This policy controls whether Copilot in the Microsoft Edge side pane can access page content. This includes page summarization and other contextual queries.\r\n\r\nThis policy applies only to users who are signed in to Microsoft Edge with a Microsoft Entra account and are using Copilot in the side pane. It applies to Copilot experiences in the side pane, including Microsoft 365 Copilot Business Chat and Microsoft Copilot with enterprise data protection (EDP).\r\n\r\nIf you enable this policy, Copilot can access page content when users initiate contextual queries in the side pane or from Edge.\r\n\r\nIf you disable this policy, Copilot can\u0027t access page content. This also disables the M365LinksAutoOpenCopilotEnabled feature, because Copilot requires page content access to provide contextual insights for Microsoft 365 links.\r\n\r\nIf you don\u0027t configure this policy:\r\n\r\n- Access is enabled by default in non-EU regions.\r\n- Access is disabled by default in EU regions.\r\n- Users can turn this setting on or off in Microsoft Edge settings.\r\n\r\nCopilot can\u0027t access page content on pages protected by data loss prevention (DLP) policies, even if this policy is enabled.\r\n\r\nFor more information about Copilot data usage and consent, see https://go.microsoft.com/fwlink/?linkid=2288056",
           "platform_windows": true,
           "platform_macos": true,
           "platform_android": false,
@@ -4150,7 +4150,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         }
@@ -4189,7 +4189,7 @@
           "android_preference_example_value": "cnsa",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [
             {
               "value": "cnsa",
@@ -4233,7 +4233,7 @@
           "android_preference_example_value": "cnsa2",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [
             {
               "value": "cnsa2",
@@ -4784,7 +4784,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -4817,7 +4817,7 @@
           "android_preference_example_value": "[\u0022exe\u0022, \u0022msi\u0022, \u0022bat\u0022, \u0022cmd\u0022]",
           "ios_preference_key_name": "DownloadBlockedForFileTypes",
           "ios_preference_example_value": "\u003Carray\u003E\r\n  \u003Cstring\u003Eexe\u003C/string\u003E\r\n  \u003Cstring\u003Emsi\u003C/string\u003E\r\n  \u003Cstring\u003Ebat\u003C/string\u003E\r\n  \u003Cstring\u003Ecmd\u003C/string\u003E\r\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -5603,7 +5603,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -6035,7 +6035,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         }
@@ -6328,7 +6328,7 @@
           "android_preference_example_value": "com.example.spnego",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -6394,7 +6394,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -6730,7 +6730,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "EdgeBlockSignInEnabled",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -6796,7 +6796,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -6829,7 +6829,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -6862,7 +6862,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -6994,7 +6994,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -7291,7 +7291,7 @@
           "android_preference_example_value": "false",
           "ios_preference_key_name": "WebSSOInIframeEnabled",
           "ios_preference_example_value": "\u003Cfalse/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -7860,7 +7860,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "ImportPasswordsDisabled",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -9025,7 +9025,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -9058,7 +9058,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -9091,7 +9091,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -9229,7 +9229,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "AllowEdgeDataInBackups",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -9262,7 +9262,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "EdgeAllowedAccountOnly",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -9295,7 +9295,7 @@
           "android_preference_example_value": "{EnrollmentUser}",
           "ios_preference_key_name": "EdgeAllowedAccountUPN",
           "ios_preference_example_value": "\u003Cstring\u003E{EnrollmentUser}\u003C/string\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -9526,7 +9526,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -9559,7 +9559,7 @@
           "android_preference_example_value": "[{\u0022name\u0022: \u0022Outlook\u0022, \u0022url\u0022: \u0022https://outlook.office.com\u0022}, {\u0022name\u0022: \u0022Microsoft\u0022, \u0022url\u0022: \u0022https://www.microsoft.com\u0022}]",
           "ios_preference_key_name": "ManagedTopSites",
           "ios_preference_example_value": "\u003Ckey\u003EManagedTopSites\u003C/key\u003E\r\n\u003Carray\u003E\r\n  \u003Cdict\u003E\r\n    \u003Ckey\u003Ename\u003C/key\u003E\r\n    \u003Cstring\u003EOutlook\u003C/string\u003E\r\n    \u003Ckey\u003Eurl\u003C/key\u003E\r\n    \u003Cstring\u003Ehttps://outlook.office.com\u003C/string\u003E\r\n  \u003C/dict\u003E\r\n  \u003Cdict\u003E\r\n    \u003Ckey\u003Ename\u003C/key\u003E\r\n    \u003Cstring\u003EMicrosoft\u003C/string\u003E\r\n    \u003Ckey\u003Eurl\u003C/key\u003E\r\n    \u003Cstring\u003Ehttps://www.microsoft.com\u003C/string\u003E\r\n  \u003C/dict\u003E\r\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         }
@@ -9874,7 +9874,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -10121,7 +10121,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "EdgeNetworkStackPref",
           "ios_preference_example_value": "\u003Cinteger\u003E0\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [
             {
               "value": "0",
@@ -10257,7 +10257,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -10323,7 +10323,7 @@
           "android_preference_example_value": "[\u0022http://www.example.com:8080\u0022, \u0022[*.]example.edu\u0022, \u0022*\u0022]",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -10356,7 +10356,7 @@
           "android_preference_example_value": "[\u0022http://www.example.com:8080\u0022, \u0022[*.]example.edu\u0022, \u0022*\u0022]",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -10389,7 +10389,7 @@
           "android_preference_example_value": "[\u0022100.64.0.0/10=public\u0022, \u0022[2001:db8::]/32=local\u0022, \u0022192.168.0.1:8000=public\u0022, \u0022[2001:DB8::8:800:200C:417A]:8080=local\u0022]",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -10422,7 +10422,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -10455,7 +10455,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -10488,7 +10488,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -10521,7 +10521,7 @@
           "android_preference_example_value": "[\u0022http://www.example.com:8080\u0022, \u0022[*.]example.edu\u0022, \u0022*\u0022]",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -10554,7 +10554,7 @@
           "android_preference_example_value": "[\u0022http://www.example.com:8080\u0022, \u0022[*.]example.edu\u0022, \u0022*\u0022]",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -10587,7 +10587,7 @@
           "android_preference_example_value": "[\u0022http://www.example.com:8080\u0022, \u0022[*.]example.edu\u0022, \u0022*\u0022]",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -10620,7 +10620,7 @@
           "android_preference_example_value": "[\u0022http://www.example.com:8080\u0022, \u0022[*.]example.edu\u0022, \u0022*\u0022]",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -11077,7 +11077,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "BiometricAuthenticationBeforeFilling",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -11308,7 +11308,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "PasswordManagerPasskeysEnabled",
           "ios_preference_example_value": "\u003Cfalse/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -11604,7 +11604,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         }
@@ -11905,7 +11905,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -13335,7 +13335,7 @@
           "android_preference_example_value": "false",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         }
@@ -13466,7 +13466,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -13676,7 +13676,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -13709,7 +13709,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -13775,7 +13775,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         }
@@ -14301,7 +14301,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [
             {
               "value": "0",
@@ -14992,7 +14992,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [
             {
               "value": "0",
@@ -15228,7 +15228,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -15542,7 +15542,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -15959,7 +15959,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "AntiParallelOnStartUpEnabled",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -16534,7 +16534,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -16847,7 +16847,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -17028,7 +17028,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -17061,7 +17061,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -17094,7 +17094,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -17861,7 +17861,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -17894,7 +17894,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "CopilotNewTabPageEnabled",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -17927,7 +17927,7 @@
           "android_preference_example_value": "4",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -17993,7 +17993,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "CredentialProviderPromoEnabled",
           "ios_preference_example_value": "\u003Cfalse/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -18158,7 +18158,7 @@
           "android_preference_example_value": "false",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -18597,7 +18597,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -18630,7 +18630,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -19194,7 +19194,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "EdgeBrandColor",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -19227,7 +19227,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "EdgeBrandLogo",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -19293,7 +19293,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "EdgeDisableShareUsageData",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -19458,7 +19458,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -19491,7 +19491,7 @@
           "android_preference_example_value": "[\u0022newtabs\u0022]",
           "ios_preference_key_name": "EdgeLockedViewModeAllowedActions",
           "ios_preference_example_value": "\u003Carray\u003E\r\n  \u003Cstring\u003Enewtabs\u003C/string\u003E\r\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [
             {
               "value": "newtabs",
@@ -19530,7 +19530,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "EdgeLockedViewModeEnabled",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -19563,7 +19563,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "EdgeMyApps",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -19596,7 +19596,7 @@
           "android_preference_example_value": "10.0.0.0:8000",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -19662,7 +19662,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "EdgeProxyPacFailOpenEnabled",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -19695,7 +19695,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "EdgeProxyPacUrl",
           "ios_preference_example_value": "\u003Cstring\u003Ehttps://example.com/proxy.pac\u003C/string\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -19728,7 +19728,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "EdgeSharedDeviceSupportEnabled",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -20163,7 +20163,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -20690,7 +20690,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -20723,7 +20723,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -21551,7 +21551,7 @@
           "android_preference_example_value": "[\u0022example.com\u0022, \u0022https://ssl.server.com\u0022, \u0022hosting.com/bad_path\u0022, \u0022https://server:8080/path\u0022, \u0022.exact.hostname.com\u0022, \u0022file://*\u0022, \u0022custom_scheme:*\u0022, \u0022*\u0022]",
           "ios_preference_key_name": "InPrivateModeUrlAllowlist",
           "ios_preference_example_value": "\u003Carray\u003E\r\n  \u003Cstring\u003Eexample.com\u003C/string\u003E\r\n  \u003Cstring\u003Ehttps://ssl.server.com\u003C/string\u003E\r\n  \u003Cstring\u003Ehosting.com/bad_path\u003C/string\u003E\r\n  \u003Cstring\u003Ehttps://server:8080/path\u003C/string\u003E\r\n  \u003Cstring\u003E.exact.hostname.com\u003C/string\u003E\r\n  \u003Cstring\u003Efile://*\u003C/string\u003E\r\n  \u003Cstring\u003Ecustom_scheme:*\u003C/string\u003E\r\n  \u003Cstring\u003E*\u003C/string\u003E\r\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -21584,7 +21584,7 @@
           "android_preference_example_value": "[\u0022example.com\u0022, \u0022https://ssl.server.com\u0022, \u0022hosting.com/bad_path\u0022, \u0022https://server:8080/path\u0022, \u0022.exact.hostname.com\u0022, \u0022file://*\u0022, \u0022custom_scheme:*\u0022, \u0022*\u0022]",
           "ios_preference_key_name": "InPrivateModeUrlBlocklist",
           "ios_preference_example_value": "\u003Carray\u003E\r\n  \u003Cstring\u003Eexample.com\u003C/string\u003E\r\n  \u003Cstring\u003Ehttps://ssl.server.com\u003C/string\u003E\r\n  \u003Cstring\u003Ehosting.com/bad_path\u003C/string\u003E\r\n  \u003Cstring\u003Ehttps://server:8080/path\u003C/string\u003E\r\n  \u003Cstring\u003E.exact.hostname.com\u003C/string\u003E\r\n  \u003Cstring\u003Efile://*\u003C/string\u003E\r\n  \u003Cstring\u003Ecustom_scheme:*\u003C/string\u003E\r\n  \u003Cstring\u003E*\u003C/string\u003E\r\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -21770,7 +21770,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -21803,7 +21803,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -21902,7 +21902,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -22235,7 +22235,7 @@
           "android_preference_example_value": "32",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -22532,7 +22532,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "NTPContentSuggestionsEnabled",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -22862,7 +22862,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -22895,7 +22895,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -23060,7 +23060,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "PolicyRefreshRate",
           "ios_preference_example_value": "\u003Cinteger\u003E3600000\u003C/integer\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -23126,7 +23126,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -23225,7 +23225,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "ProvisionalNotificationsAllowed",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -23390,7 +23390,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "ReadExtendedCertificateLocationsEnabled",
           "ios_preference_example_value": "\u003Ctrue/\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -23500,7 +23500,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -23566,7 +23566,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -23874,7 +23874,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -24797,7 +24797,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -24945,7 +24945,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -25077,7 +25077,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -25242,7 +25242,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -25308,7 +25308,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -25654,7 +25654,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -25687,7 +25687,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -25885,7 +25885,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -26335,7 +26335,7 @@
           "android_preference_example_value": "2",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [
             {
               "value": "0",
@@ -26939,7 +26939,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -26972,7 +26972,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "WebAnnotations",
           "ios_preference_example_value": "\u003Ckey\u003EWebAnnotations\u003C/key\u003E\r\n\u003Cdict\u003E\r\n  \u003Ckey\u003Eaddresses\u003C/key\u003E\r\n  \u003Cstring\u003Elongpressonly\u003C/string\u003E\r\n  \u003Ckey\u003Ecalendar\u003C/key\u003E\r\n  \u003Cstring\u003Edefault\u003C/string\u003E\r\n  \u003Ckey\u003Edefault\u003C/key\u003E\r\n  \u003Cstring\u003Eenabled\u003C/string\u003E\r\n  \u003Ckey\u003Eemail\u003C/key\u003E\r\n  \u003Cstring\u003Edisabled\u003C/string\u003E\r\n  \u003Ckey\u003Epackage\u003C/key\u003E\r\n  \u003Cstring\u003Edefault\u003C/string\u003E\r\n  \u003Ckey\u003Ephonenumbers\u003C/key\u003E\r\n  \u003Cstring\u003Edefault\u003C/string\u003E\r\n  \u003Ckey\u003Eunits\u003C/key\u003E\r\n  \u003Cstring\u003Edefault\u003C/string\u003E\r\n\u003C/dict\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -27005,7 +27005,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -27137,7 +27137,7 @@
           "android_preference_example_value": "[\u0022https://server:8080/\u0022]",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -27608,7 +27608,7 @@
           "android_preference_example_value": "true",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },
@@ -27641,7 +27641,7 @@
           "android_preference_example_value": "",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [],
           "warnings": []
         },

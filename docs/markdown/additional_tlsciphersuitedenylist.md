@@ -14,6 +14,7 @@ ms.date: 2026-05-20T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
+ms.subservice: edge-admin
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 ms.custom: 
@@ -21,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 6f2cc8f5-32ff-00ce-a511-a2ad1f8610e4
 document_version_independent_id: 6f2cc8f5-32ff-00ce-a511-a2ad1f8610e4
-updated_at: 2026-05-22T04:11:00.0000000Z
+updated_at: 2026-06-15T22:43:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/TLSCipherSuiteDenyList.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/7994bce7d6018fbcf8930c7152ea4c5b85aadcfd/edgeenterprise/microsoft-edge-policies/TLSCipherSuiteDenyList.md
-git_commit_id: 7994bce7d6018fbcf8930c7152ea4c5b85aadcfd
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/aed83b531d25ba6dc84d0be2c4122b451bbfa304/edgeenterprise/microsoft-edge-policies/TLSCipherSuiteDenyList.md
+git_commit_id: aed83b531d25ba6dc84d0be2c4122b451bbfa304
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual

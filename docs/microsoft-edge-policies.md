@@ -14,6 +14,7 @@ ms.date: 2026-05-20T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
+ms.subservice: edge-admin
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 ms.custom: 
@@ -21,10 +22,10 @@ description: Windows and Mac documentation for all policies supported by the Mic
 locale: en-us
 document_id: 198c6f64-9e5c-f18e-8439-8d0d11d4228d
 document_version_independent_id: 83f32be1-063c-284c-dfdc-6b5976a5b7cc
-updated_at: 2026-05-22T04:11:00.0000000Z
+updated_at: 2026-06-15T22:43:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/7994bce7d6018fbcf8930c7152ea4c5b85aadcfd/edgeenterprise/microsoft-edge-policies.md
-git_commit_id: 7994bce7d6018fbcf8930c7152ea4c5b85aadcfd
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/c3d5eb43b67b6fe282ad4810ec3e32aa8f8d46af/edgeenterprise/microsoft-edge-policies.md
+git_commit_id: c3d5eb43b67b6fe282ad4810ec3e32aa8f8d46af
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual

@@ -14,6 +14,7 @@ ms.date: 2026-05-20T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
+ms.subservice: edge-admin
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 ms.custom: 
@@ -21,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: a2179434-cbc4-a9f9-6959-48f1908e34ec
 document_version_independent_id: a2179434-cbc4-a9f9-6959-48f1908e34ec
-updated_at: 2026-05-22T04:11:00.0000000Z
+updated_at: 2026-06-15T22:43:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/CAHintCertificates.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/7994bce7d6018fbcf8930c7152ea4c5b85aadcfd/edgeenterprise/microsoft-edge-policies/CAHintCertificates.md
-git_commit_id: 7994bce7d6018fbcf8930c7152ea4c5b85aadcfd
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/88a66a0c8d7bd6d32736da12931a68ac6580ed4a/edgeenterprise/microsoft-edge-policies/CAHintCertificates.md
+git_commit_id: 88a66a0c8d7bd6d32736da12931a68ac6580ed4a
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual

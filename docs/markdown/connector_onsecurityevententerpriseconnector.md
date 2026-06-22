@@ -14,6 +14,7 @@ ms.date: 2026-05-20T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
+ms.subservice: edge-admin
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 ms.custom: 
@@ -21,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: c3189c2b-4bd2-0904-d197-a33f494b29bb
 document_version_independent_id: c3189c2b-4bd2-0904-d197-a33f494b29bb
-updated_at: 2026-05-22T04:11:00.0000000Z
+updated_at: 2026-06-16T20:48:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/OnSecurityEventEnterpriseConnector.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/7994bce7d6018fbcf8930c7152ea4c5b85aadcfd/edgeenterprise/microsoft-edge-policies/OnSecurityEventEnterpriseConnector.md
-git_commit_id: 7994bce7d6018fbcf8930c7152ea4c5b85aadcfd
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/68582e6c83217ad76dff462d7a15eafbd64ed095/edgeenterprise/microsoft-edge-policies/OnSecurityEventEnterpriseConnector.md
+git_commit_id: 68582e6c83217ad76dff462d7a15eafbd64ed095
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -32,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 356
+word_count: 367
 asset_id: microsoft-edge-policies/onsecurityevententerpriseconnector
 moniker_range_name: 
 monikers: []
@@ -64,7 +65,7 @@ Defines the Microsoft Edge for Business Reporting Connectors service settings th
 
 The service\_provider field specifies the reporting service provider. The enabled\_event\_names field lists the security events enabled for that provider.
 
-This policy requires additional setup to take effect. For configuration guidance, see https://go.microsoft.com/fwlink/?linkid=2325446.
+This policy can only be configured through the Microsoft 365 Admin Center. It requires additional setup to take effect. For configuration guidance, see https://go.microsoft.com/fwlink/?linkid=2325446
 
 ## Supported features
 

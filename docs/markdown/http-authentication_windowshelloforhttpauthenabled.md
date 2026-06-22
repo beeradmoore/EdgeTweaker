@@ -14,6 +14,7 @@ ms.date: 2026-05-20T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
+ms.subservice: edge-admin
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 ms.custom: 
@@ -21,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 812e404f-1ae1-55a0-f4c3-86f8c5269789
 document_version_independent_id: 812e404f-1ae1-55a0-f4c3-86f8c5269789
-updated_at: 2026-05-22T21:23:00.0000000Z
+updated_at: 2026-06-15T22:43:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/WindowsHelloForHTTPAuthEnabled.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/c5fdc1b372ed33d781627b537c4f1e90a8b4d2d6/edgeenterprise/microsoft-edge-policies/WindowsHelloForHTTPAuthEnabled.md
-git_commit_id: c5fdc1b372ed33d781627b537c4f1e90a8b4d2d6
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/fc3210297952cfba31492fd71267e3a6764b742c/edgeenterprise/microsoft-edge-policies/WindowsHelloForHTTPAuthEnabled.md
+git_commit_id: fc3210297952cfba31492fd71267e3a6764b742c
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
