@@ -18729,7 +18729,7 @@
           "android_preference_example_value": "[\u0022featured_feature\u0022, \u0022games\u0022]",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [
             {
               "value": "featured\\_feature",
@@ -21349,7 +21349,7 @@
           "android_preference_example_value": "disallowed",
           "ios_preference_key_name": "",
           "ios_preference_example_value": "",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [
             {
               "value": "allowed",
@@ -22067,7 +22067,7 @@
           "android_preference_example_value": "[\u0022Camera\u0022, \u0022EDrop\u0022, \u0022Favorites\u0022, \u0022History\u0022, \u0022RecentTabs\u0022, \u0022Collections\u0022]",
           "ios_preference_key_name": "ManagedNtpShortcuts",
           "ios_preference_example_value": "\u003Carray\u003E\r\n  \u003Cstring\u003ECamera\u003C/string\u003E\r\n  \u003Cstring\u003EEDrop\u003C/string\u003E\r\n  \u003Cstring\u003EFavorites\u003C/string\u003E\r\n  \u003Cstring\u003EHistory\u003C/string\u003E\r\n  \u003Cstring\u003ERecentTabs\u003C/string\u003E\r\n  \u003Cstring\u003ECollections\u003C/string\u003E\r\n\u003C/array\u003E",
-          "supported": false,
+          "supported": true,
           "policy_option_mapping": [
             {
               "value": "Favorites",

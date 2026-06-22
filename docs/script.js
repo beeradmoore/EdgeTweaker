@@ -838,10 +838,16 @@ function showModal(policy, cardDiv) {
 				// For every policy mapping item add it here.
 				//for (const [key, value] of policyMappingEntries) {
 				for (const [index, policyMapping] of policyMappingEntries) {
+
 					const mappingButton = document.createElement("button");
 					mappingButton.classList.add("btn");
 					mappingButton.classList.add("btn-primary");
-					mappingButton.appendChild(document.createTextNode(policyMapping.name));
+					var policyMappingName = policyMapping.name;
+					if (policyMappingName == '')
+					{
+						policyMappingName = policyMapping.description;
+					}
+					mappingButton.appendChild(document.createTextNode(policyMappingName));
 					policyMappingDiv.appendChild(mappingButton);
 
 					// And when this button is clicked, set the text input to the key.

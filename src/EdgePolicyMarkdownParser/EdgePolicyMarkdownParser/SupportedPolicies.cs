@@ -846,6 +846,9 @@ public static class SupportedPolicies
 		{ "WebAuthenticationRemoteDesktopAllowedOrigins", true },
 		{ "WebXRImmersiveArEnabled", true },
 		{ "WhatsNewPageForEntraProfilesEnabled", true },
+		{ "DisabledMiniApps", true },
+		{ "HttpsOnlyMode", true },
+		{ "ManagedNtpShortcuts", true },
 	};
 
 	/// <summary>
