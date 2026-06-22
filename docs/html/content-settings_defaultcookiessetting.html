@@ -1,14 +1,17 @@
-<h3>DefaultCookiesSetting</h3>
+<h1>Microsoft Edge Browser Policy Documentation DefaultCookiesSetting | Microsoft Learn</h1>
 
-<h4>Configure cookies</h4>
+<h2>Configure cookies</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 77 or later</li>
+<li>Windows: ≥ 77</li>
+<li>macOS: ≥ 77</li>
+<li>Android: ≥ 30</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>Control whether websites can create cookies on the user's device. This policy is all or nothing - you can let all websites create cookies, or no websites create cookies. You can't use this policy to enable cookies from specific websites.</p>
 
@@ -19,14 +22,26 @@
 <p>Policy options mapping:</p>
 
 <ul>
-<li><p>AllowCookies (1) = Let all sites create cookies</p></li>
-<li><p>BlockCookies (2) = Don't let any site create cookies</p></li>
-<li><p>SessionOnly (4) = Keep cookies for the duration of the session, except ones listed in <a href="#savecookiesonexit">SaveCookiesOnExit</a></p></li>
+<li>AllowCookies (1) = Let all sites create cookies</li>
+<li>BlockCookies (2) = Don't let any site create cookies</li>
+<li>SessionOnly (4) = Keep cookies for the duration of the session, except ones listed in <a href="savecookiesonexit">SaveCookiesOnExit</a></li>
 </ul>
 
 <p>Use the preceding information when configuring this policy.</p>
 
-<h4>Supported features:</h4>
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>AllowCookies (1) = Let all sites create cookies</li>
+<li>BlockCookies (2) = Don't let any site create cookies</li>
+<li>SessionOnly (4) = Keep cookies for the duration of the session, except ones listed in "SaveCookiesOnExit"</li>
+</ul>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -36,15 +51,15 @@
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Integer</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: DefaultCookiesSetting</li>
@@ -54,29 +69,45 @@
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Let all sites create cookies
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: DefaultCookiesSetting</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: DefaultCookiesSetting</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000001
 </code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: DefaultCookiesSetting</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: DefaultCookiesSetting</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;integer&gt;1&lt;/integer&gt;
 </code></p>
 
-</li>
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: DefaultCookiesSetting</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>
+1
+</code></p>

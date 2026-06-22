@@ -1,32 +1,33 @@
-<h3>AllowTokenBindingForUrls</h3>
+<h1>Microsoft Edge Browser Policy Documentation AllowTokenBindingForUrls | Microsoft Learn</h1>
 
-<h4>Configure the list of sites for which Microsoft Edge will attempt to establish a Token Binding with (obsolete)</h4>
+<h2>Configure the list of sites for which Microsoft Edge will attempt to establish a Token Binding with (obsolete)</h2>
 
 <blockquote>
-  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 129.</p>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge version 129.</p>
 </blockquote>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows since 83, until 129</li>
+<li>Windows: 83-129</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>This policy is obsolete because Token Binding is no longer supported, starting with Microsoft Edge 130.</p>
 
-<p>Configure the list of URL patterns for sites that the browser will attempt to perform the Token Binding protocol with.
-For the domains on this list, the browser will send the Token Binding ClientHello in the TLS handshake (See https://tools.ietf.org/html/rfc8472).
-If the server responds with a valid ServerHello response, the browser will create and send Token Binding messages on subsequent https requests. See https://tools.ietf.org/html/rfc8471 for more info.</p>
+<p>Configure the list of URL patterns for sites that the browser attempts to perform the Token Binding protocol with. For the domains on this list, the browser sends the Token Binding ClientHello in the TLS handshake (See https://tools.ietf.org/html/rfc8472). If the server responds with a valid ServerHello response, the browser creates and sends Token Binding messages on subsequent https requests. See https://tools.ietf.org/html/rfc8471 for more info.</p>
 
-<p>If this list is empty, Token Binding will be disabled.</p>
+<p>If this list is empty, Token Binding is disabled.</p>
 
 <p>This policy is only available on Windows 10 devices with Virtual Secure Mode capability.</p>
 
 <p>Starting in Microsoft Edge 86, this policy no longer supports dynamic refresh.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -36,40 +37,63 @@ If the server responds with a valid ServerHello response, the browser will creat
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>List of strings</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: AllowTokenBindingForUrls</li>
 <li>GP name: Configure the list of sites for which Microsoft Edge will attempt to establish a Token Binding with (obsolete)</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+mydomain.com
+</code></p>
+
+<p><code>
+[*.]mydomain2.com
+</code></p>
+
+<p><code>
+[*.].mydomain2.com
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\AllowTokenBindingForUrls</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: 1, 2, 3, ...</li>
-<li>Value Type: list of REG_SZ</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
-<p>```
-SOFTWARE\Policies\Microsoft\Edge\AllowTokenBindingForUrls\1 = "mydomain.com"
-SOFTWARE\Policies\Microsoft\Edge\AllowTokenBindingForUrls\2 = "[<em>.]mydomain2.com"
-SOFTWARE\Policies\Microsoft\Edge\AllowTokenBindingForUrls\3 = "[</em>.].mydomain2.com"</p>
+<p>SOFTWARE\Policies\Microsoft\Edge\AllowTokenBindingForUrls\1 =</p>
 
-<p>```</p>
+<p><code>
+mydomain.com
+</code></p>
 
+<p>SOFTWARE\Policies\Microsoft\Edge\AllowTokenBindingForUrls\2 =</p>
 
+<p><code>
+[*.]mydomain2.com
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\AllowTokenBindingForUrls\3 =</p>
+
+<p><code>
+[*.].mydomain2.com
+</code></p>

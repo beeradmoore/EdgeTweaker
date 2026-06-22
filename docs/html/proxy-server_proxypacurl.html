@@ -1,32 +1,35 @@
-<h3>ProxyPacUrl</h3>
+<h1>Microsoft Edge Browser Policy Documentation ProxyPacUrl | Microsoft Learn</h1>
 
-<h4>Set the proxy .pac file URL (deprecated)</h4>
+<h2>Set the proxy .pac file URL (deprecated)</h2>
 
 <blockquote>
   <p>DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.</p>
 </blockquote>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 77 or later</li>
+<li>Windows: ≥ 77</li>
+<li>macOS: ≥ 77</li>
+<li>Android: ≥ 30</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
-<p>This policy is deprecated, use <a href="#proxysettings">ProxySettings</a> instead. It won't work in Microsoft Edge version 91.</p>
+<p>This policy is deprecated; use <a href="proxysettings">ProxySettings</a> instead. It doesn't work in Microsoft Edge version 91.</p>
 
 <p>Specifies the URL for a proxy auto-config (PAC) file.</p>
 
-<p>This policy is applied only if the <a href="#proxysettings">ProxySettings</a> policy isn't specified and you have selected pac_script in the <a href="#proxymode">ProxyMode</a> policy. If you selected any other mode for configuring proxy policies, don't enable or configure this policy.</p>
+<p>This policy is applied only if the <a href="proxysettings">ProxySettings</a> policy isn't specified, and if you've selected pac_script in the <a href="proxymode">ProxyMode</a> policy. If you've selected any other mode for configuring proxy policies, don't enable or configure this policy.</p>
 
-<p>If you enable this policy, you can specify the URL for a PAC file, which defines how the browser automatically chooses the appropriate proxy server for fetching a particular website.</p>
+<p>If you enable this policy, specify the URL for a PAC file, which defines how the browser automatically chooses the appropriate proxy server for fetching a particular website.</p>
 
 <p>If you disable or don't configure this policy, no PAC file is specified. Leave this policy unconfigured if you've specified any other method for setting proxy policies.</p>
 
-<p>For detailed examples, see <a href="https://go.microsoft.com/fwlink/?linkid=2094936">https://go.microsoft.com/fwlink/?linkid=2094936</a>.</p>
+<p>For detailed examples, see https://go.microsoft.com/fwlink/?linkid=2094936.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -36,15 +39,15 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>String</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: ProxyPacUrl</li>
@@ -54,29 +57,45 @@
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+https://internal.contoso.com/example.pac
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: ProxyPacUrl</li>
-<li>Value Type: REG_SZ</li>
+<li>Value name: ProxyPacUrl</li>
+<li>Value type: REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
-"https://internal.contoso.com/example.pac"
+https://internal.contoso.com/example.pac
 </code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: ProxyPacUrl</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: ProxyPacUrl</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;string&gt;https://internal.contoso.com/example.pac&lt;/string&gt;
 </code></p>
 
-</li>
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: ProxyPacUrl</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>
+https://internal.contoso.com/example.pac
+</code></p>

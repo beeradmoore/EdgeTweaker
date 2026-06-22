@@ -1,36 +1,39 @@
-<h3>CookiesAllowedForUrls</h3>
+<h1>Microsoft Edge Browser Policy Documentation CookiesAllowedForUrls | Microsoft Learn</h1>
 
-<h4>Allow cookies on specific sites</h4>
+<h2>Allow cookies on specific sites</h2>
 
-<h4>Supported versions:</h4>
-
-<ul>
-<li>On Windows and macOS since 77 or later</li>
-</ul>
-
-<h4>Description</h4>
-
-<p>Define a list of sites, based on URL patterns, that are allowed to set cookies. URL patterns may be a single URL indicating that the site may use cookies on all top-level sites. Patterns may also be two URLs delimited by a comma. The first specifies the site that should be allowed to use cookies. The second specifies the top-level site that the first value should be applied on. If you use a pair of URLs, the first value in the pair supports * but the second value does not. Using * for the first value indicates that all sites may use cookies when the second URL is the top-level site.</p>
-
-<p>If you don't configure this policy, the global default value from the <a href="#defaultcookiessetting">DefaultCookiesSetting</a> policy (if set) or the user's personal configuration is used for all sites.</p>
-
-<p>See the <a href="#cookiesblockedforurls">CookiesBlockedForUrls</a> and <a href="#cookiessessiononlyforurls">CookiesSessionOnlyForUrls</a> policies for more information.</p>
-
-<p>Note there cannot be conflicting URL patterns set between these three policies:</p>
+<h2>Supported versions</h2>
 
 <ul>
-<li><p><a href="#cookiesblockedforurls">CookiesBlockedForUrls</a></p></li>
-<li><p>CookiesAllowedForUrls</p></li>
-<li><p><a href="#cookiessessiononlyforurls">CookiesSessionOnlyForUrls</a></p></li>
+<li>Windows: ≥ 77</li>
+<li>macOS: ≥ 77</li>
+<li>Android: ≥ 30</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<p>For detailed information about valid url patterns, see <a href="https://go.microsoft.com/fwlink/?linkid=2095322">https://go.microsoft.com/fwlink/?linkid=2095322</a>. * is not an accepted value for this policy.</p>
+<h2>Description</h2>
 
-<p>To allow third-party cookies to be set, specify a pair of URL patterns delimited by a comma. The first value in the pair specifies the third-party site that should be allowed to use cookies. The second value in the pair specifies the top-level site that the first value should be applied on. The first value in the pair supports * but the second value does not.</p>
+<p>Define a list of sites, based on URL patterns, that are allowed to set cookies. URL patterns can be a single URL indicating that the site can use cookies on all top-level sites. Patterns can also be two URLs delimited by a comma. The first specifies the site that should be allowed to use cookies. The second specifies the top-level site that the first value should be applied on. If you use a pair of URLs, the first value in the pair supports *, but the second value doesn't. Using * for the first value indicates that all sites can use cookies when the second URL is the top-level site.</p>
 
-<p>To exclude cookies from being deleted on exit, configure the <a href="#savecookiesonexit">SaveCookiesOnExit</a> policy.</p>
+<p>If you don't configure this policy, the global default value from the <a href="defaultcookiessetting">DefaultCookiesSetting</a> policy (if set) or the user's personal configuration is used for all sites.</p>
 
-<h4>Supported features:</h4>
+<p>For more information, see the <a href="cookiesblockedforurls">CookiesBlockedForUrls</a> and <a href="cookiessessiononlyforurls">CookiesSessionOnlyForUrls</a> policies.</p>
+
+<p>Note there can't be conflicting URL patterns set between these three policies:</p>
+
+<ul>
+<li><a href="cookiesblockedforurls">CookiesBlockedForUrls</a></li>
+<li>CookiesAllowedForUrls</li>
+<li><a href="cookiessessiononlyforurls">CookiesSessionOnlyForUrls</a></li>
+</ul>
+
+<p>For detailed information about valid URL patterns, see https://go.microsoft.com/fwlink/?linkid=2095322. * isn't an accepted value for this policy.</p>
+
+<p>To allow third-party cookies to be set, specify a pair of URL patterns delimited by a comma. The first value in the pair specifies the third-party site that should be allowed to use cookies. The second value in the pair specifies the top-level site that the first value should be applied on. The first value in the pair supports * but the second value doesn't.</p>
+
+<p>To exclude cookies from being deleted on exit, configure the <a href="savecookiesonexit">SaveCookiesOnExit</a> policy.</p>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -40,15 +43,15 @@
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>List of strings</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: CookiesAllowedForUrls</li>
@@ -58,38 +61,82 @@
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+https://www.contoso.com
+</code></p>
+
+<p><code>
+[*.]contoso.edu
+</code></p>
+
+<p><code>
+https://loaded-as-third-party.fabrikam.com,https://www.contoso.com
+</code></p>
+
+<p><code>
+*,https://www.contoso.com
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: 1, 2, 3, ...</li>
-<li>Value Type: list of REG_SZ</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
-<p>```
-SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\1 = "https://www.contoso.com"
-SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\2 = "[<em>.]contoso.edu"
-SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\3 = "https://loaded-as-third-party.fabrikam.com,https://www.contoso.com"
-SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\4 = "</em>,https://www.contoso.com"</p>
+<p>SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\1 =</p>
 
-<p>```</p>
+<p><code>
+https://www.contoso.com
+</code></p>
 
-<h4>Mac information and settings</h4>
+<p>SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\2 =</p>
+
+<p><code>
+[*.]contoso.edu
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\3 =</p>
+
+<p><code>
+https://loaded-as-third-party.fabrikam.com,https://www.contoso.com
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\CookiesAllowedForUrls\4 =</p>
+
+<p><code>
+*,https://www.contoso.com
+</code></p>
+
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: CookiesAllowedForUrls</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: CookiesAllowedForUrls</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;array&gt;
-&lt;string&gt;https://www.contoso.com&lt;/string&gt;
-&lt;string&gt;[*.]contoso.edu&lt;/string&gt;
-&lt;string&gt;https://loaded-as-third-party.fabrikam.com,https://www.contoso.com&lt;/string&gt;
-&lt;string&gt;*,https://www.contoso.com&lt;/string&gt;
+  &lt;string&gt;https://www.contoso.com&lt;/string&gt;
+  &lt;string&gt;[*.]contoso.edu&lt;/string&gt;
+  &lt;string&gt;https://loaded-as-third-party.fabrikam.com,https://www.contoso.com&lt;/string&gt;
+  &lt;string&gt;*,https://www.contoso.com&lt;/string&gt;
 &lt;/array&gt;
 </code></p>
 
-</li>
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: CookiesAllowedForUrls</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>
+["https://www.contoso.com", "[*.]contoso.edu", "https://loaded-as-third-party.fabrikam.com,https://www.contoso.com", "*,https://www.contoso.com"]
+</code></p>

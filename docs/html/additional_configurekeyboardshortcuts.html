@@ -1,26 +1,29 @@
-<h3>ConfigureKeyboardShortcuts</h3>
+<h1>Microsoft Edge Browser Policy Documentation ConfigureKeyboardShortcuts | Microsoft Learn</h1>
 
-<h4>Configure the list of commands for which to disable keyboard shortcuts</h4>
+<h2>Configure the list of commands for which to disable keyboard shortcuts</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows since 101 or later</li>
+<li>Windows: ≥ 101</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
-<p>Configure the list of Microsoft Edge commands for which to disable keyboard shortcuts.</p>
+<p>Configure the list of Microsoft Edge commands for which keyboard shortcuts must be disabled.</p>
 
-<p>See <a href="https://go.microsoft.com/fwlink/?linkid=2186950">https://go.microsoft.com/fwlink/?linkid=2186950</a> for a list of possible commands to disable.</p>
+<p>See https://go.microsoft.com/fwlink/?linkid=2186950 for a list of possible commands to disable.</p>
 
-<p>If you enable this policy, commands in the 'disabled' list will no longer be activated by keyboard shortcuts.</p>
+<p>If you enable this policy, commands in the 'disabled' list are no longer activated by keyboard shortcuts.</p>
 
 <p>If you disable this policy, all keyboard shortcuts behave as usual.</p>
 
-<p>Note: Disabling a command will only remove its shortcut mapping. Commands in the 'disabled' list will still function if accessed via browser UI.</p>
+<p>Note: Disabling a command only removes its shortcut mapping. Commands in the 'disabled' list still function if accessed via browser UI.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -30,48 +33,52 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Dictionary</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: ConfigureKeyboardShortcuts</li>
 <li>GP name: Configure the list of commands for which to disable keyboard shortcuts</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+{"disabled": ["new_tab", "fullscreen"]}
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: ConfigureKeyboardShortcuts</li>
-<li>Value Type: REG_SZ</li>
+<li>Value name: ConfigureKeyboardShortcuts</li>
+<li>Value type: REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
-SOFTWARE\Policies\Microsoft\Edge\ConfigureKeyboardShortcuts = {
+{"disabled": ["new_tab", "fullscreen"]}
+</code></p>
+
+<h4>Expanded example registry value</h4>
+
+<p><code>
+{
   "disabled": [
     "new_tab",
     "fullscreen"
   ]
 }
 </code></p>
-
-<h5>Compact example value:</h5>
-
-<p><code>
-  SOFTWARE\Policies\Microsoft\Edge\ConfigureKeyboardShortcuts = {"disabled": ["new_tab", "fullscreen"]}
-</code></p>
-
-

@@ -1,0 +1,109 @@
+<h1>Microsoft Edge Browser Policy Documentation ManagedNtpShortcuts | Microsoft Learn</h1>
+
+<h2>Configure managed shortcuts on the New Tab Page</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: Not supported</li>
+<li>macOS: Not supported</li>
+<li>Android: ≥ 145</li>
+<li>iOS: ≥ 145</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy controls which shortcut items are managed and displayed on the Microsoft Edge New Tab page.</p>
+
+<p>If you enable this policy, you can select one or more shortcut items to display on the New Tab page. The selected shortcuts are managed by the policy and shown to users:</p>
+
+<p>Favorites: Shows the Favorites shortcut.</p>
+
+<p>History: Shows the History shortcut.</p>
+
+<p>RecentTabs: Shows the Recent tabs shortcut.</p>
+
+<p>Collections: Shows the Collections shortcut.</p>
+
+<p>SharedLinks: Shows the Shared links shortcut.</p>
+
+<p>EDrop: Shows the EDrop shortcut.</p>
+
+<p>Camera: Shows the Camera shortcut.</p>
+
+<p>If you disable this policy or don't configure it, Microsoft Edge displays the default set of shortcuts based on user preferences.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li>Favorites (Favorites) = Favorites</li>
+<li>History (History) = History</li>
+<li>RecentTabs (RecentTabs) = Recent Tabs</li>
+<li>Collections (Collections) = Collections</li>
+<li>SharedLinks (SharedLinks) = Shared Links</li>
+<li>EDrop (EDrop) = EDrop</li>
+<li>Camera (Camera) = Camera</li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>Favorites = Favorites</li>
+<li>History = History</li>
+<li>RecentTabs = Recent Tabs</li>
+<li>Collections = Collections</li>
+<li>SharedLinks = Shared Links</li>
+<li>EDrop = EDrop</li>
+<li>Camera = Camera</li>
+</ul>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: ManagedNtpShortcuts</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+["Camera", "EDrop", "Favorites", "History", "RecentTabs", "Collections"]
+</code></p>
+
+<h2>iOS information and settings</h2>
+
+<ul>
+<li>Preference Key name: ManagedNtpShortcuts</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;Camera&lt;/string&gt;
+  &lt;string&gt;EDrop&lt;/string&gt;
+  &lt;string&gt;Favorites&lt;/string&gt;
+  &lt;string&gt;History&lt;/string&gt;
+  &lt;string&gt;RecentTabs&lt;/string&gt;
+  &lt;string&gt;Collections&lt;/string&gt;
+&lt;/array&gt;
+</code></p>

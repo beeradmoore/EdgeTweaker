@@ -1,0 +1,121 @@
+<h1>Microsoft Edge Browser Policy Documentation PreferSlowCiphers | Microsoft Learn</h1>
+
+<h2>Prefer specific encryption cipher algorithms for TLS</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 146</li>
+<li>macOS: ≥ 146</li>
+<li>Android: ≥ 146</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy configures Microsoft Edge to order its preferred encryption ciphers in TLS 1.3 based on algorithms approved by a specific compliance regime.</p>
+
+<p>Setting this policy does not guarantee that any specific algorithms will be negotiated.</p>
+
+<p>This policy allows server operators who support both compliant and non-compliant clients to differentiate between them, and use certain non-default algorithms with increased cryptographic strength only for clients explicitly configured to prefer them.</p>
+
+<p>Setting the policy to 'cnsa' configures Microsoft Edge to prefer ciphers required for compliance with the Commercial National Security Algorithm Suite versions 1.0 and 2.0 (CNSA 1.0 and 2.0).</p>
+
+<p>Not setting the policy, or setting it to 'default', configures Microsoft Edge to use its default ciphers.</p>
+
+<p>Setting this policy isn't required for security. The default cryptography used by Microsoft Edge is strong enough to withstand a brute-force attack using the entire power of the Sun.</p>
+
+<p>Setting this policy will cause Microsoft Edge to be slower when accessing websites.</p>
+
+<p>This policy only affects TLS 1.3 and QUIC. It doesn't affect earlier versions of TLS.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li>CNSA (cnsa) = Prefer ciphers satisfying the requirements of CNSA 1.0 and 2.0</li>
+<li>Default (default) = Use Microsoft Edge's default cipher order</li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>CNSA (cnsa) = Prefer ciphers satisfying the requirements of CNSA 1.0 and 2.0</li>
+<li>Default (default) = Use Microsoft Edge's default cipher order</li>
+</ul>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>String</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: PreferSlowCiphers</li>
+<li>GP name: Prefer specific encryption cipher algorithms for TLS</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Cryptography compliance policies</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+Prefer ciphers satisfying the requirements of CNSA 1.0 and 2.0
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: PreferSlowCiphers</li>
+<li>Value type: REG_SZ</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+cnsa
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: PreferSlowCiphers</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;string&gt;cnsa&lt;/string&gt;
+</code></p>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: PreferSlowCiphers</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+cnsa
+</code></p>

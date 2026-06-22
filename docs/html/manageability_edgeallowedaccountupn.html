@@ -1,0 +1,66 @@
+<h1>Microsoft Edge Browser Policy Documentation EdgeAllowedAccountUPN | Microsoft Learn</h1>
+
+<h2>Configure allowed account UPN pattern for sign-in</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: Not supported</li>
+<li>macOS: Not supported</li>
+<li>Android: ≥ 141</li>
+<li>iOS: ≥ 140</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy specifies the User Principal Name (UPN) or UPN pattern allowed to sign in to Microsoft Edge.</p>
+
+<p>If you configure this policy with a UPN or UPN pattern, only accounts that match the specified pattern can sign in to Microsoft Edge and access browser features.</p>
+
+<p>If you disable or don't configure this policy, any account can sign in to Microsoft Edge (subject to other account restriction policies).</p>
+
+<p>Examples:</p>
+
+<ul>
+<li>"john.doe@contoso.com" - only this specific account is allowed</li>
+<li>"{EnrollmentUser}" - allows the account that enrolled the device</li>
+<li>"*" - allows all account</li>
+</ul>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>String</li>
+</ul>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: EdgeAllowedAccountUPN</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+{EnrollmentUser}
+</code></p>
+
+<h2>iOS information and settings</h2>
+
+<ul>
+<li>Preference Key name: EdgeAllowedAccountUPN</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;string&gt;{EnrollmentUser}&lt;/string&gt;
+</code></p>

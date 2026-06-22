@@ -1,18 +1,21 @@
-<h3>PromotionalTabsEnabled</h3>
+<h1>Microsoft Edge Browser Policy Documentation PromotionalTabsEnabled | Microsoft Learn</h1>
 
-<h4>Enable full-tab promotional content (deprecated)</h4>
+<h2>Enable full-tab promotional content (deprecated)</h2>
 
 <blockquote>
   <p>DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.</p>
 </blockquote>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 77 or later</li>
+<li>Windows: ≥ 77</li>
+<li>macOS: ≥ 77</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>Control the presentation of full-tab promotional or educational content. This setting controls the presentation of welcome pages that help users sign into Microsoft Edge, choose their default browser, or learn about product features.</p>
 
@@ -22,7 +25,7 @@
 
 <p>This is deprecated - use ShowRecommendationsEnabled instead.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -32,47 +35,52 @@
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Boolean</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: PromotionalTabsEnabled</li>
 <li>GP name: Enable full-tab promotional content (deprecated)</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Disabled
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: PromotionalTabsEnabled</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: PromotionalTabsEnabled</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000000
 </code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: PromotionalTabsEnabled</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: PromotionalTabsEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;false/&gt;
 </code></p>
-
-</li>
-</ul>

@@ -1,46 +1,66 @@
-<h3>ExtensionAllowedTypes</h3>
+<h1>Microsoft Edge Browser Policy Documentation ExtensionAllowedTypes | Microsoft Learn</h1>
 
-<h4>Configure allowed extension types</h4>
+<h2>Configure allowed extension types</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 77 or later</li>
+<li>Windows: ≥ 77</li>
+<li>macOS: ≥ 77</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
-<p>Setting the policy controls which apps and extensions may be installed in Microsoft Edge, which hosts they can interact with, and limits runtime access.</p>
+<p>Setting the policy controls which apps and extensions can be installed in Microsoft Edge, which hosts they can interact with, and limits runtime access.</p>
 
 <p>If you don't set this policy, there aren't any restrictions on acceptable extension and app types.</p>
 
-<p>Extensions and apps which have a type that's not on the list won't be installed. Each value should be one of these strings:</p>
+<p>Extensions and apps, which have a type that's not on the list can't be installed. Each value should be one of these strings:</p>
 
 <ul>
-<li><p>"extension"</p></li>
-<li><p>"theme"</p></li>
-<li><p>"user_script"</p></li>
-<li><p>"hosted_app"</p></li>
+<li>"extension"</li>
+<li>"theme"</li>
+<li>"user_script"</li>
+<li>"hosted_app"</li>
 </ul>
 
 <p>See the Microsoft Edge extensions documentation for more information about these types.</p>
 
-<p>Note: This policy also affects extensions and apps to be force-installed using <a href="#extensioninstallforcelist">ExtensionInstallForcelist</a>.</p>
+<p>Note: This policy also affects extensions and apps to be force-installed using <a href="extensioninstallforcelist">ExtensionInstallForcelist</a>.</p>
+
+<p>Starting in Microsoft Edge version 149, the <a href="microsoft365copilotchaticonenabled">Microsoft365CopilotChatIconEnabled</a> policy controls the display of Copilot in the toolbar.</p>
 
 <p>Policy options mapping:</p>
 
 <ul>
-<li><p>extension (extension) = Extension</p></li>
-<li><p>theme (theme) = Theme</p></li>
-<li><p>user<em>script (user</em>script) = User script</p></li>
-<li><p>hosted<em>app (hosted</em>app) = Hosted app</p></li>
-<li><p>legacy<em>packaged</em>app (legacy<em>packaged</em>app) = Legacy packaged app</p></li>
-<li><p>platform<em>app (platform</em>app) = Platform app</p></li>
+<li>extension (extension) = Extension</li>
+<li>theme (theme) = Theme</li>
+<li>user_script (user_script) = User script</li>
+<li>hosted_app (hosted_app) = Hosted app</li>
+<li>legacy_packaged_app (legacy_packaged_app) = Legacy packaged app</li>
+<li>platform_app (platform_app) = Platform app</li>
 </ul>
 
 <p>Use the preceding information when configuring this policy.</p>
 
-<h4>Supported features:</h4>
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>extension = Extension</li>
+<li>theme = Theme</li>
+<li>user_script = User script</li>
+<li>hosted_app = Hosted app</li>
+<li>legacy_packaged_app = Legacy packaged app</li>
+<li>platform_app = Platform app</li>
+</ul>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -50,15 +70,15 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>List of strings</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: ExtensionAllowedTypes</li>
@@ -68,32 +88,38 @@
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Hosted app
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\ExtensionAllowedTypes</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: 1, 2, 3, ...</li>
-<li>Value Type: list of REG_SZ</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
-<p>```
-SOFTWARE\Policies\Microsoft\Edge\ExtensionAllowedTypes\1 = "hosted_app"</p>
+<p>SOFTWARE\Policies\Microsoft\Edge\ExtensionAllowedTypes\1 =</p>
 
-<p>```</p>
-
-<h4>Mac information and settings</h4>
-
-<ul>
-<li>Preference Key Name: ExtensionAllowedTypes</li>
-<li><p>Example value:
-<code>xml
-&lt;array&gt;
-&lt;string&gt;hosted_app&lt;/string&gt;
-&lt;/array&gt;
+<p><code>
+hosted_app
 </code></p>
 
-</li>
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: ExtensionAllowedTypes</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;hosted_app&lt;/string&gt;
+&lt;/array&gt;
+</code></p>

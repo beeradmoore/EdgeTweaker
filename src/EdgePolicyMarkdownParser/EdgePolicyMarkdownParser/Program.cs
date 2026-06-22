@@ -10,7 +10,12 @@ var edgePolicyParser = new EdgePolicyParser();
 await edgePolicyParser.DownloadOrUpdatePolicyAsync();
 try
 {
-    var policyGroupDocument = edgePolicyParser.LoadPolicyGroupDocument();
+	// var policyGroupDocument = edgePolicyParser.LoadPolicyGroupDocument();
+
+	var policyGroupDocument = edgePolicyParser.ParseRootPolicyFile();
+	await edgePolicyParser.DownloadAllPoliciesAsync();
+	edgePolicyParser.ParseSubPolicyFiles(policyGroupDocument);
+
 
     // This will throw exception if something is not right.
     policyGroupDocument.ValidatePolicyGroups();
@@ -45,41 +50,52 @@ try
     {
         foreach (var policy in policyGroup.Policies.Values)
         {
+	        var windowsRegistryMandatoryPath = policy.WindowsRegistryMandatoryPath;
+	        if (windowsRegistryMandatoryPath == "N/A")
+	        {
+		        windowsRegistryMandatoryPath = string.Empty;
+	        }
+
+	        var windowsRegistryRecommendedPath = policy.WindowsRegistryRecommendedPath;
+	        if (windowsRegistryRecommendedPath == "N/A")
+	        {
+		        windowsRegistryRecommendedPath = string.Empty;
+	        }
 
             if (policy.PlatformWindows == true)
             {
                 if (policy.DataType == "list_of_strings")
                 {
-                    if (string.IsNullOrEmpty(policy.WindowsRegistryMandatoryPath) == false)
+                    if (string.IsNullOrEmpty(windowsRegistryMandatoryPath) == false )
                     {
-                        registryCleanupSubKeyList.Add(policy.WindowsRegistryMandatoryPath);
+                        registryCleanupSubKeyList.Add(windowsRegistryMandatoryPath);
                     }
 
-                    if (string.IsNullOrEmpty(policy.WindowsRegistryRecommendedPath) == false)
+                    if (string.IsNullOrEmpty(windowsRegistryRecommendedPath) == false)
                     {
-                        registryCleanupSubKeyList.Add(policy.WindowsRegistryRecommendedPath);
+                        registryCleanupSubKeyList.Add(windowsRegistryRecommendedPath);
                     }
                 }
                 else
                 {
-                    if (string.IsNullOrEmpty(policy.WindowsRegistryMandatoryPath) == false)
+                    if (string.IsNullOrEmpty(windowsRegistryMandatoryPath) == false)
                     {
-                        if (registryCleanupDirectory.ContainsKey(policy.WindowsRegistryMandatoryPath) == false)
+                        if (registryCleanupDirectory.ContainsKey(windowsRegistryMandatoryPath) == false)
                         {
-                            registryCleanupDirectory[policy.WindowsRegistryMandatoryPath] = new List<string>();
+                            registryCleanupDirectory[windowsRegistryMandatoryPath] = new List<string>();
                         }
 
-                        registryCleanupDirectory[policy.WindowsRegistryMandatoryPath].Add(policy.WindowsRegistryValueName);
+                        registryCleanupDirectory[windowsRegistryMandatoryPath].Add(policy.WindowsRegistryValueName);
                     }
 
-                    if (string.IsNullOrEmpty(policy.WindowsRegistryRecommendedPath) == false)
+                    if (string.IsNullOrEmpty(windowsRegistryRecommendedPath) == false)
                     {
-                        if (registryCleanupDirectory.ContainsKey(policy.WindowsRegistryRecommendedPath) == false)
+                        if (registryCleanupDirectory.ContainsKey(windowsRegistryRecommendedPath) == false)
                         {
-                            registryCleanupDirectory[policy.WindowsRegistryRecommendedPath] = new List<string>();
+                            registryCleanupDirectory[windowsRegistryRecommendedPath] = new List<string>();
                         }
 
-                        registryCleanupDirectory[policy.WindowsRegistryRecommendedPath].Add(policy.WindowsRegistryValueName);
+                        registryCleanupDirectory[windowsRegistryRecommendedPath].Add(policy.WindowsRegistryValueName);
                     }
 
                     if (string.IsNullOrEmpty(policy.WindowsRegistryValueName))
@@ -118,14 +134,12 @@ try
         foreach (var policy in policyGroup.Policies.Values)
         {
             var htmlDoc = markdownSharp.Transform(policy.Markdown);
-            // Bad way to do this, but oh well.
-            htmlDoc = htmlDoc.Replace("<p><a href=\"#microsoft-edge---policies\">Back to top</a></p>", string.Empty);
-            var outputFile = Path.Combine(htmlDirectory, $"{policyGroup.Link}_{policy.Link}.html");
+            var outputFile = Path.Combine(htmlDirectory, $"{policyGroup.Link}_{policy.Link.Replace("microsoft-edge-policies/", string.Empty)}.html");
             File.WriteAllText(outputFile, htmlDoc);
             policy.Markdown = string.Empty;
         }
     }
-    
+
     policyGroupsJson = JsonSerializer.Serialize(policyGroupDocument, jsonSerializerOptions);
     await File.WriteAllTextAsync(Path.Combine(edgePolicyParser.OutputPath, "policy-groups-min.json"), policyGroupsJson);
 }

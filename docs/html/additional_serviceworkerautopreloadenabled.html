@@ -1,0 +1,95 @@
+<h1>Microsoft Edge Browser Policy Documentation ServiceWorkerAutoPreloadEnabled | Microsoft Learn</h1>
+
+<h2>Allow ServiceWorker to dispatch navigation requests without waiting for its startup</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 140</li>
+<li>macOS: ≥ 140</li>
+<li>Android: ≥ 140</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy controls whether Microsoft Edge enables the ServiceWorkerAutoPreload feature.</p>
+
+<p>If you enable or don't configure this policy, Microsoft Edge can initiate the main resource network request concurrently with the Service Worker bootstrap process. This can improve performance in scenarios where the Service Worker isn't already running.</p>
+
+<p>If you disable this policy, Microsoft Edge will wait to dispatch the navigation request until after the Service Worker starts.</p>
+
+<p>This is a temporary policy and is removed in version 144 of Microsoft Edge.</p>
+
+<p>For more information on the feature, see https://github.com/WICG/service-worker-auto-preload.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: ServiceWorkerAutoPreloadEnabled</li>
+<li>GP name: Allow ServiceWorker to dispatch navigation requests without waiting for its startup</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+Enabled
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: ServiceWorkerAutoPreloadEnabled</li>
+<li>Value type: REG_DWORD</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: ServiceWorkerAutoPreloadEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;true/&gt;
+</code></p>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: ServiceWorkerAutoPreloadEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+true
+</code></p>

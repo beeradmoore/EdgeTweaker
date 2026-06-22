@@ -1,30 +1,35 @@
-<h3>PostQuantumKeyAgreementEnabled</h3>
+<h1>Microsoft Edge Browser Policy Documentation PostQuantumKeyAgreementEnabled | Microsoft Learn</h1>
 
-<h4>Enable post-quantum key agreement for TLS</h4>
+<h2>Enable post-quantum key agreement for TLS (obsolete)</h2>
 
-<h4>Supported versions:</h4>
+<blockquote>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge version 146.</p>
+</blockquote>
+
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 120 or later</li>
+<li>Windows: 120-146</li>
+<li>macOS: 120-146</li>
+<li>Android: 140-146</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
-<p>This policy configures whether Microsoft Edge will offer a post-quantum key agreement algorithm in TLS. This lets supporting servers protect user traffic from being decrypted by quantum computers.</p>
+<p>This policy configures whether Microsoft Edge offers a post-quantum key agreement algorithm in TLS. This lets supporting servers protect user traffic from being decrypted by quantum computers.</p>
 
-<p>If you enable this policy, Microsoft Edge will offer a post-quantum key agreement in TLS connections. TLS connections will be protected from quantum computers when communicating with compatible servers.</p>
+<p>If you enable or don't configure this policy, Microsoft Edge offers a post-quantum key agreement in TLS connections. TLS connections are protected from quantum computers when communicating with compatible servers.</p>
 
-<p>If you disable this policy, Microsoft Edge will not offer a post-quantum key agreement in TLS connections. User traffic will be unprotected from decryption by quantum computers.</p>
-
-<p>If you don't configure this policy, Microsoft Edge will follow the default rollout process for offering a post-quantum key agreement.</p>
+<p>If you disable this policy, Microsoft Edge won't offer a post-quantum key agreement in TLS connections. User traffic is unprotected from decryption by quantum computers.</p>
 
 <p>Offering a post-quantum key agreement is backwards-compatible. Existing TLS servers and networking middleware are expected to ignore the new option and continue selecting previous options.</p>
 
-<p>However, devices that don't implement TLS correctly may malfunction when offered the new option. For example, they might disconnect in response to unrecognized options or the resulting larger messages. These devices are not post-quantum-ready and will interfere with an enterprise's post-quantum transition. If this issue is encountered, administrators should contact the vendor for a fix.</p>
+<p>However, devices that don't implement TLS correctly may malfunction when offered the new option. For example, they might disconnect in response to unrecognized options or the resulting larger messages. These devices aren't post-quantum-ready and will interfere with an enterprise's post-quantum transition. If this issue is encountered, administrators should contact the vendor for a fix.</p>
 
-<p>This policy is a temporary measure and will be removed in future versions of Microsoft Edge. You can enable it to test for issues and you can disable it while you resolve issues.</p>
+<p>This policy has been removed starting in Microsoft Edge version 147. Post-quantum key agreement is now enabled by default and cannot be disabled. Enterprises should work with device vendors to obtain fixes for proper post-quantum support.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -34,47 +39,63 @@
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Boolean</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: PostQuantumKeyAgreementEnabled</li>
-<li>GP name: Enable post-quantum key agreement for TLS</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP name: Enable post-quantum key agreement for TLS (obsolete)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Enabled
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: PostQuantumKeyAgreementEnabled</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: PostQuantumKeyAgreementEnabled</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000001
 </code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: PostQuantumKeyAgreementEnabled</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: PostQuantumKeyAgreementEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;true/&gt;
 </code></p>
 
-</li>
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: PostQuantumKeyAgreementEnabled</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>
+true
+</code></p>

@@ -1,0 +1,102 @@
+<h1>Microsoft Edge Browser Policy Documentation SetNTPDefaultFeedTab | Microsoft Learn</h1>
+
+<h2>Set the default New Tab Page feed tab to Work or Discover</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 148</li>
+<li>macOS: ≥ 148</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy sets the default feed tab on the New Tab Page to Work or Discover.</p>
+
+<p>If you set this policy to 'Work' (0) or don't configure this policy, Microsoft Edge sets the default feed tab to Work.</p>
+
+<p>If you set this policy to 'Discover' (1), Microsoft Edge sets the default feed tab to Discover.</p>
+
+<p>This policy only takes effect when <a href="configurentpfeedtabvisibility">ConfigureNTPFeedTabVisibility</a> is set to 'EnableBothWorkDiscover' (0) or is not configured. If only one tab is visible, this policy has no effect.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li>NTPDefaultFeedTabWork (0) = Work</li>
+<li>NTPDefaultFeedTabDiscover (1) = Discover</li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>NTPDefaultFeedTabWork (0) = Work</li>
+<li>NTPDefaultFeedTabDiscover (1) = Discover</li>
+</ul>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: Yes</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: SetNTPDefaultFeedTab</li>
+<li>GP name: Set the default New Tab Page feed tab to Work or Discover</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Startup, home page and new tab page</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/Startup, home page and new tab page</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+Work
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
+<li>Value name: SetNTPDefaultFeedTab</li>
+<li>Value type: REG_DWORD</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+0x00000000
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: SetNTPDefaultFeedTab</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;integer&gt;0&lt;/integer&gt;
+</code></p>

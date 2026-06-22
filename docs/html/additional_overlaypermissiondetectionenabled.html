@@ -1,0 +1,47 @@
+<h1>Microsoft Edge Browser Policy Documentation OverlayPermissionDetectionEnabled | Microsoft Learn</h1>
+
+<h2>Enable Overlay Permission Detection</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: Not supported</li>
+<li>macOS: Not supported</li>
+<li>Android: ≥ 119</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy allows administrators to enable or disable the detection of overlay permissions in Microsoft Edge. If any app on the device has overlay drawing permissions, then Microsoft Edge displays an error message stating, "This site can't ask for your permission. Close any bubbles or overlays from other apps, then try again" when the browser requests any device permissions.</p>
+
+<p>If enabled or left unset, Microsoft Edge turns on this detection feature to remind users of potential risks. If you disable this policy, Microsoft Edge turns off this detection feature.</p>
+
+<p>Disabling overlay permission detection can increase the risk of malicious overlays or pop-ups gaining access to sensitive information without user consent. Therefore, it's recommended to use this policy with caution and only in trusted environments or when there's a specific need to bypass overlay detection.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: OverlayPermissionDetectionEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+true
+</code></p>

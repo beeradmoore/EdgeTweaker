@@ -1,0 +1,95 @@
+<h1>Microsoft Edge Browser Policy Documentation AdditionalDnsQueryTypesEnabled | Microsoft Learn</h1>
+
+<h2>Allow DNS queries for more DNS record types</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 140</li>
+<li>macOS: ≥ 140</li>
+<li>Android: ≥ 139</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy controls whether Microsoft Edge can query more DNS record types when making insecure (non-Secure DNS) requests.</p>
+
+<p>If this policy is unset or set to Enabled, more record types such as HTTPS (DNS type 65) may be queried in addition to A (DNS type 1) and AAAA (DNS type 28).</p>
+
+<p>If this policy is set to Disabled, Microsoft Edge will only query A and AAAA record types for insecure DNS requests.</p>
+
+<p>This setting doesn't affect DNS queries made via Secure DNS, which may always use more record types.</p>
+
+<p>Note: This is a temporary policy and is planned for removal in a future version of Microsoft Edge. After removal, Microsoft Edge will always be able to query more DNS types during insecure requests.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: AdditionalDnsQueryTypesEnabled</li>
+<li>GP name: Allow DNS queries for more DNS record types</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+Enabled
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: AdditionalDnsQueryTypesEnabled</li>
+<li>Value type: REG_DWORD</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: AdditionalDnsQueryTypesEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;true/&gt;
+</code></p>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: AdditionalDnsQueryTypesEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+true
+</code></p>

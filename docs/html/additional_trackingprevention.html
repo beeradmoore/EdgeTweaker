@@ -1,31 +1,47 @@
-<h3>TrackingPrevention</h3>
+<h1>Microsoft Edge Browser Policy Documentation TrackingPrevention | Microsoft Learn</h1>
 
-<h4>Block tracking of users' web-browsing activity</h4>
+<h2>Block tracking of users' web-browsing activity</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 78 or later</li>
+<li>Windows: ≥ 78</li>
+<li>macOS: ≥ 78</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>Lets you decide whether to block websites from tracking users' web-browsing activity.</p>
 
-<p>If you disable this policy or don't configure it, users can set their own level of tracking prevention.</p>
+<p>If you disable this policy or don't configure it, users set their own level of tracking prevention.</p>
 
 <p>Policy options mapping:</p>
 
 <ul>
-<li><p>TrackingPreventionOff (0) = Off (no tracking prevention)</p></li>
-<li><p>TrackingPreventionBasic (1) = Basic (blocks harmful trackers, content and ads will be personalized)</p></li>
-<li><p>TrackingPreventionBalanced (2) = Balanced (blocks harmful trackers and trackers from sites user has not visited; content and ads will be less personalized)</p></li>
-<li><p>TrackingPreventionStrict (3) = Strict (blocks harmful trackers and majority of trackers from all sites; content and ads will have minimal personalization. Some parts of sites might not work)</p></li>
+<li>TrackingPreventionOff (0) = Off (no tracking prevention)</li>
+<li>TrackingPreventionBasic (1) = Basic (blocks harmful trackers, content and ads will be personalized)</li>
+<li>TrackingPreventionBalanced (2) = Balanced (blocks harmful trackers and trackers from sites user has not visited; content and ads will be less personalized)</li>
+<li>TrackingPreventionStrict (3) = Strict (blocks harmful trackers and majority of trackers from all sites; content and ads will have minimal personalization. Some parts of sites might not work)</li>
 </ul>
 
 <p>Use the preceding information when configuring this policy.</p>
 
-<h4>Supported features:</h4>
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>TrackingPreventionOff (0) = Off (no tracking prevention)</li>
+<li>TrackingPreventionBasic (1) = Basic (blocks harmful trackers, content and ads will be personalized)</li>
+<li>TrackingPreventionBalanced (2) = Balanced (blocks harmful trackers and trackers from sites user has not visited; content and ads will be less personalized)</li>
+<li>TrackingPreventionStrict (3) = Strict (blocks harmful trackers and majority of trackers from all sites; content and ads will have minimal personalization. Some parts of sites might not work)</li>
+</ul>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -35,47 +51,52 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Integer</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: TrackingPrevention</li>
 <li>GP name: Block tracking of users' web-browsing activity</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Balanced (blocks harmful trackers and trackers from sites user has not visited; content and ads will be less personalized)
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: TrackingPrevention</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: TrackingPrevention</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000002
 </code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: TrackingPrevention</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: TrackingPrevention</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;integer&gt;2&lt;/integer&gt;
 </code></p>
-
-</li>
-</ul>

@@ -1,0 +1,47 @@
+<h1>Microsoft Edge Browser Policy Documentation EdgeProxyPacUrl | Microsoft Learn</h1>
+
+<h2>Configure Proxy Auto-Config (PAC) URL on iOS</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: Not supported</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: ≥ 144</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy sets the URL for a Proxy Auto-Config (PAC) file in Microsoft Edge for iOS.</p>
+
+<p>If you enable this policy, Microsoft Edge uses the specified PAC file URL to automatically determine the appropriate proxy server for network requests. If you disable or don't configure this policy, Microsoft Edge uses no proxy configuration.</p>
+
+<p>Note: This policy works with EdgeProxyPacFailOpenEnabled to control behavior when the PAC file can't be downloaded or evaluated.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>String</li>
+</ul>
+
+<h2>iOS information and settings</h2>
+
+<ul>
+<li>Preference Key name: EdgeProxyPacUrl</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;string&gt;https://example.com/proxy.pac&lt;/string&gt;
+</code></p>

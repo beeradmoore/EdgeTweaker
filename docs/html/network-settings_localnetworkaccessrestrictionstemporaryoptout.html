@@ -1,0 +1,97 @@
+<h1>Microsoft Edge Browser Policy Documentation LocalNetworkAccessRestrictionsTemporaryOptOut | Microsoft Learn</h1>
+
+<h2>Specifies whether to opt out of Local Network Access restrictions</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 143</li>
+<li>macOS: ≥ 143</li>
+<li>Android: ≥ 144</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy allows for opting out of restrictions on requests to local network endpoints.</p>
+
+<p>If you enable this policy, Local Network Access requests will only display warnings in Edge DevTools when Local Network Access checks fail.</p>
+
+<p>If you disable or don't configure this policy, Local Network Access requests follow the default handling behavior.</p>
+
+<p>For more information about Local Network Access restrictions, see Local Network Access.</p>
+
+<p>To allow specific URL patterns that should automatically be granted Local Network Access permission, use the LocalNetworkAccessAllowedForUrls policy.</p>
+
+<p>Note: This opt-out policy is temporary and will be removed after Microsoft Edge version 152.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: LocalNetworkAccessRestrictionsTemporaryOptOut</li>
+<li>GP name: Specifies whether to opt out of Local Network Access restrictions</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Network settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+Enabled
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: LocalNetworkAccessRestrictionsTemporaryOptOut</li>
+<li>Value type: REG_DWORD</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: LocalNetworkAccessRestrictionsTemporaryOptOut</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;true/&gt;
+</code></p>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: LocalNetworkAccessRestrictionsTemporaryOptOut</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+true
+</code></p>

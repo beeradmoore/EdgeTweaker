@@ -1,0 +1,58 @@
+<h1>Microsoft Edge Browser Policy Documentation EdgeFileUploadAllowedForUrls | Microsoft Learn</h1>
+
+<h2>File upload allowed for urls</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: Not supported</li>
+<li>macOS: Not supported</li>
+<li>Android: ≥ 115</li>
+<li>iOS: ≥ 122</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>Allows you to set a list of site URL patterns that specify sites that are allowed to upload files from local devices. This policy is an exception to FileUploadBlockedForUrls.</p>
+
+<p>For detailed information on valid site URL patterns, see https://go.microsoft.com/fwlink/?linkid=2095322. * isn't an accepted value for this policy.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: EdgeFileUploadAllowedForUrls</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+["[*.]example.edu"]
+</code></p>
+
+<h2>iOS information and settings</h2>
+
+<ul>
+<li>Preference Key name: EdgeFileUploadAllowedForUrls</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;[*.]example.edu&lt;/string&gt;
+&lt;/array&gt;
+</code></p>

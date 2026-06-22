@@ -1,20 +1,23 @@
-<h3>CAPlatformIntegrationEnabled</h3>
+<h1>Microsoft Edge Browser Policy Documentation CAPlatformIntegrationEnabled | Microsoft Learn</h1>
 
-<h4>Use user-added TLS certificates from platform trust stores for server authentication</h4>
+<h2>Use user-added TLS certificates from platform trust stores for server authentication</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 133 or later</li>
+<li>Windows: ≥ 133</li>
+<li>macOS: ≥ 133</li>
+<li>Android: ≥ 138</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>If enabled (or unset), user-added TLS certificates from platform trust stores will be used in path-building for TLS server authentication.</p>
 
-<p>If disabled, user-added TLS certificates from platform trust stores will not be used in path-building for TLS server authentication.</p>
+<p>If disabled, user-added TLS certificates from platform trust stores won't be used in path-building for TLS server authentication.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -24,15 +27,15 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Boolean</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: CAPlatformIntegrationEnabled</li>
@@ -42,29 +45,45 @@
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Disabled
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: CAPlatformIntegrationEnabled</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: CAPlatformIntegrationEnabled</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000000
 </code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: CAPlatformIntegrationEnabled</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: CAPlatformIntegrationEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;false/&gt;
 </code></p>
 
-</li>
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: CAPlatformIntegrationEnabled</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>
+false
+</code></p>

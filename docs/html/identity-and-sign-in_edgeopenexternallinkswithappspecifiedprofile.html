@@ -1,0 +1,85 @@
+<h1>Microsoft Edge Browser Policy Documentation EdgeOpenExternalLinksWithAppSpecifiedProfile | Microsoft Learn</h1>
+
+<h2>Prioritize App specified profile to open external links</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 139</li>
+<li>macOS: ≥ 139</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy controls whether the profile specified by an app (such as Microsoft Teams or Outlook) is given priority when opening external links, instead of the profile selected in the Default profile for external links setting.</p>
+
+<p>Policy behavior:</p>
+
+<ol>
+<li>Enabled or not configured: The app-specified profile is prioritized for opening external links. This behavior overrides the profile selected in settings, and the behavior defined by the EdgeDefaultProfileEnabled and EdgeOpenExternalLinksWithPrimaryWorkProfileEnabled policies. If the app doesn't specify a profile, this policy has no effect.</li>
+<li>Disabled: The profile selected in settings—along with the EdgeDefaultProfileEnabled and EdgeOpenExternalLinksWithPrimaryWorkProfileEnabled policies—is used to determine which profile opens external links.</li>
+</ol>
+
+<p>NOTE: This policy doesn't override user-defined preferences set through Automatic profile switching, including the Custom site switch setting located within it. If a user configured specific sites to open in designated profiles, those preferences take precedence.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: EdgeOpenExternalLinksWithAppSpecifiedProfile</li>
+<li>GP name: Prioritize App specified profile to open external links</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Identity and sign-in</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+Disabled
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: EdgeOpenExternalLinksWithAppSpecifiedProfile</li>
+<li>Value type: REG_DWORD</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+0x00000000
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: EdgeOpenExternalLinksWithAppSpecifiedProfile</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;false/&gt;
+</code></p>

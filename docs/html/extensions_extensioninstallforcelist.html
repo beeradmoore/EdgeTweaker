@@ -1,32 +1,37 @@
-<h3>ExtensionInstallForcelist</h3>
+<h1>Microsoft Edge Browser Policy Documentation ExtensionInstallForcelist | Microsoft Learn</h1>
 
-<h4>Control which extensions are installed silently</h4>
+<h2>Control which extensions are installed silently</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 77 or later</li>
+<li>Windows: ≥ 77</li>
+<li>macOS: ≥ 77</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
-<p>Set this policy to specify a list of apps and extensions that install silently, without user interaction. Users can't uninstall or turn off this setting. Permissions are granted implicitly, including the enterprise.deviceAttributes and enterprise.platformKeys extension APIs. Note: These 2 APIs aren't available to apps and extensions that aren't force-installed.</p>
+<p>Set this policy to specify a list of apps and extensions that install silently, without user interaction. Users can't uninstall or turn off this setting. Permissions are granted implicitly, including the enterprise.deviceAttributes and enterprise.platformKeys extension APIs. Note: These two APIs aren't available to apps and extensions that aren't force-installed.</p>
 
 <p>If you don't set this policy, no apps or extensions are autoinstalled and users can uninstall any app in Microsoft Edge.</p>
 
-<p>This policy supercedes <a href="#extensioninstallblocklist">ExtensionInstallBlocklist</a> policy. If a previously force-installed app or extension is removed from this list, Microsoft Edge automatically uninstalls it.</p>
+<p>This policy supersedes <a href="extensioninstallblocklist">ExtensionInstallBlocklist</a> policy. If a previously force-installed app or extension is removed from this list, Microsoft Edge automatically uninstalls it.</p>
 
 <p>For Windows instances not joined to a Microsoft Active Directory domain, forced installation is limited to apps and extensions listed in the Microsoft Edge Add-ons website.</p>
 
 <p>On macOS instances, apps and extensions from outside the Microsoft Edge Add-ons website can only be force installed if the instance is managed via MDM, or joined to a domain via MCX.</p>
 
-<p>The source code of any extension can be altered by users with developer tools, potentially rendering the extension unfunctional. If this is a concern, configure the <a href="#developertoolsavailability">DeveloperToolsAvailability</a> policy.</p>
+<p>The source code of any extension can be altered by users with developer tools, potentially rendering the extension unfunctional. If there's a concern, configure the <a href="developertoolsavailability">DeveloperToolsAvailability</a> policy.</p>
 
-<p>Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document <a href="https://go.microsoft.com/fwlink/?linkid=2095043">https://go.microsoft.com/fwlink/?linkid=2095043</a>. The update URL should use one of the following schemes: http, https or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy, see https://learn.microsoft.com/deployedge/microsoft-edge-manage-extensions-ref-guide.</p>
+<p>Each list item of the policy is a string that contains an extension ID and, optionally, and an optional "update" URL separated by a semicolon (;). The extension ID is the 32-letter string found, for example, on edge://extensions when in Developer mode. If specified, the "update" URL should point to an Update Manifest XML document ( https://go.microsoft.com/fwlink/?linkid=2095043 ). The update URL should use one of the following schemes: http, https, or file. By default, the Microsoft Edge Add-ons website's update URL is used. The "update" URL set in this policy is only used for the initial installation; subsequent updates of the extension use the update URL in the extension's manifest. The update url for subsequent updates can be overridden using the ExtensionSettings policy. See <a href="/en-us/deployedge/microsoft-edge-manage-extensions-ref-guide">A detailed guide to configuring extensions using the ExtensionSettings policy</a>.</p>
 
-<p>Note: This policy doesn't apply to InPrivate mode. Read about hosting extensions at <a href="/microsoft-edge/extensions-chromium/enterprise/hosting-and-updating">Publish and update extensions in the Microsoft Edge Add-ons website</a>.</p>
+<p>Note: This policy doesn't apply to InPrivate mode. Read about hosting extensions at <a href="/en-us/microsoft-edge/extensions-chromium/enterprise/hosting-and-updating">Publish and update extensions in the Microsoft Edge Add-ons website</a>.</p>
 
-<h4>Supported features:</h4>
+<p>Starting in Microsoft Edge version 149, the <a href="microsoft365copilotchaticonenabled">Microsoft365CopilotChatIconEnabled</a> policy controls the display of Copilot in the toolbar.</p>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -36,15 +41,15 @@
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>List of strings</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: ExtensionInstallForcelist</li>
@@ -54,34 +59,49 @@
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+gbchcmhmhahfdphkhkmpfmihenigjmpp;https://edge.microsoft.com/extensionwebstorebase/v1/crx
+</code></p>
+
+<p><code>
+abcdefghijklmnopabcdefghijklmnop
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: 1, 2, 3, ...</li>
-<li>Value Type: list of REG_SZ</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
-<p>```
-SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 = "gbchcmhmhahfdphkhkmpfmihenigjmpp;https://edge.microsoft.com/extensionwebstorebase/v1/crx"
-SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\2 = "abcdefghijklmnopabcdefghijklmnop"</p>
+<p>SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\1 =</p>
 
-<p>```</p>
-
-<h4>Mac information and settings</h4>
-
-<ul>
-<li>Preference Key Name: ExtensionInstallForcelist</li>
-<li><p>Example value:
-<code>xml
-&lt;array&gt;
-&lt;string&gt;gbchcmhmhahfdphkhkmpfmihenigjmpp;https://edge.microsoft.com/extensionwebstorebase/v1/crx&lt;/string&gt;
-&lt;string&gt;abcdefghijklmnopabcdefghijklmnop&lt;/string&gt;
-&lt;/array&gt;
+<p><code>
+gbchcmhmhahfdphkhkmpfmihenigjmpp;https://edge.microsoft.com/extensionwebstorebase/v1/crx
 </code></p>
 
-</li>
+<p>SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist\2 =</p>
+
+<p><code>
+abcdefghijklmnopabcdefghijklmnop
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: ExtensionInstallForcelist</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;gbchcmhmhahfdphkhkmpfmihenigjmpp;https://edge.microsoft.com/extensionwebstorebase/v1/crx&lt;/string&gt;
+  &lt;string&gt;abcdefghijklmnopabcdefghijklmnop&lt;/string&gt;
+&lt;/array&gt;
+</code></p>

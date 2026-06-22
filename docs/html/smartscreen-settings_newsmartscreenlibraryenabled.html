@@ -1,33 +1,35 @@
-<h3>NewSmartScreenLibraryEnabled</h3>
+<h1>Microsoft Edge Browser Policy Documentation NewSmartScreenLibraryEnabled | Microsoft Learn</h1>
 
-<h4>Enable new SmartScreen library (obsolete)</h4>
+<h2>Enable new SmartScreen library (obsolete)</h2>
 
 <blockquote>
-  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge 107.</p>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge version 107.</p>
 </blockquote>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 95, until 107</li>
+<li>Windows: 95-107</li>
+<li>macOS: 95-107</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>This policy doesn't work because it was only intended to be a short-term mechanism to support the update to a new SmartScreen client.</p>
 
 <p>Allows the Microsoft Edge browser to load the new SmartScreen library (libSmartScreenN) for any SmartScreen checks on site URLs or application downloads.</p>
 
-<p>If you enable or don't configure this policy, Microsoft Edge will use the new SmartScreen library (libSmartScreenN).</p>
+<p>If you enable or don't configure this policy, Microsoft Edge uses the new SmartScreen library (libSmartScreenN).</p>
 
-<p>If you disable this policy, Microsoft Edge will use the old SmartScreen library (libSmartScreen).</p>
+<p>If you disable this policy, Microsoft Edge uses the old SmartScreen library (libSmartScreen).</p>
 
-<p>Before Microsoft Edge version 103, if you don't configure this policy, Microsoft Edge will use the old SmartScreen library (libSmartScreen).</p>
+<p>Before Microsoft Edge version 103, if you don't configure this policy, Microsoft Edge uses the old SmartScreen library (libSmartScreen).</p>
 
-<p>This policy is only available on Windows instances that are joined to a Microsoft Active Directory domain, Windows 10 Pro or Enterprise instances that enrolled for device management.
-This also includes macOS instances that are that are managed via MDM or joined to a domain via MCX.</p>
+<p>This policy is only available on Windows instances that are joined to a Microsoft Active Directory domain, Windows 10 Pro or Enterprise instances that enrolled for device management. This also includes macOS instances that are that are managed via MDM or joined to a domain via MCX.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -37,15 +39,15 @@ This also includes macOS instances that are that are managed via MDM or joined t
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Boolean</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: NewSmartScreenLibraryEnabled</li>
@@ -55,29 +57,34 @@ This also includes macOS instances that are that are managed via MDM or joined t
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Enabled
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
-<li>Value Name: NewSmartScreenLibraryEnabled</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: NewSmartScreenLibraryEnabled</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000001
 </code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: NewSmartScreenLibraryEnabled</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: NewSmartScreenLibraryEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;true/&gt;
 </code></p>
-
-</li>
-</ul>

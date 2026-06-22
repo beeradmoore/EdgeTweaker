@@ -1,0 +1,71 @@
+<h1>Microsoft Edge Browser Policy Documentation TwaDisclosureUiMode | Microsoft Learn</h1>
+
+<h2>Configure Trusted Web Activity disclosure UI mode</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: Not supported</li>
+<li>macOS: Not supported</li>
+<li>Android: ≥ 140</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy controls the user interface used to display the "Running in Microsoft Edge" disclosure when a Trusted Web Activity (TWA) is launched.</p>
+
+<p>If you enable this policy, you can specify which UI variant is used to show the disclosure message.</p>
+
+<p>If you disable or don't configure this policy, Microsoft Edge uses the default disclosure UI.</p>
+
+<p>Note: An InfoBar remains visible until the user dismisses it, whereas Snackbar and Notification variants automatically hide after a short delay.</p>
+
+<p>Policy options mapping:</p>
+
+<ul>
+<li>Default (0) = Let Microsoft Edge decide (default)</li>
+<li>V1InfoBar (1) = Show disclosure as an InfoBar (stays visible until dismissed)</li>
+<li>V2NotificationOrSnackbar (2) = Show disclosure as a Notification or Snackbar (auto-hides after a short delay)</li>
+</ul>
+
+<p>Use the preceding information when configuring this policy.</p>
+
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>Default (0) = Let Microsoft Edge decide (default)</li>
+<li>V1InfoBar (1) = Show disclosure as an InfoBar (stays visible until dismissed)</li>
+<li>V2NotificationOrSnackbar (2) = Show disclosure as a Notification or Snackbar (auto-hides after a short delay)</li>
+</ul>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: TwaDisclosureUiMode</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+2
+</code></p>

@@ -1,28 +1,31 @@
-<h3>BackgroundTemplateListUpdatesEnabled</h3>
+<h1>Microsoft Edge Browser Policy Documentation BackgroundTemplateListUpdatesEnabled | Microsoft Learn</h1>
 
-<h4>Enables background updates to the list of available templates for Collections and other features that use templates (deprecated)</h4>
+<h2>Enables background updates to the list of available templates for Collections and other features that use templates (deprecated)</h2>
 
 <blockquote>
   <p>DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.</p>
 </blockquote>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 79 or later</li>
+<li>Windows: ≥ 79</li>
+<li>macOS: ≥ 79</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
-<p>This policy is deprecated because we are moving to a new policy. It won't work in Microsoft Edge as soon as version 104. The new policy to use is <a href="#edgeassetdeliveryserviceenabled">EdgeAssetDeliveryServiceEnabled</a>.</p>
+<p>This policy is deprecated because we are moving to a new policy. It won't work in Microsoft Edge as soon as version 104. The new policy to use is <a href="edgeassetdeliveryserviceenabled">EdgeAssetDeliveryServiceEnabled</a>.</p>
 
-<p>Lets you enable or disable background updates to the list of available templates for Collections and other features that use templates.  Templates are used to extract rich metadata from a webpage when the page is saved to a collection.</p>
+<p>Lets you enable or disable background updates to the list of available templates for Collections and other features that use templates. Templates are used to extract rich metadata from a webpage when the page is saved to a collection.</p>
 
-<p>If you enable this setting or the setting is unconfigured, the list of available templates will be downloaded in the background from a Microsoft service every 24 hours.</p>
+<p>If you enable this setting or the setting is unconfigured, the list of available templates are downloaded in the background from a Microsoft service every 24 hours.</p>
 
-<p>If you disable this setting the list of available templates will be downloaded on demand. This type of download might result in small performance penalties for Collections and other features.</p>
+<p>If you disable this setting the list of available templates are downloaded on demand. This type of download might result in small performance penalties for Collections and other features.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -32,47 +35,52 @@
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Boolean</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: BackgroundTemplateListUpdatesEnabled</li>
 <li>GP name: Enables background updates to the list of available templates for Collections and other features that use templates (deprecated)</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Enabled
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: BackgroundTemplateListUpdatesEnabled</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: BackgroundTemplateListUpdatesEnabled</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000001
 </code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: BackgroundTemplateListUpdatesEnabled</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: BackgroundTemplateListUpdatesEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;true/&gt;
 </code></p>
-
-</li>
-</ul>

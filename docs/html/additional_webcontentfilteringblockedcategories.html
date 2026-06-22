@@ -1,60 +1,113 @@
-<h3>WebContentFilteringBlockedCategories</h3>
+<h1>Microsoft Edge Browser Policy Documentation WebContentFilteringBlockedCategories | Microsoft Learn</h1>
 
-<h4>Configure Web Content Filtering</h4>
+<h2>Configure Web Content Filtering</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows since 135 or later</li>
+<li>Windows: ≥ 135</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
-<p>You can configure this policy to block certain categories of URLs. Blocking a category prevents users in specified device groups from accessing URLs associated with the category.</p>
+<p>Configure this policy to block access to specific categories of websites in Microsoft Edge on Windows devices. Web Content Filtering is available exclusively in Microsoft Edge on Windows and requires the appropriate Microsoft 365 licensing.</p>
 
-<p>The list of possible categories, their Category String, and their description are detailed at <a href="https://go.microsoft.com/fwlink/?linkid=2249965">https://go.microsoft.com/fwlink/?linkid=2249965</a></p>
+<p>When this policy is enabled, users are blocked from accessing URLs that fall within the defined list of content categories. You can configure this by adding Category Strings to the list of blocked categories.</p>
 
-<p>To block a category, add the Category String of the category to the following List of blocked categories If you leave this policy unset or disable the policy, no URLs will be blocked.</p>
+<p>If the policy is not configured or is disabled, no categories will be blocked.</p>
 
-<p>If you want to block a specific URL without blocking an entire category, add the URL to the list of blocked URLs using the <a href="#urlblocklist">URLBlocklist</a> policy.</p>
+<p>To view the list of supported content categories, including each Category String and its definition, refer to: <a href="/en-us/defender-endpoint/web-content-filtering?view=o365-worldwide#category-definitions">Web content filtering</a></p>
 
-<p>If you want a specific URL in a blocked category to be accessible, add the URL to the list of allowed URLs using the <a href="#urlallowlist">URLAllowlist</a> policy.</p>
+<p>To block a specific URL outside of a category, use the “Block access to a list of URLs” policy.</p>
 
-<p>This Web Content Filtering policy only works on Microsoft Edge on Windows 10 devices or above.</p>
+<p>To allow a specific URL that falls under a blocked category, use the “Define a list of allowed URLs” policy.</p>
+
+<p>Note: This policy is supported only when deployed through the Edge management service, not via Microsoft Intune.</p>
+
+<p>To use this policy, your organization must have one of the following licenses:</p>
+
+<ul>
+<li>Microsoft 365 A1, A3, or A5</li>
+<li>Microsoft 365 Business Premium</li>
+<li>Microsoft 365 Business Basic or Standard with Intune Plan 1 or Plan 2</li>
+</ul>
 
 <p>Policy options mapping:</p>
 
 <ul>
-<li><p>chat (chat) = Chat</p></li>
-<li><p>child<em>abuse</em>images (child<em>abuse</em>images) = Child Abuse Images</p></li>
-<li><p>criminal<em>activity (criminal</em>activity) = Criminal Activity</p></li>
-<li><p>download<em>sites (download</em>sites) = Download Sites</p></li>
-<li><p>gambling (gambling) = Gambling</p></li>
-<li><p>games (games) = Games</p></li>
-<li><p>hacking (hacking) = Hacking</p></li>
-<li><p>hate<em>and</em>intolerance (hate<em>and</em>intolerance) = Hate and Intolerance</p></li>
-<li><p>illegal<em>drug (illegal</em>drug) = Illegal Drug</p></li>
-<li><p>illegal<em>software (illegal</em>software) = Illegal Software</p></li>
-<li><p>image<em>sharing (image</em>sharing) = Image Sharing</p></li>
-<li><p>instant<em>messaging (instant</em>messaging) = Instant Messaging</p></li>
-<li><p>nudity (nudity) = Nudity</p></li>
-<li><p>peer<em>to</em>peer (peer<em>to</em>peer) = Peer to Peer</p></li>
-<li><p>pornography<em>or</em>sexually<em>explicit (pornography</em>or<em>sexually</em>explicit) = Pornography or Sexually Explicit</p></li>
-<li><p>professional<em>networking (professional</em>networking) = Professional Networking</p></li>
-<li><p>self<em>harm (self</em>harm) = Self Harm</p></li>
-<li><p>sex<em>education (sex</em>education) = Sex Education</p></li>
-<li><p>social<em>networking (social</em>networking) = Social Networking</p></li>
-<li><p>streaming<em>and</em>downloads (streaming<em>and</em>downloads) = Streaming Media and Downloads</p></li>
-<li><p>tasteless (tasteless) = Tasteless</p></li>
-<li><p>violence (violence) = Violence</p></li>
-<li><p>weapons (weapons) = Weapons</p></li>
-<li><p>web<em>based</em>email (web<em>based</em>email) = Web Based Email</p></li>
-<li><p>none (none) = None</p></li>
+<li>chat (chat) = Chat</li>
+<li>child_abuse_images (child_abuse_images) = Child Abuse Images</li>
+<li>criminal_activity (criminal_activity) = Criminal Activity</li>
+<li>download_sites (download_sites) = Download Sites</li>
+<li>gambling (gambling) = Gambling</li>
+<li>games (games) = Games</li>
+<li>hacking (hacking) = Hacking</li>
+<li>hate_and_intolerance (hate_and_intolerance) = Hate and Intolerance</li>
+<li>illegal_drug (illegal_drug) = Illegal Drug</li>
+<li>illegal_software (illegal_software) = Illegal Software</li>
+<li>image_sharing (image_sharing) = Image Sharing</li>
+<li>instant_messaging (instant_messaging) = Instant Messaging</li>
+<li>nudity (nudity) = Nudity</li>
+<li>peer_to_peer (peer_to_peer) = Peer to Peer</li>
+<li>pornography_or_sexually_explicit (pornography_or_sexually_explicit) = Pornography or Sexually Explicit</li>
+<li>professional_networking (professional_networking) = Professional Networking</li>
+<li>self_harm (self_harm) = Self Harm</li>
+<li>sex_education (sex_education) = Sex Education</li>
+<li>social_networking (social_networking) = Social Networking</li>
+<li>streaming_and_downloads (streaming_and_downloads) = Streaming Media and Downloads</li>
+<li>tasteless (tasteless) = Tasteless</li>
+<li>violence (violence) = Violence</li>
+<li>weapons (weapons) = Weapons</li>
+<li>web_based_email (web_based_email) = Web Based Email</li>
+<li>gen_ai (gen_ai) = Gen AI</li>
+<li>shopping (shopping) = Shopping</li>
+<li>3p_search_engines (3p_search_engines) = 3P Search Engines</li>
+<li>none (none) = None</li>
 </ul>
 
 <p>Use the preceding information when configuring this policy.</p>
 
-<h4>Supported features:</h4>
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>chat = Chat</li>
+<li>child_abuse_images = Child Abuse Images</li>
+<li>criminal_activity = Criminal Activity</li>
+<li>download_sites = Download Sites</li>
+<li>gambling = Gambling</li>
+<li>games = Games</li>
+<li>hacking = Hacking</li>
+<li>hate_and_intolerance = Hate and Intolerance</li>
+<li>illegal_drug = Illegal Drug</li>
+<li>illegal_software = Illegal Software</li>
+<li>image_sharing = Image Sharing</li>
+<li>instant_messaging = Instant Messaging</li>
+<li>nudity = Nudity</li>
+<li>peer_to_peer = Peer to Peer</li>
+<li>pornography_or_sexually_explicit = Pornography or Sexually Explicit</li>
+<li>professional_networking = Professional Networking</li>
+<li>self_harm = Self Harm</li>
+<li>sex_education = Sex Education</li>
+<li>social_networking = Social Networking</li>
+<li>streaming_and_downloads = Streaming Media and Downloads</li>
+<li>tasteless = Tasteless</li>
+<li>violence = Violence</li>
+<li>weapons = Weapons</li>
+<li>web_based_email = Web Based Email</li>
+<li>gen_ai = Gen AI</li>
+<li>shopping = Shopping</li>
+<li>3p_search_engines = 3P Search Engines</li>
+<li>none = None</li>
+</ul>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -64,40 +117,63 @@
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>List of strings</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: WebContentFilteringBlockedCategories</li>
 <li>GP name: Configure Web Content Filtering</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Gambling
+</code></p>
+
+<p><code>
+Streaming Media and Downloads
+</code></p>
+
+<p><code>
+Games
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\WebContentFilteringBlockedCategories</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: 1, 2, 3, ...</li>
-<li>Value Type: list of REG_SZ</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
-<p>```
-SOFTWARE\Policies\Microsoft\Edge\WebContentFilteringBlockedCategories\1 = "gambling"
-SOFTWARE\Policies\Microsoft\Edge\WebContentFilteringBlockedCategories\2 = "streaming<em>and</em>downloads"
-SOFTWARE\Policies\Microsoft\Edge\WebContentFilteringBlockedCategories\3 = "games"</p>
+<p>SOFTWARE\Policies\Microsoft\Edge\WebContentFilteringBlockedCategories\1 =</p>
 
-<p>```</p>
+<p><code>
+gambling
+</code></p>
 
+<p>SOFTWARE\Policies\Microsoft\Edge\WebContentFilteringBlockedCategories\2 =</p>
 
+<p><code>
+streaming_and_downloads
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\WebContentFilteringBlockedCategories\3 =</p>
+
+<p><code>
+games
+</code></p>

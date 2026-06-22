@@ -1,0 +1,108 @@
+<h1>Microsoft Edge Browser Policy Documentation GeolocationBlockedForUrls | Microsoft Learn</h1>
+
+<h2>Block geolocation on these sites</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 144</li>
+<li>macOS: ≥ 144</li>
+<li>Android: ≥ 144</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>Use this policy to define a list of URL patterns for sites that are blocked from accessing the user's geolocation. These sites also can't prompt the user for location permissions.</p>
+
+<p>If you enable this policy, the list you provide determines which sites are blocked from requesting or accessing geolocation.</p>
+
+<p>If you disable or don't configure this policy, DefaultGeolocationSetting applies to all sites, if configured. If it's not configured, the user’s personal browser setting is used.</p>
+
+<p>For detailed information on valid url patterns, see the documentation on pattern formats: <a href="/en-us/deployedge/edge-learnmmore-url-list-filter%20format">Filter formats for URL list-based policies</a>.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: GeolocationBlockedForUrls</li>
+<li>GP name: Block geolocation on these sites</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Content settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+https://www.example.com
+</code></p>
+
+<p><code>
+[*.]example.edu
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\GeolocationBlockedForUrls</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\GeolocationBlockedForUrls\1 =</p>
+
+<p><code>
+https://www.example.com
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\GeolocationBlockedForUrls\2 =</p>
+
+<p><code>
+[*.]example.edu
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: GeolocationBlockedForUrls</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;https://www.example.com&lt;/string&gt;
+  &lt;string&gt;[*.]example.edu&lt;/string&gt;
+&lt;/array&gt;
+</code></p>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: GeolocationBlockedForUrls</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+["https://www.example.com", "[*.]example.edu"]
+</code></p>

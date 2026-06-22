@@ -1,24 +1,27 @@
-<h3>EdgeAutofillMlEnabled</h3>
+<h1>Microsoft Edge Browser Policy Documentation EdgeAutofillMlEnabled | Microsoft Learn</h1>
 
-<h4>Machine learning powered autofill suggestions</h4>
+<h2>Machine learning powered autofill suggestions</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 132 or later</li>
+<li>Windows: ≥ 132</li>
+<li>macOS: ≥ 132</li>
+<li>Android: Not supported</li>
+<li>iOS: ≥ 135</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
-<p>Allows ML technology to predict and fill in forms and text fields for better browsing. Your personal data is secure and will not be used elsewhere.</p>
+<p>Allows ML technology to predict and fill in forms and text fields for better browsing. Your personal data is secure and isn't used elsewhere.</p>
 
 <p>If you enable this policy or don't configure it, users can benefit from machine learning powered autofill suggestions, which improve efficiency by offering more accurate, context aware form recommendations based on historical autofill data.</p>
 
-<p>If you disable this policy, machine learning powered autofill suggestions will not be shown, and autofill will no longer use cloud-based machine learning models to enhance form filling with smarter, context aware suggestions. Instead, autofill will rely on basic form data without the benefits of machine learning.</p>
+<p>If you disable this policy, machine learning-powered autofill suggestions aren't shown, and autofill no longer uses cloud-based machine learning models to enhance form filling with smarter, context aware suggestions. Instead, autofill will rely on basic form data without the benefits of machine learning.</p>
 
-<p>This policy will be disabled if you disable <a href="#autofilladdressenabled">AutofillAddressEnabled</a>..</p>
+<p>This policy will be disabled if you disable <a href="autofilladdressenabled">AutofillAddressEnabled</a>.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -28,47 +31,63 @@
 <li>Applies to a profile that is signed in with a Microsoft account: No</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Boolean</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: EdgeAutofillMlEnabled</li>
 <li>GP name: Machine learning powered autofill suggestions</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
-<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
+<li>GP path (Recommended): Administrative Templates/Microsoft Edge - Default Settings (users can override)</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Disabled
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): SOFTWARE\Policies\Microsoft\Edge\Recommended</li>
-<li>Value Name: EdgeAutofillMlEnabled</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: EdgeAutofillMlEnabled</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000000
 </code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: EdgeAutofillMlEnabled</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: EdgeAutofillMlEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;false/&gt;
 </code></p>
 
-</li>
+<h2>iOS information and settings</h2>
+
+<ul>
+<li>Preference Key name: EdgeAutofillMlEnabled</li>
+<li>Example value:</li>
 </ul>
+
+<p><code>xml
+&lt;false/&gt;
+</code></p>

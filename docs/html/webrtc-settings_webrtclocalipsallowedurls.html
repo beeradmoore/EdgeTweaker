@@ -1,0 +1,99 @@
+<h1>Microsoft Edge Browser Policy Documentation WebRtcLocalIpsAllowedUrls | Microsoft Learn</h1>
+
+<h2>Manage exposure of local IP addressess by WebRTC</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 80</li>
+<li>macOS: ≥ 80</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>Specifies a list of origins (URLs) or hostname patterns (like "<em>contoso.com</em>") for which local IP address should be exposed by WebRTC.</p>
+
+<p>If you enable this policy and set a list of origins (URLs) or hostname patterns, when edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will expose the local IP address for cases that match patterns in the list.</p>
+
+<p>If you disable or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Enabled, WebRTC will not expose local IP addresses. The local IP address is concealed with an mDNS hostname.</p>
+
+<p>If you enable, disable, or don't configure this policy, and edge://flags/#enable-webrtc-hide-local-ips-with-mdns is Disabled, WebRTC will expose local IP addresses.</p>
+
+<p>Please note that this policy weakens the protection of local IP addresses that might be needed by administrators.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>List of strings</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: WebRtcLocalIpsAllowedUrls</li>
+<li>GP name: Manage exposure of local IP addressess by WebRTC</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+https://www.contoso.com
+</code></p>
+
+<p><code>
+*contoso.com*
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: 1, 2, 3, ...</li>
+<li>Value type: List of REG_SZ</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\1 =</p>
+
+<p><code>
+https://www.contoso.com
+</code></p>
+
+<p>SOFTWARE\Policies\Microsoft\Edge\WebRtcLocalIpsAllowedUrls\2 =</p>
+
+<p><code>
+*contoso.com*
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: WebRtcLocalIpsAllowedUrls</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;array&gt;
+  &lt;string&gt;https://www.contoso.com&lt;/string&gt;
+  &lt;string&gt;*contoso.com*&lt;/string&gt;
+&lt;/array&gt;
+</code></p>

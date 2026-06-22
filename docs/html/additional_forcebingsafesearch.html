@@ -1,14 +1,17 @@
-<h3>ForceBingSafeSearch</h3>
+<h1>Microsoft Edge Browser Policy Documentation ForceBingSafeSearch | Microsoft Learn</h1>
 
-<h4>Enforce Bing SafeSearch</h4>
+<h2>Enforce Bing SafeSearch</h2>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows and macOS since 77 or later</li>
+<li>Windows: ≥ 77</li>
+<li>macOS: ≥ 77</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
 <p>Ensure that queries in Bing web search are done with SafeSearch set to the value specified. Users can't change this setting.</p>
 
@@ -23,14 +26,26 @@
 <p>Policy options mapping:</p>
 
 <ul>
-<li><p>BingSafeSearchNoRestrictionsMode (0) = Don't configure search restrictions in Bing</p></li>
-<li><p>BingSafeSearchModerateMode (1) = Configure moderate search restrictions in Bing</p></li>
-<li><p>BingSafeSearchStrictMode (2) = Configure strict search restrictions in Bing</p></li>
+<li>BingSafeSearchNoRestrictionsMode (0) = Don't configure search restrictions in Bing</li>
+<li>BingSafeSearchModerateMode (1) = Configure moderate search restrictions in Bing</li>
+<li>BingSafeSearchStrictMode (2) = Configure strict search restrictions in Bing</li>
 </ul>
 
 <p>Use the preceding information when configuring this policy.</p>
 
-<h4>Supported features:</h4>
+<h2>Policy options mapping:</h2>
+
+<blockquote>
+  <p>Use this information when configuring this policy.</p>
+</blockquote>
+
+<ul>
+<li>BingSafeSearchNoRestrictionsMode (0) = Don't configure search restrictions in Bing</li>
+<li>BingSafeSearchModerateMode (1) = Configure moderate search restrictions in Bing</li>
+<li>BingSafeSearchStrictMode (2) = Configure strict search restrictions in Bing</li>
+</ul>
+
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -40,47 +55,52 @@
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Integer</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: ForceBingSafeSearch</li>
 <li>GP name: Enforce Bing SafeSearch</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Don't configure search restrictions in Bing
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: ForceBingSafeSearch</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: ForceBingSafeSearch</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000000
 </code></p>
 
-<h4>Mac information and settings</h4>
+<h2>Mac information and settings</h2>
 
 <ul>
-<li>Preference Key Name: ForceBingSafeSearch</li>
-<li><p>Example value:
-<code>xml
+<li>Preference Key name: ForceBingSafeSearch</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
 &lt;integer&gt;0&lt;/integer&gt;
 </code></p>
-
-</li>
-</ul>

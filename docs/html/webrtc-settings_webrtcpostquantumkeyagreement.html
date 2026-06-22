@@ -1,0 +1,88 @@
+<h1>Microsoft Edge Browser Policy Documentation WebRtcPostQuantumKeyAgreement | Microsoft Learn</h1>
+
+<h2>Enable post-quantum key agreement for WebRTC</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 141</li>
+<li>macOS: ≥ 141</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy controls the use of post-quantum key agreement for WebRTC in Microsoft Edge.</p>
+
+<p>If you enable this policy, Microsoft Edge will offer post-quantum key agreement for WebRTC.</p>
+
+<p>If you disable this policy, post-quantum key agreement won't be offered for WebRTC.</p>
+
+<p>If you don't configure this policy, post-quantum key agreement won't be offered for WebRTC. A future version of Microsoft Edge may enable this feature by default.</p>
+
+<p>Offering a post-quantum key agreement is backwards compatible. Existing datagram transport layer security (DTLS) peers and networking middleware are expected to ignore the new option and continue using previous options.</p>
+
+<p>However, devices that don't correctly implement DTLS may malfunction when offered the new option. For example, they may disconnect in response to unrecognized options or larger message sizes. Such devices aren’t post-quantum-ready and may interfere with an organization's post-quantum transition. If this issue occurs, administrators should contact the device vendor for a fix.</p>
+
+<p>This policy is temporary and will be removed in a future release.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: WebRtcPostQuantumKeyAgreement</li>
+<li>GP name: Enable post-quantum key agreement for WebRTC</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/WebRtc settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+Enabled
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: WebRtcPostQuantumKeyAgreement</li>
+<li>Value type: REG_DWORD</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: WebRtcPostQuantumKeyAgreement</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;true/&gt;
+</code></p>

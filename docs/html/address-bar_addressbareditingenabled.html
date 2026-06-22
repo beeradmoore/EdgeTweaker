@@ -1,0 +1,87 @@
+<h1>Microsoft Edge Browser Policy Documentation AddressBarEditingEnabled | Microsoft Learn</h1>
+
+<h2>Configure address bar editing</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 98</li>
+<li>macOS: ≥ 98</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>If you enable or don't configure this policy, users can change the URL in the address bar.</p>
+
+<p>If you disable this policy, it prevents users from changing the URL in the address bar.</p>
+
+<p>Note: This policy doesn't prevent the browser from navigating to any URL. Users can still navigate to any URL using the search option in the default New Tab Page, or using any link that leads to a web search engine. To ensure that users can only go to sites you expect, consider configuring the following policies in addition to this policy:</p>
+
+<ul>
+<li><a href="newtabpagelocation">NewTabPageLocation</a></li>
+<li><a href="homepagelocation">HomepageLocation</a></li>
+<li><a href="homepageisnewtabpage">HomepageIsNewTabPage</a></li>
+<li><a href="urlblocklist">URLBlocklist</a> and <a href="urlallowlist">URLAllowlist</a> to scope the pages that browser can navigate to.</li>
+</ul>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: AddressBarEditingEnabled</li>
+<li>GP name: Configure address bar editing</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+Enabled
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: AddressBarEditingEnabled</li>
+<li>Value type: REG_DWORD</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: AddressBarEditingEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;true/&gt;
+</code></p>

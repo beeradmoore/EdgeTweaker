@@ -1,0 +1,104 @@
+<h1>Microsoft Edge Browser Policy Documentation MaxConnectionsPerProxyForWebSocket | Microsoft Learn</h1>
+
+<h2>Maximum number of concurrent connections to the proxy server for WebSocket requests</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 148</li>
+<li>macOS: ≥ 148</li>
+<li>Android: ≥ 148</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>Specifies the maximum number of simultaneous connections to a proxy server for WebSocket requests.</p>
+
+<p>To configure limits for non-WebSocket requests, see the <a href="maxconnectionsperproxy">MaxConnectionsPerProxy</a> policy.</p>
+
+<p>If you don't configure this policy, the default value of 128 is used.</p>
+
+<p>Some web applications maintain multiple concurrent connections (for example, long-lived or hanging requests). Setting a value lower than the default may cause networking delays when many such applications are open.</p>
+
+<p>Some proxy servers cannot handle a high number of concurrent connections per client. In these cases, reducing the value of this policy may improve reliability.</p>
+
+<p>The supported range is 6 to 256:</p>
+
+<ul>
+<li>Values less than 6 are treated as 6.</li>
+<li>Values greater than 256 are treated as 256.</li>
+</ul>
+
+<p>We recommend modifying this value only if required by your proxy server configuration or network environment.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Integer</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: MaxConnectionsPerProxyForWebSocket</li>
+<li>GP name: Maximum number of concurrent connections to the proxy server for WebSocket requests</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+32
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: MaxConnectionsPerProxyForWebSocket</li>
+<li>Value type: REG_DWORD</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+0x00000020
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: MaxConnectionsPerProxyForWebSocket</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;integer&gt;32&lt;/integer&gt;
+</code></p>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: MaxConnectionsPerProxyForWebSocket</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+32
+</code></p>

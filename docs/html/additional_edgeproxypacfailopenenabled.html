@@ -1,0 +1,47 @@
+<h1>Microsoft Edge Browser Policy Documentation EdgeProxyPacFailOpenEnabled | Microsoft Learn</h1>
+
+<h2>Enable fail-open behavior for Proxy PAC on iOS</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: Not supported</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: ≥ 144</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy controls whether Microsoft Edge for iOS allows network requests to proceed when the Proxy Auto-Config (PAC) file specified in EdgeProxyPacUrl can't be downloaded or evaluated.</p>
+
+<p>If you enable this policy or don't configure it, network requests are allowed to proceed directly without using a proxy when the PAC file is unavailable. If you disable this policy, network requests are blocked when the PAC file can't be retrieved or processed, ensuring all traffic must go through the configured proxy.</p>
+
+<p>Note: This policy takes effect only when EdgeProxyPacUrl is configured.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>iOS information and settings</h2>
+
+<ul>
+<li>Preference Key name: EdgeProxyPacFailOpenEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;true/&gt;
+</code></p>

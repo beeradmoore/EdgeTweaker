@@ -1,25 +1,27 @@
-<h3>RendererCodeIntegrityEnabled</h3>
+<h1>Microsoft Edge Browser Policy Documentation RendererCodeIntegrityEnabled | Microsoft Learn</h1>
 
-<h4>Enable renderer code integrity (deprecated)</h4>
+<h2>Enable renderer code integrity (obsolete)</h2>
 
 <blockquote>
-  <p>DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.</p>
+  <p>OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge version 118.</p>
 </blockquote>
 
-<h4>Supported versions:</h4>
+<h2>Supported versions</h2>
 
 <ul>
-<li>On Windows since 78 or later</li>
+<li>Windows: 78-118</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
 </ul>
 
-<h4>Description</h4>
+<h2>Description</h2>
 
-<p>Setting the policy to Enabled or leaving it unset turns Renderer Code Integrity on.
-Setting the policy to Disabled has a detrimental effect on Microsoft Edge's security and stability as unknown and potentially hostile code can load inside Microsoft Edge's renderer processes. Only turn off the policy if there are compatibility issues with third-party software that must run inside Microsoft Edge's renderer processes.</p>
+<p>Setting the policy to Enabled or leaving it unset turns on Renderer Code Integrity. Setting the policy to Disabled has a detrimental effect on Microsoft Edge's security and stability as unknown and potentially hostile code can load inside Microsoft Edge's renderer processes. Only turn off the policy if there are compatibility issues with third-party software that must run inside Microsoft Edge's renderer processes.</p>
 
-<p>This policy will be removed in Edge 119 and will be ignored if set.</p>
+<p>This policy is removed in Microsoft Edge version 119 and is ignored if set.</p>
 
-<h4>Supported features:</h4>
+<h2>Supported features</h2>
 
 <ul>
 <li>Can be mandatory: Yes</li>
@@ -29,37 +31,41 @@ Setting the policy to Disabled has a detrimental effect on Microsoft Edge's secu
 <li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
 </ul>
 
-<h4>Data Type:</h4>
+<h2>Data type</h2>
 
 <ul>
 <li>Boolean</li>
 </ul>
 
-<h4>Windows information and settings</h4>
+<h2>Windows information and settings</h2>
 
-<h5>Group Policy (ADMX) info</h5>
+<h3>Group Policy (ADMX) info</h3>
 
 <ul>
 <li>GP unique name: RendererCodeIntegrityEnabled</li>
-<li>GP name: Enable renderer code integrity (deprecated)</li>
-<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/</li>
+<li>GP name: Enable renderer code integrity (obsolete)</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
 <li>GP path (Recommended): N/A</li>
 <li>GP ADMX file name: MSEdge.admx</li>
 </ul>
 
-<h5>Windows Registry Settings</h5>
+<h4>Example value</h4>
+
+<p><code>
+Disabled
+</code></p>
+
+<h3>Registry settings</h3>
 
 <ul>
 <li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
 <li>Path (Recommended): N/A</li>
-<li>Value Name: RendererCodeIntegrityEnabled</li>
-<li>Value Type: REG_DWORD</li>
+<li>Value name: RendererCodeIntegrityEnabled</li>
+<li>Value type: REG_DWORD</li>
 </ul>
 
-<h5>Example value:</h5>
+<h4>Example registry value</h4>
 
 <p><code>
 0x00000000
 </code></p>
-
-

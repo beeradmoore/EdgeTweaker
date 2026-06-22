@@ -1,0 +1,97 @@
+<h1>Microsoft Edge Browser Policy Documentation LocalNetworkAccessPermissionsPolicyDefaultEnabled | Microsoft Learn</h1>
+
+<h2>Allow Local Network Access (LNA) requests in subframes without explicit delegation</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 146</li>
+<li>macOS: ≥ 146</li>
+<li>Android: ≥ 146</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>Controls whether Local Network Access (LNA) permissions are inherited by cross-origin subframes.</p>
+
+<p>By default, Local Network Access permissions can be requested in cross-origin subframes only if they are explicitly delegated.</p>
+
+<p>If you enable this policy, subframes inherit all LNA Permissions Policy features by default and can make local network requests, which trigger the permission prompt.</p>
+
+<p>If you disable or don't configure this policy, subframes must be explicitly delegated the Permissions Policy feature to make local network requests and trigger the permission prompt.</p>
+
+<p>This policy applies to the Permissions Policy features "local-network-access", "loopback-network", and "local-network".</p>
+
+<p>For more information about Local Network Access, see <a href="/en-us/deployedge/ms-edge-local-network-access">Adapting your website for new Local Network Access restrictions in Microsoft Edge</a>.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: LocalNetworkAccessPermissionsPolicyDefaultEnabled</li>
+<li>GP name: Allow Local Network Access (LNA) requests in subframes without explicit delegation</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Network settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+Enabled
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: LocalNetworkAccessPermissionsPolicyDefaultEnabled</li>
+<li>Value type: REG_DWORD</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+0x00000001
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: LocalNetworkAccessPermissionsPolicyDefaultEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;true/&gt;
+</code></p>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: LocalNetworkAccessPermissionsPolicyDefaultEnabled</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+true
+</code></p>
