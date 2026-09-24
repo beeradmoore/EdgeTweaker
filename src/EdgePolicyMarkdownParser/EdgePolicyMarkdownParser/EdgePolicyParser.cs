@@ -100,14 +100,14 @@ public class EdgePolicyParser
 
 	async Task DownloadFile(string url, string outputPath)
     {
-	    var needsDownload = false;
+	    var needsDownload = true;
 	    var eTag = string.Empty;
 	    if (File.Exists(outputPath))
 	    {
 		    var fileInfo = new FileInfo(outputPath);
-		    if ((DateTime.Now - fileInfo.LastWriteTime).TotalDays > 1)
+		    if ((DateTime.Now - fileInfo.LastWriteTime).TotalDays < 1)
 		    {
-			    needsDownload = true;
+			    needsDownload = false;
 		    }
 		    else
 		    {
@@ -208,7 +208,7 @@ public class EdgePolicyParser
 	    var obsoletePoliciesText = markdownFile.Substring(obsoletePoliciesIndex, availablePoliciesIndex - obsoletePoliciesIndex);
 	    var availablePoliciesText = markdownFile.Substring(availablePoliciesIndex, markdownFile.Length - availablePoliciesIndex);
 
-	    var tableRowsRegex = new Regex(@"^\| \[(?<id>.*)\]\((?<link>.*)\) \| (?<name>.*) \|\r$", RegexOptions.Multiline | RegexOptions.Compiled);
+	    var tableRowsRegex = new Regex(@"^\| \[(?<id>.*)\]\((?<link>.*)\) \| (?<name>.*) \|(\r|\n|\r\n)$", RegexOptions.Multiline | RegexOptions.Compiled);
 
 	    var newPoliciesMatches = tableRowsRegex.Matches(newPoliciesText);
 		foreach (Match match in newPoliciesMatches)
@@ -228,7 +228,7 @@ public class EdgePolicyParser
 			_deprecatedPolicies.Add(new PolicyKey(match.Groups["id"].Value, match.Groups["link"].Value, match.Groups["name"].Value));
 		}
 
-		var availablePoliciesRegex = new Regex(@"^### (?<name>.*)\r$", RegexOptions.Multiline | RegexOptions.Compiled);
+		var availablePoliciesRegex = new Regex(@"^### (?<name>.*)(\r|\n|\r\n)$", RegexOptions.Multiline | RegexOptions.Compiled);
 		var availablePoliciesHeaders = availablePoliciesRegex.Matches(availablePoliciesText);
 
 		for (var i = 0; i < availablePoliciesHeaders.Count; ++i)
@@ -259,6 +259,10 @@ public class EdgePolicyParser
 				policyGroup.Policies[match.Groups["id"].Value] = policy;
 			}
 
+			if (policyGroup.Name.Contains('\r'))
+			{
+				Debugger.Break();
+			}
 			_policyGroupDocument.PolicyGroups.Add(policyGroup.Name, policyGroup);
 		}
 
@@ -325,6 +329,17 @@ public class EdgePolicyParser
 			        else if (sectionTitle == "Description")
 			        {
 				        var indexOfStart = sectionText.IndexOf("\r\n", StringComparison.InvariantCultureIgnoreCase);
+
+				        if (indexOfStart == -1)
+				        {
+					        indexOfStart = sectionText.IndexOf("\r", StringComparison.InvariantCultureIgnoreCase);
+				        }
+
+				        if (indexOfStart == -1)
+				        {
+					        indexOfStart = sectionText.IndexOf("\n", StringComparison.InvariantCultureIgnoreCase);
+				        }
+
 				        if (indexOfStart == -1)
 				        {
 					        throw new Exception("Could not find correct place to start summary.");
@@ -338,7 +353,7 @@ public class EdgePolicyParser
 
 				        foreach (var sectionLine in sectionLines)
 				        {
-					        var trimmedSectionLine = sectionLine.TrimEnd('\r');
+					        var trimmedSectionLine = sectionLine.TrimEnd('\n', '\r');
 
 					        // Skip title
 					        if (trimmedSectionLine == "## Supported features")
@@ -437,8 +452,8 @@ public class EdgePolicyParser
 			        {
 				        policy.PlatformWindows = true;
 
-				        var groupPolicyRegex = new Regex("^### Group Policy \\(ADMX\\) info\r$", RegexOptions.Multiline | RegexOptions.Compiled);
-				        var registrySettingsRegex = new Regex("^### Registry settings\r$", RegexOptions.Multiline | RegexOptions.Compiled);
+				        var groupPolicyRegex = new Regex("^### Group Policy \\(ADMX\\) info(\r|\n|\r\n)$", RegexOptions.Multiline | RegexOptions.Compiled);
+				        var registrySettingsRegex = new Regex("^### Registry settings(\r|\n|\r\n)$", RegexOptions.Multiline | RegexOptions.Compiled);
 
 				        var groupPolicyMatch = groupPolicyRegex.Match(sectionTextWithoutTitle);
 				        var registrySettingsMatch = registrySettingsRegex.Match(sectionTextWithoutTitle);
@@ -452,7 +467,7 @@ public class EdgePolicyParser
 				        var groupPolicySection = sectionTextWithoutTitle.Substring(groupPolicyMatch.Index, registrySettingsMatch.Index - groupPolicyMatch.Index);
 				        var registrySettingsSection = sectionTextWithoutTitle.Substring(registrySettingsMatch.Index, sectionTextWithoutTitle.Length - registrySettingsMatch.Index);
 
-				        var groupPolicyLines = groupPolicySection.Split("\r\n");
+				        var groupPolicyLines = groupPolicySection.Split('\r', '\n');
 				        foreach (var groupPolicyLine in groupPolicyLines)
 				        {
 					        var trimmedLine = groupPolicyLine.Trim();
@@ -504,7 +519,7 @@ public class EdgePolicyParser
 					        }
 				        }
 
-				        var groupPolicyExampleRegex = new Regex("^```(xml|)\r\n(?<example>[\\s\\S]*?)\r\n```",   RegexOptions.Multiline | RegexOptions.Compiled);
+				        var groupPolicyExampleRegex = new Regex("^```(xml|)(\r|\n|\r\n)(?<example>[\\s\\S]*?)(\r|\n|\r\n)```(\r|\n|\r\n)$",   RegexOptions.Multiline | RegexOptions.Compiled);
 						var groupPolicyExampleMatch = groupPolicyExampleRegex.Match(groupPolicySection);
 						if (groupPolicyExampleMatch.Success)
 						{
@@ -517,7 +532,7 @@ public class EdgePolicyParser
 
 
 
-				        var registrySettingsLines = registrySettingsSection.Split("\r\n");
+				        var registrySettingsLines = registrySettingsSection.Split('\r', '\n');
 				        foreach (var registrySettingsLine in registrySettingsLines)
 				        {
 					        var trimmedLine = registrySettingsLine.Trim();
@@ -592,7 +607,7 @@ public class EdgePolicyParser
 					        }
 				        }
 
-				        var registrySettingExampleRegex = new Regex("^```(xml|)\r\n(?<example>[\\s\\S]*?)\r\n```",   RegexOptions.Multiline | RegexOptions.Compiled);
+				        var registrySettingExampleRegex = new Regex("^```(xml|)(\r|\n|\r\n)(?<example>[\\s\\S]*?)(\r|\n|\r\n)```",   RegexOptions.Multiline | RegexOptions.Compiled);
 						var registrySettingExampleMatch = registrySettingExampleRegex.Match(registrySettingsSection);
 						if (registrySettingExampleMatch.Success)
 						{
@@ -608,8 +623,8 @@ public class EdgePolicyParser
 			        {
 				        policy.PlatformMacOS = true;
 
-				        var preferenceKeyNameRegex = new Regex("^- Preference Key name: (?<key_name>.*)\r$",   RegexOptions.Multiline | RegexOptions.Compiled);
-				        var preferenceExampleRegex = new Regex("^```(xml|)\r\n(?<example>[\\s\\S]*?)\r\n```",   RegexOptions.Multiline | RegexOptions.Compiled);
+				        var preferenceKeyNameRegex = new Regex("^- Preference Key name: (?<key_name>.*)$",   RegexOptions.Multiline | RegexOptions.Compiled);
+				        var preferenceExampleRegex = new Regex("^```(xml|)(\r|\n)(?<example>[\\s\\S]*?)(\r|\n)```",   RegexOptions.Multiline | RegexOptions.Compiled);
 
 				        var preferenceKeyNameMatch = preferenceKeyNameRegex.Match(sectionTextWithoutTitle);
 				        if (preferenceKeyNameMatch.Success)
@@ -635,8 +650,8 @@ public class EdgePolicyParser
 			        {
 				        policy.PlatformAndroid = true;
 
-				        var preferenceKeyNameRegex = new Regex("^- Preference Key name: (?<key_name>.*)\r$",   RegexOptions.Multiline | RegexOptions.Compiled);
-				        var preferenceExampleRegex = new Regex("^```(xml|)\r\n(?<example>[\\s\\S]*?)\r\n```",   RegexOptions.Multiline | RegexOptions.Compiled);
+				        var preferenceKeyNameRegex = new Regex("^- Preference Key name: (?<key_name>.*)$",   RegexOptions.Multiline | RegexOptions.Compiled);
+				        var preferenceExampleRegex = new Regex("^```(xml|)(\r|\n)(?<example>[\\s\\S]*?)(\r|\n)```",   RegexOptions.Multiline | RegexOptions.Compiled);
 
 				        var preferenceKeyNameMatch = preferenceKeyNameRegex.Match(sectionTextWithoutTitle);
 				        if (preferenceKeyNameMatch.Success)
@@ -662,8 +677,8 @@ public class EdgePolicyParser
 			        {
 				        policy.PlatformiOS = true;
 
-				        var preferenceKeyNameRegex = new Regex("^- Preference Key name: (?<key_name>.*)\r$",   RegexOptions.Multiline | RegexOptions.Compiled);
-				        var preferenceExampleRegex = new Regex("^```(xml|)\r\n(?<example>[\\s\\S]*?)\r\n```",   RegexOptions.Multiline | RegexOptions.Compiled);
+				        var preferenceKeyNameRegex = new Regex("^- Preference Key name: (?<key_name>.*)$",   RegexOptions.Multiline | RegexOptions.Compiled);
+				        var preferenceExampleRegex = new Regex("^```(xml|)(\r|\n)(?<example>[\\s\\S]*?)(\r|\n)```",   RegexOptions.Multiline | RegexOptions.Compiled);
 
 				        var preferenceKeyNameMatch = preferenceKeyNameRegex.Match(sectionTextWithoutTitle);
 				        if (preferenceKeyNameMatch.Success)

@@ -19,7 +19,7 @@
 
 <p>You can define exceptions in the <a href="urlallowlist">URLAllowlist</a> policy. These policies are limited to 1000 entries; subsequent entries are ignored.</p>
 
-<p>Blocking internal 'edge://*' URLs isn't recommended - this may lead to unexpected errors.</p>
+<p>Blocking internal 'edge://<em>' and 'chrome-untrusted://</em>' URLs isn't recommended - this may lead to unexpected errors.</p>
 
 <p>This policy doesn't prevent the page from updating dynamically through JavaScript. For example, if you block 'contoso.com/abc', users can visit 'contoso.com' and select on a link to visit 'contoso.com/abc', as long as the page doesn't refresh.</p>
 

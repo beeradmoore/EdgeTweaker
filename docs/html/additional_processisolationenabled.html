@@ -1,0 +1,77 @@
+<h1>Microsoft Edge Browser Policy Documentation ProcessIsolationEnabled | Microsoft Learn</h1>
+
+<h2>Enable Process Isolation</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 151</li>
+<li>macOS: Not supported</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy controls Process Isolation in Microsoft Edge.</p>
+
+<p>When this policy is enabled, Microsoft Edge uses Process Isolation to help improve browser security by preventing authorized applications on the device from reading or modifying the contents of Microsoft Edge's running processes. This also helps prevent other applications from accessing encrypted data used by Microsoft Edge.</p>
+
+<p>Enabling Process Isolation may cause incompatibilities with third party applications that rely on being able to inject or tamper with Microsoft Edge's processes, such as antivirus, screen reader or window manager applications.</p>
+
+<p>Setting the policy to Enabled turns on process isolation in Microsoft Edge.</p>
+
+<p>Setting the policy to Disabled turns off process isolation in Microsoft Edge.</p>
+
+<p>If this policy is unset, Microsoft Edge will follow the default rollout process for the Process Isolation feature, which means that the feature will be gradually rolled out to an increasing number of users.</p>
+
+<p>Note: This policy is applied when Microsoft Edge starts. If the policy is changed while Microsoft Edge is running, the new setting will take effect on the next restart.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Boolean</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: ProcessIsolationEnabled</li>
+<li>GP name: Enable Process Isolation</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+Enabled
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: ProcessIsolationEnabled</li>
+<li>Value type: REG_DWORD</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+0x00000001
+</code></p>

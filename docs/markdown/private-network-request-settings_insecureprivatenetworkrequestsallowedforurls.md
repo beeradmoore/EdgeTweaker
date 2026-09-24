@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-07-14T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 09436bb0-f6bb-1ee4-d649-027cab6b9ec1
 document_version_independent_id: 09436bb0-f6bb-1ee4-d649-027cab6b9ec1
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-07-16T17:13:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/InsecurePrivateNetworkRequestsAllowedForUrls.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/aed83b531d25ba6dc84d0be2c4122b451bbfa304/edgeenterprise/microsoft-edge-policies/InsecurePrivateNetworkRequestsAllowedForUrls.md
-git_commit_id: aed83b531d25ba6dc84d0be2c4122b451bbfa304
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/a289da80f95e4dc4398e2381af574918c10f5cdf/edgeenterprise/microsoft-edge-policies/InsecurePrivateNetworkRequestsAllowedForUrls.md
+git_commit_id: a289da80f95e4dc4398e2381af574918c10f5cdf
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -70,7 +70,7 @@ If this policy isn't set, this policy behaves as if set to the empty list.
 
 For origins not covered by the patterns specified here, the global default value is used either from the [InsecurePrivateNetworkRequestsAllowed](insecureprivatenetworkrequestsallowed) policy, if it's set, or the user's personal configuration otherwise.
 
-For detailed information on valid URL patterns, see [Filter format for URL list-based policies](/en-us/DeployEdge/edge-learnmmore-url-list-filter%20format).
+For detailed information on valid URL patterns, see [Filter format for URL list-based policies](/en-us/DeployEdge/edge-learnmmore-url-list-filter-format).
 
 This policy is obsolete. The previous blanket override has been replaced by the permission-based Local Network Access model, which blocks cross-space requests until users grant explicit consent.
 

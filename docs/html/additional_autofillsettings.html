@@ -1,0 +1,204 @@
+<h1>Microsoft Edge Browser Policy Documentation AutofillSettings | Microsoft Learn</h1>
+
+<h2>Block AutoFill data types for specific sites</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 154</li>
+<li>macOS: ≥ 154</li>
+<li>Android: ≥ 154</li>
+<li>iOS: ≥ 154</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>Setting this policy allows you to specify which AutoFill data types are blocked on specific URL patterns.</p>
+
+<p>The policy is structured as a list of dictionaries. Each dictionary must contain:</p>
+
+<ul>
+<li>"url_pattern": A content setting URL pattern for the main frame (for example, "https://[*.]example.com").</li>
+<li>"blocked_types": A list of strings representing the categories of AutoFill data to block.</li>
+</ul>
+
+<p>The supported values for "blocked_types" are:</p>
+
+<ul>
+<li>"contact_info": Blocks filling and saving of contact information.</li>
+<li>"payments": Blocks filling and saving of credit cards and payment methods.</li>
+<li>"identity_docs": Blocks filling and saving of identity documents (for example, passports, driver's licenses, and national IDs).</li>
+<li>"travel": Blocks filling and saving of travel information (for example, flight reservations and vehicle registrations).</li>
+<li>"shopping": Blocks filling and saving of shopping information (for example, online orders and shipments).</li>
+<li>"all": Blocks filling and saving of all AutoFill data types.</li>
+</ul>
+
+<p>If a data type is blocked for a site, both the generation of suggestions and the prompt to save or import new data of that type are disabled on that site.</p>
+
+<p>If a URL matches multiple pattern entries in the list, the blocked types from all matching entries are combined. Invalid URL patterns in the list are ignored.</p>
+
+<p>If you don't configure this policy, no AutoFill data types are blocked by domain.</p>
+
+<p>For detailed information on valid URL patterns, see https://go.microsoft.com/fwlink/?linkid=2095322. The wildcard * is supported and matches any URL with any scheme, port, and path.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Dictionary</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: AutofillSettings</li>
+<li>GP name: Block AutoFill data types for specific sites</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+[{"blocked_types": ["contact_info", "payments"], "url_pattern": "https://[*.]example.com"}, {"blocked_types": ["payments"], "url_pattern": "https://another-example.com"}, {"blocked_types": ["identity_docs"], "url_pattern": "*"}]
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: AutofillSettings</li>
+<li>Value type: REG_SZ</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+[{"blocked_types": ["contact_info", "payments"], "url_pattern": "https://[*.]example.com"}, {"blocked_types": ["payments"], "url_pattern": "https://another-example.com"}, {"blocked_types": ["identity_docs"], "url_pattern": "*"}]
+</code></p>
+
+<h4>Expanded example registry value</h4>
+
+<p><code>
+[
+  {
+    "blocked_types": [
+      "contact_info",
+      "payments"
+    ],
+    "url_pattern": "https://[*.]example.com"
+  },
+  {
+    "blocked_types": [
+      "payments"
+    ],
+    "url_pattern": "https://another-example.com"
+  },
+  {
+    "blocked_types": [
+      "identity_docs"
+    ],
+    "url_pattern": "*"
+  }
+]
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: AutofillSettings</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;key&gt;AutofillSettings&lt;/key&gt;
+&lt;array&gt;
+  &lt;dict&gt;
+    &lt;key&gt;blocked_types&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;contact_info&lt;/string&gt;
+      &lt;string&gt;payments&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;url_pattern&lt;/key&gt;
+    &lt;string&gt;https://[*.]example.com&lt;/string&gt;
+  &lt;/dict&gt;
+  &lt;dict&gt;
+    &lt;key&gt;blocked_types&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;payments&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;url_pattern&lt;/key&gt;
+    &lt;string&gt;https://another-example.com&lt;/string&gt;
+  &lt;/dict&gt;
+  &lt;dict&gt;
+    &lt;key&gt;blocked_types&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;identity_docs&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;url_pattern&lt;/key&gt;
+    &lt;string&gt;*&lt;/string&gt;
+  &lt;/dict&gt;
+&lt;/array&gt;
+</code></p>
+
+<h2>Android information and settings</h2>
+
+<ul>
+<li>Preference Key name: AutofillSettings</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>
+[{"blocked_types": ["contact_info", "payments"], "url_pattern": "https://[*.]example.com"}, {"blocked_types": ["payments"], "url_pattern": "https://another-example.com"}, {"blocked_types": ["identity_docs"], "url_pattern": "*"}]
+</code></p>
+
+<h2>iOS information and settings</h2>
+
+<ul>
+<li>Preference Key name: AutofillSettings</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;key&gt;AutofillSettings&lt;/key&gt;
+&lt;array&gt;
+  &lt;dict&gt;
+    &lt;key&gt;blocked_types&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;contact_info&lt;/string&gt;
+      &lt;string&gt;payments&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;url_pattern&lt;/key&gt;
+    &lt;string&gt;https://[*.]example.com&lt;/string&gt;
+  &lt;/dict&gt;
+  &lt;dict&gt;
+    &lt;key&gt;blocked_types&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;payments&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;url_pattern&lt;/key&gt;
+    &lt;string&gt;https://another-example.com&lt;/string&gt;
+  &lt;/dict&gt;
+  &lt;dict&gt;
+    &lt;key&gt;blocked_types&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;identity_docs&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;url_pattern&lt;/key&gt;
+    &lt;string&gt;*&lt;/string&gt;
+  &lt;/dict&gt;
+&lt;/array&gt;
+</code></p>

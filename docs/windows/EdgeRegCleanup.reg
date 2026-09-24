@@ -256,6 +256,7 @@ Windows Registry Editor Version 5.00
 "ImplicitSignInEnabled"=-
 "LinkedAccountEnabled"=-
 "M365AuthPopupsInWorkEnabled"=-
+"NonMicrosoftAccountSignInEnabled"=-
 "OneAuthAuthenticationEnforced"=-
 "OnlyOnPremisesImplicitSigninEnabled"=-
 "ProactiveAuthWorkflowEnabled"=-
@@ -332,6 +333,7 @@ Windows Registry Editor Version 5.00
 "DnsOverHttpsTemplates"=-
 "FetchKeepaliveDurationSecondsOnShutdown"=-
 "HappyEyeballsV3Enabled"=-
+"HttpHeaderInjection"=-
 "IPv6ReachabilityOverrideEnabled"=-
 "LocalNetworkAccessPermissionsPolicyDefaultEnabled"=-
 "LocalNetworkAccessRestrictionsEnabled"=-
@@ -395,6 +397,8 @@ Windows Registry Editor Version 5.00
 "PrivateNetworkAccessRestrictionsEnabled"=-
 "ProfileTypeInProfileButtonEnabled"=-
 "ProtectedContentIdentifiersAllowed"=-
+"PacMyIpAddressIPv4ProbeAddress"=-
+"PacMyIpAddressIPv6ProbeAddress"=-
 "ProxyBypassList"=-
 "ProxyMode"=-
 "ProxyOverrideRules"=-
@@ -403,6 +407,10 @@ Windows Registry Editor Version 5.00
 "ProxySettings"=-
 "RelatedWebsiteSetsEnabled"=-
 "RelatedWebsiteSetsOverrides"=-
+"RelaunchFastIfOutdated"=-
+"RelaunchNotification"=-
+"RelaunchNotificationPeriod"=-
+"RelaunchWindow"=-
 "ScarewareBlockerBlocksDetectedSitesEnabled"=-
 "ScarewareBlockerProtectionEnabled"=-
 "ScarewareBlockerSendDetectedSitesToSmartScreenEnabled"=-
@@ -445,6 +453,7 @@ Windows Registry Editor Version 5.00
 "WebRtcUdpPortRange"=-
 "AADWebSiteSSOUsingThisProfileEnabled"=-
 "AdditionalSearchBoxEnabled"=-
+"AddressBarClipboardSuggestEnabled"=-
 "AdsSettingForIntrusiveAdsSites"=-
 "AdsTransparencyEnabled"=-
 "AllowBackForwardCacheForCacheControlNoStorePageEnabled"=-
@@ -452,6 +461,7 @@ Windows Registry Editor Version 5.00
 "AllowDeletingBrowserHistory"=-
 "AllowFileSelectionDialogs"=-
 "AllowPopupsDuringPageUnload"=-
+"AllowSocketPoolSizeRandomizationForProxies"=-
 "AllowSyncXHRInPageDismissal"=-
 "AllowSystemNotifications"=-
 "AllowWebAuthnWithBrokenTlsCerts"=-
@@ -470,8 +480,10 @@ Windows Registry Editor Version 5.00
 "AutofillAddressEnabled"=-
 "AutofillCreditCardEnabled"=-
 "AutofillMembershipsEnabled"=-
+"AutofillSettings"=-
 "AutomaticHttpsDefault"=-
 "AutoplayAllowed"=-
+"BackForwardCacheForWebSocketsAllowed"=-
 "BackgroundModeEnabled"=-
 "BackgroundTemplateListUpdatesEnabled"=-
 "BeforeunloadEventCancelByPreventDefaultEnabled"=-
@@ -503,6 +515,7 @@ Windows Registry Editor Version 5.00
 "ConfigureShare"=-
 "ConfigureViewInFileExplorer"=-
 "CopilotAddressBarSuggestionsEnabled"=-
+"CopilotCoworkToolActionsEnabled"=-
 "CopilotNewTabPageEnabled"=-
 "CpuPerformanceTierOverride"=-
 "CrossOriginWebAssemblyModuleSharingEnabled"=-
@@ -539,6 +552,7 @@ Windows Registry Editor Version 5.00
 "EdgeFollowEnabled"=-
 "EdgeHistoryAISearchEnabled"=-
 "EdgeOpenInSidebarEnabled"=-
+"EdgeReadingModeServiceBasedExtractionEnabled"=-
 "EdgeShoppingAssistantEnabled"=-
 "EdgeSidebarCustomizeEnabled"=-
 "EdgeWalletCheckoutEnabled"=-
@@ -617,6 +631,7 @@ Windows Registry Editor Version 5.00
 "PostQuantumKeyAgreementEnabled"=-
 "PrefetchWithServiceWorkerEnabled"=-
 "ProactiveAuthEnabled"=-
+"ProcessIsolationEnabled"=-
 "PromotionalTabsEnabled"=-
 "QRCodeGeneratorEnabled"=-
 "QuickSearchShowMiniMenu"=-
@@ -625,15 +640,12 @@ Windows Registry Editor Version 5.00
 "RedirectSitesFromInternetExplorerPreventBHOInstall"=-
 "RedirectSitesFromInternetExplorerRedirectMode"=-
 "RelatedMatchesCloudServiceEnabled"=-
-"RelaunchFastIfOutdated"=-
-"RelaunchNotification"=-
-"RelaunchNotificationPeriod"=-
-"RelaunchWindow"=-
 "RemoteDebuggingAllowed"=-
 "RendererAppContainerEnabled"=-
 "RendererCodeIntegrityEnabled"=-
 "RequireOnlineRevocationChecksForLocalAnchors"=-
 "ResolveNavigationErrorsUseWebService"=-
+"RestrictBackgroundFetchFromServiceWorkerEnabled"=-
 "RestrictCoreSharingOnRenderer"=-
 "RestrictSigninToPattern"=-
 "RoamingProfileLocation"=-
@@ -664,7 +676,6 @@ Windows Registry Editor Version 5.00
 "SharedWorkerBlobURLFixEnabled"=-
 "SharedWorkerExtendedLifetimeEnabled"=-
 "ShowDownloadsToolbarButton"=-
-"ShowHistoryThumbnails"=-
 "ShowMicrosoftRewards"=-
 "ShowRecommendationsEnabled"=-
 "ShowTabPreviewEnabled"=-
@@ -678,6 +689,7 @@ Windows Registry Editor Version 5.00
 "StandaloneHubsSidebarEnabled"=-
 "StandardizedBrowserZoomEnabled"=-
 "StaticStorageQuotaEnabled"=-
+"StrictMimetypeCheckForWorkerScriptsEnabled"=-
 "StricterMixedContentTreatmentEnabled"=-
 "SuperDragDropEnabled"=-
 "SuppressUnsupportedOSWarning"=-
@@ -798,6 +810,7 @@ Windows Registry Editor Version 5.00
 "SetNTPDefaultFeedTab"=-
 "ShowHomeButton"=-
 "AADWebSiteSSOUsingThisProfileEnabled"=-
+"AddressBarClipboardSuggestEnabled"=-
 "AllowBrowsingWithCopilot"=-
 "AlternateErrorPagesEnabled"=-
 "ApplicationLocaleValue"=-

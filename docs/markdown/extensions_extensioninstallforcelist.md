@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-07-09T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 1a024756-26b5-f42c-e1f2-f5640a2b722e
 document_version_independent_id: 1a024756-26b5-f42c-e1f2-f5640a2b722e
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-07-09T16:47:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/ExtensionInstallForcelist.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/c3d5eb43b67b6fe282ad4810ec3e32aa8f8d46af/edgeenterprise/microsoft-edge-policies/ExtensionInstallForcelist.md
-git_commit_id: c3d5eb43b67b6fe282ad4810ec3e32aa8f8d46af
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/2ed5877d3568c6aa41653e7516b38e38467236df/edgeenterprise/microsoft-edge-policies/ExtensionInstallForcelist.md
+git_commit_id: 2ed5877d3568c6aa41653e7516b38e38467236df
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 490
+word_count: 516
 asset_id: microsoft-edge-policies/extensioninstallforcelist
 moniker_range_name: 
 monikers: []
@@ -56,8 +56,8 @@ platformId: 0ace7eaf-dced-44a3-f217-ca1121efdb2c
 
 - Windows: ≥ 77
 - macOS: ≥ 77
-- Android: Not supported
-- iOS: Not supported
+- Android: ≥ 149
+- iOS: ≥ 149
 
 ## Description
 
@@ -133,6 +133,27 @@ abcdefghijklmnopabcdefghijklmnop
 ```
 
 ## Mac information and settings
+
+- Preference Key name: ExtensionInstallForcelist
+- Example value:
+
+```xml
+<array>
+  <string>gbchcmhmhahfdphkhkmpfmihenigjmpp;https://edge.microsoft.com/extensionwebstorebase/v1/crx</string>
+  <string>abcdefghijklmnopabcdefghijklmnop</string>
+</array>
+```
+
+## Android information and settings
+
+- Preference Key name: ExtensionInstallForcelist
+- Example value:
+
+```
+["gbchcmhmhahfdphkhkmpfmihenigjmpp;https://edge.microsoft.com/extensionwebstorebase/v1/crx", "abcdefghijklmnopabcdefghijklmnop"]
+```
+
+## iOS information and settings
 
 - Preference Key name: ExtensionInstallForcelist
 - Example value:

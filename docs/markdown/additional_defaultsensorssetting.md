@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-07-09T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: dd42c146-2a81-7399-d802-985880e6e8c8
 document_version_independent_id: dd42c146-2a81-7399-d802-985880e6e8c8
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-07-09T16:47:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/DefaultSensorsSetting.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/fc3210297952cfba31492fd71267e3a6764b742c/edgeenterprise/microsoft-edge-policies/DefaultSensorsSetting.md
-git_commit_id: fc3210297952cfba31492fd71267e3a6764b742c
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/2ed5877d3568c6aa41653e7516b38e38467236df/edgeenterprise/microsoft-edge-policies/DefaultSensorsSetting.md
+git_commit_id: 2ed5877d3568c6aa41653e7516b38e38467236df
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 288
+word_count: 357
 asset_id: microsoft-edge-policies/defaultsensorssetting
 moniker_range_name: 
 monikers: []
@@ -63,7 +63,7 @@ platformId: 5317110e-4d58-d71c-99ef-7c5cd9d46b1c
 
 Set whether websites can access and use sensors such as motion and light sensors. You can completely block or allow websites to get access to sensors.
 
-Setting the policy to 1 lets websites access and use sensors. Setting the policy to 2 denies access to sensors.
+Setting the policy to 1 lets websites access and use sensors. Setting the policy to 2 denies access to sensors. Setting the policy to 3 is intended to prompt the user when a site requests access to sensors, but this option isn't yet supported; if you select it, websites can still access and use sensors.
 
 You can override this policy for specific URL patterns by using the [SensorsAllowedForUrls](sensorsallowedforurls) and [SensorsBlockedForUrls](sensorsblockedforurls) policies.
 
@@ -73,6 +73,7 @@ Policy options mapping:
 
 - AllowSensors (1) = Allow sites to access sensors
 - BlockSensors (2) = Do not allow any site to access sensors
+- AskSensors (3) = Ask whenever a site wants to access sensors (This policy is not yet supported)
 
 Use the preceding information when configuring this policy.
 
@@ -83,6 +84,7 @@ Use the preceding information when configuring this policy.
 
 - AllowSensors (1) = Allow sites to access sensors
 - BlockSensors (2) = Do not allow any site to access sensors
+- AskSensors (3) = Ask whenever a site wants to access sensors (This policy is not yet supported)
 
 ## Supported features
 

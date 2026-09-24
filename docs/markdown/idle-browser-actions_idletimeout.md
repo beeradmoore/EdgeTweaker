@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-09-01T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: abca04b1-f4e5-6b69-7c5b-d5beb52496b7
 document_version_independent_id: abca04b1-f4e5-6b69-7c5b-d5beb52496b7
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-09-04T16:49:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/IdleTimeout.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/e6b30ca4c90b64b1ae53d6496833c9718b73975a/edgeenterprise/microsoft-edge-policies/IdleTimeout.md
-git_commit_id: e6b30ca4c90b64b1ae53d6496833c9718b73975a
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/5185adf728f8ab244d2d90aa42806054cc63cee2/edgeenterprise/microsoft-edge-policies/IdleTimeout.md
+git_commit_id: 5185adf728f8ab244d2d90aa42806054cc63cee2
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 221
+word_count: 309
 asset_id: microsoft-edge-policies/idletimeout
 moniker_range_name: 
 monikers: []
@@ -63,13 +63,15 @@ platformId: 49ad65b9-efd1-8b08-5c0f-77615d4b5400
 
 Triggers an action when the computer is idle.
 
-If you set this policy, it specifies the length of time without user input (in minutes) before the browser runs actions configured via the IdleTimeoutActions policy.
+If you set this policy, it specifies the length of time without user input, in minutes, before the browser runs actions configured via the IdleTimeoutActions policy.
 
-If you don't set this policy, the browser doesn't run any action.
+If you don't set this policy, the browser doesn't run any actions.
 
 The minimum threshold is 1 minute.
 
-"User input" is defined by Operating System APIs, and includes things like moving the mouse or typing on the keyboard.
+"User input" is defined by operating system APIs and includes actions such as moving the mouse or typing on the keyboard.
+
+On Android, the operating system doesn't report the time since the user last interacted with the device. Instead, idle time is measured from the moment the device screen turns off, and it resets to zero when the user unlocks the device. While the screen is on, idle time is always zero, no matter how long the browser is left untouched. Idle actions therefore run after the device stays locked for longer than the configured timeout. The user sees the result the next time they unlock the device.
 
 ## Supported features
 

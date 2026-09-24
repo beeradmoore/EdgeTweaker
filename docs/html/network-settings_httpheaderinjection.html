@@ -1,0 +1,140 @@
+<h1>Microsoft Edge Browser Policy Documentation HttpHeaderInjection | Microsoft Learn</h1>
+
+<h2>Configure HTTP Header Injection for specific URL patterns</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 153</li>
+<li>macOS: ≥ 153</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy lets you define rules that inject custom HTTP headers into web requests matching specific URL patterns. Headers injected by this policy take precedence over headers already present in the request and over modifications made by users or extensions.</p>
+
+<p>A common use case for this policy is enforcing tenant access controls by injecting custom headers (for example, X-Tenant-ID).</p>
+
+<p>The policy accepts a list of Rules. Each Rule contains:</p>
+
+<ul>
+<li>patterns: A list of URL patterns to match. For information about URL pattern format, see https://go.microsoft.com/fwlink/?linkid=2095322.</li>
+<li>headers: A list of header objects to inject. Each object contains:</li>
+<li>name: The name of the header to inject.</li>
+<li>value: The value of the header to inject.</li>
+</ul>
+
+<p>If multiple rules match a request, headers from all matching rules are applied. If multiple matching rules specify the same header name, the header from the most specific URL pattern is applied. If multiple matching patterns are equally specific, the header from the rule that appears last in the list is applied.</p>
+
+<p>Header names must comply with RFC 2616 (https://www.rfc-editor.org/rfc/rfc2616). Header values must not contain NUL, CR, or LF characters. Individual headers can't exceed 8 KB. Invalid headers and URL patterns are ignored.</p>
+
+<p>This policy supports a maximum of 500 URL patterns across all rules. Each rule can contain up to 20 headers. URL patterns and headers that exceed these limits are ignored.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: Yes</li>
+<li>Per Profile: Yes</li>
+<li>Applies to a profile that is signed in with a Microsoft account: No</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>Dictionary</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: HttpHeaderInjection</li>
+<li>GP name: Configure HTTP Header Injection for specific URL patterns</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Network settings</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+[{"headers": [{"name": "X-Tenant-ID", "value": "123456"}, {"name": "X-Custom-Header", "value": "CustomValue"}], "patterns": ["example.com", ".example.org"]}]
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: HttpHeaderInjection</li>
+<li>Value type: REG_SZ</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+[{"headers": [{"name": "X-Tenant-ID", "value": "123456"}, {"name": "X-Custom-Header", "value": "CustomValue"}], "patterns": ["example.com", ".example.org"]}]
+</code></p>
+
+<h4>Expanded example registry value</h4>
+
+<p><code>
+[
+  {
+    "headers": [
+      {
+        "name": "X-Tenant-ID",
+        "value": "123456"
+      },
+      {
+        "name": "X-Custom-Header",
+        "value": "CustomValue"
+      }
+    ],
+    "patterns": [
+      "example.com",
+      ".example.org"
+    ]
+  }
+]
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: HttpHeaderInjection</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;key&gt;HttpHeaderInjection&lt;/key&gt;
+&lt;array&gt;
+  &lt;dict&gt;
+    &lt;key&gt;headers&lt;/key&gt;
+    &lt;array&gt;
+      &lt;dict&gt;
+        &lt;key&gt;name&lt;/key&gt;
+        &lt;string&gt;X-Tenant-ID&lt;/string&gt;
+        &lt;key&gt;value&lt;/key&gt;
+        &lt;string&gt;123456&lt;/string&gt;
+      &lt;/dict&gt;
+      &lt;dict&gt;
+        &lt;key&gt;name&lt;/key&gt;
+        &lt;string&gt;X-Custom-Header&lt;/string&gt;
+        &lt;key&gt;value&lt;/key&gt;
+        &lt;string&gt;CustomValue&lt;/string&gt;
+      &lt;/dict&gt;
+    &lt;/array&gt;
+    &lt;key&gt;patterns&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;example.com&lt;/string&gt;
+      &lt;string&gt;.example.org&lt;/string&gt;
+    &lt;/array&gt;
+  &lt;/dict&gt;
+&lt;/array&gt;
+</code></p>

@@ -7,13 +7,14 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-07-14T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
+ms.subservice: edge-admin
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 ms.custom: 
@@ -21,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: b7f318c0-3f30-bcb3-2533-6255247276fa
 document_version_independent_id: b7f318c0-3f30-bcb3-2533-6255247276fa
-updated_at: 2026-05-28T21:13:00.0000000Z
+updated_at: 2026-07-16T17:13:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/AllowBrowsingWithCopilot.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/91226c26b4ce9b906f155f8a7fb1504884ea3ae8/edgeenterprise/microsoft-edge-policies/AllowBrowsingWithCopilot.md
-git_commit_id: 91226c26b4ce9b906f155f8a7fb1504884ea3ae8
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/a289da80f95e4dc4398e2381af574918c10f5cdf/edgeenterprise/microsoft-edge-policies/AllowBrowsingWithCopilot.md
+git_commit_id: a289da80f95e4dc4398e2381af574918c10f5cdf
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual

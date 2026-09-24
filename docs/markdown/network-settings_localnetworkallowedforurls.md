@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-09-11T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 19c87d43-08cd-05dd-8d52-e8d2892cbfb8
 document_version_independent_id: 19c87d43-08cd-05dd-8d52-e8d2892cbfb8
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-09-11T20:36:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/LocalNetworkAllowedForUrls.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/c3d5eb43b67b6fe282ad4810ec3e32aa8f8d46af/edgeenterprise/microsoft-edge-policies/LocalNetworkAllowedForUrls.md
-git_commit_id: c3d5eb43b67b6fe282ad4810ec3e32aa8f8d46af
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/bad5d510d6c89974a30e53029e162d63c894b1ea/edgeenterprise/microsoft-edge-policies/LocalNetworkAllowedForUrls.md
+git_commit_id: bad5d510d6c89974a30e53029e162d63c894b1ea
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 303
+word_count: 301
 asset_id: microsoft-edge-policies/localnetworkallowedforurls
 moniker_range_name: 
 monikers: []
@@ -75,8 +75,6 @@ Multiple policies can list origins that affect requests to local network endpoin
 
 - LocalNetworkBlockedForUrls
 - LocalNetworkAllowedForUrls
-- LoopbackNetworkBlockedForUrls
-- LoopbackNetworkAllowedForUrls
 - LocalNetworkAccessBlockedForUrls
 - LocalNetworkAccessAllowedForUrls
 

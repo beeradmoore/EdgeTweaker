@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-07-09T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 812e404f-1ae1-55a0-f4c3-86f8c5269789
 document_version_independent_id: 812e404f-1ae1-55a0-f4c3-86f8c5269789
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-07-09T16:47:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/WindowsHelloForHTTPAuthEnabled.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/fc3210297952cfba31492fd71267e3a6764b742c/edgeenterprise/microsoft-edge-policies/WindowsHelloForHTTPAuthEnabled.md
-git_commit_id: fc3210297952cfba31492fd71267e3a6764b742c
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/2ed5877d3568c6aa41653e7516b38e38467236df/edgeenterprise/microsoft-edge-policies/WindowsHelloForHTTPAuthEnabled.md
+git_commit_id: 2ed5877d3568c6aa41653e7516b38e38467236df
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -40,12 +40,12 @@ monikers: []
 item_type: Content
 source_path: edgeenterprise/microsoft-edge-policies/WindowsHelloForHTTPAuthEnabled.md
 cmProducts:
-- https://authoring-docs-microsoft.poolparty.biz/devrel/5287f575-02f0-405f-92b7-800456526b0c
 - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8
+- https://authoring-docs-microsoft.poolparty.biz/devrel/5287f575-02f0-405f-92b7-800456526b0c
 - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/5717abce-88c6-42bd-821b-0d6370225d52
 spProducts:
-- https://authoring-docs-microsoft.poolparty.biz/devrel/06e86142-34c2-4b94-ab9c-9477c21f7152
 - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8
+- https://authoring-docs-microsoft.poolparty.biz/devrel/06e86142-34c2-4b94-ab9c-9477c21f7152
 - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/b472b5d5-52dd-4477-99f9-23fa324788f7
 platformId: aa6dff2a-d217-fa0f-1b4b-2683a7a5ee44
 ---
@@ -63,11 +63,11 @@ platformId: aa6dff2a-d217-fa0f-1b4b-2683a7a5ee44
 
 ## Description
 
-This policy controls which credential prompt should be used to respond to NTLM and Negotiate authentication challenges.
+This policy controls whether Windows Credential UI is used to respond to NTLM and Negotiate authentication challenges.
 
-If you disable this policy, Edge will display its built-in username and password prompt.
+If you enable or don't configure this policy, Microsoft Edge uses Windows Credential UI.
 
-If you enable or don’t configure this policy, the Windows credential prompt is used.
+If you disable this policy, Microsoft Edge uses its built-in username and password prompt.
 
 ## Supported features
 

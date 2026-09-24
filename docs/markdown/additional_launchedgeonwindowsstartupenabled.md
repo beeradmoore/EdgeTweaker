@@ -7,13 +7,14 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-08-26T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
+ms.subservice: edge-admin
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 ms.custom: 
@@ -21,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 96493969-c21e-29c6-6824-455f196eea67
 document_version_independent_id: 96493969-c21e-29c6-6824-455f196eea67
-updated_at: 2026-05-22T04:11:00.0000000Z
+updated_at: 2026-08-27T17:33:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/LaunchEdgeOnWindowsStartupEnabled.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/7994bce7d6018fbcf8930c7152ea4c5b85aadcfd/edgeenterprise/microsoft-edge-policies/LaunchEdgeOnWindowsStartupEnabled.md
-git_commit_id: 7994bce7d6018fbcf8930c7152ea4c5b85aadcfd
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/e1fb397021eea92db6e35d09a6afde087f7a46ac/edgeenterprise/microsoft-edge-policies/LaunchEdgeOnWindowsStartupEnabled.md
+git_commit_id: e1fb397021eea92db6e35d09a6afde087f7a46ac
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -53,7 +54,7 @@ platformId: 8020c74f-5672-db04-e14b-44d633656345
 
 ## Supported versions
 
-- Windows: ≥ 152
+- Windows: ≥ 153
 - macOS: Not supported
 - Android: Not supported
 - iOS: Not supported

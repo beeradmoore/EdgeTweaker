@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-09-11T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 2bc08a2c-a3d6-dd0d-20fd-b1b1cb007bcd
 document_version_independent_id: 2bc08a2c-a3d6-dd0d-20fd-b1b1cb007bcd
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-09-11T20:36:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/UserFeedbackAllowed.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/fc3210297952cfba31492fd71267e3a6764b742c/edgeenterprise/microsoft-edge-policies/UserFeedbackAllowed.md
-git_commit_id: fc3210297952cfba31492fd71267e3a6764b742c
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/bad5d510d6c89974a30e53029e162d63c894b1ea/edgeenterprise/microsoft-edge-policies/UserFeedbackAllowed.md
+git_commit_id: bad5d510d6c89974a30e53029e162d63c894b1ea
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 217
+word_count: 228
 asset_id: microsoft-edge-policies/userfeedbackallowed
 moniker_range_name: 
 monikers: []
@@ -56,7 +56,7 @@ platformId: 5b993901-d62e-7431-00dd-d40a24e260f0
 
 - Windows: ≥ 77
 - macOS: ≥ 77
-- Android: Not supported
+- Android: ≥ 154
 - iOS: Not supported
 
 ## Description
@@ -117,4 +117,13 @@ Enabled
 
 ```xml
 <true/>
+```
+
+## Android information and settings
+
+- Preference Key name: UserFeedbackAllowed
+- Example value:
+
+```
+true
 ```

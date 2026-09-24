@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-09-11T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 5571b6a9-e0d5-53dd-5e9a-5cf35d61ea5b
 document_version_independent_id: 5571b6a9-e0d5-53dd-5e9a-5cf35d61ea5b
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-09-11T20:36:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/ExtensionSettings.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/c3d5eb43b67b6fe282ad4810ec3e32aa8f8d46af/edgeenterprise/microsoft-edge-policies/ExtensionSettings.md
-git_commit_id: c3d5eb43b67b6fe282ad4810ec3e32aa8f8d46af
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/bad5d510d6c89974a30e53029e162d63c894b1ea/edgeenterprise/microsoft-edge-policies/ExtensionSettings.md
+git_commit_id: bad5d510d6c89974a30e53029e162d63c894b1ea
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 889
+word_count: 911
 asset_id: microsoft-edge-policies/extensionsettings
 moniker_range_name: 
 monikers: []
@@ -74,6 +74,8 @@ To block extensions from a particular third party store, you only need to block 
 Note that you can still use [ExtensionInstallForcelist](extensioninstallforcelist) and [ExtensionInstallAllowlist](extensioninstallallowlist) to allow / force install specific extensions even if the store is blocked using the JSON in the previous example.
 
 If the 'sidebar\_auto\_open\_blocked' flag is set to true in an extension's configuration, the hub-app (sidebar app) corresponding to the specified extension will be prevented from automatically opening.
+
+As of Microsoft Edge version 154, applying 'runtime\_blocked\_hosts' to an extension with the 'debugger' permission will completely disable 'chrome.debugger.attach()' on all targets.
 
 On Windows instances, apps and extensions from outside the Microsoft Edge Add-ons website can only be forced installed if the instance is joined to a Microsoft Active Directory domain or joined to Microsoft Azure Active Directory®.
 

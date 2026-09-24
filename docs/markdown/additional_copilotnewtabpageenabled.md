@@ -7,13 +7,14 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-07-14T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
+ms.subservice: edge-admin
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 ms.custom: 
@@ -21,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 80e0cfb4-73ef-d7bb-b9a2-b4d1b32c3ed6
 document_version_independent_id: 80e0cfb4-73ef-d7bb-b9a2-b4d1b32c3ed6
-updated_at: 2026-05-22T04:11:00.0000000Z
+updated_at: 2026-07-16T17:13:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/CopilotNewTabPageEnabled.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/7994bce7d6018fbcf8930c7152ea4c5b85aadcfd/edgeenterprise/microsoft-edge-policies/CopilotNewTabPageEnabled.md
-git_commit_id: 7994bce7d6018fbcf8930c7152ea4c5b85aadcfd
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/a289da80f95e4dc4398e2381af574918c10f5cdf/edgeenterprise/microsoft-edge-policies/CopilotNewTabPageEnabled.md
+git_commit_id: a289da80f95e4dc4398e2381af574918c10f5cdf
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual

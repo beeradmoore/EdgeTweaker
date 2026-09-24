@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-08-26T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -18,14 +18,14 @@ ms.subservice: edge-admin
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 ms.custom: 
-description: 'Windows and Mac documentation for supported Microsoft Edge Browser policy: Enable Related Website Sets (deprecated)'
+description: 'Windows and Mac documentation for supported Microsoft Edge Browser policy: Enable Related Website Sets (obsolete)'
 locale: en-us
 document_id: 9a342e0a-3847-15f6-4082-c0ece2d492fa
 document_version_independent_id: 9a342e0a-3847-15f6-4082-c0ece2d492fa
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-08-27T17:33:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/RelatedWebsiteSetsEnabled.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/e6b30ca4c90b64b1ae53d6496833c9718b73975a/edgeenterprise/microsoft-edge-policies/RelatedWebsiteSetsEnabled.md
-git_commit_id: e6b30ca4c90b64b1ae53d6496833c9718b73975a
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/e1fb397021eea92db6e35d09a6afde087f7a46ac/edgeenterprise/microsoft-edge-policies/RelatedWebsiteSetsEnabled.md
+git_commit_id: e1fb397021eea92db6e35d09a6afde087f7a46ac
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 245
+word_count: 238
 asset_id: microsoft-edge-policies/relatedwebsitesetsenabled
 moniker_range_name: 
 monikers: []
@@ -50,16 +50,16 @@ platformId: b6e621e7-7e8b-9bfb-e3de-9f88511b7dca
 
 # Microsoft Edge Browser Policy Documentation RelatedWebsiteSetsEnabled | Microsoft Learn
 
-## Enable Related Website Sets (deprecated)
+## Enable Related Website Sets (obsolete)
 
 > 
-> DEPRECATED: This policy is deprecated. It is currently supported but will become obsolete in a future release.
+> OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge version 152.
 
 ## Supported versions
 
-- Windows: ≥ 121
-- macOS: ≥ 121
-- Android: ≥ 121
+- Windows: 121-152
+- macOS: 121-152
+- Android: 121-152
 - iOS: Not supported
 
 ## Description
@@ -89,7 +89,7 @@ This policy is deprecated as of Microsoft Edge version 144 with the deprecation 
 ### Group Policy (ADMX) info
 
 - GP unique name: RelatedWebsiteSetsEnabled
-- GP name: Enable Related Website Sets (deprecated)
+- GP name: Enable Related Website Sets (obsolete)
 - GP path (Mandatory): Administrative Templates/Microsoft Edge/Related Website Sets Settings
 - GP path (Recommended): N/A
 - GP ADMX file name: MSEdge.admx

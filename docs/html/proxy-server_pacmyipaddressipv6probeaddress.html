@@ -1,0 +1,84 @@
+<h1>Microsoft Edge Browser Policy Documentation PacMyIpAddressIPv6ProbeAddress | Microsoft Learn</h1>
+
+<h2>Set the IPv6 route-probe address for PAC scripts</h2>
+
+<h2>Supported versions</h2>
+
+<ul>
+<li>Windows: ≥ 153</li>
+<li>macOS: ≥ 153</li>
+<li>Android: Not supported</li>
+<li>iOS: Not supported</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>This policy sets the IPv6 destination that Microsoft Edge uses to determine the local network address or addresses returned to PAC scripts by the myIpAddress() and myIpAddressEx() helper functions. The route probe sends no application data.</p>
+
+<p>This policy applies only when Microsoft Edge uses its built-in proxy resolver to evaluate PAC scripts. It doesn't apply when a native or system resolver is used.</p>
+
+<p>If you configure this policy, set it to a valid IPv6 address literal. Host names, malformed values, IPv4 addresses, loopback addresses, link-local addresses, and multicast addresses are rejected. IPv4-mapped IPv6 addresses and the unspecified address are also rejected. Private addresses are supported.</p>
+
+<p>If you don't configure this policy or configure it with an empty string, Microsoft Edge uses its built-in default IPv6 destination. The built-in destination can change between versions.</p>
+
+<p>A browser restart is required for changes to take effect.</p>
+
+<h2>Supported features</h2>
+
+<ul>
+<li>Can be mandatory: Yes</li>
+<li>Can be recommended: No</li>
+<li>Dynamic Policy Refresh: No - Requires browser restart</li>
+<li>Per Profile: No</li>
+<li>Applies to a profile that is signed in with a Microsoft account: Yes</li>
+</ul>
+
+<h2>Data type</h2>
+
+<ul>
+<li>String</li>
+</ul>
+
+<h2>Windows information and settings</h2>
+
+<h3>Group Policy (ADMX) info</h3>
+
+<ul>
+<li>GP unique name: PacMyIpAddressIPv6ProbeAddress</li>
+<li>GP name: Set the IPv6 route-probe address for PAC scripts</li>
+<li>GP path (Mandatory): Administrative Templates/Microsoft Edge/Proxy server</li>
+<li>GP path (Recommended): N/A</li>
+<li>GP ADMX file name: MSEdge.admx</li>
+</ul>
+
+<h4>Example value</h4>
+
+<p><code>
+2001:db8::1
+</code></p>
+
+<h3>Registry settings</h3>
+
+<ul>
+<li>Path (Mandatory): SOFTWARE\Policies\Microsoft\Edge</li>
+<li>Path (Recommended): N/A</li>
+<li>Value name: PacMyIpAddressIPv6ProbeAddress</li>
+<li>Value type: REG_SZ</li>
+</ul>
+
+<h4>Example registry value</h4>
+
+<p><code>
+2001:db8::1
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: PacMyIpAddressIPv6ProbeAddress</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;string&gt;2001:db8::1&lt;/string&gt;
+</code></p>

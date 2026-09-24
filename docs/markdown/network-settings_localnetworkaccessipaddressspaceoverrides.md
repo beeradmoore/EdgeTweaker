@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-09-11T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: b09c2b75-5c57-cf51-ca40-0aba15bdfce6
 document_version_independent_id: b09c2b75-5c57-cf51-ca40-0aba15bdfce6
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-09-11T20:36:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/LocalNetworkAccessIpAddressSpaceOverrides.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/76844e8037a562830bed88251bdc4c96b85554bb/edgeenterprise/microsoft-edge-policies/LocalNetworkAccessIpAddressSpaceOverrides.md
-git_commit_id: 76844e8037a562830bed88251bdc4c96b85554bb
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/bad5d510d6c89974a30e53029e162d63c894b1ea/edgeenterprise/microsoft-edge-policies/LocalNetworkAccessIpAddressSpaceOverrides.md
+git_commit_id: bad5d510d6c89974a30e53029e162d63c894b1ea
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 257
+word_count: 285
 asset_id: microsoft-edge-policies/localnetworkaccessipaddressspaceoverrides
 moniker_range_name: 
 monikers: []
@@ -72,6 +72,10 @@ IP address space overrides can be specified using one of the following formats:
 IPv6 addresses must be specified in URL-safe (bracketed) format.
 
 For more information about Local Network Access, see https://wicg.github.io/local-network-access/.
+
+This policy does not support dynamic refresh. Changes take effect only after browser restart.
+
+Overrides from the command-line switch --ip-address-space-overrides take precedence over overrides set by this policy.
 
 ## Supported features
 

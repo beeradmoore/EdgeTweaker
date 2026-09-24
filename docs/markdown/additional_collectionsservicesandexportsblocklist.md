@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-08-26T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -18,14 +18,14 @@ ms.subservice: edge-admin
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 ms.custom: 
-description: 'Windows and Mac documentation for supported Microsoft Edge Browser policy: Block access to a specified list of services and export targets in Collections'
+description: 'Windows and Mac documentation for supported Microsoft Edge Browser policy: Block access to a specified list of services and export targets in Collections (obsolete)'
 locale: en-us
 document_id: 8adb7603-1bb3-cd9f-d7c0-869441f57f88
 document_version_independent_id: 8adb7603-1bb3-cd9f-d7c0-869441f57f88
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-08-27T17:33:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/CollectionsServicesAndExportsBlockList.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/8cd4d512de65e3d5eaef17bde3d3d32d6cc79a76/edgeenterprise/microsoft-edge-policies/CollectionsServicesAndExportsBlockList.md
-git_commit_id: 8cd4d512de65e3d5eaef17bde3d3d32d6cc79a76
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/e1fb397021eea92db6e35d09a6afde087f7a46ac/edgeenterprise/microsoft-edge-policies/CollectionsServicesAndExportsBlockList.md
+git_commit_id: e1fb397021eea92db6e35d09a6afde087f7a46ac
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 399
+word_count: 428
 asset_id: microsoft-edge-policies/collectionsservicesandexportsblocklist
 moniker_range_name: 
 monikers: []
@@ -50,16 +50,21 @@ platformId: 6bf07875-ce45-8f14-df96-466d5a3e620a
 
 # Microsoft Edge Browser Policy Documentation CollectionsServicesAndExportsBlockList | Microsoft Learn
 
-## Block access to a specified list of services and export targets in Collections
+## Block access to a specified list of services and export targets in Collections (obsolete)
+
+> 
+> OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge version 152.
 
 ## Supported versions
 
-- Windows: ≥ 86
-- macOS: ≥ 86
+- Windows: 86-152
+- macOS: 86-152
 - Android: Not supported
 - iOS: Not supported
 
 ## Description
+
+Starting in Microsoft Edge version 153, this policy is obsolete because the Collections feature was removed.
 
 List specific services and export targets that users can't access in the Collections feature in Microsoft Edge. This includes displaying additional data from Bing and exporting collections to Microsoft products or external partners.
 
@@ -117,7 +122,7 @@ Use the preceding information when configuring this policy.
 ### Group Policy (ADMX) info
 
 - GP unique name: CollectionsServicesAndExportsBlockList
-- GP name: Block access to a specified list of services and export targets in Collections
+- GP name: Block access to a specified list of services and export targets in Collections (obsolete)
 - GP path (Mandatory): Administrative Templates/Microsoft Edge
 - GP path (Recommended): N/A
 - GP ADMX file name: MSEdge.admx

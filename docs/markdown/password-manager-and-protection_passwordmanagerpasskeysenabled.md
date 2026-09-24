@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-08-05T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: ea36e5cb-788d-835c-7787-3966ae4f6210
 document_version_independent_id: ea36e5cb-788d-835c-7787-3966ae4f6210
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-08-05T22:47:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/PasswordManagerPasskeysEnabled.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/04e81ba037b09e50cf52c9da23c8f08a98063036/edgeenterprise/microsoft-edge-policies/PasswordManagerPasskeysEnabled.md
-git_commit_id: 04e81ba037b09e50cf52c9da23c8f08a98063036
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/2a7d54003b65970728477e7826af3ddf75dacaf3/edgeenterprise/microsoft-edge-policies/PasswordManagerPasskeysEnabled.md
+git_commit_id: 2a7d54003b65970728477e7826af3ddf75dacaf3
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 244
+word_count: 255
 asset_id: microsoft-edge-policies/passwordmanagerpasskeysenabled
 moniker_range_name: 
 monikers: []
@@ -56,7 +56,7 @@ platformId: 0cd4cf64-5e7e-c42d-2950-3a7cbac534ff
 
 - Windows: ≥ 145
 - macOS: ≥ 145
-- Android: Not supported
+- Android: ≥ 152
 - iOS: ≥ 149
 
 ## Description
@@ -117,6 +117,15 @@ Disabled
 
 ```xml
 <false/>
+```
+
+## Android information and settings
+
+- Preference Key name: PasswordManagerPasskeysEnabled
+- Example value:
+
+```
+false
 ```
 
 ## iOS information and settings

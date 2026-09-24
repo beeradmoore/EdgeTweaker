@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-08-26T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 5a666e18-9416-f79e-e3c7-c53177d15d01
 document_version_independent_id: 5a666e18-9416-f79e-e3c7-c53177d15d01
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-08-27T17:33:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/LocalNetworkAccessAllowedForUrls.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/c3d5eb43b67b6fe282ad4810ec3e32aa8f8d46af/edgeenterprise/microsoft-edge-policies/LocalNetworkAccessAllowedForUrls.md
-git_commit_id: c3d5eb43b67b6fe282ad4810ec3e32aa8f8d46af
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/e1fb397021eea92db6e35d09a6afde087f7a46ac/edgeenterprise/microsoft-edge-policies/LocalNetworkAccessAllowedForUrls.md
+git_commit_id: e1fb397021eea92db6e35d09a6afde087f7a46ac
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -71,8 +71,8 @@ There are multiple policies that control origins impacting requests to local dev
 
 - LocalNetworkBlockedForUrls
 - LocalNetworkAllowedForUrls
-- LoopbackNetworkAccessBlockedForUrls
-- LoopbackNetworkAccessAllowedForUrls
+- LoopbackNetworkBlockedForUrls
+- LoopbackNetworkAllowedForUrls
 - LocalNetworkAccessBlockedForUrls
 - LocalNetworkAccessAllowedForUrls
 

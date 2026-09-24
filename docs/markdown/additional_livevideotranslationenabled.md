@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-08-18T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 1bf5d492-c611-79d2-2f46-781598f3152b
 document_version_independent_id: 1bf5d492-c611-79d2-2f46-781598f3152b
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-08-20T21:11:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/LiveVideoTranslationEnabled.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/04e81ba037b09e50cf52c9da23c8f08a98063036/edgeenterprise/microsoft-edge-policies/LiveVideoTranslationEnabled.md
-git_commit_id: 04e81ba037b09e50cf52c9da23c8f08a98063036
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/a865810b1ad85218e3939ff6e3d545300a47968e/edgeenterprise/microsoft-edge-policies/LiveVideoTranslationEnabled.md
+git_commit_id: a865810b1ad85218e3939ff6e3d545300a47968e
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -67,7 +67,7 @@ This policy configures the on-device real-time video translation feature in Micr
 
 When a user selects the Translate icon and chooses a source (video language) and target language (translated language), translation components are downloaded on first use (approximately 200 MB per language pair).
 
-These components can be updated periodically to improve performance and translation quality. Translation is performed locally on the user’s device and no data is sent outside of the device. The feature is available only for non-DRM videos, on supported high-end devices, with select language pairs, and in select regions. For more information, see https://www.microsoft.com/en-us/edge/features/real-time-video-translation.
+These components can be updated periodically to improve performance and translation quality. Translation is performed locally on the user’s device and no data is sent outside of the device. The feature is available only for non-DRM videos, on supported high-end devices, with select language pairs, and in select regions. For more information, see https://www.microsoft.com/edge/features/real-time-video-translation.
 
 If you enable or don’t configure this policy, the on-device real-time video translation feature is enabled and users will see the Translate button when hovering over videos.
 

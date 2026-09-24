@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-09-11T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: Windows and Mac documentation for all policies supported by the Mic
 locale: en-us
 document_id: 198c6f64-9e5c-f18e-8439-8d0d11d4228d
 document_version_independent_id: 83f32be1-063c-284c-dfdc-6b5976a5b7cc
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-09-11T20:36:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/c3d5eb43b67b6fe282ad4810ec3e32aa8f8d46af/edgeenterprise/microsoft-edge-policies.md
-git_commit_id: c3d5eb43b67b6fe282ad4810ec3e32aa8f8d46af
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/bad5d510d6c89974a30e53029e162d63c894b1ea/edgeenterprise/microsoft-edge-policies.md
+git_commit_id: bad5d510d6c89974a30e53029e162d63c894b1ea
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 7711
+word_count: 7784
 asset_id: microsoft-edge-policies
 moniker_range_name: 
 monikers: []
@@ -62,19 +62,13 @@ This article applies to Microsoft Edge version 77 or later.
 
 ## New policies
 
-There are no new policies in Microsoft Edge version 150.
+There are no new policies in Microsoft Edge version 155.
 
-The following table lists the new policies for Microsoft Edge version 149.
+The following table lists the new policies for Microsoft Edge version 154.
 
 | Policy Name | Caption |
 | --- | --- |
-| [DefaultLocalFontsSetting](microsoft-edge-policies/defaultlocalfontssetting) | Default Local Fonts permission setting |
-| [LocalFontsAllowedForUrls](microsoft-edge-policies/localfontsallowedforurls) | Allow Local Fonts permission on these sites |
-| [LocalFontsBlockedForUrls](microsoft-edge-policies/localfontsblockedforurls) | Block Local Fonts permission on these sites |
-| [CopilotAddressBarSuggestionsEnabled](microsoft-edge-policies/copilotaddressbarsuggestionsenabled) | Enable Copilot address bar suggestions |
-| [CpuPerformanceTierOverride](microsoft-edge-policies/cpuperformancetieroverride) | Override for the CPU performance tier |
-| [DataUrlInWebWorkerOpaqueOriginEnabled](microsoft-edge-policies/dataurlinwebworkeropaqueoriginenabled) | Enable opaque origins for data URLs in Web Workers |
-| [ForceForegroundPriorityForUrls](microsoft-edge-policies/forceforegroundpriorityforurls) | Force foreground priority for specific URLs |
+| [AutofillSettings](microsoft-edge-policies/autofillsettings) | Block AutoFill data types for specific sites |
 
 ## Deprecated policies
 
@@ -90,8 +84,6 @@ The following table lists all deprecated policies.
 | [ProxyMode](microsoft-edge-policies/proxymode) | Configure proxy server settings (deprecated) |
 | [ProxyPacUrl](microsoft-edge-policies/proxypacurl) | Set the proxy .pac file URL (deprecated) |
 | [ProxyServer](microsoft-edge-policies/proxyserver) | Configure address or URL of proxy server (deprecated) |
-| [RelatedWebsiteSetsEnabled](microsoft-edge-policies/relatedwebsitesetsenabled) | Enable Related Website Sets (deprecated) |
-| [RelatedWebsiteSetsOverrides](microsoft-edge-policies/relatedwebsitesetsoverrides) | Override Related Website Sets. (deprecated) |
 | [BackgroundTemplateListUpdatesEnabled](microsoft-edge-policies/backgroundtemplatelistupdatesenabled) | Enables background updates to the list of available templates for Collections and other features that use templates (deprecated) |
 | [EdgeWalletEtreeEnabled](microsoft-edge-policies/edgewalletetreeenabled) | Edge Wallet E-Tree Enabled (deprecated) |
 | [InsecureFormsWarningsEnabled](microsoft-edge-policies/insecureformswarningsenabled) | Enable warnings for insecure forms (deprecated) |
@@ -103,13 +95,9 @@ The following table lists all deprecated policies.
 
 ## Obsolete policies
 
-The following table lists the obsoleted policies for Microsoft Edge version 150.
+There are no obsoleted policies in Microsoft Edge version 155.
 
-| Policy Name | Caption |
-| --- | --- |
-| [DisabledMiniApps](microsoft-edge-policies/disabledminiapps) | List of disabled Mini Apps (obsolete) |
-
-There are no obsoleted policies in Microsoft Edge version 149.
+There are no obsoleted policies in Microsoft Edge version 154.
 
 ## Available policies
 
@@ -156,6 +144,7 @@ These tables list all of the browser-related group policies available in this re
 - Protected Content
 - Proxy server
 - Related Website Sets Settings
+- Relaunch
 - Scareware Blocker settings
 - Sleeping tabs settings
 - SmartScreen settings
@@ -316,7 +305,7 @@ These tables list all of the browser-related group policies available in this re
 | [CopilotCDPPageContext](microsoft-edge-policies/copilotcdppagecontext) | Control Copilot with Commercial Data Protection access to page context for Microsoft Entra ID profiles (obsolete) |
 | [CopilotPageContext](microsoft-edge-policies/copilotpagecontext) | Control Copilot access to page context for Microsoft Entra ID profiles |
 | [EdgeCopilotEnabled](microsoft-edge-policies/edgecopilotenabled) | Enable Copilot |
-| [EdgeEntraCopilotPageContext](microsoft-edge-policies/edgeentracopilotpagecontext) | Control Copilot access to Microsoft Edge page content for Entra account user profiles when using Copilot in the Microsoft Edge sidepane |
+| [EdgeEntraCopilotPageContext](microsoft-edge-policies/edgeentracopilotpagecontext) | Control Copilot access to Microsoft Edge page content, browsing history, and video transcript for Entra account user profiles when using Copilot in the Microsoft Edge sidepane |
 | [Microsoft365CopilotChatIconEnabled](microsoft-edge-policies/microsoft365copilotchaticonenabled) | Control whether Microsoft 365 Copilot Chat shows in the Microsoft Edge for Business toolbar |
 
 ### Cryptography compliance policies
@@ -461,6 +450,7 @@ These tables list all of the browser-related group policies available in this re
 | [ImplicitSignInEnabled](microsoft-edge-policies/implicitsigninenabled) | Enable implicit sign-in |
 | [LinkedAccountEnabled](microsoft-edge-policies/linkedaccountenabled) | Enable the linked account feature (obsolete) |
 | [M365AuthPopupsInWorkEnabled](microsoft-edge-policies/m365authpopupsinworkenabled) | Allow M365 authentication popups in work profiles |
+| [NonMicrosoftAccountSignInEnabled](microsoft-edge-policies/nonmicrosoftaccountsigninenabled) | Enable sign-in to Microsoft Edge using non-Microsoft accounts |
 | [OneAuthAuthenticationEnforced](microsoft-edge-policies/oneauthauthenticationenforced) | OneAuth Authentication Flow Enforced for signin |
 | [OnlyOnPremisesImplicitSigninEnabled](microsoft-edge-policies/onlyonpremisesimplicitsigninenabled) | Only on-premises account enabled for implicit sign-in |
 | [ProactiveAuthWorkflowEnabled](microsoft-edge-policies/proactiveauthworkflowenabled) | Enable proactive authentication |
@@ -598,6 +588,7 @@ These tables list all of the browser-related group policies available in this re
 | [ExplicitlyAllowedNetworkPorts](microsoft-edge-policies/explicitlyallowednetworkports) | Explicitly allowed network ports |
 | [FetchKeepaliveDurationSecondsOnShutdown](microsoft-edge-policies/fetchkeepalivedurationsecondsonshutdown) | Fetch keepalive duration on shutdown |
 | [HappyEyeballsV3Enabled](microsoft-edge-policies/happyeyeballsv3enabled) | Use the Happy Eyeballs V3 algorithm for connection attempts |
+| [HttpHeaderInjection](microsoft-edge-policies/httpheaderinjection) | Configure HTTP Header Injection for specific URL patterns |
 | [IPv6ReachabilityOverrideEnabled](microsoft-edge-policies/ipv6reachabilityoverrideenabled) | Enable IPv6 reachability check override |
 | [LocalNetworkAccessAllowedForUrls](microsoft-edge-policies/localnetworkaccessallowedforurls) | Allow sites to make network requests to local devices and local network endpoints. |
 | [LocalNetworkAccessBlockedForUrls](microsoft-edge-policies/localnetworkaccessblockedforurls) | Block sites from making network requests to local devices and local network endpoints. |
@@ -734,6 +725,8 @@ These tables list all of the browser-related group policies available in this re
 
 | Policy Name | Caption |
 | --- | --- |
+| [PacMyIpAddressIPv4ProbeAddress](microsoft-edge-policies/pacmyipaddressipv4probeaddress) | Set the IPv4 route-probe address for PAC scripts |
+| [PacMyIpAddressIPv6ProbeAddress](microsoft-edge-policies/pacmyipaddressipv6probeaddress) | Set the IPv6 route-probe address for PAC scripts |
 | [ProxyBypassList](microsoft-edge-policies/proxybypasslist) | Configure proxy bypass rules (deprecated) |
 | [ProxyMode](microsoft-edge-policies/proxymode) | Configure proxy server settings (deprecated) |
 | [ProxyOverrideRules](microsoft-edge-policies/proxyoverriderules) | Proxy override rules |
@@ -745,8 +738,18 @@ These tables list all of the browser-related group policies available in this re
 
 | Policy Name | Caption |
 | --- | --- |
-| [RelatedWebsiteSetsEnabled](microsoft-edge-policies/relatedwebsitesetsenabled) | Enable Related Website Sets (deprecated) |
-| [RelatedWebsiteSetsOverrides](microsoft-edge-policies/relatedwebsitesetsoverrides) | Override Related Website Sets. (deprecated) |
+| [RelatedWebsiteSetsEnabled](microsoft-edge-policies/relatedwebsitesetsenabled) | Enable Related Website Sets (obsolete) |
+| [RelatedWebsiteSetsOverrides](microsoft-edge-policies/relatedwebsitesetsoverrides) | Override Related Website Sets. (obsolete) |
+
+### Relaunch
+
+| Policy Name | Caption |
+| --- | --- |
+| [RelaunchFastIfOutdated](microsoft-edge-policies/relaunchfastifoutdated) | Relaunch browser quickly when the current version is outdated |
+| [RelaunchNotification](microsoft-edge-policies/relaunchnotification) | Notify a user that a browser restart is recommended or required for pending updates |
+| [RelaunchNotificationPeriod](microsoft-edge-policies/relaunchnotificationperiod) | Set the time period for update notifications |
+| [RelaunchWindow](microsoft-edge-policies/relaunchwindow) | Set the time interval for relaunch |
+| [UpdateOnZeroWindowEnabled](microsoft-edge-policies/updateonzerowindowenabled) | Controls background automatic relaunch when all browser windows are closed |
 
 ### Scareware Blocker settings
 
@@ -784,7 +787,7 @@ These tables list all of the browser-related group policies available in this re
 
 | Policy Name | Caption |
 | --- | --- |
-| [ConfigureNTPFeedTabVisibility](microsoft-edge-policies/configurentpfeedtabvisibility) | Configure whether the Discover or Work feed tabs are shown on the New Tab Page. |
+| [ConfigureNTPFeedTabVisibility](microsoft-edge-policies/configurentpfeedtabvisibility) | Configure whether the Discover or Work feed tabs are shown on the Copilot new tab page. |
 | [HomepageIsNewTabPage](microsoft-edge-policies/homepageisnewtabpage) | Set the new tab page as the home page |
 | [HomepageLocation](microsoft-edge-policies/homepagelocation) | Configure the home page URL |
 | [NewTabPageAllowedBackgroundTypes](microsoft-edge-policies/newtabpageallowedbackgroundtypes) | Configure the background types allowed for the new tab page layout |
@@ -803,7 +806,7 @@ These tables list all of the browser-related group policies available in this re
 | [RestoreOnStartup](microsoft-edge-policies/restoreonstartup) | Action to take on Microsoft Edge startup |
 | [RestoreOnStartupURLs](microsoft-edge-policies/restoreonstartupurls) | Sites to open when the browser starts |
 | [RestoreOnStartupUserURLsEnabled](microsoft-edge-policies/restoreonstartupuserurlsenabled) | Allow users to add and remove their own sites during startup when the RestoreOnStartupURLs policy is configured. |
-| [SetNTPDefaultFeedTab](microsoft-edge-policies/setntpdefaultfeedtab) | Set the default New Tab Page feed tab to Work or Discover |
+| [SetNTPDefaultFeedTab](microsoft-edge-policies/setntpdefaultfeedtab) | Set the default Copilot new tab page feed tab to Work or Discover |
 | [ShowHomeButton](microsoft-edge-policies/showhomebutton) | Show Home button on toolbar |
 
 ### WebRtc settings
@@ -825,6 +828,7 @@ These tables list all of the browser-related group policies available in this re
 | [AADWebSiteSSOUsingThisProfileEnabled](microsoft-edge-policies/aadwebsitessousingthisprofileenabled) | Single sign-on for work or school sites using this profile enabled |
 | [AdHocCodeSigningForPWAsEnabled](microsoft-edge-policies/adhoccodesigningforpwasenabled) | Native application signing during Progressive Web Application installation |
 | [AdditionalSearchBoxEnabled](microsoft-edge-policies/additionalsearchboxenabled) | Enable additional search box in browser |
+| [AddressBarClipboardSuggestEnabled](microsoft-edge-policies/addressbarclipboardsuggestenabled) | Enable clipboard suggestions in the address bar |
 | [AdsSettingForIntrusiveAdsSites](microsoft-edge-policies/adssettingforintrusiveadssites) | Ads setting for sites with intrusive ads |
 | [AdsTransparencyEnabled](microsoft-edge-policies/adstransparencyenabled) | Configure if the ads transparency feature is enabled |
 | [AllowBackForwardCacheForCacheControlNoStorePageEnabled](microsoft-edge-policies/allowbackforwardcacheforcachecontrolnostorepageenabled) | Allow pages with Cache-Control: no-store header to enter back/forward cache |
@@ -832,6 +836,7 @@ These tables list all of the browser-related group policies available in this re
 | [AllowDeletingBrowserHistory](microsoft-edge-policies/allowdeletingbrowserhistory) | Enable deleting browser and download history |
 | [AllowFileSelectionDialogs](microsoft-edge-policies/allowfileselectiondialogs) | Allow file selection dialogs |
 | [AllowPopupsDuringPageUnload](microsoft-edge-policies/allowpopupsduringpageunload) | Allows a page to show popups during its unloading (obsolete) |
+| [AllowSocketPoolSizeRandomizationForProxies](microsoft-edge-policies/allowsocketpoolsizerandomizationforproxies) | Allow socket pool size randomization for proxies |
 | [AllowSyncXHRInPageDismissal](microsoft-edge-policies/allowsyncxhrinpagedismissal) | Allow pages to send synchronous XHR requests during page dismissal (obsolete) |
 | [AllowSystemNotifications](microsoft-edge-policies/allowsystemnotifications) | Allows system notifications |
 | [AllowTokenBindingForUrls](microsoft-edge-policies/allowtokenbindingforurls) | Configure the list of sites for which Microsoft Edge will attempt to establish a Token Binding with (obsolete) |
@@ -853,10 +858,12 @@ These tables list all of the browser-related group policies available in this re
 | [AutofillAddressEnabled](microsoft-edge-policies/autofilladdressenabled) | Enable AutoFill for addresses |
 | [AutofillCreditCardEnabled](microsoft-edge-policies/autofillcreditcardenabled) | Enable AutoFill for payment instruments |
 | [AutofillMembershipsEnabled](microsoft-edge-policies/autofillmembershipsenabled) | Save and fill memberships |
+| [AutofillSettings](microsoft-edge-policies/autofillsettings) | Block AutoFill data types for specific sites |
 | [AutomaticHttpsDefault](microsoft-edge-policies/automatichttpsdefault) | Configure Automatic HTTPS (obsolete) |
 | [AutoplayAllowed](microsoft-edge-policies/autoplayallowed) | Allow media autoplay for websites |
 | [AutoplayAllowlist](microsoft-edge-policies/autoplayallowlist) | Allow media autoplay on specific sites |
 | [BackForwardCacheEnabled](microsoft-edge-policies/backforwardcacheenabled) | Control the BackForwardCache feature. |
+| [BackForwardCacheForWebSocketsAllowed](microsoft-edge-policies/backforwardcacheforwebsocketsallowed) | Allow Back/Forward Cache for WebSockets |
 | [BackgroundModeEnabled](microsoft-edge-policies/backgroundmodeenabled) | Continue running background apps after Microsoft Edge closes |
 | [BackgroundTemplateListUpdatesEnabled](microsoft-edge-policies/backgroundtemplatelistupdatesenabled) | Enables background updates to the list of available templates for Collections and other features that use templates (deprecated) |
 | [BeforeunloadEventCancelByPreventDefaultEnabled](microsoft-edge-policies/beforeunloadeventcancelbypreventdefaultenabled) | Control the behavior for the cancel dialog produced by the beforeunload event (obsolete) |
@@ -882,7 +889,7 @@ These tables list all of the browser-related group policies available in this re
 | [ClickOnceEnabled](microsoft-edge-policies/clickonceenabled) | Allow users to open files using the ClickOnce protocol |
 | [ClipboardAllowedForUrls](microsoft-edge-policies/clipboardallowedforurls) | Allow clipboard use on specific sites |
 | [ClipboardBlockedForUrls](microsoft-edge-policies/clipboardblockedforurls) | Block clipboard use on specific sites |
-| [CollectionsServicesAndExportsBlockList](microsoft-edge-policies/collectionsservicesandexportsblocklist) | Block access to a specified list of services and export targets in Collections |
+| [CollectionsServicesAndExportsBlockList](microsoft-edge-policies/collectionsservicesandexportsblocklist) | Block access to a specified list of services and export targets in Collections (obsolete) |
 | [CommandLineFlagSecurityWarningsEnabled](microsoft-edge-policies/commandlineflagsecuritywarningsenabled) | Enable security warnings for command-line flags |
 | [ComponentUpdatesEnabled](microsoft-edge-policies/componentupdatesenabled) | Enable component updates in Microsoft Edge |
 | [ComposeInlineEnabled](microsoft-edge-policies/composeinlineenabled) | Control access to Microsoft 365 Copilot writing assistance in Microsoft Edge for Business |
@@ -894,6 +901,7 @@ These tables list all of the browser-related group policies available in this re
 | [ConfigureShare](microsoft-edge-policies/configureshare) | Configure the Share experience |
 | [ConfigureViewInFileExplorer](microsoft-edge-policies/configureviewinfileexplorer) | Configure the View in File Explorer feature for SharePoint pages in Microsoft Edge |
 | [CopilotAddressBarSuggestionsEnabled](microsoft-edge-policies/copilotaddressbarsuggestionsenabled) | Enable Copilot address bar suggestions |
+| [CopilotCoworkToolActionsEnabled](microsoft-edge-policies/copilotcoworktoolactionsenabled) | Allow Cowork to take actions on your behalf |
 | [CopilotNewTabPageEnabled](microsoft-edge-policies/copilotnewtabpageenabled) | Enable the Copilot new tab page |
 | [CpuPerformanceTierOverride](microsoft-edge-policies/cpuperformancetieroverride) | Override for the CPU performance tier |
 | [CreatePasskeysInICloudKeychain](microsoft-edge-policies/createpasskeysinicloudkeychain) | Control whether passkey creation will default to iCloud Keychain. |
@@ -930,7 +938,7 @@ These tables list all of the browser-related group policies available in this re
 | [EdgeAutofillMlEnabled](microsoft-edge-policies/edgeautofillmlenabled) | Machine learning powered autofill suggestions |
 | [EdgeBrandColor](microsoft-edge-policies/edgebrandcolor) | Configure the organization color shown on the New Tab Page for iOS and Android |
 | [EdgeBrandLogo](microsoft-edge-policies/edgebrandlogo) | Configure the organization logo shown on the New Tab Page for iOS and Android |
-| [EdgeCollectionsEnabled](microsoft-edge-policies/edgecollectionsenabled) | Enable the Collections feature |
+| [EdgeCollectionsEnabled](microsoft-edge-policies/edgecollectionsenabled) | Enable the Collections feature (obsolete) |
 | [EdgeDisableShareUsageData](microsoft-edge-policies/edgedisableshareusagedata) | Disable data sharing usage data for personalization for iOS and Android |
 | [EdgeDiscoverEnabled](microsoft-edge-policies/edgediscoverenabled) | Discover feature In Microsoft Edge (obsolete) |
 | [EdgeEDropEnabled](microsoft-edge-policies/edgeedropenabled) | Enable Drop feature in Microsoft Edge |
@@ -939,17 +947,20 @@ These tables list all of the browser-related group policies available in this re
 | [EdgeHistoryAISearchEnabled](microsoft-edge-policies/edgehistoryaisearchenabled) | Control access to AI-enhanced search in History |
 | [EdgeLockedViewModeAllowedActions](microsoft-edge-policies/edgelockedviewmodeallowedactions) | Configure allowed actions in locked view mode |
 | [EdgeLockedViewModeEnabled](microsoft-edge-policies/edgelockedviewmodeenabled) | Configure locked view mode on iOS and Android |
+| [EdgeMipPdfEnabled](microsoft-edge-policies/edgemippdfenabled) | Microsoft Purview-protected PDF support |
 | [EdgeMyApps](microsoft-edge-policies/edgemyapps) | Display My Apps bookmark |
 | [EdgeOneAuthProxy](microsoft-edge-policies/edgeoneauthproxy) | OneAuth Proxy Server For Microsoft Edge Android |
 | [EdgeOpenInSidebarEnabled](microsoft-edge-policies/edgeopeninsidebarenabled) | Enable open in sidebar |
 | [EdgeProxyPacFailOpenEnabled](microsoft-edge-policies/edgeproxypacfailopenenabled) | Enable fail-open behavior for Proxy PAC on iOS |
 | [EdgeProxyPacUrl](microsoft-edge-policies/edgeproxypacurl) | Configure Proxy Auto-Config (PAC) URL on iOS |
+| [EdgeReadingModeServiceBasedExtractionEnabled](microsoft-edge-policies/edgereadingmodeservicebasedextractionenabled) | Enable service-based extraction for Reading Mode in Microsoft Edge |
 | [EdgeSharedDeviceSupportEnabled](microsoft-edge-policies/edgeshareddevicesupportenabled) | Enable Shared Device Support |
 | [EdgeShoppingAssistantEnabled](microsoft-edge-policies/edgeshoppingassistantenabled) | Shopping in Microsoft Edge Enabled |
 | [EdgeSidebarAppUrlHostAllowList](microsoft-edge-policies/edgesidebarappurlhostallowlist) | Allow specific apps to be opened in Microsoft Edge sidebar |
 | [EdgeSidebarAppUrlHostBlockList](microsoft-edge-policies/edgesidebarappurlhostblocklist) | Control which apps cannot be opened in Microsoft Edge sidebar |
 | [EdgeSidebarAppUrlHostForceList](microsoft-edge-policies/edgesidebarappurlhostforcelist) | Control which apps are forced to be shown in Microsoft Edge sidebar |
 | [EdgeSidebarCustomizeEnabled](microsoft-edge-policies/edgesidebarcustomizeenabled) | Enable sidebar customize |
+| [EdgeThemeEnabled](microsoft-edge-policies/edgethemeenabled) | Enable Theme and Wallpaper customization in Microsoft Edge |
 | [EdgeWalletCheckoutEnabled](microsoft-edge-policies/edgewalletcheckoutenabled) | Enable Wallet Checkout feature |
 | [EdgeWalletEtreeEnabled](microsoft-edge-policies/edgewalletetreeenabled) | Edge Wallet E-Tree Enabled (deprecated) |
 | [EditFavoritesEnabled](microsoft-edge-policies/editfavoritesenabled) | Allows users to edit favorites |
@@ -1044,6 +1055,7 @@ These tables list all of the browser-related group policies available in this re
 | [PostQuantumKeyAgreementEnabled](microsoft-edge-policies/postquantumkeyagreementenabled) | Enable post-quantum key agreement for TLS (obsolete) |
 | [PrefetchWithServiceWorkerEnabled](microsoft-edge-policies/prefetchwithserviceworkerenabled) | Allow SpeculationRules prefetch for ServiceWorker-controlled URLs |
 | [ProactiveAuthEnabled](microsoft-edge-policies/proactiveauthenabled) | Enable Proactive Authentication (obsolete) |
+| [ProcessIsolationEnabled](microsoft-edge-policies/processisolationenabled) | Enable Process Isolation |
 | [PromotionalTabsEnabled](microsoft-edge-policies/promotionaltabsenabled) | Enable full-tab promotional content (deprecated) |
 | [ProvisionalNotificationsAllowed](microsoft-edge-policies/provisionalnotificationsallowed) | Allows the app to use provisional notification authorization on iOS |
 | [QRCodeGeneratorEnabled](microsoft-edge-policies/qrcodegeneratorenabled) | Enable QR Code Generator |
@@ -1055,15 +1067,12 @@ These tables list all of the browser-related group policies available in this re
 | [RedirectSitesFromInternetExplorerRedirectMode](microsoft-edge-policies/redirectsitesfrominternetexplorerredirectmode) | Redirect incompatible sites from Internet Explorer to Microsoft Edge |
 | [ReduceIPAddressChangeNotificationEnabled](microsoft-edge-policies/reduceipaddresschangenotificationenabled) | Enable Reduce IP Address Change Notification |
 | [RelatedMatchesCloudServiceEnabled](microsoft-edge-policies/relatedmatchescloudserviceenabled) | Configure Related Matches in Find on Page (obsolete) |
-| [RelaunchFastIfOutdated](microsoft-edge-policies/relaunchfastifoutdated) | Relaunch browser quickly when the current version is outdated |
-| [RelaunchNotification](microsoft-edge-policies/relaunchnotification) | Notify a user that a browser restart is recommended or required for pending updates |
-| [RelaunchNotificationPeriod](microsoft-edge-policies/relaunchnotificationperiod) | Set the time period for update notifications |
-| [RelaunchWindow](microsoft-edge-policies/relaunchwindow) | Set the time interval for relaunch |
 | [RemoteDebuggingAllowed](microsoft-edge-policies/remotedebuggingallowed) | Allow remote debugging |
 | [RendererAppContainerEnabled](microsoft-edge-policies/rendererappcontainerenabled) | Enable renderer in app container |
 | [RendererCodeIntegrityEnabled](microsoft-edge-policies/renderercodeintegrityenabled) | Enable renderer code integrity (obsolete) |
 | [RequireOnlineRevocationChecksForLocalAnchors](microsoft-edge-policies/requireonlinerevocationchecksforlocalanchors) | Specify if online OCSP/CRL checks are required for local trust anchors |
 | [ResolveNavigationErrorsUseWebService](microsoft-edge-policies/resolvenavigationerrorsusewebservice) | Enable resolution of navigation errors using a web service |
+| [RestrictBackgroundFetchFromServiceWorkerEnabled](microsoft-edge-policies/restrictbackgroundfetchfromserviceworkerenabled) | Restrict Background Fetch API when called from a Service Worker |
 | [RestrictCoreSharingOnRenderer](microsoft-edge-policies/restrictcoresharingonrenderer) | Restrict CPU core sharing for renderer process |
 | [RestrictSigninToPattern](microsoft-edge-policies/restrictsignintopattern) | Restrict which accounts can be used to sign in to Microsoft Edge |
 | [RoamingProfileLocation](microsoft-edge-policies/roamingprofilelocation) | Set the roaming profile directory |
@@ -1101,7 +1110,6 @@ These tables list all of the browser-related group policies available in this re
 | [SharedWorkerBlobURLFixEnabled](microsoft-edge-policies/sharedworkerbloburlfixenabled) | Make SharedWorker blob URL behavior aligned with the specification |
 | [SharedWorkerExtendedLifetimeEnabled](microsoft-edge-policies/sharedworkerextendedlifetimeenabled) | Enable the extended lifetime option for SharedWorkers |
 | [ShowDownloadsToolbarButton](microsoft-edge-policies/showdownloadstoolbarbutton) | Show Downloads button on the toolbar |
-| [ShowHistoryThumbnails](microsoft-edge-policies/showhistorythumbnails) | Show thumbnail images for browsing history |
 | [ShowMicrosoftRewards](microsoft-edge-policies/showmicrosoftrewards) | Show Microsoft Rewards experiences |
 | [ShowRecommendationsEnabled](microsoft-edge-policies/showrecommendationsenabled) | Allow feature recommendations and browser assistance notifications from Microsoft Edge |
 | [ShowTabPreviewEnabled](microsoft-edge-policies/showtabpreviewenabled) | Enable tab preview on hover |
@@ -1118,6 +1126,7 @@ These tables list all of the browser-related group policies available in this re
 | [StandaloneHubsSidebarEnabled](microsoft-edge-policies/standalonehubssidebarenabled) | Standalone Sidebar Enabled |
 | [StandardizedBrowserZoomEnabled](microsoft-edge-policies/standardizedbrowserzoomenabled) | Enable Standardized Browser Zoom Behavior |
 | [StaticStorageQuotaEnabled](microsoft-edge-policies/staticstoragequotaenabled) | Control whether storage quota APIs will return static values |
+| [StrictMimetypeCheckForWorkerScriptsEnabled](microsoft-edge-policies/strictmimetypecheckforworkerscriptsenabled) | Enable strict MIME type checking for worker scripts |
 | [StricterMixedContentTreatmentEnabled](microsoft-edge-policies/strictermixedcontenttreatmentenabled) | Enable stricter treatment for mixed content (obsolete) |
 | [SuperDragDropEnabled](microsoft-edge-policies/superdragdropenabled) | Super Drag Drop Enabled |
 | [SuppressUnsupportedOSWarning](microsoft-edge-policies/suppressunsupportedoswarning) | Suppress the unsupported OS warning |

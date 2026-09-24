@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-08-26T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -18,14 +18,14 @@ ms.subservice: edge-admin
 ms.localizationpriority: high
 ms.collection: M365-modern-desktop
 ms.custom: 
-description: 'Windows and Mac documentation for supported Microsoft Edge Browser policy: Enable the Collections feature'
+description: 'Windows and Mac documentation for supported Microsoft Edge Browser policy: Enable the Collections feature (obsolete)'
 locale: en-us
 document_id: eebf78bb-1ed5-4f1a-fe80-0eb1bf357682
 document_version_independent_id: eebf78bb-1ed5-4f1a-fe80-0eb1bf357682
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-08-27T17:33:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/EdgeCollectionsEnabled.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/067834446df3984e8949dfae4cf23506dc85cc1a/edgeenterprise/microsoft-edge-policies/EdgeCollectionsEnabled.md
-git_commit_id: 067834446df3984e8949dfae4cf23506dc85cc1a
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/e1fb397021eea92db6e35d09a6afde087f7a46ac/edgeenterprise/microsoft-edge-policies/EdgeCollectionsEnabled.md
+git_commit_id: e1fb397021eea92db6e35d09a6afde087f7a46ac
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 184
+word_count: 213
 asset_id: microsoft-edge-policies/edgecollectionsenabled
 moniker_range_name: 
 monikers: []
@@ -50,16 +50,21 @@ platformId: ac9e359e-b592-e559-be5c-b288656e3e51
 
 # Microsoft Edge Browser Policy Documentation EdgeCollectionsEnabled | Microsoft Learn
 
-## Enable the Collections feature
+## Enable the Collections feature (obsolete)
+
+> 
+> OBSOLETE: This policy is obsolete and doesn't work after Microsoft Edge version 152.
 
 ## Supported versions
 
-- Windows: ≥ 78
-- macOS: ≥ 78
+- Windows: 78-152
+- macOS: 78-152
 - Android: Not supported
 - iOS: Not supported
 
 ## Description
+
+Starting in Microsoft Edge version 153, this policy is obsolete because the Collections feature was removed.
 
 Lets you allow users to access the Collections feature, where they can collect, organize, share, and export content more efficiently and with Office integration.
 
@@ -84,7 +89,7 @@ If you disable this policy, users can't access and use Collections in Microsoft 
 ### Group Policy (ADMX) info
 
 - GP unique name: EdgeCollectionsEnabled
-- GP name: Enable the Collections feature
+- GP name: Enable the Collections feature (obsolete)
 - GP path (Mandatory): Administrative Templates/Microsoft Edge
 - GP path (Recommended): N/A
 - GP ADMX file name: MSEdge.admx

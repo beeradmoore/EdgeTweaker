@@ -41,9 +41,11 @@ item_type: Content
 source_path: edgeenterprise/microsoft-edge-policies/DisabledMiniApps.md
 cmProducts:
 - https://authoring-docs-microsoft.poolparty.biz/devrel/5287f575-02f0-405f-92b7-800456526b0c
+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/7352ca82-c945-4fdf-9a72-119b613f0175
 - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8
 spProducts:
 - https://authoring-docs-microsoft.poolparty.biz/devrel/06e86142-34c2-4b94-ab9c-9477c21f7152
+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/04aed1aa-867d-41c7-836d-36bdb27db265
 - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8
 platformId: 10762c1b-80f0-28da-eec5-8d1ecd1811b5
 ---

@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-07-14T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: c4278a52-1c71-2956-67c0-f69f6115a006
 document_version_independent_id: c4278a52-1c71-2956-67c0-f69f6115a006
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-07-16T17:13:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/GeolocationBlockedForUrls.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/8cd4d512de65e3d5eaef17bde3d3d32d6cc79a76/edgeenterprise/microsoft-edge-policies/GeolocationBlockedForUrls.md
-git_commit_id: 8cd4d512de65e3d5eaef17bde3d3d32d6cc79a76
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/a289da80f95e4dc4398e2381af574918c10f5cdf/edgeenterprise/microsoft-edge-policies/GeolocationBlockedForUrls.md
+git_commit_id: a289da80f95e4dc4398e2381af574918c10f5cdf
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -67,7 +67,7 @@ If you enable this policy, the list you provide determines which sites are block
 
 If you disable or don't configure this policy, DefaultGeolocationSetting applies to all sites, if configured. If it's not configured, the user’s personal browser setting is used.
 
-For detailed information on valid url patterns, see the documentation on pattern formats: [Filter formats for URL list-based policies](/en-us/deployedge/edge-learnmmore-url-list-filter%20format).
+For detailed information on valid url patterns, see the documentation on pattern formats: [Filter formats for URL list-based policies](/en-us/deployedge/edge-learnmmore-url-list-filter-format).
 
 ## Supported features
 

@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-07-21T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: a705b488-695f-e5e6-6b38-c4e0fb68dcd9
 document_version_independent_id: a705b488-695f-e5e6-6b38-c4e0fb68dcd9
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-07-23T17:24:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/DefaultDownloadDirectory.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/fc3210297952cfba31492fd71267e3a6764b742c/edgeenterprise/microsoft-edge-policies/DefaultDownloadDirectory.md
-git_commit_id: fc3210297952cfba31492fd71267e3a6764b742c
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/68812a75863f3e9c8e7f9a3c986f810f4a267a84/edgeenterprise/microsoft-edge-policies/DefaultDownloadDirectory.md
+git_commit_id: 68812a75863f3e9c8e7f9a3c986f810f4a267a84
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 186
+word_count: 183
 asset_id: microsoft-edge-policies/defaultdownloaddirectory
 moniker_range_name: 
 monikers: []
@@ -67,7 +67,7 @@ If you don't configure this policy, Microsoft Edge uses the platform-specific de
 
 This policy has no effect if the DownloadDirectory policy is set.
 
-For a list of supported variables, see [Create user directory variables](/en-us/deployedge/edge-learnmore-create-user-directory-vars) .
+For a list of supported variables, see [https://learn.microsoft.com/deployedge/edge-learnmore-create-user-directory-vars](/en-us/deployedge/edge-learnmore-create-user-directory-vars) .
 
 ## Supported features
 

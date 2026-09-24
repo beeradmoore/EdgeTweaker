@@ -6,14 +6,14 @@
 
 <ul>
 <li>Windows: ≥ 137</li>
-<li>macOS: Not supported</li>
+<li>macOS: ≥ 151</li>
 <li>Android: Not supported</li>
 <li>iOS: Not supported</li>
 </ul>
 
 <h2>Description</h2>
 
-<p>List of Microsoft Edge for Business Data Loss Prevention Connectors services settings to be applied when a page or file is printed from Microsoft Edge.</p>
+<p>Specifies the list of Microsoft Edge for Business Data Loss Prevention Connectors service settings that apply when users print a page or file from Microsoft Edge.</p>
 
 <p>Connector Fields</p>
 
@@ -106,4 +106,52 @@
     "service_provider": "local_system_agent"
   }
 ]
+</code></p>
+
+<h2>Mac information and settings</h2>
+
+<ul>
+<li>Preference Key name: OnPrintEnterpriseConnector</li>
+<li>Example value:</li>
+</ul>
+
+<p><code>xml
+&lt;key&gt;OnPrintEnterpriseConnector&lt;/key&gt;
+&lt;array&gt;
+  &lt;dict&gt;
+    &lt;key&gt;block_until_verdict&lt;/key&gt;
+    &lt;integer&gt;0&lt;/integer&gt;
+    &lt;key&gt;default_action&lt;/key&gt;
+    &lt;string&gt;allow&lt;/string&gt;
+    &lt;key&gt;disable&lt;/key&gt;
+    &lt;array&gt;
+      &lt;dict&gt;
+        &lt;key&gt;tags&lt;/key&gt;
+        &lt;array&gt;
+          &lt;string&gt;dlp&lt;/string&gt;
+        &lt;/array&gt;
+        &lt;key&gt;url_list&lt;/key&gt;
+        &lt;array&gt;
+          &lt;string&gt;*.us.com&lt;/string&gt;
+        &lt;/array&gt;
+      &lt;/dict&gt;
+    &lt;/array&gt;
+    &lt;key&gt;enable&lt;/key&gt;
+    &lt;array&gt;
+      &lt;dict&gt;
+        &lt;key&gt;tags&lt;/key&gt;
+        &lt;array&gt;
+          &lt;string&gt;dlp&lt;/string&gt;
+        &lt;/array&gt;
+        &lt;key&gt;url_list&lt;/key&gt;
+        &lt;array&gt;
+          &lt;string&gt;*.them.com&lt;/string&gt;
+          &lt;string&gt;*.others.com&lt;/string&gt;
+        &lt;/array&gt;
+      &lt;/dict&gt;
+    &lt;/array&gt;
+    &lt;key&gt;service_provider&lt;/key&gt;
+    &lt;string&gt;local_system_agent&lt;/string&gt;
+  &lt;/dict&gt;
+&lt;/array&gt;
 </code></p>

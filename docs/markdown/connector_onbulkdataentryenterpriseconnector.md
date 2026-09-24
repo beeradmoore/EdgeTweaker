@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-08-11T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 57ba77ae-ec2c-0cc3-d155-19739aff289d
 document_version_independent_id: 57ba77ae-ec2c-0cc3-d155-19739aff289d
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-08-13T17:44:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/OnBulkDataEntryEnterpriseConnector.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/e6b30ca4c90b64b1ae53d6496833c9718b73975a/edgeenterprise/microsoft-edge-policies/OnBulkDataEntryEnterpriseConnector.md
-git_commit_id: e6b30ca4c90b64b1ae53d6496833c9718b73975a
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/b914971397b969e9105b98c6e5372090311aa2cd/edgeenterprise/microsoft-edge-policies/OnBulkDataEntryEnterpriseConnector.md
+git_commit_id: b914971397b969e9105b98c6e5372090311aa2cd
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 432
+word_count: 492
 asset_id: microsoft-edge-policies/onbulkdataentryenterpriseconnector
 moniker_range_name: 
 monikers: []
@@ -55,13 +55,13 @@ platformId: 9ef231d7-5d52-dae2-b81e-7af31516ce29
 ## Supported versions
 
 - Windows: ≥ 137
-- macOS: Not supported
+- macOS: ≥ 151
 - Android: Not supported
 - iOS: Not supported
 
 ## Description
 
-List of Microsoft Edge for Business Data Loss Prevention Connectors services settings to be applied when data is entered in Microsoft Edge from the clipboard or by drag and dropping web content.
+Specifies the list of Microsoft Edge for Business Data Loss Prevention Connector service settings that apply when users paste data from the clipboard or drag and drop web content into Microsoft Edge.
 
 Connector Fields
 
@@ -154,4 +154,62 @@ This policy requires further setup to take effect. For configuration guidance, s
     "service_provider": "local_system_agent"
   }
 ]
+```
+
+## Mac information and settings
+
+- Preference Key name: OnBulkDataEntryEnterpriseConnector
+- Example value:
+
+```xml
+<key>OnBulkDataEntryEnterpriseConnector</key>
+<array>
+  <dict>
+    <key>block_until_verdict</key>
+    <integer>0</integer>
+    <key>default_action</key>
+    <string>allow</string>
+    <key>disable</key>
+    <array>
+      <dict>
+        <key>tags</key>
+        <array>
+          <string>malware</string>
+        </array>
+        <key>url_list</key>
+        <array>
+          <string>*.us.com</string>
+        </array>
+      </dict>
+    </array>
+    <key>enable</key>
+    <array>
+      <dict>
+        <key>tags</key>
+        <array>
+          <string>malware</string>
+        </array>
+        <key>url_list</key>
+        <array>
+          <string>*</string>
+        </array>
+      </dict>
+      <dict>
+        <key>tags</key>
+        <array>
+          <string>dlp</string>
+        </array>
+        <key>url_list</key>
+        <array>
+          <string>*.them.com</string>
+          <string>*.others.com</string>
+        </array>
+      </dict>
+    </array>
+    <key>minimum_data_size</key>
+    <integer>100</integer>
+    <key>service_provider</key>
+    <string>local_system_agent</string>
+  </dict>
+</array>
 ```

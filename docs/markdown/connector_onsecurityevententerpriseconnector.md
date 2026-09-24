@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-07-09T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: c3189c2b-4bd2-0904-d197-a33f494b29bb
 document_version_independent_id: c3189c2b-4bd2-0904-d197-a33f494b29bb
-updated_at: 2026-06-16T20:48:00.0000000Z
+updated_at: 2026-07-09T16:47:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/OnSecurityEventEnterpriseConnector.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/68582e6c83217ad76dff462d7a15eafbd64ed095/edgeenterprise/microsoft-edge-policies/OnSecurityEventEnterpriseConnector.md
-git_commit_id: 68582e6c83217ad76dff462d7a15eafbd64ed095
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/2ed5877d3568c6aa41653e7516b38e38467236df/edgeenterprise/microsoft-edge-policies/OnSecurityEventEnterpriseConnector.md
+git_commit_id: 2ed5877d3568c6aa41653e7516b38e38467236df
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -65,7 +65,7 @@ Defines the Microsoft Edge for Business Reporting Connectors service settings th
 
 The service\_provider field specifies the reporting service provider. The enabled\_event\_names field lists the security events enabled for that provider.
 
-This policy can only be configured through the Microsoft 365 Admin Center. It requires additional setup to take effect. For configuration guidance, see https://go.microsoft.com/fwlink/?linkid=2325446
+This policy can only be configured through the Microsoft 365 Admin Center. It requires additional setup to take effect. For configuration guidance, see https://go.microsoft.com/fwlink/?linkid=2325446.
 
 ## Supported features
 

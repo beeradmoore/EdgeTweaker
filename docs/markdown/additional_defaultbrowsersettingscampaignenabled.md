@@ -42,11 +42,11 @@ source_path: edgeenterprise/microsoft-edge-policies/DefaultBrowserSettingsCampai
 cmProducts:
 - https://authoring-docs-microsoft.poolparty.biz/devrel/5287f575-02f0-405f-92b7-800456526b0c
 - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8
-- https://authoring-docs-microsoft.poolparty.biz/devrel/9b11aaae-66fe-4b2c-9a1f-36ce40bf4e7f
+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/12ed19f9-ebdf-4c8a-8bcd-7a681836774d
 spProducts:
 - https://authoring-docs-microsoft.poolparty.biz/devrel/06e86142-34c2-4b94-ab9c-9477c21f7152
 - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8
-- https://authoring-docs-microsoft.poolparty.biz/devrel/c0b42e77-fe0d-40dd-9718-99dacb85bf74
+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/3a764584-4f97-452b-8f1d-36f19b12f6ae
 platformId: a6883337-5247-ce76-0748-01086d9ce369
 ---
 

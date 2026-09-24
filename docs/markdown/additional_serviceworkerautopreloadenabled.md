@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-07-09T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: a7fb2ec1-c5b7-5025-1237-52ca82d25818
 document_version_independent_id: a7fb2ec1-c5b7-5025-1237-52ca82d25818
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-07-09T16:47:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/ServiceWorkerAutoPreloadEnabled.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/aed83b531d25ba6dc84d0be2c4122b451bbfa304/edgeenterprise/microsoft-edge-policies/ServiceWorkerAutoPreloadEnabled.md
-git_commit_id: aed83b531d25ba6dc84d0be2c4122b451bbfa304
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/2ed5877d3568c6aa41653e7516b38e38467236df/edgeenterprise/microsoft-edge-policies/ServiceWorkerAutoPreloadEnabled.md
+git_commit_id: 2ed5877d3568c6aa41653e7516b38e38467236df
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -67,7 +67,7 @@ If you enable or don't configure this policy, Microsoft Edge can initiate the ma
 
 If you disable this policy, Microsoft Edge will wait to dispatch the navigation request until after the Service Worker starts.
 
-This is a temporary policy and is removed in version 144 of Microsoft Edge.
+This is a temporary policy and is removed in version 154 of Microsoft Edge.
 
 For more information on the feature, see https://github.com/WICG/service-worker-auto-preload.
 

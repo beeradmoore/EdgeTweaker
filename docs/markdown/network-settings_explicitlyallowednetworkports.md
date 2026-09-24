@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-07-09T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: f2c7c1c3-a4e7-e5bc-d5c8-e3f72bb3c673
 document_version_independent_id: f2c7c1c3-a4e7-e5bc-d5c8-e3f72bb3c673
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-07-09T16:47:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/ExplicitlyAllowedNetworkPorts.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/04e81ba037b09e50cf52c9da23c8f08a98063036/edgeenterprise/microsoft-edge-policies/ExplicitlyAllowedNetworkPorts.md
-git_commit_id: 04e81ba037b09e50cf52c9da23c8f08a98063036
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/2ed5877d3568c6aa41653e7516b38e38467236df/edgeenterprise/microsoft-edge-policies/ExplicitlyAllowedNetworkPorts.md
+git_commit_id: 2ed5877d3568c6aa41653e7516b38e38467236df
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 501
+word_count: 512
 asset_id: microsoft-edge-policies/explicitlyallowednetworkports
 moniker_range_name: 
 monikers: []
@@ -56,7 +56,7 @@ platformId: b8bd15aa-9b79-5b24-4bbc-5b45672330d7
 
 - Windows: ≥ 91
 - macOS: ≥ 91
-- Android: Not supported
+- Android: ≥ 150
 - iOS: Not supported
 
 ## Description
@@ -166,4 +166,13 @@ SOFTWARE\Policies\Microsoft\Edge\ExplicitlyAllowedNetworkPorts\1 =
 <array>
   <string>10080</string>
 </array>
+```
+
+## Android information and settings
+
+- Preference Key name: ExplicitlyAllowedNetworkPorts
+- Example value:
+
+```
+["10080"]
 ```

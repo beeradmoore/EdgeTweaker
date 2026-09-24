@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-08-11T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 2a1ad67f-5cd8-4868-b208-f3d7ffe28295
 document_version_independent_id: 2a1ad67f-5cd8-4868-b208-f3d7ffe28295
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-08-13T17:44:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/OnFileAttachedEnterpriseConnector.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/8cd4d512de65e3d5eaef17bde3d3d32d6cc79a76/edgeenterprise/microsoft-edge-policies/OnFileAttachedEnterpriseConnector.md
-git_commit_id: 8cd4d512de65e3d5eaef17bde3d3d32d6cc79a76
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/b914971397b969e9105b98c6e5372090311aa2cd/edgeenterprise/microsoft-edge-policies/OnFileAttachedEnterpriseConnector.md
+git_commit_id: b914971397b969e9105b98c6e5372090311aa2cd
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 389
+word_count: 447
 asset_id: microsoft-edge-policies/onfileattachedenterpriseconnector
 moniker_range_name: 
 monikers: []
@@ -55,13 +55,13 @@ platformId: b8363a8b-2fb6-09ea-deba-b2881efb0273
 ## Supported versions
 
 - Windows: ≥ 137
-- macOS: Not supported
+- macOS: ≥ 151
 - Android: Not supported
 - iOS: Not supported
 
 ## Description
 
-List of Microsoft Edge for Business Data Loss Prevention Connectors services settings to be applied when a file is attached to Microsoft Edge.
+Specifies the list of Microsoft Edge for Business Data Loss Prevention Connectors service settings that apply when users attach files in Microsoft Edge.
 
 Connector Fields
 
@@ -152,4 +152,60 @@ This policy requires additional setup to take effect. For configuration guidance
     "service_provider": "local_system_agent"
   }
 ]
+```
+
+## Mac information and settings
+
+- Preference Key name: OnFileAttachedEnterpriseConnector
+- Example value:
+
+```xml
+<key>OnFileAttachedEnterpriseConnector</key>
+<array>
+  <dict>
+    <key>block_until_verdict</key>
+    <integer>0</integer>
+    <key>default_action</key>
+    <string>allow</string>
+    <key>disable</key>
+    <array>
+      <dict>
+        <key>tags</key>
+        <array>
+          <string>malware</string>
+        </array>
+        <key>url_list</key>
+        <array>
+          <string>*.us.com</string>
+        </array>
+      </dict>
+    </array>
+    <key>enable</key>
+    <array>
+      <dict>
+        <key>tags</key>
+        <array>
+          <string>malware</string>
+        </array>
+        <key>url_list</key>
+        <array>
+          <string>*</string>
+        </array>
+      </dict>
+      <dict>
+        <key>tags</key>
+        <array>
+          <string>dlp</string>
+        </array>
+        <key>url_list</key>
+        <array>
+          <string>*.them.com</string>
+          <string>*.others.com</string>
+        </array>
+      </dict>
+    </array>
+    <key>service_provider</key>
+    <string>local_system_agent</string>
+  </dict>
+</array>
 ```

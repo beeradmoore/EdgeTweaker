@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: cdd9d506-e0a3-be68-f368-1b5220454f52
 document_version_independent_id: cdd9d506-e0a3-be68-f368-1b5220454f52
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-07-10T09:42:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/PreciseGeolocationAllowedForUrls.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/067834446df3984e8949dfae4cf23506dc85cc1a/edgeenterprise/microsoft-edge-policies/PreciseGeolocationAllowedForUrls.md
-git_commit_id: 067834446df3984e8949dfae4cf23506dc85cc1a
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/e3c3c908fdf0218beb48327291567fda387bbf38/edgeenterprise/microsoft-edge-policies/PreciseGeolocationAllowedForUrls.md
+git_commit_id: e3c3c908fdf0218beb48327291567fda387bbf38
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -65,7 +65,7 @@ This policy lets you specify a list of URL patterns for sites that are allowed t
 
 If you leave this policy unset, DefaultGeolocationSetting applies to all sites (if configured). Otherwise, the user's personal setting is used.
 
-For information about valid url patterns, see [Filter formats for URL list-based policies](/en-us/deployedge/edge-learnmmore-url-list-filter%20format). Wildcards (\*) are supported.
+For information about valid url patterns, see [Filter formats for URL list-based policies](/en-us/deployedge/edge-learnmmore-url-list-filter-format). Wildcards (\*) are supported.
 
 ## Supported features
 

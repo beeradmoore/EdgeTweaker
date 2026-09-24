@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-09-11T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 6e9ec063-71c5-baa6-96f1-b28a5845eafd
 document_version_independent_id: 6e9ec063-71c5-baa6-96f1-b28a5845eafd
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-09-11T20:36:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/PDFSecureMode.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/aed83b531d25ba6dc84d0be2c4122b451bbfa304/edgeenterprise/microsoft-edge-policies/PDFSecureMode.md
-git_commit_id: aed83b531d25ba6dc84d0be2c4122b451bbfa304
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/bad5d510d6c89974a30e53029e162d63c894b1ea/edgeenterprise/microsoft-edge-policies/PDFSecureMode.md
+git_commit_id: bad5d510d6c89974a30e53029e162d63c894b1ea
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 209
+word_count: 249
 asset_id: microsoft-edge-policies/pdfsecuremode
 moniker_range_name: 
 monikers: []
@@ -61,11 +61,13 @@ platformId: 17aa0783-4cc5-3cbb-e67f-db5918d745e5
 
 ## Description
 
-The policy enables Digital Signature validation for PDF files in a secure environment, which shows the correct validation status of the signatures.
+This policy controls whether the native PDF reader validates certificate-based digital signatures in PDF files in a secure environment and displays the validation status. Starting with Microsoft Edge version 154, this capability is enabled by default on Windows. It remains disabled by default on macOS and on Windows in earlier versions.
 
-If you enable this policy, PDF files with Certificate-based digital signatures are opened with an option to view and verify the validity of the signatures with high security.
+If you enable this policy, the native PDF reader validates certificate-based digital signatures and provides an option to view the validation status.
 
-If you disable or don't configure this policy, the capability to view and verify the signature isn't available.
+If you don't configure this policy, the default behavior described above applies.
+
+If you disable this policy, the native PDF reader doesn't validate certificate-based digital signatures or provide an option to view the validation status.
 
 ## Supported features
 

@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-09-11T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 14cf9d88-20bf-e774-82c5-bdcb7f01b5f2
 document_version_independent_id: 14cf9d88-20bf-e774-82c5-bdcb7f01b5f2
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-09-11T20:36:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/RemoteDebuggingAllowed.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/76844e8037a562830bed88251bdc4c96b85554bb/edgeenterprise/microsoft-edge-policies/RemoteDebuggingAllowed.md
-git_commit_id: 76844e8037a562830bed88251bdc4c96b85554bb
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/bad5d510d6c89974a30e53029e162d63c894b1ea/edgeenterprise/microsoft-edge-policies/RemoteDebuggingAllowed.md
+git_commit_id: bad5d510d6c89974a30e53029e162d63c894b1ea
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 165
+word_count: 161
 asset_id: microsoft-edge-policies/remotedebuggingallowed
 moniker_range_name: 
 monikers: []
@@ -71,7 +71,7 @@ If you disable this policy, users aren't allowed to use remote debugging.
 
 - Can be mandatory: Yes
 - Can be recommended: No
-- Dynamic Policy Refresh: No - Requires browser restart
+- Dynamic Policy Refresh: Yes
 - Per Profile: No
 - Applies to a profile that is signed in with a Microsoft account: Yes
 

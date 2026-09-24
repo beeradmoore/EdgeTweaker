@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-08-11T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: 06dea30c-84f8-7ca1-f498-78636cfb383c
 document_version_independent_id: 06dea30c-84f8-7ca1-f498-78636cfb383c
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-08-13T17:44:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/BrowserAddProfileEnabled.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/04e81ba037b09e50cf52c9da23c8f08a98063036/edgeenterprise/microsoft-edge-policies/BrowserAddProfileEnabled.md
-git_commit_id: 04e81ba037b09e50cf52c9da23c8f08a98063036
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/b914971397b969e9105b98c6e5372090311aa2cd/edgeenterprise/microsoft-edge-policies/BrowserAddProfileEnabled.md
+git_commit_id: b914971397b969e9105b98c6e5372090311aa2cd
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 199
+word_count: 222
 asset_id: microsoft-edge-policies/browseraddprofileenabled
 moniker_range_name: 
 monikers: []
@@ -64,6 +64,8 @@ platformId: 90fb8cad-5d0c-666f-b845-6971f1fa1e29
 Allows users to create new profiles, using the **Add profile** option. If you enable this policy or don't configure it, Microsoft Edge allows users to use **Add profile** on the Identity flyout menu or the Settings page to create new profiles.
 
 If you disable this policy, users cannot add new profiles from the Identity flyout menu or the Settings page.
+
+This policy applies to profile creation from the Microsoft Edge user interface. To further restrict profile use, configure the [BrowserSignin](browsersignin) and [RestrictSigninToPattern](restrictsignintopattern) policies.
 
 ## Supported features
 

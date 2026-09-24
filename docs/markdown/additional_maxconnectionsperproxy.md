@@ -7,10 +7,10 @@ recommendations: true
 feedback_system: Standard
 feedback_product_url: https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app
 uhfHeaderId: MSDocsHeader-MSEdge
-ms.author: jalam
+ms.author: gabrielbanda
 author: vmliramichael
 manager: nuyunzhang
-ms.date: 2026-05-20T00:00:00.0000000Z
+ms.date: 2026-07-09T00:00:00.0000000Z
 audience: ITPro
 ms.topic: reference
 ms.service: microsoft-edge
@@ -22,10 +22,10 @@ description: 'Windows and Mac documentation for supported Microsoft Edge Browser
 locale: en-us
 document_id: ddcd3f2b-15b2-380a-1050-484f99f9570e
 document_version_independent_id: ddcd3f2b-15b2-380a-1050-484f99f9570e
-updated_at: 2026-06-15T22:43:00.0000000Z
+updated_at: 2026-07-09T16:47:00.0000000Z
 original_content_git_url: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/live/edgeenterprise/microsoft-edge-policies/MaxConnectionsPerProxy.md
-gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/067834446df3984e8949dfae4cf23506dc85cc1a/edgeenterprise/microsoft-edge-policies/MaxConnectionsPerProxy.md
-git_commit_id: 067834446df3984e8949dfae4cf23506dc85cc1a
+gitcommit: https://github.com/MicrosoftDocs/Edge-Enterprise-pr/blob/2ed5877d3568c6aa41653e7516b38e38467236df/edgeenterprise/microsoft-edge-policies/MaxConnectionsPerProxy.md
+git_commit_id: 2ed5877d3568c6aa41653e7516b38e38467236df
 site_name: Docs
 depot_name: office.Edge-Enterprise
 page_type: conceptual
@@ -33,7 +33,7 @@ toc_rel: ../toc.json
 pdf_url_template: https://learn.microsoft.com/pdfstore/en-us/office.Edge-Enterprise/{branchName}{pdfName}
 feedback_help_link_type: ''
 feedback_help_link_url: ''
-word_count: 293
+word_count: 309
 asset_id: microsoft-edge-policies/maxconnectionsperproxy
 moniker_range_name: 
 monikers: []
@@ -61,22 +61,22 @@ platformId: b208cec3-810f-26ba-0a36-278391f61bfb
 
 ## Description
 
-Specifies the maximum number of simultaneous connections to a proxy server for non-WebSocket requests.
+This policy configures the maximum number of simultaneous connections to a proxy server.
 
-Some proxy servers cannot handle a high number of concurrent connections per client. In these cases, reducing the value of this policy can improve reliability.
+Some web applications maintain multiple long-lived connections, such as hanging GET requests. Setting this policy to a value lower than the default might cause browser networking issues when many of these applications are open.
 
-However, some web applications maintain multiple long-lived connections (for example, hanging GET requests). Setting a value lower than the default may cause browser networking hangs if many such applications are open.
-
-To modify WebSocket request limits, see [MaxConnectionsPerProxyForWebSocket](maxconnectionsperproxyforwebsocket).
+To configure WebSocket request limits, use the [MaxConnectionsPerProxyForWebSocket](maxconnectionsperproxyforwebsocket) policy.
 
 If you don't configure this policy, the default value of 128 is used.
 
 The value must be between 6 and 256:
 
 - Values lower than 6 are treated as 6.
-- Values higher than 256 are treated as 256 (99 in versions of Microsoft Edge 148 and earlier).
+- Values higher than 256 are treated as 256. In Microsoft Edge version 148 and earlier, values higher than 99 are treated as 99.
 
-We recommend changing this value from the default only if required by your proxy server configuration.
+When the [AllowSocketPoolSizeRandomizationForProxies](allowsocketpoolsizerandomizationforproxies) policy is enabled, which is the default, the effective upper limit can be randomized up to two times the value specified by this policy as a security mechanism.
+
+We recommend changing this value from the default only when required by your proxy server configuration.
 
 ## Supported features
 
